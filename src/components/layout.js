@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const Layout = ({ children }) => (
+export const Layout = ({ children }) => (
   <div>
     <header>
       <Link href="/">Home</Link>
@@ -10,5 +10,3 @@ const Layout = ({ children }) => (
     <footer>A fun footer</footer>
   </div>
 );
-
-export default Layout;
