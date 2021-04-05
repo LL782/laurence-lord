@@ -5,6 +5,7 @@ module.exports = {
     twitter: "ll782",
   },
   plugins: [
+    "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     {
@@ -14,6 +15,7 @@ module.exports = {
         prismPreset: `prism-okaidia`,
       },
     },
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
