@@ -1,8 +1,14 @@
-import React from "react";
+/** @jsx jsx */
 import { Link } from "gatsby";
+import { jsx } from "theme-ui";
+
+const bodyStyles = {
+  mx: "1rem",
+  padding: "2rem",
+};
 
 export const Layout = ({ children }) => (
-  <div>
+  <div sx={bodyStyles}>
     <header>
       <Link to="/">Home</Link>
     </header>

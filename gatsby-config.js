@@ -8,6 +8,12 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     {
+      resolve: "gatsby-plugin-theme-ui",
+      options: {
+        preset: `@theme-ui/preset-funk`,
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/posts`,
