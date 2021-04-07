@@ -7,8 +7,6 @@ import { Seo } from "../components/seo";
 const IndexPage = ({ data }) => {
   const posts = data.allMdx.nodes;
 
-  console.log(`posts: `, posts);
-
   return (
     <Layout>
       <Seo title="Homepage" />

@@ -23,5 +23,6 @@ module.exports = {
         name: "posts",
       },
     },
+    "gatsby-transformer-sharp",
   ],
 };
