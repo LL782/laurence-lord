@@ -28,4 +28,4 @@
 
     - [DOG.DC5B Artwork](https://www.instagram.com/dog.dc5b/)
 
-    - [Employer](https://www.codurance.com)
+    - [Codurance my employer](https://www.codurance.com)
