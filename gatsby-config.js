@@ -25,8 +25,5 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
   ],
-  flags: {
-    DEV_SSR: true,
-    FAST_DEV: true,
-  },
+  flags: {},
 };

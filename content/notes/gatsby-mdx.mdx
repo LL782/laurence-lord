@@ -1,0 +1,22 @@
+---
+date: 2021-04-08T14:49
+title: So MDX in Gatsby should be really interesting. It's markdown but you can include React components in it. Supposedly you also have access to frontmatter and data from GraphQL via props but that's not working for me
+---
+
+import { Message } from "theme-ui";
+
+All of these things are mentioned by the [Gatsby docs on MDX](https://www.gatsbyjs.com/docs/how-to/routing/mdx).
+
+## I can get the import of a component to work
+
+Here's the message component from **theme-ui**
+
+<Message>MDX gives you JSX in Markdown!</Message>
+
+## Accessing things like frontmatter via props isn't working out
+
+Props remains an empty object for me. Strange
+
+<pre>{JSON.stringify(props)}</pre>
+
+I might come back to this if I need it
