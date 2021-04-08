@@ -4,18 +4,18 @@ import { Layout } from "../components/layout";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const BlogPostPage = ({ data }) => {
-  const post = data.mdx;
-  const title = post.frontmatter.title;
-  const image = getImage(post.frontmatter.image);
+const BlogNotePage = ({ data }) => {
+  const note = data.mdx;
+  const title = note.frontmatter.title;
+  const image = getImage(note.frontmatter.image);
 
   return (
     <Layout title={title}>
       <article>
         <h1>{title}</h1>
-        <GatsbyImage image={image} alt={post.frontmatter.imageAlt} />
+        <GatsbyImage image={image} alt={note.frontmatter.imageAlt} />
         <section>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXRenderer>{note.body}</MDXRenderer>
         </section>
       </article>
     </Layout>
@@ -23,7 +23,7 @@ const BlogPostPage = ({ data }) => {
 };
 
 export const query = graphql`
-  query BlogPostById($id: String) {
+  query BlogNoteById($id: String) {
     mdx(id: { eq: $id }) {
       frontmatter {
         title
@@ -39,4 +39,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPostPage;
+export default BlogNotePage;

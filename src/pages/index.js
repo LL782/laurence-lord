@@ -5,7 +5,7 @@ import { Layout } from "../components/layout";
 import { Seo } from "../components/seo";
 
 const IndexPage = ({ data }) => {
-  const posts = data.allMdx.nodes;
+  const notes = data.allMdx.nodes;
 
   return (
     <Layout>
@@ -16,9 +16,9 @@ const IndexPage = ({ data }) => {
         layout="fullWidth"
         src="https://images.unsplash.com/photo-1617618175709-f208b5cd5c02"
       />
-      {posts.map((post) => (
-        <Link to={post.slug} key={post.slug}>
-          <h2>{post.frontmatter.title}</h2>
+      {notes.map((note) => (
+        <Link to={note.slug} key={note.slug}>
+          <h2>{note.frontmatter.title}</h2>
         </Link>
       ))}
     </Layout>
