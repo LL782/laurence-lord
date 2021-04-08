@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Layout } from "../../components/layout";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import NewerOlder from "../../components/newerOlder";
 
 const NotePage = ({ data }) => {
   const note = data.mdx;
@@ -26,11 +27,14 @@ const NotePage = ({ data }) => {
         </section>
         {afterthoughts && <aside>Aside: {afterthoughts}</aside>}
       </article>
+
+      <hr />
+      <NewerOlder allNotes={data.allMdx.nodes} idOfCurrentPost={note.id} />
     </Layout>
   );
 };
 
-export const query = graphql`
+export const noteQuery = graphql`
   query NoteById($id: String) {
     mdx(id: { eq: $id }) {
       body
@@ -49,7 +53,14 @@ export const query = graphql`
         imageAlt
         title
       }
+      id
       slug
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        id
+        slug
+      }
     }
   }
 `;
