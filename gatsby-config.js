@@ -19,10 +19,14 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/notes`,
         name: "notes",
+        path: `${__dirname}/content/notes`,
       },
     },
     "gatsby-transformer-sharp",
   ],
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true,
+  },
 };
