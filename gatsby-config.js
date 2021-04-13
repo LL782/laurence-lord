@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
+    "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     {
