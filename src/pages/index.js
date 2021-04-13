@@ -1,5 +1,4 @@
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { Emoji } from "../components/emoji";
 import { Layout } from "../components/layout";
@@ -19,13 +18,6 @@ const IndexPage = ({ path }) => {
         Software Craftsperson and I draw part-time under the name{" "}
         <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>
       </p>
-
-      <StaticImage
-        alt="Winding road laid over rocky hills"
-        aspectRatio={21 / 9}
-        layout="constrained"
-        src="https://images.unsplash.com/photo-1617618175709-f208b5cd5c02"
-      />
       <p>
         You can <a href="mailto:hello@laurencelord.co.uk">email me</a>, find me
         on <a href="https://github.com/LL782">GitHub</a> and{" "}
