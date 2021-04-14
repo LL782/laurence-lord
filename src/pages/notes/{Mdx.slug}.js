@@ -5,6 +5,7 @@ import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 
 import { Layout } from "../../components/layout";
 import { Seo } from "../../components/seo";
+import { EditOnGitHubInvite } from "../../components/editOnGitHubInvite";
 import NewerOlder from "../../components/newerOlder";
 
 const NotePage = ({ data }) => {
@@ -48,6 +49,7 @@ const NotePage = ({ data }) => {
       <hr />
 
       <NewerOlder allNotes={data.allMdx.nodes} idOfCurrentNote={note.id} />
+      <EditOnGitHubInvite path={`/content/notes/${note.slug}.mdx`} />
     </Layout>
   );
 };
