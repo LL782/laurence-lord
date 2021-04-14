@@ -10,19 +10,20 @@ module.exports = {
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-plugin-theme-ui",
-      options: {
-        preset: `@theme-ui/preset-funk`,
-        prismPreset: `prism-okaidia`,
-      },
-    },
     "gatsby-plugin-sharp",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "notes",
         path: `${__dirname}/content/notes`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-theme-ui",
+      options: {
+        preset: `@theme-ui/preset-funk`,
+        prismPreset: `prism-okaidia`,
       },
     },
     "gatsby-transformer-sharp",
