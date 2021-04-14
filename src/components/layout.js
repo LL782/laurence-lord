@@ -8,7 +8,7 @@ import { mdxShortcodes } from "./mdxShortcodes";
 
 const bodyStyles = {
   mx: "1rem",
-  padding: "2rem",
+  p: [3, 4, 5],
 };
 
 const mainStyles = {
