@@ -31,10 +31,12 @@ const IndexPage = ({ path }) => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link> {path === "/" && `(you're here)`}
+            <Link to="/" aria-current="page">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/notes">Notes</Link> Personal notes you're welcome to read
+            <Link to="/notes">My Notes</Link>
           </li>
         </ul>
       </nav>
