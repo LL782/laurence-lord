@@ -24,9 +24,8 @@ const IndexPage = ({ path }) => {
         on <a href="https://github.com/LL782">GitHub</a> and{" "}
         <a href="https://www.linkedin.com/in/laurencelord">LinkedIn</a>. I have{" "}
         <a href="https://www.twitter.com/LL782">Twitter</a> but hardly use it.
-        If you want old examples of my work try{" "}
-        <a href="https://www.behance.net/laurencelord">Behance</a>{" "}
-        <Emoji label="Grimace">😬</Emoji>
+        Checkout <a href="https://www.behance.net/laurencelord">Behance</a> for
+        old examples of&nbsp;my&nbsp;work&nbsp;<Emoji label="Grimace">😬</Emoji>
       </p>
       <h3>Site contents</h3>
       <nav>
