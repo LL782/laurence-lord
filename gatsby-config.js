@@ -1,9 +1,11 @@
+const website = require("./config/website");
+
 module.exports = {
   siteMetadata: {
-    description: "My personal blog",
-    siteUrl: "https://www.laurencelord.co.uk",
-    title: "Laurence Lord",
-    twitter: "ll782",
+    description: website.description,
+    siteUrl: website.url,
+    title: website.title,
+    twitter: website.twitter,
   },
   plugins: [
     "gatsby-plugin-image",
