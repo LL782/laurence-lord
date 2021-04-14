@@ -40,7 +40,7 @@ const NotePage = ({ data }) => {
         {afterthoughts && (
           <aside>
             <h2>Afterthoughts</h2>
-            {afterthoughts}
+            <p>{afterthoughts}</p>
           </aside>
         )}
       </article>
