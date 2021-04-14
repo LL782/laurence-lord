@@ -32,7 +32,7 @@
 
 ## Contributing
 
-Please feel free to browse the files, raise issues or suggest changes by any reasonable means you like.
+Please feel free to browse the files, raise issues or suggest changes however you like
 
 ## Maintenance notes
 
