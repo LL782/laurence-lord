@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 import { jsx } from "theme-ui";
 import { MDXProvider } from "@mdx-js/react";
 
-import { Emoji } from "./emoji";
 import { Footer } from "./footer";
+import { mdxShortcodes } from "./mdxShortcodes";
 
 const bodyStyles = {
   mx: "1rem",
@@ -16,7 +16,7 @@ const mainStyles = {
 };
 
 export const Layout = ({ children, isHome }) => (
-  <MDXProvider components={{ Emoji }}>
+  <MDXProvider components={mdxShortcodes}>
     <div sx={bodyStyles}>
       {!isHome && (
         <header>
