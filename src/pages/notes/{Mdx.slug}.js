@@ -25,7 +25,12 @@ const NotePage = ({ data }) => {
         <section>
           <MDXRenderer>{note.body}</MDXRenderer>
         </section>
-        {afterthoughts && <aside>Aside: {afterthoughts}</aside>}
+        {afterthoughts && (
+          <aside>
+            <h2>Afterthoughts</h2>
+            {afterthoughts}
+          </aside>
+        )}
       </article>
 
       <hr />
