@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import * as React from "react";
 
 import { EditOnGitHubInvite } from "../components/editOnGitHubInvite";
-import { Emoji } from "../components/emoji";
 import { Layout } from "../components/layout";
 import { Seo } from "../components/seo";
 
@@ -13,8 +12,7 @@ const IndexPage = () => {
       <h1>Laurence Lord</h1>
       <h2>Creative Developer</h2>
       <p>
-        I make websites and write&nbsp;web&nbsp;code&nbsp;
-        <Emoji label="wave">👋</Emoji>
+        I make websites and write&nbsp;web&nbsp;code
       </p>
       <p>
         I work for <a href="https://www.codurance.com">Codurance</a> as a
@@ -27,7 +25,7 @@ const IndexPage = () => {
         <a href="https://www.linkedin.com/in/laurencelord">LinkedIn</a>. I have{" "}
         <a href="https://www.twitter.com/LL782">Twitter</a> but hardly use it.
         Checkout <a href="https://www.behance.net/laurencelord">Behance</a> for
-        old examples of&nbsp;my&nbsp;work&nbsp;<Emoji label="Grimace">😬</Emoji>
+        old examples of&nbsp;my&nbsp;work
       </p>
       <h3>Site contents</h3>
       <nav>
