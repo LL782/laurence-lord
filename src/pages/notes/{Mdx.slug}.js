@@ -46,6 +46,7 @@ const NotePage = ({ data }) => {
       </article>
 
       <hr />
+
       <NewerOlder allNotes={data.allMdx.nodes} idOfCurrentNote={note.id} />
     </Layout>
   );
