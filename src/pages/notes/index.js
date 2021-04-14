@@ -1,5 +1,7 @@
 import { graphql, Link } from "gatsby";
 import * as React from "react";
+
+import { EditOnGitHubInvite } from "../../components/editOnGitHubInvite";
 import { Layout } from "../../components/layout";
 import { Seo } from "../../components/seo";
 
@@ -22,6 +24,7 @@ const NotesIndexPage = ({ data }) => {
           <h2>{note.frontmatter.title}...</h2>
         </Link>
       ))}
+      <EditOnGitHubInvite path={`/src/pages/notes/index.js`} />
     </Layout>
   );
 };

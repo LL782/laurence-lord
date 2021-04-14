@@ -1,5 +1,7 @@
 import { Link } from "gatsby";
 import * as React from "react";
+
+import { EditOnGitHubInvite } from "../components/editOnGitHubInvite";
 import { Emoji } from "../components/emoji";
 import { Layout } from "../components/layout";
 import { Seo } from "../components/seo";
@@ -40,6 +42,7 @@ const IndexPage = () => {
           </li>
         </ul>
       </nav>
+      <EditOnGitHubInvite path={`/src/pages/index.js`} />
     </Layout>
   );
 };
