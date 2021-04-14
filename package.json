@@ -1,12 +1,9 @@
 {
-  "name": "laurencelord",
+  "name": "laurence-lord",
   "version": "1.0.0",
   "private": true,
-  "description": "laurencelord",
-  "author": "ll782",
-  "keywords": [
-    "gatsby"
-  ],
+  "description": "Personal website by Laurence Lord",
+  "author": "LL782",
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
