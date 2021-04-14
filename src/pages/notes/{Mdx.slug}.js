@@ -18,7 +18,7 @@ const NotePage = ({ data }) => {
   const title = note.frontmatter.title;
 
   return (
-    <Layout title={title}>
+    <Layout title={`${title}...`}>
       <nav>
         <Link to="/notes">Notes</Link>
       </nav>

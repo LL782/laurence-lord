@@ -8,7 +8,7 @@ const NotesIndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title="Notes" />
+      <Seo title="My Notes" />
       <h1>My Notes</h1>
       <p>I write these notes for myself</p>
       <p>
