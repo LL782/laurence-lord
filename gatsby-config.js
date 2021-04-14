@@ -2,9 +2,11 @@ const website = require("./config/website");
 
 module.exports = {
   siteMetadata: {
+    banner: website.logo,
     description: website.description,
     siteUrl: website.url,
     title: website.title,
+    titleAlt: website.titleAlt,
     twitter: website.twitter,
   },
   plugins: [

@@ -4,10 +4,10 @@ import { Emoji } from "../components/emoji";
 import { Layout } from "../components/layout";
 import { Seo } from "../components/seo";
 
-const IndexPage = ({ path }) => {
+const IndexPage = () => {
   return (
     <Layout isHome={true}>
-      <Seo title="Homepage" />
+      <Seo isHome={true} />
       <h1>Laurence Lord</h1>
       <h2>Creative Developer</h2>
       <p>
