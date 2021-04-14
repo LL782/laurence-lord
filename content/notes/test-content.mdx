@@ -1,0 +1,99 @@
+---
+afterthoughts: Hello! this is a simulation of an "afterthought". I expect it to be included in an aside at the bottom of the page.
+date: 2021-04-14
+description: This description should appear in the metadata for this page. This is a test page in the notes section of my website.
+title: "Here's an idea: this page will be my test content. I'll include one of everything in here and use it for a very quick smoke-test"
+---
+
+I don't currently have ~~any~~ <sup><a href="#many-checks">[many]</a></sup> automated checks on this website – not something I'm proud of but a reality I'm willing to accept. I want to get up and running quickly and I'm still experimenting with this technology (Gatsby primarily) so borrowing a little is acceptable. If I start incurring interest on the debt I'll consider paying it back.
+
+So for now I perform an unscripted manual check quite naturally. I look at the live site after I've made changes to it or added new content.
+
+This page is somewhere I can note the features I have used on the site – a single place to quickly review everything. If I automate the natural checks I'm making I can start by checking what's on this this page.
+
+## Process
+
+1. Add a new feature to the site
+1. Include an example of it here
+1. Periodically check everything on this page is working
+
+<p>
+  <Emoji label="warning sign">⚠️</Emoji> Would I notice if I added new features
+  and forgot to include them here?
+</p>
+
+<p>
+  <Emoji label="warning sign">⚠️</Emoji> Would I notice if any of them broke?
+</p>
+
+<p>
+  <Emoji label="robot face">🤖</Emoji> And that's why we automate
+</p>
+
+## Features of this site so far
+
+### JSX and Markdown
+
+I'm not checking on this, it's a feature of `gatsby-plugin-mdx`
+
+However, `shortcodes` are the JSX components that I pass in to `MDXProvider` and my automated checks wouldn't tell me if they were missing
+
+```jsx
+<Foo>See I'm missing and I fail silently</Foo>
+```
+
+<p>
+  <Foo>See I'm missing and I fail silently</Foo>
+</p>
+
+#### Expected shortcodes
+
+##### Emoji
+
+```jsx
+<Emoji label="positive checkmark">✅</Emoji>
+```
+
+<p>
+  <Emoji label="positive checkmark">✅</Emoji> My Emoji component adds
+  accessibility attributes around an emoji
+</p>
+
+##### Link
+
+<p>
+  <Link to="/">Home</Link>
+</p>
+
+The Gatsby `<Link>` is available to all MDX layouts
+
+### Frontmatter
+
+Optional data about a <Link to="/notes/">Note</Link> page.
+
+| Frontmatter Key | Uses                          |
+| --------------- | ----------------------------- |
+| afterthoughts   | end of note page              |
+| date            | sort of notes index           |
+| description     | metadata descriptions         |
+| image           | displayed at top of note page |
+| image           | referenced in metadata image  |
+| imageAlt        | alt text for image (above)    |
+| title           | listed in notes index         |
+| title           | metadata titles for note page |
+| title           | top of note page              |
+| title           | window title for note page    |
+
+It's [Gatsby](https://www.gatsbyjs.com) and the notes are written in markdown. I haven't discovered yet why the files are `.mdx` and not just `.md`. Perhaps I can put react components into them.
+
+## Footnotes
+
+<a name="many-checks" />
+
+### I don't have "many" automated checks
+
+Initially I wrote that I don't have "any" automated checks, then I started to notice automated checks that I had ignored:
+
+- **Linting** should happen whenever I save, assuming the format of the document is correct. If it fails I notice. This is a frequent, super cheap check that is very easy to keep green.
+
+- **Deployment and build** checks are another frequent, unobtrusive check that should not be underrated. When I push to my repo the automated pipeline runs build and deploy tasks. If there are errors then deployment fails and I notice.

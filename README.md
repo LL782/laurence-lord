@@ -29,3 +29,7 @@
     - [DOG.DC5B Artwork](https://www.instagram.com/dog.dc5b/)
 
     - [Codurance my employer](https://www.codurance.com)
+
+## Maintenance notes
+
+Hosted by [Gatsby Cloud](https://www.gatsbyjs.com/dashboard)

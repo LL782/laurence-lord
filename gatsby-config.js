@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: "Laurence Lord",
     description: "My personal blog",
+    siteUrl: "https://www.laurencelord.co.uk",
+    title: "Laurence Lord",
     twitter: "ll782",
   },
   plugins: [
     "gatsby-plugin-image",
+    "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     {
