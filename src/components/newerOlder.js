@@ -28,7 +28,10 @@ const NewerOlder = ({ allNotes, idOfCurrentPost }) => {
       ) : (
         <p>
           {" "}
-          <Link disabled>Newer</Link> (nothing newer)
+          <Link disabled to="/">
+            Newer
+          </Link>{" "}
+          (nothing newer)
         </p>
       )}
       {older ? (
@@ -37,7 +40,10 @@ const NewerOlder = ({ allNotes, idOfCurrentPost }) => {
         </p>
       ) : (
         <p>
-          <Link disabled>Older</Link> (nothing older)
+          <Link disabled to="/">
+            Older
+          </Link>{" "}
+          (nothing older)
         </p>
       )}
     </nav>
