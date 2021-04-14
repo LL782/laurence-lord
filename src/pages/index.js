@@ -11,7 +11,8 @@ const IndexPage = ({ path }) => {
       <h1>Laurence Lord</h1>
       <h2>Creative Developer</h2>
       <p>
-        I make websites and write web code <Emoji label="wave">👋</Emoji>
+        I make websites and write&nbsp;web&nbsp;code&nbsp;
+        <Emoji label="wave">👋</Emoji>
       </p>
       <p>
         I work for <a href="https://www.codurance.com">Codurance</a> as a
