@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const NewerOlder = ({ allNotes, idOfCurrentPost }) => {
+const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
   const { length } = allNotes;
 
   if (length < 2) {
     return null;
   }
 
-  const indexOfCurrent = allNotes.findIndex(({ id }) => id === idOfCurrentPost);
+  const indexOfCurrent = allNotes.findIndex(({ id }) => id === idOfCurrentNote);
 
   const olderIndex = indexOfCurrent + 1;
   const newerIndex = indexOfCurrent - 1;
