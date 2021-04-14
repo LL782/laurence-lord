@@ -4,7 +4,7 @@
 
 ## 🚀 🌝 Version 0
 
-1.  **I don't want to worry too much.**
+1.  **I don't want to worry too much**
 
     For years I've over thought what others will think of my website
 
@@ -12,7 +12,7 @@
 
     > This I write for myself not for an audience
 
-2.  **Tech stack.**
+2.  **Tech stack**
 
     I'm starting out with a Gatsby site
 
