@@ -1,12 +1,12 @@
-<h1 align="center">
-  Laurence Lord - Personal Website
-</h1>
+# Laurence Lord - Creative Developer
+
+👋 Welcome to my personal website [https://www.laurencelord.co.uk](https://www.laurencelord.co.uk)
 
 ## 🚀 🌝 Version 0
 
 1.  **I don't want to worry too much**
 
-    For years I've over thought what others will think of my website
+    For years I've overthought what others will think of my website
 
     Then I had a thought that I found liberating
 
@@ -22,7 +22,7 @@
 
     I'm not showing off but I'm not hiding anything
 
-    You can clone the repo and `npm i` and `npm run develop` and have a copy of this running at your own http://localhost:8000!
+    You can clone the repo, `npm i`, `npm run develop` and have this running at http://localhost:8000
 
 4.  **More me**
 
