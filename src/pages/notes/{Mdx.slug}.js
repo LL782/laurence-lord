@@ -21,7 +21,7 @@ const NotePage = ({ data }) => {
 
       <article>
         <h1>{title}</h1>
-        <GatsbyImage alt={note.frontmatter.imageAlt} image={image} />
+        {image && <GatsbyImage alt={note.frontmatter.imageAlt} image={image} />}
         <section>
           <MDXRenderer>{note.body}</MDXRenderer>
         </section>
