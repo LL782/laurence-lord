@@ -2,7 +2,7 @@ const website = require("./config/website");
 
 module.exports = {
   siteMetadata: {
-    banner: website.logo,
+    logo: website.logo,
     description: website.description,
     siteUrl: website.url,
     title: website.title,
