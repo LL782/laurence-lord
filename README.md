@@ -30,6 +30,10 @@
 
     - [Codurance my employer](https://www.codurance.com)
 
+## Contributing
+
+Please feel free to browse the files, raise issues or suggest changes by any reasonable means you like.
+
 ## Maintenance notes
 
 Hosted by [Gatsby Cloud](https://www.gatsbyjs.com/dashboard)
