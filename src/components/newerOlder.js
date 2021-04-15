@@ -27,7 +27,6 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
         </p>
       ) : (
         <p>
-          {" "}
           <Link to="/">
             <s>Newer</s>
           </Link>{" "}
