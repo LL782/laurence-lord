@@ -6,6 +6,8 @@ import { MDXProvider } from "@mdx-js/react";
 import { Footer } from "./footer";
 import { mdxShortcodes } from "./mdxShortcodes";
 
+import "./layout-global.css";
+
 const bodyStyles = {
   mx: "1rem",
   p: [3, 4, 5],

@@ -1,0 +1,32 @@
+body {
+  border-style: solid;
+  border-color: black;
+}
+
+@media screen and (min-width: 640px) {
+  body {
+    border-width: 10px;
+  }
+}
+@media screen and (min-width: 832px) {
+  body {
+    border-width: 15px;
+  }
+}
+
+a:link,
+a:visited {
+  color: #000;
+  font-weight: bold;
+}
+
+a:hover,
+a:focus {
+  color: #f0f;
+  text-decoration: none;
+}
+
+a:active {
+  color: #0f0;
+  font-weight: bold;
+}
