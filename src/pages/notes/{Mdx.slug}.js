@@ -21,7 +21,7 @@ const NotePage = ({ data }) => {
   return (
     <Layout title={`${title}...`}>
       <nav>
-        <Link to="/notes">Notes</Link>
+        <Link to="/notes">&larr; All notes</Link>
       </nav>
 
       <hr />
