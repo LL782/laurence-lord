@@ -1,4 +1,5 @@
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 
 import { EditOnGitHubInvite } from "../components/editOnGitHubInvite";
@@ -16,6 +17,12 @@ const IndexPage = () => {
         Software Craftsperson and I draw under the name{" "}
         <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>
       </p>
+      <StaticImage
+        alt="Closely cropped black ink artwork of branches, flowers and masked faces"
+        aspectRatio={21 / 9}
+        layout="constrained"
+        src="../images/crop-of-punk-storm.png"
+      />
       <p>
         You can <a href="mailto:hello@laurencelord.co.uk">email me</a>, find me
         on <a href="https://github.com/LL782">GitHub</a> and{" "}
