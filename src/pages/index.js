@@ -24,19 +24,9 @@ const IndexPage = () => {
         Checkout <a href="https://www.behance.net/laurencelord">Behance</a> for
         old examples of&nbsp;my&nbsp;work
       </p>
-      <h3>Site contents</h3>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/" aria-current="page">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/notes">My Notes</Link>
-          </li>
-        </ul>
-      </nav>
+      <p>
+        This website is also home to <Links to="/notes">My Notes</Link>
+      </p>
       <EditOnGitHubInvite path={`/src/pages/index.js`} />
     </Layout>
   );
