@@ -12,9 +12,6 @@ const IndexPage = () => {
       <h1>Laurence Lord</h1>
       <h2>Creative Developer</h2>
       <p>
-        I make websites and write&nbsp;web&nbsp;code
-      </p>
-      <p>
         I work for <a href="https://www.codurance.com">Codurance</a> as a
         Software Craftsperson and I draw part-time under the name{" "}
         <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>
