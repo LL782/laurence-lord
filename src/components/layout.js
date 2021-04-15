@@ -9,8 +9,8 @@ import { mdxShortcodes } from "./mdxShortcodes";
 import "./layout-global.css";
 
 const bodyStyles = {
-  mx: "1rem",
-  p: [3, 4, 5],
+  py: [3, 4, 5],
+  px: [1, 4, 5],
 };
 
 const mainStyles = {
