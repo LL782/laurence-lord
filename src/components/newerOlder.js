@@ -28,8 +28,8 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
       ) : (
         <p>
           {" "}
-          <Link disabled to="/">
-            Newer
+          <Link to="/">
+            <s>Newer</s>
           </Link>{" "}
           (nothing newer)
         </p>
@@ -40,8 +40,8 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
         </p>
       ) : (
         <p>
-          <Link disabled to="/">
-            Older
+          <Link to="/">
+            <s>Older</s>
           </Link>{" "}
           (nothing older)
         </p>
