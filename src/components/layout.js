@@ -10,7 +10,7 @@ import "./layout-global.css";
 
 const bodyStyles = {
   py: [3, 4, 5],
-  px: [1, 4, 5],
+  px: [2, 4, 5],
 };
 
 const mainStyles = {
