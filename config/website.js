@@ -4,5 +4,5 @@ module.exports = {
   title: "Laurence Lord - Creative Developer",
   titleAlt: "Laurence Lord",
   twitter: "@LL782",
-  url: "https://www.laurence.lord.co.uk",
+  url: "https://www.laurencelord.co.uk",
 };
