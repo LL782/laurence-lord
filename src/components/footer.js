@@ -4,7 +4,7 @@ import { jsx } from "theme-ui";
 export const Footer = () => (
   <footer>
     <hr />
-    <p>Unless otherwise stated I am the author of all the text and code.</p>
+    <p>Unless otherwise stated I am the creator of all the text, images and code.</p>
     <p>
       Generally I'm happy to share but let's talk first if you want to license
       or commercialise any&nbsp;of&nbsp;it
