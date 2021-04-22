@@ -12,6 +12,7 @@ const Heading = {
 
 export const BlockQuote = ({
   children,
+  customLabel,
   citationUrl,
   date,
   heading,
@@ -19,9 +20,12 @@ export const BlockQuote = ({
 }) => {
   const { hostname: citationDomain, pathname } = url.parse(citationUrl);
   const citationSlug = pathname.substr(pathname.lastIndexOf("/") + 1);
-  const citationLabel = citationSlug
+
+  const urlLabel = citationSlug
     ? `${citationDomain} [...] ${citationSlug}`
     : citationDomain;
+
+  const citationLabel = customLabel || urlLabel;
 
   const H = Heading[headingLevel];
   const Date = () =>

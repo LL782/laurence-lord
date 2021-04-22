@@ -1,15 +1,33 @@
 ---
-title: Mapping a learning path for creating digital maps
+title: A learning path for creating global scale, 3D, online maps
 date: 2021-04-22T14:51
 ---
 
-I spent a few hours reading up on WebGL, OpenStreetMaps and digital cartography in general. I followed a few different paths and didn't "get to the end" of any of them. This is definately something that would need more time.
+I spent a few hours reading up on WebGL, OpenStreetMaps and digital cartography in general. I followed a few different paths and didn't "get to the end" of any of them. This is definately something I'd like to invest more time in.
 
-## I'd like to note the different paths I'd like to follow on this subject
+## The many paths
+
+- [Cartography in general](#cartography-in-general)
+- [WebGL for creating 3D map assets](#webgl-for-creating-3d-map-assets)
+- [Other GeoSpatial software](#other-geospatial-software)
+- [Creating custom globe-scale maps with something like Open Street maps](#globe-scale-maps)
+
+<a name="cartography-in-general" />
 
 ### Cartography in general
 
-### WebGL (the basics for creating 3D maps)
+<BlockQuote 
+  citationUrl="https://www.axismaps.com/guide" 
+  heading="Axis Maps - Cartography Guide"
+>
+
+In this short guide, we share some insights and tips for designing maps. Our goal is to cover important concepts in cartography and flag the important decision points in the map-making process. There isn't always a single best answer in cartography, and in those cases we've tried to outline some of the pros and cons to different solutions.
+
+</BlockQuote>
+
+<a name="webgl-for-creating-3d-map-assets" />
+
+### WebGL for creating 3D map assetss
 
 <BlockQuote
   citationUrl="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection"
@@ -20,6 +38,147 @@ This article explores how to take data within a WebGL project, and project it in
 
 </BlockQuote>
 
-### Creating a globe-scale map with something like a custom instance of Open Street maps
+<BlockQuote
+  citationUrl="https://en.wikipedia.org/wiki/Matrix_(mathematics)"
+  heading="Matrix theory"
+>
 
-[stub]
+In mathematics, a matrix is a rectangular array or table of numbers, symbols, or expressions, arranged in rows and columns. For example, the dimension of the matrix below is 2 × 3 (read "two by three"), because there are two rows and three columns:
+
+    1   9   -13
+    20  5   -6
+
+[...]
+
+A major application of matrices is to represent linear transformations (that is, generalizations of linear functions such as f(x) = 4x). For example, the rotation of vectors in three-dimensional space is a linear transformation, which can be represented by a rotation matrix R: if v is a column vector (a matrix with only one column) describing the position of a point in space, the product Rv is a column vector describing the position of that point after a rotation. The product of two transformation matrices is a matrix that represents the composition of two transformations.
+
+[...]
+
+Applications of matrices are found in most scientific fields.[6] In every branch of physics, including classical mechanics, optics, electromagnetism, quantum mechanics, and quantum electrodynamics, they are used to study physical phenomena, such as the motion of rigid bodies.
+
+**In computer graphics, they are used to manipulate 3D models and project them onto a 2-dimensional screen.**
+
+</BlockQuote>
+
+Not sure it's necessary to go this deep but it is interesting and related to the fundamentals of WebGL
+
+<a name="other-geospatial-software" />
+
+### Other GeoSpatial software
+
+<BlockQuote
+  citationUrl="https://en.wikipedia.org/wiki/Vector_tiles"
+  date="April 2021"
+  heading="Vector tiles"
+>
+
+Vector tiles, tiled vectors or vectiles are packets of geographic data, packaged into pre-defined roughly-square shaped "tiles" for transfer over the web. This is an emerging method for delivering styled web maps, combining certain benefits of pre-rendered raster map tiles with vector map data. As with the widely used raster tiled web maps, map data is requested by a client as a set of "tiles" corresponding to square areas of land of a pre-defined size and location. Unlike raster tiled web maps, however, the server returns vector map data, which has been clipped to the boundaries of each tile, instead of a pre-rendered map image.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://gdal.org/"
+  heading="GDAL"
+>
+
+GDAL is a translator library for raster and vector geospatial data formats that is released under an X/MIT style Open Source License by the Open Source Geospatial Foundation. As a library, it presents a single raster abstract data model and single vector abstract data model to the calling application for all supported formats. It also comes with a variety of useful command line utilities for data translation and processing.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://www.youtube.com/watch?v=WmobNBnN1lc"
+  customLabel="GeoDelta Labs -- Youtube"
+  heading="Developing a 3D Model using QGIS"
+>
+
+In this tutorial, you will learn how to develop a 3D model from a DEM using QGIS. We will be using the QGIS plugin 'Qgis2threejs' in order to build the 3D model, adjust the vertical exaggeration of the terrain, adjust the styling and finally export the 3D model as an HTML file, so that the 3D model can be opened by a web browser without having the need to have QGIS.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://www.youtube.com/watch?v=hSZSVQqX80k"
+  customLabel="GeoDelta Labs - Youtube"
+  heading="Creating 3D Maps and Animations using QGIS"
+>
+
+In this tutorial, you will learn how to create 3D maps using vector data in QGIS. As an example, the tutorial illustrates how to transform 2D building footprint data into 3D and visualize it with the aid of a base layer from OpenStreetMaps, and to finally create an animation using QGIS.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://leafletjs.com/examples/geojson/"
+  date="April 2021"
+  heading="Using GeoJSON with Leaflet"
+>
+
+GeoJSON is becoming a very popular data format among many GIS technologies and services — it's simple, lightweight, straightforward, and Leaflet is quite good at handling it. In this example, you'll learn how to create and interact with map vectors created from GeoJSON objects.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://www.youtube.com/watch?v=Bb0HnaYNUx4"
+  customLabel="Orange Box Ceo - Youtube"
+  heading="How to create a 3D Terrain with Google Maps and height maps in Photoshop"
+>
+
+This video shows you how to make a 3D map of almost any location in the world in less than 10 minutes. And you don't even need any 3D program for it - just Photoshop, Google Maps and the 3D Map Generator terrain.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://www.mapbox.com/"
+  heading="Maps and location for developers"
+>
+
+Precise location data and powerful developer tools to change the way we navigate the world.
+
+</BlockQuote>
+
+Freemium product
+
+<a name="globe-scale-maps" />
+
+### Creating custom globe-scale maps with something like Open Street maps
+
+<BlockQuote
+  citationUrl="https://help.openstreetmap.org/questions/4496/how-to-create-fantasyimaginary-maps-with-openstreetmap"
+  date="17th July 2011"
+  heading="Otto's forum post on creating a fantasy map with OpenStreetMap"
+>
+
+Let's say we want to create something like Tolkien's Middle Earth map with OSM. What would be the best way for achieving this?
+
+I've drawn a fantasy map on Inkscape and Gimp. Now that I've discovered OSM, I think it would allow to get much more details and expressions than with those tools. I've begun to import the svg trace into JOSM. It's working great and it's quite easy to use. But now the problem is for rendering it. When using Osmarender (from josm or from the command line with xsltproc), I can get a SVG file, which is too wide for Inkscape (the map is 1800 km wide). Besides, the rendering is not complete, I have several parts which are not shown.
+
+</BlockQuote>
+
+Otto ends up answering his own question, posting some awesome links in the process. His success is really inspiring.
+
+<BlockQuote
+  citationUrl="https://josm.openstreetmap.de/"
+  heading="JOSM"
+>
+
+JOSM is an extensible editor for ​OpenStreetMap (OSM) for ​Java 8+.
+
+It supports loading GPX tracks, background imagery, and OSM data from local sources as well as from online sources and allows to edit the OSM data (nodes, ways, and relations) and their metadata tags.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://wiki.openstreetmap.org/wiki/Ceyx"
+  heading="Ceyx"
+>
+
+Ceyx is a MapCSS parser and renderer written in Python. It is licensed under the GPL v2+. Its main developer so far is Sebastian Spaeth.
+
+</BlockQuote>
+
+<BlockQuote
+  citationUrl="https://wiki.openstreetmap.org/wiki/Glosm"
+  heading="Glosm"
+>
+
+Glosm is hardware-accelerated OpenGL-based OpenStreetMap renderer by User:AMDmi3. Both tile rendering and realtime first-person viewer are supported.
+
+</BlockQuote>
