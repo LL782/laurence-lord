@@ -38,6 +38,7 @@ export const Seo = ({
       htmlAttributes={{ lang: `en` }}
       titleTemplate={titleTemplate}
       meta={[
+        { name: "image", content: imageUrl },
         { name: "description", content: metaDescription },
         { property: "og:title", content: metaTitle },
         { property: "og:description", content: metaDescription },
