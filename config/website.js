@@ -1,5 +1,6 @@
 module.exports = {
-  description: "My personal blog",
+  description:
+    "Personal website of London based software craftsperson and artist, Laurence Lord. This website houses notes and links related to my occupation and varied thoughts.",
   logo: "/monkey-pixels.png",
   title: "Laurence Lord - Creative Developer",
   titleAlt: "Laurence Lord",
