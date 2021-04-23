@@ -45,11 +45,11 @@ export const Seo = ({
         { property: "twitter:title", content: metaTitle },
         { property: "twitter:creator", content: siteMetadata.twitter || `` },
         { property: "twitter:description", content: metaDescription },
-                { property: "og:image", content: imageUrl },
+        { property: "og:image", content: imageUrl },
         { property: "og:image:alt", content: imageAlt || metaTitle },
-                { property: "twitter:image", content: imageUrl },
+        { property: "twitter:image", content: imageUrl },
         { property: "twitter:image:alt", content: imageAlt || metaTitle },
-                { property: "twitter:card", content: "summary_large_image" },
+        { property: "twitter:card", content: "summary_large_image" },
       ].concat(meta)}
     />
   );
