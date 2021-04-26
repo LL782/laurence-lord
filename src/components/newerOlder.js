@@ -27,7 +27,7 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
         </p>
       ) : (
         <p>
-          <Link to="/">
+          <Link to="/" title="Link to homepage">
             <s>Newer</s>
           </Link>{" "}
           (nothing newer)
@@ -39,7 +39,7 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
         </p>
       ) : (
         <p>
-          <Link to="/">
+          <Link to="/" title="Link to homepage">
             <s>Older</s>
           </Link>{" "}
           (nothing older)
