@@ -15,7 +15,10 @@ module.exports = {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
         headers: {
-          "/embeds/*": ["X-Frame-Options: SAMEORIGIN"],
+          "/embeds/*": [
+            "Content-Security-Policy: frame-ancestors 'self' https://*.laurencelord.co.uk/",
+            "X-Frame-Options: SAMEORIGIN",
+          ],
         },
       },
     },
