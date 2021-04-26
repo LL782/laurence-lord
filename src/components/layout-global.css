@@ -31,3 +31,9 @@ a:active {
   color: #0f0;
   font-weight: bold;
 }
+
+hr {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0;
+}
