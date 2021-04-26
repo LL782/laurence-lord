@@ -11,7 +11,14 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-plugin-gatsby-cloud",
+    {
+      resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        headers: {
+          "/embeds/*": ["X-Frame-Options: SAMEORIGIN"],
+        },
+      },
+    },
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
