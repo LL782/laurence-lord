@@ -5,12 +5,12 @@ body {
 }
 
 @media screen and (min-width: 640px) {
-  body {
+  body:not(.embed) {
     border-width: 10px;
   }
 }
 @media screen and (min-width: 832px) {
-  body {
+  body:not(.embed) {
     border-width: 15px;
   }
 }
