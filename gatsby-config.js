@@ -15,12 +15,11 @@ module.exports = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-plugin-sitemap`,
       options: {
-        name: "notes",
-        path: `${__dirname}/content/notes`,
+        output: `/sitemap.xml`,
+        exclude: [`/embeds/*`],
       },
     },
     {
@@ -28,6 +27,13 @@ module.exports = {
       options: {
         preset: `@theme-ui/preset-funk`,
         prismPreset: `prism-okaidia`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "notes",
+        path: `${__dirname}/content/notes`,
       },
     },
     "gatsby-transformer-sharp",
