@@ -89,7 +89,6 @@ function main() {
   var then = 0;
 
   function render(now) {
-    now *= 0.001; // convert to seconds
     const deltaTime = now - then;
     then = now;
 
@@ -635,7 +634,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
 
-  cubeRotation += deltaTime;
+  cubeRotation += deltaTime / 2000;
 }
 
 function initShaderProgram(gl, vsSource, fsSource) {
