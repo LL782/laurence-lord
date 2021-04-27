@@ -1,6 +1,15 @@
-import * as React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
 import { EmbedLayout } from "../../../components/embedLayout";
+
+const canvasStyles = {
+  backgroundColor: "black",
+  height: ["100vw", "calc(100vw - 84px)", "calc(100vw - 158px)"],
+  maxHeight: "480px",
+  maxWidth: "640px",
+  width: "100%",
+};
 
 const Page = () => {
   return (
@@ -15,14 +24,7 @@ const Page = () => {
         src="/embeds/3d-web-gl-first-steps-variables/simpleSpinningCube.js"
         defer
       ></script>
-      <canvas
-        style={{
-          backgroundColor: "black",
-        }}
-        id="glcanvas"
-        width="640"
-        height="480"
-      ></canvas>
+      <canvas sx={canvasStyles} id="glcanvas" width="640" height="480"></canvas>
     </EmbedLayout>
   );
 };
