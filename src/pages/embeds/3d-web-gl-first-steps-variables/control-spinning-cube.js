@@ -29,7 +29,7 @@ const Page = () => {
         defer
       ></script>
       <script
-        src="/embeds/3d-web-gl-first-steps-variables/controlledSpinCube.js"
+        src="/embeds/3d-web-gl-first-steps-variables/controlSpinningCube.js"
         defer
       ></script>
       <canvas sx={canvasStyles} id="glcanvas" width="640" height="480"></canvas>
