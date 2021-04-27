@@ -5,10 +5,15 @@ import { EmbedLayout } from "../../../components/embedLayout";
 
 const formStyles = {
   backgroundColor: "white",
-  position: "absolute",
-  top: 2,
-  left: 2,
+  bottom: 0,
+  left: 0,
   padding: 2,
+  position: "absolute",
+  "@media screen and (min-width: 640px)": {
+    bottom: "auto",
+    left: 2,
+    top: 2,
+  },
 };
 
 const canvasStyles = {
@@ -42,8 +47,27 @@ const Page = () => {
               type="checkbox"
               id="autoRotation"
               name="autoRotation"
-              checked
+              defaultChecked
             />
+            <hr />
+            <div>
+              <label htmlFor="cubeRotationX">X</label>{" "}
+              <input
+                type="number"
+                id="cubeRotationX"
+                name="cubeRotationX"
+                step={0.1}
+              />
+            </div>
+            <div>
+              <label htmlFor="cubeRotationX">Y</label>{" "}
+              <input
+                type="number"
+                id="cubeRotationY"
+                name="cubeRotationY"
+                step={0.1}
+              />
+            </div>
           </div>
         </fieldset>
       </form>

@@ -42,7 +42,7 @@ const Page = () => {
               type="checkbox"
               id="autoRotation"
               name="autoRotation"
-              checked
+              defaultChecked
             />
           </div>
         </fieldset>

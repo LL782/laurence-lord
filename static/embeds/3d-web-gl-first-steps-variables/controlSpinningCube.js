@@ -632,6 +632,11 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   if (document.getElementById("autoRotation").checked) {
     cubeRotationX += deltaTime / 2000;
     cubeRotationY += deltaTime / 1400;
+    document.getElementById("cubeRotationX").value = cubeRotationX.toFixed(1);
+    document.getElementById("cubeRotationY").value = cubeRotationY.toFixed(1);
+  } else {
+    cubeRotationX = document.getElementById("cubeRotationX").value / 1;
+    cubeRotationY = document.getElementById("cubeRotationY").value / 1;
   }
 }
 

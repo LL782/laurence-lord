@@ -85,4 +85,31 @@ Now we're ready to stop the cube rotating by itself. We can introduce a toggle a
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/pause-spinning-cube/" />
 
+### Control the rotation
+
+Let's add some more controls to the HTML
+
+```html
+<div>
+  <label htmlFor="cubeRotationX">X</label>
+  <input type="number" id="cubeRotationX" name="cubeRotationX" step="0.05" />
+</div>
+<div>
+  <label htmlFor="cubeRotationX">Y</label>
+  <input type="number" id="cubeRotationY" name="cubeRotationY" step="0.05" />
+</div>
+```
+
+And use those values if we're not rotating automatically
+
+```js
+// each time we run render
+cubeRotationY = document.getElementById("cubeRotationY").value;
+cubeRotationX = document.getElementById("cubeRotationX").value;
+```
+
+<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/control-spinning-cube/" />
+
+Next we can iterate on the form, and offer touch controls for people who prefer them.
+
 <Stub />
