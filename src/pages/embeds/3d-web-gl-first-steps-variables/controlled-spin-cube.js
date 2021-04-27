@@ -34,34 +34,18 @@ const Page = () => {
       ></script>
       <canvas sx={canvasStyles} id="glcanvas" width="640" height="480"></canvas>
       <form sx={formStyles}>
-        <p>Rotate</p>
-        <div>
-          <label htmlFor="cubeRotationX">X</label>
-          <input
-            type="number"
-            id="cubeRotationX"
-            name="cubeRotationX"
-            step={0.05}
-          />
-        </div>
-        <div>
-          <label htmlFor="cubeRotationX">Y</label>
-          <input
-            type="number"
-            id="cubeRotationY"
-            name="cubeRotationY"
-            step={0.05}
-          />
-        </div>
-        <div>
-          <label htmlFor="cubeRotationZ">Z</label>
-          <input
-            type="number"
-            id="cubeRotationZ"
-            name="cubeRotationZ"
-            step={0.05}
-          />
-        </div>
+        <fieldset>
+          <legend>Rotation</legend>
+          <div>
+            <label htmlFor="autoRotation">Automatic</label>{" "}
+            <input
+              type="checkbox"
+              id="autoRotation"
+              name="autoRotation"
+              checked
+            />
+          </div>
+        </fieldset>
       </form>
     </EmbedLayout>
   );

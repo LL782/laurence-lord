@@ -14,4 +14,75 @@ Below are my result from the tutorial:
 
 Next, I'd like to add some controls to the UI to make the 3D rendering interactive.
 
+## Interactive features to add
+
+- I want to be able to rotate the cube myself
+- I want to be able to zoom-in on the cube
+
+Doing the simplest thing first, let's add a control that stops the cube rotating by itself.
+
+### Let's get into the code
+
+Currently function called **render** runs everytime a new animation frame is available:
+
+```js
+function render(now) {
+  const deltaTime = now - then;
+  then = now;
+
+  drawScene(gl, programInfo, buffers, texture, deltaTime); // highlight-line
+
+  requestAnimationFrame(render);
+}
+```
+
+We measure how much time has passed since the last animation frame and pass that into the **drawScene** function.
+
+There is a lot going on inside `drawScene`. The bit we're interested in is where we update some state called `cubeRotation` based on the time delta.
+
+This value gets used inside two heavily commented function calls to `mat4.rotate` from the `gl-matrix` library:
+
+```js
+mat4.rotate(
+  modelViewMatrix, // destination matrix
+  modelViewMatrix, // matrix to rotate
+  cubeRotation, // amount to rotate in radians // highlight-line
+  [0, 0, 1]
+); // axis to rotate around (Z)
+mat4.rotate(
+  modelViewMatrix, // destination matrix
+  modelViewMatrix, // matrix to rotate
+  cubeRotation * 0.7, // amount to rotate in radians // highlight-line
+  [0, 1, 0]
+); // axis to rotate around (X)
+```
+
+To make this a bit easier to work with let's do the following clean up:
+
+- let's rotate around the more intuitive X and Y axis, rather than X and Z
+- let's use a separate variable for each axis
+- let's clean up these comments
+
+```js
+const xAxis = [0, 1, 0];
+mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationX, xAxis);
+
+const yAxis = [1, 0, 0];
+mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, yAxis);
+```
+
+### Pause the automatic rotation
+
+Now we're ready to stop the cube rotating by itself. We can introduce a toggle and check it's value before updating `cubeRotationX` and `cubeRotationY`.
+
+```js
+// javascript
++ if (document.getElementById("autoRotation").checked) { // highlight-line
+  cubeRotationX += deltaTime / 2000;
+  cubeRotationY += deltaTime / 1400;
++ } // highlight-line
+```
+
+<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/controlled-spin-cube/" />
+
 <Stub />

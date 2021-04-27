@@ -1,4 +1,5 @@
-var cubeRotation = 0.0;
+let cubeRotationX = 0.0;
+let cubeRotationY = 0.0;
 
 main();
 
@@ -521,18 +522,12 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     modelViewMatrix, // matrix to translate
     [-0.0, 0.0, -6.0]
   ); // amount to translate
-  mat4.rotate(
-    modelViewMatrix, // destination matrix
-    modelViewMatrix, // matrix to rotate
-    cubeRotation, // amount to rotate in radians
-    [0, 0, 1]
-  ); // axis to rotate around (Z)
-  mat4.rotate(
-    modelViewMatrix, // destination matrix
-    modelViewMatrix, // matrix to rotate
-    cubeRotation * 0.7, // amount to rotate in radians
-    [0, 1, 0]
-  ); // axis to rotate around (X)
+
+  const xAxis = [0, 1, 0];
+  mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationX, xAxis);
+
+  const yAxis = [1, 0, 0];
+  mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, yAxis);
 
   const normalMatrix = mat4.create();
   mat4.invert(normalMatrix, modelViewMatrix);
@@ -634,7 +629,10 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
 
-  cubeRotation += deltaTime / 2000;
+  if (document.getElementById("autoRotation").checked) {
+    cubeRotationX += deltaTime / 2000;
+    cubeRotationY += deltaTime / 1400;
+  }
 }
 
 function initShaderProgram(gl, vsSource, fsSource) {
