@@ -6,7 +6,7 @@ import { CanvasScriptAndForm } from "../../../components/CanvasScriptAndForm";
 
 const Page = () => (
   <EmbedLayout>
-    <CanvasScriptAndForm scriptSrc="/embeds/3d-web-gl-first-steps-variables/controlSpinningCube.js">
+    <CanvasScriptAndForm scriptSrc="/embeds/3d-web-gl-first-steps-variables/zoomSpinningCube.js">
       <fieldset>
         <legend>Zoom (work in progress)</legend>
         <div>
