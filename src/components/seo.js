@@ -37,6 +37,7 @@ export const Seo = ({
       htmlAttributes={{ lang: "en" }}
       title={metaTitle}
       titleTemplate={titleTemplate}
+      link={[{ rel: "icon", type: "image/png", href: "/favicon.png" }]}
       meta={[
         { name: "description", content: metaDescription },
         { name: "image", content: imageUrl },

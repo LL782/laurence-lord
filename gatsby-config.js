@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     logo: website.logo,
     description: website.description,
+    logo: website.logo,
     siteUrl: website.url,
     title: website.title,
     titleAlt: website.titleAlt,
