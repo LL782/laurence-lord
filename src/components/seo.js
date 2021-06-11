@@ -43,6 +43,7 @@ export const Seo = ({
         { property: "og:description", content: metaDescription },
         { property: "og:image:alt", content: imageAlt || metaTitle },
         { property: "og:image", content: imageUrl },
+        { property: "og:locale", content: "en_GB" },
         { property: "og:title", content: metaTitle },
         { property: "og:type", content: "website" },
         { property: "twitter:card", content: "summary_large_image" },
