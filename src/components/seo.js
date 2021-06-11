@@ -34,23 +34,23 @@ export const Seo = ({
 
   return (
     <Helmet
+      htmlAttributes={{ lang: "en" }}
       title={metaTitle}
-      htmlAttributes={{ lang: `en` }}
       titleTemplate={titleTemplate}
       meta={[
-        { name: "image", content: imageUrl },
         { name: "description", content: metaDescription },
-        { property: "og:title", content: metaTitle },
+        { name: "image", content: imageUrl },
         { property: "og:description", content: metaDescription },
+        { property: "og:image:alt", content: imageAlt || metaTitle },
+        { property: "og:image", content: imageUrl },
+        { property: "og:title", content: metaTitle },
         { property: "og:type", content: "website" },
-        { property: "twitter:title", content: metaTitle },
+        { property: "twitter:card", content: "summary_large_image" },
         { property: "twitter:creator", content: siteMetadata.twitter || `` },
         { property: "twitter:description", content: metaDescription },
-        { property: "og:image", content: imageUrl },
-        { property: "og:image:alt", content: imageAlt || metaTitle },
-        { property: "twitter:image", content: imageUrl },
         { property: "twitter:image:alt", content: imageAlt || metaTitle },
-        { property: "twitter:card", content: "summary_large_image" },
+        { property: "twitter:image", content: imageUrl },
+        { property: "twitter:title", content: metaTitle },
       ].concat(meta)}
     />
   );
