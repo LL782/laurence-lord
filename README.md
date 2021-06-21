@@ -2,7 +2,7 @@
 
 👋 Welcome to my personal website [https://www.laurencelord.co.uk](https://www.laurencelord.co.uk)
 
-## 🚀 🌝 Version 0
+## 🚀 🌝 To the moon!
 
 1.  **I don't want to worry too much**
 
