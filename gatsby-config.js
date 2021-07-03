@@ -1,14 +1,16 @@
-const website = require("./config/website");
-
 module.exports = {
   siteMetadata: {
-    logo: website.logo,
-    description: website.description,
-    logo: website.logo,
-    siteUrl: website.url,
-    title: website.title,
-    titleAlt: website.titleAlt,
-    twitter: website.twitter,
+    author: "Laurence Lord",
+    backgroundColor: "#fff",
+    defaultDescription: `Personal website of London based software craftsperson and artist, Laurence Lord. This website houses notes and links related to my occupation and varied thoughts.`,
+    defaultTitle: "Laurence Lord - Creative Developer",
+    headline: "Just my links and notes",
+    logo: "/logos/monkey-pixels.png",
+    shortName: "LL782",
+    siteUrl: "https://www.laurencelord.co.uk",
+    themeColor: "#000",
+    titleAlt: "Laurence Lord",
+    twitter: "@LL782",
   },
   plugins: [
     "gatsby-plugin-image",

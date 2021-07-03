@@ -2,58 +2,66 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-export const Seo = ({
-  description,
-  image,
-  imageAlt,
-  isHome,
-  meta = [],
-  title,
-}) => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          titleAlt
-          description
-          logo
-          siteUrl
-          twitter
-        }
-      }
-    }
-  `);
+export const Seo = ({ description, image, imageAlt, isHome, title }) => {
+  const { site } = useStaticQuery(query);
 
-  const metaTitle = title || siteMetadata.title;
-  const titleTemplate = isHome ? `%s` : `%s | ${siteMetadata.titleAlt}`;
-  const metaDescription = description || siteMetadata.description;
-  const imageUrl = `${siteMetadata.siteUrl}${image || siteMetadata.logo}`;
+  const {
+    defaultDescription,
+    defaultTitle,
+    logo,
+    siteUrl,
+    titleAlt,
+    twitter,
+  } = site.siteMetadata;
+
+  const metaTitle = title || defaultTitle;
+  const titleTemplate = isHome ? `%s` : `%s | ${titleAlt}`;
+  const metaDescription = description || defaultDescription;
+  const imageUrl = `${siteUrl}${image || logo}`;
 
   return (
-    <Helmet
-      htmlAttributes={{ lang: "en" }}
-      title={metaTitle}
-      titleTemplate={titleTemplate}
-      link={[{ rel: "icon", type: "image/png", href: "/favicon.png" }]}
-      meta={[
-        { name: "description", content: metaDescription },
-        { name: "image", content: imageUrl },
-        { property: "og:description", content: metaDescription },
-        { property: "og:image:alt", content: imageAlt || metaTitle },
-        { property: "og:image", content: imageUrl },
-        { property: "og:locale", content: "en_GB" },
-        { property: "og:title", content: metaTitle },
-        { property: "og:type", content: "website" },
-        { property: "twitter:card", content: "summary_large_image" },
-        { property: "twitter:creator", content: siteMetadata.twitter || `` },
-        { property: "twitter:description", content: metaDescription },
-        { property: "twitter:image:alt", content: imageAlt || metaTitle },
-        { property: "twitter:image", content: imageUrl },
-        { property: "twitter:title", content: metaTitle },
-      ].concat(meta)}
-    />
+    <Helmet titleTemplate={titleTemplate}>
+      <html lang="en" />
+      <title>{metaTitle}</title>
+      <link rel="icon" type="image/png" href="/favicon.png" />
+      {/* {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
+      {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
+      <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script> */}
+      <meta name="description" content={metaDescription} />
+      <meta name="image" content={imageUrl} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image:alt" content={imageAlt || metaTitle} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:locale" content={"en_GB"} />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:type" content={"website"} />
+      <meta property="twitter:card" content={"summary_large_image"} />
+      <meta property="twitter:creator" content={twitter || ``} />
+      <meta property="twitter:description" content={metaDescription} />
+      <meta property="twitter:image:alt" content={imageAlt || metaTitle} />
+      <meta property="twitter:image" content={imageUrl} />
+      <meta property="twitter:title" content={metaTitle} />
+    </Helmet>
   );
 };
+
+const query = graphql`
+  {
+    site {
+      buildTime(formatString: "YYYY-MM-DD")
+      siteMetadata {
+        author # TODO: not used
+        backgroundColor # TODO: not used
+        defaultDescription
+        defaultTitle
+        headline # TODO: not used
+        logo
+        shortName # TODO: not used
+        siteUrl
+        themeColor # TODO: not used
+        titleAlt
+        twitter
+      }
+    }
+  }
+`;
