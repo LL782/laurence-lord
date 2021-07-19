@@ -18,35 +18,46 @@ export const BlockQuote = ({
   heading,
   headingLevel = 4,
 }) => {
-  const { hostname: citationDomain, pathname } = url.parse(citationUrl);
-  const citationSlug = pathname.substr(pathname.lastIndexOf("/") + 1);
-
-  const urlLabel = citationSlug
-    ? `${citationDomain} [...] ${citationSlug}`
-    : citationDomain;
-
-  const citationLabel = customLabel || urlLabel;
-
   const H = Heading[headingLevel];
+
+  const Title = () =>
+    !heading ? null : (
+      <H>{!citationUrl ? heading : <a href={citationUrl}>{heading}</a>}</H>
+    );
+
   const Date = () =>
-    date ? (
+    !date ? null : (
       <>
         {" "}
         – <time>{date}</time>
       </>
-    ) : null;
+    );
+
+  const Cite = () => {
+    if (!citationUrl) {
+      return null;
+    }
+    const { hostname: citationDomain, pathname } = url.parse(citationUrl);
+    const citationSlug = pathname.substr(pathname.lastIndexOf("/") + 1);
+
+    const urlLabel = citationSlug
+      ? `${citationDomain} [...] ${citationSlug}`
+      : citationDomain;
+
+    const citationLabel = customLabel || urlLabel;
+
+    return (
+      <cite>
+        <a href={citationUrl}>{citationLabel}</a> <Date />
+      </cite>
+    );
+  };
 
   return (
     <>
-      <H>
-        <a href={citationUrl}>{heading}</a>
-      </H>
-      <blockquote>
-        {children}
-        <cite>
-          <a href={citationUrl}>{citationLabel}</a> <Date />
-        </cite>
-      </blockquote>
+      <Title />
+      <blockquote>{children}</blockquote>
+      <Cite />
     </>
   );
 };
