@@ -105,15 +105,10 @@ function initBuffers(gl) {
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
   const frontFacePosition = [-1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1];
-
   const backFacePosition = [-1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1];
-
   const topFacePosition = [-1, 1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1];
-
   const bottomFacePosition = [-1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1];
-
   const rightFacePosition = [1, -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1];
-
   const leftFacePosition = [-1, -1, -1, -1, -1, 1, -1, 1, 1, -1, 1, -1];
 
   const positions = [
@@ -130,90 +125,20 @@ function initBuffers(gl) {
   const normalBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
 
+  const frontFaceVertexNormal = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1];
+  const backFaceVertexNormal = [0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1];
+  const topFaceVertexNormal = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0];
+  const bottomFaceVertexNormal = [0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0];
+  const rightFaceVertexNormal = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0];
+  const leftFaceVertexNormal = [-1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0];
+
   const vertexNormalsForLighting = [
-    // Front
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-
-    // Back
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-
-    // Top
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-
-    // Bottom
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-
-    // Right
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-
-    // Left
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
-    -1,
-    0,
-    0,
+    ...frontFaceVertexNormal,
+    ...backFaceVertexNormal,
+    ...topFaceVertexNormal,
+    ...bottomFaceVertexNormal,
+    ...rightFaceVertexNormal,
+    ...leftFaceVertexNormal,
   ];
 
   gl.bufferData(
@@ -225,61 +150,22 @@ function initBuffers(gl) {
   const textureCoordBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
 
+  const squareTextureCoordinates = [0, 0, 1, 0, 1, 1, 0, 1];
+
+  const frontFaceCoordinates = squareTextureCoordinates;
+  const backFaceCoordinates = squareTextureCoordinates;
+  const topFaceCoordinates = squareTextureCoordinates;
+  const bottomFaceCoordinates = squareTextureCoordinates;
+  const rightFaceCoordinates = squareTextureCoordinates;
+  const leftFaceCoordinates = squareTextureCoordinates;
+
   const textureCoordinatesForFaces = [
-    // Front
-    0,
-    0,
-    1,
-    0,
-    1,
-    1,
-    0,
-    1,
-    // Back
-    0,
-    0,
-    1,
-    0,
-    1,
-    1,
-    0,
-    1,
-    // Top
-    0,
-    0,
-    1,
-    0,
-    1,
-    1,
-    0,
-    1,
-    // Bottom
-    0,
-    0,
-    1,
-    0,
-    1,
-    1,
-    0,
-    1,
-    // Right
-    0,
-    0,
-    1,
-    0,
-    1,
-    1,
-    0,
-    1,
-    // Left
-    0,
-    0,
-    1,
-    0,
-    1,
-    1,
-    0,
-    1,
+    ...frontFaceCoordinates,
+    ...backFaceCoordinates,
+    ...topFaceCoordinates,
+    ...bottomFaceCoordinates,
+    ...rightFaceCoordinates,
+    ...leftFaceCoordinates,
   ];
 
   gl.bufferData(
@@ -291,47 +177,24 @@ function initBuffers(gl) {
   const indexBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
-  // This array defines each face as two triangles, using the
-  // indices into the vertex array to specify each triangle's
+  // Each face is defined as two triangles, using the
+  // indices from the vertex array to specify each triangle's
   // position.
 
+  const frontFaceTriangles = [0, 1, 2, 0, 2, 3];
+  const backFaceTriangles = [4, 5, 6, 4, 6, 7];
+  const topFaceTriangles = [8, 9, 10, 8, 10, 11];
+  const bottomFaceTriangles = [12, 13, 14, 12, 14, 15];
+  const rightFaceTriangles = [16, 17, 18, 16, 18, 19];
+  const leftFaceTriangles = [20, 21, 22, 20, 22, 23];
+
   const elements = [
-    0,
-    1,
-    2,
-    0,
-    2,
-    3, // front
-    4,
-    5,
-    6,
-    4,
-    6,
-    7, // back
-    8,
-    9,
-    10,
-    8,
-    10,
-    11, // top
-    12,
-    13,
-    14,
-    12,
-    14,
-    15, // bottom
-    16,
-    17,
-    18,
-    16,
-    18,
-    19, // right
-    20,
-    21,
-    22,
-    20,
-    22,
-    23, // left
+    ...frontFaceTriangles,
+    ...backFaceTriangles,
+    ...topFaceTriangles,
+    ...bottomFaceTriangles,
+    ...rightFaceTriangles,
+    ...leftFaceTriangles,
   ];
 
   gl.bufferData(
@@ -386,9 +249,6 @@ function loadTexture(gl, url) {
       image
     );
 
-    // WebGL1 has different requirements for power of 2 images
-    // vs non power of 2 images so check if the image is a
-    // power of 2 in both dimensions.
     if (isPowerOf2(image.width) && isPowerOf2(image.height)) {
       // Yes, it's a power of 2. Generate mips.
       gl.generateMipmap(gl.TEXTURE_2D);
@@ -436,14 +296,17 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   // the center of the scene.
   const modelViewMatrix = mat4.create();
 
-  // Now move the drawing position a bit to where we want to
-  // start drawing the square.
+  const drawingPositionX = 0;
+  const drawingPositionY = 0;
+  const drawingPositionZ = -6;
 
-  mat4.translate(
-    modelViewMatrix, // destination matrix
-    modelViewMatrix, // matrix to translate
-    [-0, 0, -6]
-  ); // amount to translate
+  const startingDrawingPosition = [
+    drawingPositionX,
+    drawingPositionY,
+    drawingPositionZ,
+  ];
+
+  mat4.translate(modelViewMatrix, modelViewMatrix, startingDrawingPosition);
 
   const xAxis = [0, 1, 0];
   mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationX, xAxis);
@@ -452,7 +315,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, yAxis);
 
   const normalMatrix = mat4.create();
-  mat4.invert(normalMatrix, modelViewMatrix);
   mat4.transpose(normalMatrix, normalMatrix);
 
   // Tell WebGL how to pull out the positions from the position
@@ -551,12 +413,15 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
 
-  if (document.getElementById("autoRotation").checked) {
+  const autoRotationOn = document.getElementById("autoRotation").checked;
+
+  if (autoRotationOn === true) {
     cubeRotationX += deltaTime / 2000;
     cubeRotationY += deltaTime / 1400;
     document.getElementById("cubeRotationX").value = cubeRotationX.toFixed(1);
     document.getElementById("cubeRotationY").value = cubeRotationY.toFixed(1);
-  } else {
+  }
+  if (autoRotationOn === false) {
     cubeRotationX = document.getElementById("cubeRotationX").value / 1;
     cubeRotationY = document.getElementById("cubeRotationY").value / 1;
   }

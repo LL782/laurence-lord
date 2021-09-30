@@ -1,7 +1,7 @@
 ---
 date: 2021-04-26
 description: I'm using these notes to teach myself how to pass variables into a WebGL 3D rendering. First up, rotation and lighting
-image: ./3d-webgel-first-steps-variables.png
+image: ./3d-webgl-first-steps-variables.png
 imageAlt: Screencapture of a decorated cube spinning in 3D space
 title: "The Javascript ecosystem offers exciting ways to render 3D environments. I've wanted to look into this area for some time. Here, I'm taking my first steps with WebGL. I want to build a UI with basic controls and an interactive 3D canvas"
 ---
@@ -73,11 +73,12 @@ mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, yAxis);
 
 ### Pause the automatic rotation
 
-Now we're ready to stop the cube rotating by itself. We can introduce a toggle and check it's value before updating `cubeRotationX` and `cubeRotationY`.
+Now we're ready to stop the cube rotating by itself.
+
+We can introduce a checkbox and check it's value before updating `cubeRotationX` and `cubeRotationY`
 
 ```js
-// javascript
-+ if (document.getElementById("autoRotation").checked) { // highlight-line
++ if (document.getElementById("autoRotation").checked === true) {
   cubeRotationX += deltaTime / 2000;
   cubeRotationY += deltaTime / 1400;
 + } // highlight-line
@@ -104,8 +105,10 @@ And use those values if we're not rotating automatically
 
 ```js
 // each time we run render
-cubeRotationY = document.getElementById("cubeRotationY").value;
-cubeRotationX = document.getElementById("cubeRotationX").value;
+if (document.getElementById("autoRotation").checked === false) {
+  cubeRotationY = document.getElementById("cubeRotationY").value;
+  cubeRotationX = document.getElementById("cubeRotationX").value;
+}
 ```
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/control-spinning-cube/" />
@@ -124,6 +127,13 @@ Imagining a camera is pointing at our 3D cubethere are at least three ways to ac
 1. Increase the size of the cube
 
 I'm interested in being able to control all of these. I'm going to re-read my code, which was mostly copied from the tutorial, and try to capture these four concepts in variables.
+
+| Vary                 | Variable           | Notes                                                     |
+| :------------------- | :----------------- | :-------------------------------------------------------- |
+| Camera position      |                    |                                                           |
+| Cube position        | `drawingPositionZ` | is used to set a starting position when drawing the scene |
+| Camera magnification |                    |                                                           |
+| Cube size            |                    |                                                           |
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/zoom-spinning-cube/" />
 
