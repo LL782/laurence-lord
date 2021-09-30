@@ -113,28 +113,4 @@ if (document.getElementById("autoRotation").checked === false) {
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/control-spinning-cube/" />
 
-This is great for keyboard users and for the purpose of my experimentation.
-
-For touch screens and the mouse users we'd want to replace the form inputs with a more efficient interface. Maybe we'll do that later.
-
-### Control the zoom
-
-Imagining a camera is pointing at our 3D cubethere are at least three ways to achieve a "zoom" effect, depending on what the user has in mind:
-
-1. Move the camera closer to the cube
-1. Move the cube closer to the camera
-1. Change the magnification of the camera
-1. Increase the size of the cube
-
-I'm interested in being able to control all of these. I'm going to re-read my code, which was mostly copied from the tutorial, and try to capture these four concepts in variables.
-
-| Vary                 | Variable           | Notes                                                     |
-| :------------------- | :----------------- | :-------------------------------------------------------- |
-| Camera position      |                    |                                                           |
-| Cube position        | `drawingPositionZ` | is used to set a starting position when drawing the scene |
-| Camera magnification |                    |                                                           |
-| Cube size            |                    |                                                           |
-
-<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/zoom-spinning-cube/" />
-
 <Stub />
