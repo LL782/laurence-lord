@@ -32,7 +32,10 @@ const IndexPage = () => {
         old examples of&nbsp;my&nbsp;work
       </p>
       <p>
-        This website is also home to <Link to="/notes">My Notes</Link>
+        This website is home to <Link to="/notes">My Notes</Link>
+      </p>
+      <p>
+         <Link to="/notes">Browse on...</Link>
       </p>
       <EditOnGitHubInvite path={`/src/pages/index.js`} />
     </Layout>

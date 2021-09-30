@@ -6,7 +6,7 @@ export const EditOnGitHubInvite = ({ path }) => {
       <hr />
       <p>
         Spotted a typo?{" "}
-        <a href={`https://github.com/LL782/laurence-lord/blob/main${path}`}>
+        <a href={`https://github.com/LL782/laurence-lord/edit/main${path}`}>
           Edit on Github
         </a>
       </p>

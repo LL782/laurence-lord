@@ -14,7 +14,7 @@ const NotesIndexPage = ({ data }) => {
       <h1>My Notes</h1>
       <p>I write these notes for myself</p>
       <p>
-        You're welcome to take a look but be warned they're not for everybody
+        You're welcome to take a look but you might find them quite raw
       </p>
       <p>
         <Link to="/notes/i-am-writing-for-myself">More about that here...</Link>

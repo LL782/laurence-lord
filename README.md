@@ -1,39 +1,45 @@
 # Laurence Lord - Creative Developer
 
-👋 Welcome to my personal website [https://www.laurencelord.co.uk](https://www.laurencelord.co.uk)
+👋 Welcome to the repo for my personal website 
 
-## 🚀 🌝 Version 0
+👉 [`laurencelord.co.uk`](https://www.laurencelord.co.uk)
 
-1.  **I don't want to worry too much**
+## 🚀 🌝 About this!
 
-    For years I've overthought what others will think of my website
+1.  **Be yourself 🤙**
 
-    Then I had a thought that I found liberating
+    For years I've overthought what others will think of my website 🤔
 
-    > This I write for myself not for an audience
+    Then I had a thought that I found liberating...
 
-2.  **Tech stack**
+    > This I write for myself, not for an audience
 
-    I'm starting out with a Gatsby site
+2.  **Tech stack: _Convenient 📱_**
 
-    **https://www.gatsbyjs.com/**
+    I'm using [`Gatsby`](https://www.gatsbyjs.com/) and MDX (JSX enriched markdown) to make editing quick and easy
 
-3.  **Open source. Sure why not**
+    I can edit content and redeploy it from the GitHub app on my phone (which is nice)
+
+3.  **Open source. _Sure, why not?_ 🤗**
 
     I'm not showing off but I'm not hiding anything
 
     You can clone the repo, `npm i`, `npm run develop` and have this running at http://localhost:8000
+    
+    Or you can just dip in and steal the code you like. No worries
+    
 
-4.  **More me**
+4.  **More me 🧶**
 
-    - [DOG.DC5B Artwork](https://www.instagram.com/dog.dc5b/)
+    - [DOG.DC5B Instagram](https://www.instagram.com/dog.dc5b/) (artwork)
 
-    - [Codurance my employer](https://www.codurance.com)
+    - [Codurance](https://www.codurance.com) (work)
 
 ## Contributing
 
-Please feel free to browse the files, raise issues or suggest changes however you like
+Feel free to browse the files, raise issues or suggest changes however you like 👍
 
-## Maintenance notes
+## Maintenance notes (in case I forget)
 
-Hosted by [Gatsby Cloud](https://www.gatsbyjs.com/dashboard)
+Deploys to [Gatsby Cloud](https://www.gatsbyjs.com/products/cloud/hosting/) via commits to `main` branch, 
+configured in [Gatsby Dashboard](https://www.gatsbyjs.com/dashboard)
