@@ -8,7 +8,7 @@ const formStyles = {
   overflow: "scroll",
 
   [mediaSmall]: {
-    backgroundColor: "#f5f2f0",
+    backgroundImage: "linear-gradient(#f5f2f0, #fff)",
     bottom: "0",
     display: "block",
     margin: "0",
