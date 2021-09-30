@@ -1,14 +1,23 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import { mediaSmall, mediaMediumAndLarge } from "./screenSizes";
 
 const formStyles = {
-  backgroundColor: "white",
-  bottom: 0,
-  left: 0,
   padding: 2,
-  position: "absolute",
-  "@media screen and (min-width: 640px)": {
-    bottom: "auto",
+  backgroundColor: "#fff",
+  overflow: "scroll",
+
+  [mediaSmall]: {
+    backgroundColor: "#f5f2f0",
+    bottom: "0",
+    display: "block",
+    margin: "0",
+    position: "absolute",
+    top: "50vh",
+    width: "100%",
+  },
+  [mediaMediumAndLarge]: {
+    position: "absolute",
     left: 2,
     top: 2,
   },
@@ -16,7 +25,7 @@ const formStyles = {
 
 const canvasStyles = {
   backgroundColor: "black",
-  height: ["100vw", "calc(100vw - 84px)", "calc(100vw - 158px)"],
+  height: ['50vh', '100vh'],
   maxHeight: "480px",
   maxWidth: "640px",
   width: "100%",
@@ -35,3 +44,5 @@ export const CanvasScriptAndForm = ({ children, scriptSrc }) => (
     {children && <form sx={formStyles}>{children}</form>}
   </div>
 );
+
+
