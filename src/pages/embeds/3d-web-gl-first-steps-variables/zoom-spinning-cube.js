@@ -54,12 +54,7 @@ const Page = () => (
         <legend>Rotation</legend>
         <div>
           <label htmlFor="autoRotation">Automatic</label>{" "}
-          <input
-            type="checkbox"
-            id="autoRotation"
-            name="autoRotation"
-            defaultChecked
-          />
+          <input type="checkbox" id="autoRotation" name="autoRotation" />
           <hr />
           <div>
             <label htmlFor="cubeRotationX">X</label>{" "}
