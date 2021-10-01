@@ -1,5 +1,10 @@
 let cubeRotationX = 0.0;
 let cubeRotationY = 0.0;
+let drawingPositionZ = -6;
+
+const getInputValueById = (id) => document.getElementById(id).value / 1;
+const setInputValueById = (id, value) =>
+  (document.getElementById(id).value = value.toFixed(1));
 
 main();
 
@@ -298,7 +303,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
 
   const drawingPositionX = 0;
   const drawingPositionY = 0;
-  const drawingPositionZ = -6;
 
   const startingDrawingPosition = [
     drawingPositionX,
@@ -418,12 +422,13 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   if (autoRotationOn === true) {
     cubeRotationX += deltaTime / 2000;
     cubeRotationY += deltaTime / 1400;
-    document.getElementById("cubeRotationX").value = cubeRotationX.toFixed(1);
-    document.getElementById("cubeRotationY").value = cubeRotationY.toFixed(1);
+    setInputValueById("cubeRotationX", cubeRotationX);
+    setInputValueById("cubeRotationY", cubeRotationY);
+    setInputValueById("cubePosition", drawingPositionZ);
   }
   if (autoRotationOn === false) {
-    cubeRotationX = document.getElementById("cubeRotationX").value / 1;
-    cubeRotationY = document.getElementById("cubeRotationY").value / 1;
+    cubeRotationX = getInputValueById("cubeRotationX");
+    cubeRotationY = getInputValueById("cubeRotationY");
   }
 }
 
