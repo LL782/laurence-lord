@@ -20,7 +20,7 @@
     "@theme-ui/prism": "^0.6.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^4.12.1",
-    "gatsby": "^3.2.1",
+    "gatsby": "^3.14.1",
     "gatsby-plugin-gatsby-cloud": "^2.2.0",
     "gatsby-plugin-image": "^1.2.0",
     "gatsby-plugin-mdx": "^2.2.0",
