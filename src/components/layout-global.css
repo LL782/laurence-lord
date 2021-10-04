@@ -15,7 +15,7 @@ body {
     --theme-ui-colors-text: #000;
     --theme-ui-colors-background: #fbfaf2;
     --theme-ui-colors-muted: #f6f6f6;
-    --theme-ui-colors-detail: #000;
+    --theme-ui-colors-detail: #8989;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -29,14 +29,16 @@ body {
 
 a:link,
 a:visited {
+  border-bottom: 1px solid var(--theme-ui-colors-detail);
   color: var(--theme-ui-colors-text);
   font-weight: bold;
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
   color: var(--theme-ui-colors-primary);
-  text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
 
 a:active {
