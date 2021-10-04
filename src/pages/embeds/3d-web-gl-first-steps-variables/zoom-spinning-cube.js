@@ -58,7 +58,7 @@ const Page = () => (
             type="checkbox"
             id="autoRotation"
             name="autoRotation"
-            checked
+            defaultChecked
           />
           <hr />
           <div>
