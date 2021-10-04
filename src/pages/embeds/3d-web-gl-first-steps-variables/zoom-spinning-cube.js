@@ -9,16 +9,6 @@ const Page = () => (
     <CanvasScriptAndForm scriptSrc="/embeds/3d-web-gl-first-steps-variables/zoomSpinningCube.js">
       <fieldset>
         <legend>Zoom</legend>
-        {/* <div>
-          <label htmlFor="cameraPosition">Camera position</label>{" "}
-          <input
-            type="number"
-            id="cameraPosition"
-            name="cameraPosition"
-            step={0.1}
-            disabled
-          />
-        </div> */}
         <div>
           <label htmlFor="cubePosition">Cube position (z-axis)</label>{" "}
           <input
@@ -39,16 +29,6 @@ const Page = () => (
             defaultValue={45}
           />
         </div>
-        {/* <div>
-          <label htmlFor="cubeSize">Cube size</label>{" "}
-          <input
-            type="number"
-            id="cubeSize"
-            name="cubeSize"
-            step={0.1}
-            disabled
-          />
-        </div> */}
       </fieldset>
       <fieldset>
         <legend>Rotation</legend>
