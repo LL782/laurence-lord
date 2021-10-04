@@ -2,9 +2,17 @@ let cubeRotationX = 0.0;
 let cubeRotationY = 0.0;
 let drawingPositionZ = -6;
 
-const getInputValueById = (id) => document.getElementById(id).value / 1;
-const setInputValueById = (id, value) =>
-  (document.getElementById(id).value = value.toFixed(1));
+const getInputValueById = (id) => {
+  const input = document.getElementById(id);
+  return input ? input.value / 1 : undefined;
+};
+
+const setInputValueById = (id, value) => {
+  const input = document.getElementById(id);
+  if (input) {
+    input.value = value.toFixed(1);
+  }
+};
 
 main();
 
@@ -282,19 +290,12 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.depthFunc(gl.LEQUAL);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  // Create a perspective matrix, a special matrix that is
-  // used to simulate the distortion of perspective in a camera.
-  // Our field of view is 45 degrees, with a width/height
-  // ratio that matches the display size of the canvas
-  // and we only want to see objects between 0.1 units
-  // and 100 units away from the camera.
-
-  const fieldOfViewInRadians = (45 * Math.PI) / 180;
+  const fieldOfViewInDegrees = getInputValueById("fieldOfView") || 45;
+  const fieldOfViewInRadians = (fieldOfViewInDegrees * Math.PI) / 180;
   const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
   const zNear = 0.1;
   const zFar = 100;
   const projectionMatrix = mat4.create();
-
   mat4.perspective(projectionMatrix, fieldOfViewInRadians, aspect, zNear, zFar);
 
   // Set the drawing position to the "identity" point, which is

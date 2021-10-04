@@ -29,16 +29,16 @@ const Page = () => (
             defaultValue={-6}
           />
         </div>
-        {/* <div>
-          <label htmlFor="cameraMagnification">Camera magnification</label>{" "}
+        <div>
+          <label htmlFor="fieldOfView">Field o'view (degrees)</label>{" "}
           <input
             type="number"
-            id="cameraMagnification"
-            name="cameraMagnification"
-            step={0.1}
-            disabled
+            id="fieldOfView"
+            name="fieldOfView"
+            step={1}
+            defaultValue={45}
           />
-        </div> */}
+        </div>
         {/* <div>
           <label htmlFor="cubeSize">Cube size</label>{" "}
           <input
