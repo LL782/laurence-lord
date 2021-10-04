@@ -418,6 +418,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
   }
 
+  drawingPositionZ = getInputValueById("cubePosition");
+
   const autoRotationOn = document.getElementById("autoRotation").checked;
 
   if (autoRotationOn === true) {
@@ -425,7 +427,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     cubeRotationY += deltaTime / 1400;
     setInputValueById("cubeRotationX", cubeRotationX);
     setInputValueById("cubeRotationY", cubeRotationY);
-    setInputValueById("cubePosition", drawingPositionZ);
   }
   if (autoRotationOn === false) {
     cubeRotationX = getInputValueById("cubeRotationX");

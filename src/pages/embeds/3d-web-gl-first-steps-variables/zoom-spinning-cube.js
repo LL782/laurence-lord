@@ -8,8 +8,8 @@ const Page = () => (
   <EmbedLayout>
     <CanvasScriptAndForm scriptSrc="/embeds/3d-web-gl-first-steps-variables/zoomSpinningCube.js">
       <fieldset>
-        <legend>Zoom (work in progress)</legend>
-        <div>
+        <legend>Zoom</legend>
+        {/* <div>
           <label htmlFor="cameraPosition">Camera position</label>{" "}
           <input
             type="number"
@@ -18,18 +18,18 @@ const Page = () => (
             step={0.1}
             disabled
           />
-        </div>
+        </div> */}
         <div>
-          <label htmlFor="cubePosition">Cube position</label>{" "}
+          <label htmlFor="cubePosition">Cube position (z-axis)</label>{" "}
           <input
             type="number"
             id="cubePosition"
             name="cubePosition"
             step={0.1}
-            disabled
+            defaultValue={-6}
           />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="cameraMagnification">Camera magnification</label>{" "}
           <input
             type="number"
@@ -38,8 +38,8 @@ const Page = () => (
             step={0.1}
             disabled
           />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <label htmlFor="cubeSize">Cube size</label>{" "}
           <input
             type="number"
@@ -48,13 +48,18 @@ const Page = () => (
             step={0.1}
             disabled
           />
-        </div>
+        </div> */}
       </fieldset>
       <fieldset>
         <legend>Rotation</legend>
         <div>
           <label htmlFor="autoRotation">Automatic</label>{" "}
-          <input type="checkbox" id="autoRotation" name="autoRotation" />
+          <input
+            type="checkbox"
+            id="autoRotation"
+            name="autoRotation"
+            checked
+          />
           <hr />
           <div>
             <label htmlFor="cubeRotationX">X</label>{" "}
@@ -63,6 +68,7 @@ const Page = () => (
               id="cubeRotationX"
               name="cubeRotationX"
               step={0.1}
+              defaultValue={0.0}
             />
           </div>
           <div>
@@ -72,6 +78,7 @@ const Page = () => (
               id="cubeRotationY"
               name="cubeRotationY"
               step={0.1}
+              defaultValue={0.0}
             />
           </div>
         </div>

@@ -13,6 +13,7 @@ body {
 @media (prefers-color-scheme: light) {
   body {
     --theme-ui-colors-text: #000;
+    --theme-ui-colors-shadow: #0001;
     --theme-ui-colors-background: #fbfaf2;
     --theme-ui-colors-muted: #f6f6f6;
     --theme-ui-colors-detail: #8989;
@@ -21,6 +22,7 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     --theme-ui-colors-text: #eee;
+    --theme-ui-colors-shadow: #eee1;
     --theme-ui-colors-background: #222;
     --theme-ui-colors-muted: #030;
     --theme-ui-colors-detail: #cfc9;
@@ -49,4 +51,27 @@ hr {
   border-style: solid;
   border-color: var(--theme-ui-colors-detail);
   border-width: 1px 0 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tbody tr:nth-child(2n-1) {
+  background-image: linear-gradient(
+    90deg,
+    var(--theme-ui-colors-background),
+    var(--theme-ui-colors-shadow) 15%
+  );
+}
+
+th {
+  border-bottom: 1px solid var(--theme-ui-colors-detail);
+}
+
+th,
+td {
+  padding: 0.5rem 1rem 0.5rem 0rem;
 }
