@@ -117,8 +117,8 @@ if (document.getElementById("autoRotation").checked === false) {
 
 Imagining a camera is pointing at our 3D cube. There are at least three ways to achieve a "zoom" effect, relatively speaking:
 
-1. Move the camera closer to the cube
 1. Move the cube closer to the camera
+1. Move the camera closer to the cube
 1. Change the magnification of the camera
 1. Increase the size of the cube
 
@@ -126,11 +126,9 @@ I'm interested in all of these and now I'm walking through the code I've inherit
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/zoom-spinning-cube/" />
 
-| Vary                 | Variable           | Notes                                                     |
-| :------------------- | :----------------- | :-------------------------------------------------------- |
-| Camera position      | --                 | WIP                                                       |
-| Cube position        | `drawingPositionZ` | is used to set a starting position when drawing the scene |
-| Camera magnification | --                 | WIP                                                       |
-| Cube size            | --                 | WIP                                                       |
-
-<Stub />
+| Vary                 | Variable               | Notes                                                                                                              |
+| :------------------- | :--------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| Cube position        | `drawingPositionZ`     | Used in starting drawing position                                                                                  |
+| Camera position      | n/a                    | As far as I can tell, this isn't a thing. The camera is constant and undefined, the position of the scene can vary |
+| Camera magnification | `fieldOfViewInRadians` | Used in `mat4.perspective`                                                                                         |
+| Cube size            | n/a                    | Decided not to explore this here                                                                                   |
