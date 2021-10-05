@@ -75,3 +75,8 @@ th,
 td {
   padding: 0.5rem 1rem 0.5rem 0rem;
 }
+
+code {
+  background-color: var(--theme-ui-colors-shadow);
+  padding: 0.25rem;
+}
