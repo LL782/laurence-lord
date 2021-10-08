@@ -57,6 +57,8 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
+  display: block;
+  overflow: auto;
 }
 
 tbody tr:nth-child(2n-1) {
