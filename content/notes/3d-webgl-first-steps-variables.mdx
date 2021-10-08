@@ -1,46 +1,46 @@
 ---
 date: 2021-04-26
 description: I'm using these notes to teach myself how to pass variables into a WebGL 3D rendering. First up, rotation and lighting
-image: ./3d-webgl-first-steps-variables.png
-imageAlt: Screencapture of a decorated cube spinning in 3D space
-title: "The Javascript ecosystem offers exciting ways to render 3D environments. I've wanted to look into this area for some time. Here, I'm taking my first steps with WebGL. I want to build a UI with basic controls and an interactive 3D canvas"
+title: "The Javascript ecosystem offers exciting ways to render 3D environments. I've wanted to look into this area for some time. Here I take my first steps with WebGL, build a UI with basic controls and use them to interact with a 3D scene"
 ---
-
-There's an excellent [WebGL tutorial on MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial) that gets you to render a spinning cube, covered with an image, on an HTML Canvas, using WebGL and [a library called `gl-matrix`](https://github.com/toji/gl-matrix).
-
-Below are my result from the tutorial:
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/simple-spinning-cube/" />
 
-Next, I'd like to add some controls to the UI to make the 3D rendering interactive.
+My starting point is a [MDN WebGL tutorial](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial) the results of which are embedded above – a spinning cube, covered with an image, rendered on an HTML Canvas using WebGL and [a library called `gl-matrix`](https://github.com/toji/gl-matrix).
 
-## Interactive features to add
+Having inherited this code I'd like to make it interactive.
 
-- I want to be able to rotate the cube myself
-- I want to be able to zoom-in on the cube
+## Interactive features
 
-Doing the simplest thing first, let's add a control that stops the cube rotating by itself.
+- Rotate the cube
+- Zoom-in on the cube
+
+### Simplest thing first
+
+<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/pause-spinning-cube/" />
+
+A checkbox toggles automatic rotation. How?
 
 ### Let's get into the code
 
-Currently function called **render** runs everytime a new animation frame is available:
+A function called **`render`** runs every time a new animation frame is available...
 
 ```js
 function render(now) {
   const deltaTime = now - then;
   then = now;
 
-  drawScene(gl, programInfo, buffers, texture, deltaTime); // highlight-line
+  drawScene(gl, programInfo, buffers, texture, deltaTime);
 
   requestAnimationFrame(render);
 }
 ```
 
-We measure how much time passed since the last animation frame and pass that into the **drawScene** function.
+A measure of time-since-the-last-frame is passed into **`drawScene`** every time we [re]render
 
-There is a lot going on inside `drawScene`. The bit we're interested in is where we update some state called `cubeRotation` based on the time delta.
+There is a lot going on in `drawScene`. It turns out we're interested in some state called `cubeRotation`. It is updated based on our time delta.
 
-This value gets used inside two heavily commented function calls to `mat4.rotate` from the `gl-matrix` library:
+See the `mat4.rotate` method from `gl-matrix` below:
 
 ```js
 mat4.rotate(
@@ -57,11 +57,11 @@ mat4.rotate(
 ); // axis to rotate around (X)
 ```
 
-To make this a bit easier to work with let's do the following clean up:
+To make this a bit easier I do some clean up:
 
-- let's rotate around the more intuitive X and Y axis, rather than X and Z
-- let's use a separate variable for each axis
-- let's clean up these comments
+- Rotate around the more intuitive `X` and `Y` axis, rather than `X` and `Z`
+- Use a separate variables for `cubeRotationX` and `cubeRotationY` – _no more random `* 0.7`_
+- Replace comments with named variables
 
 ```js
 const xAxis = [0, 1, 0];
@@ -71,24 +71,24 @@ const yAxis = [1, 0, 0];
 mat4.rotate(modelViewMatrix, modelViewMatrix, cubeRotationY, yAxis);
 ```
 
-### Pause the automatic rotation
+#### Now to make rotation conditional
 
-Now we're ready to stop the cube rotating by itself.
-
-We can introduce a checkbox and check it's value before updating `cubeRotationX` and `cubeRotationY`
+We simply put an `if` block around the code that updates `cubeRotationX` and `cubeRotationY`
 
 ```js
-+ if (document.getElementById("autoRotation").checked === true) {
+if (document.getElementById("autoRotation").checked) {
   cubeRotationX += deltaTime / 2000;
   cubeRotationY += deltaTime / 1400;
-+ } // highlight-line
+}
 ```
 
-<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/pause-spinning-cube/" />
+Our checkbox toggles automatic rotation 🎉
 
-### Control the rotation
+### Controlling X and Y rotation
 
-Let's add some more controls to the HTML
+<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/control-spinning-cube/" />
+
+We adding some more inputs to the HTML
 
 ```html
 <div>
@@ -101,17 +101,14 @@ Let's add some more controls to the HTML
 </div>
 ```
 
-And use those values if we're not rotating automatically
+And use their values when not auto-rotating
 
 ```js
-// each time we run render
 if (document.getElementById("autoRotation").checked === false) {
   cubeRotationY = document.getElementById("cubeRotationY").value;
   cubeRotationX = document.getElementById("cubeRotationX").value;
 }
 ```
-
-<EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/control-spinning-cube/" />
 
 ### Control the zoom
 
@@ -122,13 +119,24 @@ Imagining a camera is pointing at our 3D cube. There are at least three ways to 
 1. Change the magnification of the camera
 1. Increase the size of the cube
 
-I'm interested in all of these and now I'm walking through the code I've inherited, looking for the variables that corrispond to these effects.
-
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/zoom-spinning-cube/" />
 
-| Vary                 | Variable               | Notes                                                                                                              |
-| :------------------- | :--------------------- | :----------------------------------------------------------------------------------------------------------------- |
-| Cube position        | `drawingPositionZ`     | Used in starting drawing position                                                                                  |
-| Camera position      | n/a                    | As far as I can tell, this isn't a thing. The camera is constant and undefined, the position of the scene can vary |
-| Camera magnification | `fieldOfViewInRadians` | Used in `mat4.perspective`                                                                                         |
-| Cube size            | n/a                    | Decided not to explore this here                                                                                   |
+I've picked variables related to two or three of these concepts out of the code:
+
+| Vary                 | Variable               | Notes                                     |
+| :------------------- | :--------------------- | :---------------------------------------- |
+| Cube position        | `drawingPositionZ`     | A starting point for drawing the cube     |
+| Camera position      | n/a                    | Everything is relative. See cube position |
+| Camera magnification | `fieldOfViewInRadians` | Narrows or widens the view                |
+| Cube size            | n/a                    | Not simple to vary atm in this code       |
+
+This concludes this first exploration into making some interactive WebGL.
+
+Next I'll take a look at some libraries (e.g. ThreeJS). I've found [this list](https://medevel.com/16-webgl-opensource-frameworks/#7-webglstudio-js-litescene-js-open-source-web-3d-graphic-editor-creator) handy
+
+### Take home points
+
+1. We re-render the scene every time an animation frame is available and the browser handles it well
+1. It is simple to including variables from HTML inputs in the `drawScene` function
+1. In this code it's easier to find a projection from a given perspective than a "camera".
+   To get a "zoom" effect, we moved the scene relative to the perspective. [WebGL Fundamentals](https://webglfundamentals.org) has a great page about the ["cameras"](https://webglfundamentals.org/webgl/lessons/webgl-3d-camera.html) concept

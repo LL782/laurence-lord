@@ -80,3 +80,8 @@ code {
   background-color: var(--theme-ui-colors-shadow);
   padding: 0.25rem;
 }
+
+.prism-code {
+  overflow: auto;
+  max-width: 100%;
+}
