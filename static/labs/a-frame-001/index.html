@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+      .external-controls {
+        position: fixed;
+        bottom: 0;
+      }
+      .external-controls button {
+        appearance: none;
+        border: #000 solid 1px;
+        outline: none 0;
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin: 0.5rem 0 0.5rem 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .external-controls button:focus,
+      .external-controls button:hover {
+        box-shadow: #fff 0 0 5px;
+        border-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene
+      shadow="autoUpdate: true"
+      fog="type: linear; density: 0.05"
+      vr-mode-ui="enabled: false"
+    >
+      <a-sky color="#110"></a-sky>
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        color="#fff"
+        shadow="receive: true"
+      ></a-plane>
+      <a-box
+        position="-1.5 5 0"
+        height="10"
+        width="40"
+        depth="40"
+        color="#fff"
+        rotation="0 45 0"
+        shadow="receive: true; cast: true;"
+        opacity="0.5"
+      ></a-box>
+      <a-entity
+        id="camera-0"
+        camera="active: true;"
+        look-controls="reverseMouseDrag: true"
+        wasd-controls
+        position="-5 2 38"
+        rotation="0 -64 0"
+      >
+        <a-entity
+          id="light-0"
+          light="type: point; cast-shadow: true; color: #3f3;"
+          position="0 1.5 -1"
+        >
+        </a-entity>
+        <a-box
+          shadow="receive: true; cast: true;"
+          position="0 0 1"
+          width="2"
+          height="6"
+          depth="2"
+          color="#0f0"
+          opacity="0.7"
+        ></a-box>
+        <a-entity
+          geometry="primitive: plane; height: 0.25; width: 0.25"
+          material="color: #0f0;"
+          position="0 1.5 -1"
+          rotation="0 180 0"
+        ></a-entity>
+      </a-entity>
+
+      <a-entity
+        id="camera-1"
+        camera="active: false;"
+        position="5 3 40"
+        rotation="0 64 0"
+        look-controls="reverseMouseDrag: true"
+        shadow="receive: true; cast: true;"
+      >
+        <a-entity
+          id="light-1"
+          light="type: point; cast-shadow: true; color: #f3f;"
+          position="0 1.5 -1"
+        >
+        </a-entity>
+        <a-box
+          shadow="receive: true; cast: true;"
+          position="0 0 1"
+          width="2"
+          height="6"
+          depth="2"
+          color="#f0f"
+          opacity="0.7"
+        ></a-box>
+        <a-entity
+          geometry="primitive: plane; height: 0.25; width: 0.25"
+          position="0 1.5 -1"
+          rotation="0 180 0"
+          material="color: #f0f;"
+        ></a-entity>
+      </a-entity>
+    </a-scene>
+
+    <div class="external-controls">
+      <button data-camera-button="0" style="background: #0f0">Cam 0</button>
+      <button data-camera-button="1" style="background: #f0f">Cam 1</button>
+      <button data-light-button="0" style="background: #afa">Light 0</button>
+      <button data-light-button="1" style="background: #faf">Light 1</button>
+    </div>
+    <script>
+      // lights
+      const lightButtons = document.querySelectorAll("[data-light-button]");
+
+      lightButtons.forEach((button) =>
+        button.addEventListener("click", ({ target }) => {
+          target.blur();
+          toggleLight(button.getAttribute("data-light-button"));
+        })
+      );
+
+      const lights = [
+        document.getElementById("light-0"),
+        document.getElementById("light-1"),
+      ];
+
+      function toggleLight(number) {
+        const light = lights[number];
+        const newValue = light.getAttribute("light").intensity > 0 ? 0 : 0.5;
+
+        light.setAttribute("light", "intensity", newValue);
+      }
+
+      // cameras
+      let activeCameraNumber = 0;
+      const cameraButtons = document.querySelectorAll("[data-camera-button]");
+
+      cameraButtons.forEach((button) =>
+        button.addEventListener("click", ({ target }) => {
+          target.blur();
+          const cameraNumber = button.getAttribute("data-camera-button");
+          deactiveCamera(activeCameraNumber);
+          activateCamera(cameraNumber);
+        })
+      );
+
+      const cameras = [
+        document.getElementById("camera-0"),
+        document.getElementById("camera-1"),
+      ];
+
+      function deactiveCamera(number) {
+        const c = cameras[number];
+
+        var quaternion = new THREE.Quaternion();
+
+        c.setAttribute("look-controls", "enabled", false);
+        c.setAttribute("wasd-controls", "enabled", false);
+      }
+
+      function activateCamera(number) {
+        const c = cameras[number];
+
+        c.setAttribute("camera", "active", true);
+        c.setAttribute("look-controls", "enabled", true);
+        c.setAttribute("wasd-controls", "enabled", true);
+
+        activeCameraNumber = number;
+      }
+    </script>
+  </body>
+</html>

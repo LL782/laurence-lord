@@ -8,7 +8,7 @@ title: "The Javascript ecosystem offers exciting ways to render 3D environments.
 
 My starting point is a [MDN WebGL tutorial](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial) the results of which are embedded above – a spinning cube, covered with an image, rendered on an HTML Canvas using WebGL and [a library called `gl-matrix`](https://github.com/toji/gl-matrix).
 
-Having inherited this code I'd like to make it interactive.
+Having inherited this code from the tutorial I'd like to make it interactive.
 
 ## Interactive features
 
@@ -19,7 +19,7 @@ Having inherited this code I'd like to make it interactive.
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/pause-spinning-cube/" />
 
-A checkbox toggles automatic rotation. How?
+Now a checkbox toggles automatic rotation. How?
 
 ### Let's get into the code
 
@@ -38,7 +38,7 @@ function render(now) {
 
 A measure of time-since-the-last-frame is passed into **`drawScene`** every time we [re]render
 
-There is a lot going on in `drawScene`. It turns out we're interested in some state called `cubeRotation`. It is updated based on our time delta.
+There is a lot going on in `drawScene`. We are interested in some state called `cubeRotation`, which is calculated based on the time delta (the more time has passed the further the cube has rotated)
 
 See the `mat4.rotate` method from `gl-matrix` below:
 
@@ -132,11 +132,13 @@ I've picked variables related to two or three of these concepts out of the code:
 
 This concludes this first exploration into making some interactive WebGL.
 
-Next I'll take a look at some libraries (e.g. ThreeJS). I've found [this list](https://medevel.com/16-webgl-opensource-frameworks/#7-webglstudio-js-litescene-js-open-source-web-3d-graphic-editor-creator) handy
-
 ### Take home points
 
 1. We re-render the scene every time an animation frame is available and the browser handles it well
 1. It is simple to including variables from HTML inputs in the `drawScene` function
 1. In this code it's easier to find a projection from a given perspective than a "camera".
    To get a "zoom" effect, we moved the scene relative to the perspective. [WebGL Fundamentals](https://webglfundamentals.org) has a great page about the ["cameras"](https://webglfundamentals.org/webgl/lessons/webgl-3d-camera.html) concept
+
+Next I'll take a look at some libraries (e.g. [ThreeJS](https://threejs.org/), [A-Frame](https://aframe.io), [Clay-GL](http://claygl.xyz/)). I've found [this list](https://medevel.com/16-webgl-opensource-frameworks/#7-webglstudio-js-litescene-js-open-source-web-3d-graphic-editor-creator) handy.
+
+- [Here's a little something I went on to build with A-Frame](/labs/a-frame-001/) (very quick learning curve)
