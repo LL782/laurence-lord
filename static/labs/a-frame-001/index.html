@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <style>
+      body {
+        background-color: #000;
+      }
       .external-controls {
         position: fixed;
         bottom: 0;
@@ -55,7 +58,7 @@
       <a-entity
         id="camera-0"
         camera="active: true;"
-        look-controls="reverseMouseDrag: true"
+        look-controls="reverseMouseDrag: true; enabled: true"
         wasd-controls
         position="-5 2 38"
         rotation="0 -64 0"
@@ -88,7 +91,7 @@
         camera="active: false;"
         position="5 3 40"
         rotation="0 64 0"
-        look-controls="reverseMouseDrag: true"
+        look-controls="reverseMouseDrag: true; enabled: false"
         shadow="receive: true; cast: true;"
       >
         <a-entity
@@ -164,8 +167,6 @@
 
       function deactiveCamera(number) {
         const c = cameras[number];
-
-        var quaternion = new THREE.Quaternion();
 
         c.setAttribute("look-controls", "enabled", false);
         c.setAttribute("wasd-controls", "enabled", false);
