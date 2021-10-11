@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <style>
       body {
         background-color: #000;
@@ -13,18 +14,23 @@
         position: fixed;
         bottom: 0;
       }
-      .external-controls button {
+      .external-control {
         appearance: none;
+        background-color: #fff9;
+        border-radius: 5px;
         border: #000 solid 1px;
-        outline: none 0;
-        padding: 0.5rem;
+        color: #000;
+        cursor: pointer;
+        display: inline-block;
+        font-family: monospace;
         font-size: 1rem;
         margin: 0.5rem 0 0.5rem 0.5rem;
-        border-radius: 5px;
-        cursor: pointer;
+        outline: none 0;
+        padding: 0.5rem;
+        text-decoration: none;
       }
-      .external-controls button:focus,
-      .external-controls button:hover {
+      .external-control:focus,
+      .external-control:hover {
         box-shadow: #fff 0 0 5px;
         border-color: #fff;
       }
@@ -119,10 +125,35 @@
     </a-scene>
 
     <div class="external-controls">
-      <button data-camera-button="0" style="background: #0f0">Cam 0</button>
-      <button data-camera-button="1" style="background: #f0f">Cam 1</button>
-      <button data-light-button="0" style="background: #afa">Light 0</button>
-      <button data-light-button="1" style="background: #faf">Light 1</button>
+      <button
+        class="external-control"
+        data-camera-button="0"
+        style="background: #0f0"
+      >
+        Camera 0
+      </button>
+      <button
+        class="external-control"
+        data-camera-button="1"
+        style="background: #f0f"
+      >
+        Camera 1
+      </button>
+      <button
+        class="external-control"
+        data-light-button="0"
+        style="background: #afa"
+      >
+        Light 0
+      </button>
+      <button
+        class="external-control"
+        data-light-button="1"
+        style="background: #faf"
+      >
+        Light 1
+      </button>
+      <a class="external-control" href="/notes/a-frame-001">/Notes/...</a>
     </div>
     <script>
       // lights
