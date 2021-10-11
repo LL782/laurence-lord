@@ -136,8 +136,8 @@ This concludes this first exploration into making some interactive WebGL.
 
 1. We re-render the scene every time an animation frame is available and the browser handles it well
 1. It is simple to including variables from HTML inputs in the `drawScene` function
-1. In this code it's easier to find a projection from a given perspective than a "camera".
-   To get a "zoom" effect, we moved the scene relative to the perspective. [WebGL Fundamentals](https://webglfundamentals.org) has a great page about the ["cameras"](https://webglfundamentals.org/webgl/lessons/webgl-3d-camera.html) concept
+1. In this code the easiest way to add a zoom effect was to move the scene closer to the "perspective". Although this won't work in all other scenarios it's an option that works.
+   [WebGL Fundamentals](https://webglfundamentals.org) has a great page about ["cameras"](https://webglfundamentals.org/webgl/lessons/webgl-3d-camera.html) that has more about this topic.
 
 Next I'll take a look at some libraries (e.g. [ThreeJS](https://threejs.org/), [A-Frame](https://aframe.io), [Clay-GL](http://claygl.xyz/)). I've found [this list](https://medevel.com/16-webgl-opensource-frameworks/#7-webglstudio-js-litescene-js-open-source-web-3d-graphic-editor-creator) handy.
 
