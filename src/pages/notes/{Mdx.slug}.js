@@ -16,8 +16,23 @@ const NotePage = ({ data }) => {
   const image = getImage(note.frontmatter.image);
   const seoImage = getSrc(note.frontmatter.image);
   const imageAlt = note.frontmatter.imageAlt;
+  const imageAnchor = note.frontmatter.imageAnchor;
+  const imageLink = note.frontmatter.imageLink;
   const title = note.frontmatter.title;
 
+  const MainImage = () => {
+    let Result = null;
+    if (image) {
+      Result = <GatsbyImage alt={imageAlt} image={image} />;
+    }
+    if (imageLink) {
+      Result = <Link to={imageLink}>{Result}</Link>;
+    }
+    if (imageAnchor) {
+      Result = <a href={imageAnchor}>{Result}</a>;
+    }
+    return Result;
+  };
   return (
     <Layout title={`${title}...`}>
       <nav>
@@ -34,7 +49,7 @@ const NotePage = ({ data }) => {
           title={title}
         />
         <h1>{title}</h1>
-        {image && <GatsbyImage alt={imageAlt} image={image} />}
+        <MainImage />
         <section>
           <MDXRenderer>{note.body}</MDXRenderer>
         </section>
@@ -72,6 +87,8 @@ export const noteQuery = graphql`
           }
         }
         imageAlt
+        imageAnchor
+        imageLink
         title
       }
       id
