@@ -25,18 +25,31 @@ const IndexPage = () => {
       />
       <p>
         You can <a href="mailto:hello@laurencelord.co.uk">email me</a>, find me
-        on <a href="https://github.com/LL782">GitHub</a> and{" "}
-        <a href="https://www.linkedin.com/in/laurencelord">LinkedIn</a>. I have{" "}
-        <a href="https://www.twitter.com/LL782">Twitter</a> but hardly use it.
-        Checkout <a href="https://www.behance.net/laurencelord">Behance</a> for
-        old examples of&nbsp;my&nbsp;work
+        on <a href="https://github.com/LL782">GitHub</a>,{" "}
+        <a href="https://www.linkedin.com/in/laurencelord">LinkedIn</a>,{" "}
+        <a href="https://www.twitter.com/LL782">Twitter (which I hardly use)</a>{" "}
+        and{" "}
+        <a href="https://www.behance.net/laurencelord">
+          Behance (old work only)
+        </a>
+        .
       </p>
       <p>
-        This website is home to <Link to="/notes">My Notes</Link>
+        This website is home to <Link to="/notes">my notes</Link> and{" "}
+        <a href="/labs/a-frame-001/">experimentation</a>. It's online for my own
+        convenience rather than for show.{" "}
+        <strong>You are most welcome to explore!</strong> but it's worth
+        mentioning it is more of a "workshop" than a "gallery".
       </p>
-      <p>
-         <Link to="/notes">Browse on...</Link>
-      </p>
+      <h3>Site map:</h3>
+      <ul>
+        <li>
+          <Link to="/notes">My notes</Link>
+        </li>
+        <li>
+          <Link to="/labs/a-frame-001/">Some lab work</Link> (1 item)
+        </li>
+      </ul>
       <EditOnGitHubInvite path={`/src/pages/index.js`} />
     </Layout>
   );
