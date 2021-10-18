@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>
+      Laurence Lord Labs - Experiment: A Frame 002 - Codurance Brand
+    </title>
+  </head>
+  <body style="background-color: #000">
+    <a-scene vr-mode-ui="enabled: false">
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#ef7726"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#ffd000"></a-sphere>
+      <a-cylinder
+        position="1 0.75 -3"
+        radius="0.5"
+        height="1.5"
+        color="#d60d47"
+      ></a-cylinder>
+      <a-entity
+        position="0 0 0"
+        geometry="primitive: cylinder; height: 0; segmentsRadial: 6"
+        material="color: #583C87"
+      ></a-entity>
+      <a-sky color="#1d233c"></a-sky>
+
+      <a-entity
+        camera="active: true;"
+        look-controls="reverseMouseDrag: true; enabled: true"
+        wasd-controls
+        position="0 2 0"
+      ></a-entity>
+    </a-scene>
+
+    <script></script>
+  </body>
+</html>
