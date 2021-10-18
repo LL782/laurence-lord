@@ -44,10 +44,10 @@ const IndexPage = () => {
       <h3>Site map:</h3>
       <ul>
         <li>
-          <Link to="/notes">My notes</Link>
+          <Link to="/notes/">My notes</Link>
         </li>
         <li>
-          <Link to="/labs/a-frame-001/">Some lab work</Link> (1 item)
+          <Link to="/labs/">Lab experiments</Link> (1 item)
         </li>
       </ul>
       <EditOnGitHubInvite path={`/src/pages/index.js`} />
