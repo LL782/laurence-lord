@@ -1,0 +1,45 @@
+---
+date: 2021-11-21
+description: Taking notes to remember my place with the maps I'm creating
+image: ./mapping-log-1.jpg
+imageAlt: Photo of wooden desktop with hand-drawn, paper map and edge of laptop
+imageAnchor: "https://github.com/LL782/mundoko-maps/"
+title: "Mapping Log 1 - taking notes so I don't loose my sense of direction"
+---
+
+The repo is at [github.com/LL782/mundoko-maps/](https://github.com/LL782/mundoko-maps/) but that's not where I was at when I left off.
+
+Funny, I'm structuring these notes with, Done, Doing, To Do. Why not just create issues and a project in the repo? I guess it's because I also have more general notes. Let's review this later though, will I/did I add any notes that couldn't have been attached directly to specific issues?
+
+## Done
+
+- [x] Created [a Contentful space](https://app.contentful.com/spaces/zy8ufabt1tm0/)
+- [x] Drated [the model for a Map Tile content type](https://app.contentful.com/spaces/zy8ufabt1tm0/content_types/mapTile/fields)
+- [x] Decided to use coordinates of the centre of each tile along with scale and a fixed tile size to pin point each tile. Previously I was using a pair of coordinates to describe the top-left and bottom-right corners of each tile.
+
+  - e.g. before `5140000,5150000x5150000,5160000` and after `5145000,5155000`
+  - I now have tile titles like, `e-5145--s-5155--city--topo` or `e-{east}--s-{south}--{scale}--{type}`
+
+- [x] Learned that `assset` content has a `file` field that can be changed, leaving the asset ID, title and description in place
+  - So given a tile's image is redrafted, when contentful has to be updates, then the only place to change is this `file` field
+- [x] Published [a single city scale tile](https://app.contentful.com/spaces/zy8ufabt1tm0/entries/6ciH7fjDaJE1CASvSIuUcy) and [the first few images of town scale tiles](https://app.contentful.com/spaces/zy8ufabt1tm0/assets) that fit within the city tile
+
+## Doing
+
+- [ ] Cropping the first 25 town scale tile images
+- [ ] Publishing tiles in Contentful that corrispond to each of these
+- [ ] Planning to replace this manual effort with scripts
+
+## To Do
+
+- [ ] Build a UI that links from the city scale tile down to the 25 town scale tiles
+- [ ] Write a script that can crop a city scale tile into 25 town scale tiles automagically
+  - There's a library called [Jimp](https://www.npmjs.com/package/jimp) that does cropping programmatically
+- [ ] Write another script and put it in a system that uploads the tiles to Contentful and publishes them
+
+> will I/did I add any notes that couldn't have been attached directly to specific issues?
+
+Perhaps not but I realise that's not the reason Why I'm not just creating a project in the repo to "log" all of this.
+
+1. When I started this "notes" section of my website it was to bring things together to one place.
+1. It was much faster to write the above in markdown in a single document than it would have been to do the same in multiple issues of a project (advantages of working alone)
