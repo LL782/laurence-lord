@@ -48,8 +48,8 @@ const NotesIndexPage = () => {
 
       <h2>Things to know about these experiments</h2>
       <ul>
-        <li>They are online to make testing/checking easy</li>
-        <li>It'll be great once there are a lot of them</li>
+        <li>Online they are easy to test</li>
+        <li>One day there will be many of them</li>
       </ul>
 
       <p></p>
