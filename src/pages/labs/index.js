@@ -53,7 +53,7 @@ const NotesIndexPage = () => {
       </ul>
 
       <p></p>
-      <EditOnGitHubInvite path={`/src/pages/notes/index.js`} />
+      <EditOnGitHubInvite path={`/src/pages/labs/index.js`} />
     </Layout>
   );
 };
