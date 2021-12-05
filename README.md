@@ -37,7 +37,7 @@
 
 ## Contributing
 
-Feel free to browse the files, raise issues or suggest changes however you like 👍
+Feel free to browse the files, raise issues or suggest changes in any way you like 👍
 
 ## Maintenance notes (in case I forget)
 
