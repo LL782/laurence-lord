@@ -18,7 +18,7 @@
 
     I'm using [`Gatsby`](https://www.gatsbyjs.com/) and MDX (JSX enriched markdown) to make editing quick and easy
 
-    I can edit content and redeploy it from the GitHub app on my phone (which is nice)
+    I can edit content and redeploy it from the browser on my phone (which is nice)
 
 3.  **Open source. _Sure, why not?_ 🤗**
 
