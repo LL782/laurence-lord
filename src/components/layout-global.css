@@ -29,6 +29,10 @@ body {
   }
 }
 
+main {
+  overflow-x: scroll;
+}
+
 a:link,
 a:visited {
   border-bottom: 1px solid var(--theme-ui-colors-detail);
