@@ -1,0 +1,33 @@
+---
+date: 2022-02-11
+description: "When destructing a Javascript object, the default value can be a function call and the function call is only called if the default value is used"
+image: ./default-value-functions.png
+imageAlt: Image of the code example pasted into a Javascript console
+title: "Today I learnt more about how default values in Javascript, Typescript or Node can work"
+---
+
+This learning assumes good knowledge of [**Destructuring assignment in Javascript**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), Typescript or Node. See these MDN docs linked to here for a foundation in this, particularly [Object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) and default values.
+
+## Today I learnt
+
+1. A default value can be a function call, e.g. `const { foo = f() } = someObjectWhereFooIsOptional`
+1. The function is only called if the default value is used. i.e. if the target value is undefined
+
+Here's an example you can copy-paste into your console:
+
+```javascript
+let defaultsGenerated = 0;
+
+const d = (id) => {
+  defaultsGenerated++;
+  return `DEFAULT_${id}`;
+};
+
+const { foo = d("A"), bar = d("B") } = { foo: "hello", bar: null };
+
+console.log(foo); // 'hello'
+console.log(bar); // 'DEFAULT_B'
+console.log(defaultsGenerated); // 1
+```
+
+_Credit to [Daniel Bird](https://github.com/Dan-Bird) who just did this naturally while we were pairing, which made me_ <Emoji label="thinking face">🤔</Emoji>
