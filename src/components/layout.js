@@ -17,7 +17,7 @@ const mainStyles = {
   maxWidth: "60rem",
 };
 
-export const Layout = ({ children, isHome }) => (
+export const Layout = ({ children, isHome, simpleFooter }) => (
   <MDXProvider components={mdxShortcodes}>
     <div sx={bodyStyles}>
       {!isHome && (
@@ -29,7 +29,7 @@ export const Layout = ({ children, isHome }) => (
       )}
 
       <main sx={mainStyles}>{children}</main>
-      <Footer />
+      <Footer simple={simpleFooter} />
     </div>
   </MDXProvider>
 );

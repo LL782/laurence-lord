@@ -5,7 +5,7 @@ import { Seo } from "../components/seo";
 
 const NotFoundPage = () => {
   return (
-    <Layout>
+    <Layout simpleFooter>
       <Seo title="404 page" />
       <h1>The big empty. This page does not exist</h1>
       <p>

@@ -1,9 +1,9 @@
 /** @jsx jsx */
+import React from "react";
 import { jsx } from "theme-ui";
 
-export const Footer = () => (
-  <footer>
-    <hr />
+const FooterComplications = () => (
+  <>
     <p>
       Unless otherwise stated I am the creator of all the text, images and code.
     </p>
@@ -12,5 +12,17 @@ export const Footer = () => (
       or commercialise any&nbsp;of&nbsp;it
     </p>
     <p>&copy; {new Date().getFullYear()} Laurence Lord</p>
-  </footer>
+  </>
 );
+
+const NoComplications = () => null;
+
+export const Footer = ({ simple }) => {
+  const Complications = simple ? NoComplications : FooterComplications;
+  return (
+    <footer>
+      <hr />
+      <Complications />
+    </footer>
+  );
+};
