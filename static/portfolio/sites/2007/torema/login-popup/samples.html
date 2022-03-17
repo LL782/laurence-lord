@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+
+  
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"><title>Prototype Window Class : Samples</title><!--  Prototype Window Class Part -->
+    
+    
+    
+    <script type="text/javascript" src="samples_arquivos/prototype.js"> </script> 
+  	<script type="text/javascript" src="samples_arquivos/effects.js"> </script>
+  	<script type="text/javascript" src="samples_arquivos/window.js"> </script>
+  	<script type="text/javascript" src="samples_arquivos/debug.js"> </script>
+  	
+  	<link href="samples_arquivos/default.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/spread.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/alert.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/alert_lite.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/alphacube.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/debug.css" rel="stylesheet" type="text/css"><!--  Doc Part-->	 
+  	
+    
+  	<script type="text/javascript" src="samples_arquivos/application.js"> </script>  	
+  	<link href="samples_arquivos/login.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/style.css" rel="stylesheet" type="text/css">	 
+  	<style>
+      #myDialogId .myButtonClass {
+      padding:3px;
+      font-size:20px;
+      width:100px;
+      }
+      #myDialogId .ok_button {
+      color:#2F2;
+      }
+      #myDialogId .cancel_button {
+      color:#F88;
+      }
+  </style>
+  <script>
+    var contentWin;
+  </script><link media="screen" href="samples_arquivos/default.htm" rel="stylesheet" type="text/css"></head><body onload="">
+    <script>Application.insertNavigation('samples')</script>	  <h1><a href="http://prototype-window.xilinus.com/"><img src="samples_arquivos/logo.gif" border="0"></a></h1>    <div class="navigation">      <ul>        <li><a id="menu_introduction" href="http://prototype-window.xilinus.com/index.html">Introduction</a></li>        <li><a id="menu_documentation" href="http://prototype-window.xilinus.com/documentation.html">Documentation</a></li>        <li><a class="selected" id="menu_samples" href="http://prototype-window.xilinus.com/samples.html">Samples</a></li>        <li><a id="menu_themes" href="http://prototype-window.xilinus.com/themes.html">Themes</a></li>        <li><a id="menu_debug" href="http://prototype-window.xilinus.com/debug.html">Debug</a></li>        <li><a id="menu_download" href="http://prototype-window.xilinus.com/download.html">Download</a></li>        <li><a id="menu_about" href="http://prototype-window.xilinus.com/about.html">About</a></li>      </ul>    </div>
+    <div class="content">
+      <div id="samples">
+Here is a list of sample codes to show different ways to create windows
+and dialogs. You can view source of each example, even edit it and test
+your modification immediatly in your browser. Just click again on the
+link to open a new window/dialog with the modified code. Each window
+uses a javascript function to get a new id and DO NOT call
+setDestroyOnClose().<br>
+You can open <a href="#" onclick="showDebug();"> the debug window </a> if you want to see some debug outputs.
+        
+        <script>Application.addTitle('Open a simple window', 'open_window1')</script><h2>1. Open a simple window (<span class="title" id="open_window1_click_button" href="#" onmouseover="$('open_window1_click_button').addClassName('selected')" onmouseout="$('open_window1_click_button').removeClassName('selected')" onclick="Application.evalCode('open_window1', true)">click here</span>)</h2>
+        <p class="description">
+            This sample opens a simple window with some parameters like specific hide and show effects.
+        </p>
+        <script>Application.addShowButton('open_window1')</script><span class="title2" id="open_window1_show_button" onmouseover="$('open_window1_show_button').addClassName('selected')" onmouseout="$('open_window1_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_window1')">Hide source</span>
+        
+        <div class="listing" style="" id="open_window1_codediv">
+          <xmp id="open_window1" class="listing">
+var win = new Window(Application.getNewId(), {className: "dialog",
+width:350, height:400, zIndex: 100, resizable: true, title: "Sample
+window", showEffect:Effect.BlindDown, hideEffect: Effect.SwitchOff,
+draggable:true})
+win.getContent().innerHTML= "&lt;div style='padding:10px'&gt; Lorem
+ipsum dolor sit amet, consectetur adipiscing elit, set eiusmod tempor
+incidunt et labore et dolore magna aliquam. Ut enim ad minim veniam,
+quis nostrud exerc. Irure dolor in reprehend incididunt ut labore et
+dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+irure dolor in reprehenderit in voluptate velit esse molestaie cillum.
+Tia non ob ea soluad incom dereud facilis est er expedit distinct. Nam
+liber te conscient to factor tum poen legum odioque civiuda et tam. \
+At vver eos et accusam dignissum qui blandit est praesent. Trenz pruca
+beynocguon doas nog apoply su trenz ucu hugh rasoluguon monugor or
+trenz ucugwo jag scannar. Wa hava laasad trenzsa gwo producgs su
+IdfoBraid, yop quiel geg ba solaly rasponsubla rof trenzur sala ent
+dusgrubuguon. Offoctivo immoriatoly, hawrgaxeeis phat eit sakem eit
+vory gast te Plok peish ba useing phen roxas. Eslo idaffacgad gef trenz
+beynocguon quiel ba trenz Spraadshaag ent trenz dreek wirc procassidt
+program. Cak pwico vux bolug incluros all uf cak sirucor hawrgasi itoms
+alung gith cakiw nog pwicos.\
+Lor sum amet, commy nulputat. Duipit lum ipisl eros dolortionsed tin
+hent aliquis illam volor in ea feum in ut adipsustrud elent ulluptat.
+Duisl ullan ex et am vulputem augiam doloreet amet enibh eui te dipit
+acillutat acilis amet, suscil er iuscilla con utat, quisis eu feugait
+ad dolore commy nullam iuscilisl iureril ilisl del ut pratuer iliquis
+acipissit accum quis nulluptat. Dui bla faccumsan velis auguero con
+henis duismolor sumsandrem quat vulluptat alit er iniamcore exeriure
+vero core te dit ut nulla feummolore commod dipis augiamcommod tem ese
+dolestrud do odo odiamco eetummy nis aliquamcommy nonse eu feugue del
+eugiamconsed ming estrud magnis exero eumsandio enisim del dio od
+tat.sumsan et pratum velit ing etue te consequis alis nullan et, quis
+am iusci bla feummy.&lt;/div&gt;"
+win.setStatusBar("Status bar info");
+win.showCenter(); </xmp>        
+          <script>Application.addEditButton('open_window1')</script><p class="buttons"><span class="button" onmouseover="$('open_window1_edit_button').addClassName('selected')" onmouseout="$('open_window1_edit_button').removeClassName('selected')" id="open_window1_edit_button" onclick="Application.editCode('open_window1')">Edit Source</span> </p>
+        </div>
+        
+        <script>Application.addTitle('Open a window with an URL inside', 'open_window2')</script><h2>2. Open a window with an URL inside (<span class="title" id="open_window2_click_button" href="#" onmouseover="$('open_window2_click_button').addClassName('selected')" onmouseout="$('open_window2_click_button').removeClassName('selected')" onclick="Application.evalCode('open_window2', true)">click here</span>)</h2>
+        <p class="description">
+            This sample opens a window with RubyOnRails.com site in it. It uses another theme.
+        </p>
+        <script>Application.addShowButton('open_window2')</script><span class="title2" id="open_window2_show_button" onmouseover="$('open_window2_show_button').addClassName('selected')" onmouseout="$('open_window2_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_window2')">View source</span>
+        
+        <div class="listing" style="display: none;" id="open_window2_codediv">
+          <xmp id="open_window2" class="listing">
+var win = new Window(Application.getNewId(), {className: "spread",
+title: "Ruby on Rails", top:70, left:100, width:300, height:200,
+resizable: true, url: "http://www.rubyonrails.org/", showEffectOptions:
+{duration:3}})
+win.show(); </xmp>        
+          <script>Application.addEditButton('open_window2')</script><p class="buttons"><span class="button" onmouseover="$('open_window2_edit_button').addClassName('selected')" onmouseout="$('open_window2_edit_button').removeClassName('selected')" id="open_window2_edit_button" onclick="Application.editCode('open_window2')">Edit Source</span> </p>
+        </div>
+              	
+        <script>Application.addTitle('Open a window with an existing content inside', 'open_window3')</script><h2>3. Open a window with an existing content inside (<span class="title" id="open_window3_click_button" href="#" onmouseover="$('open_window3_click_button').addClassName('selected')" onmouseout="$('open_window3_click_button').removeClassName('selected')" onclick="Application.evalCode('open_window3', true)">click here</span>)</h2>
+        <p class="description">
+          </p><div id="container">
+        	   <div id="test_content" style="background: rgb(221, 255, 170) none repeat scroll 0%; float: right; width: 100px; height: 150px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: rgb(0, 0, 0); font-size: 12px;">
+        		   Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        	  </div>
+This sample opens a window with green div on the right as content. It
+will keep the same size and position. Close the window to restore the
+div in the page.<br>
+            It also uses a window observer to restore the div after closing the window.
+        
+      	</div>
+        
+        <script>Application.addShowButton('open_window3')</script><span class="title2" id="open_window3_show_button" onmouseover="$('open_window3_show_button').addClassName('selected')" onmouseout="$('open_window3_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_window3')">View source</span>
+
+        <div class="listing" style="display: none;" id="open_window3_codediv">
+          <xmp id="open_window3" class="listing">
+if (contentWin != null) {
+	Dialog.alert("Close the window 'Test' before opening it again!", {windowParameters:{ width:200, height:130}}); 
+}
+else {
+  contentWin = new Window('content_win', {resizable: false, hideEffect:Element.hide, showEffect:Element.show, minWidth: 10})
+  contentWin.setContent('test_content', true, true)
+  contentWin.toFront();
+  contentWin.setDestroyOnClose();
+  contentWin.show();	
+
+  // Set up a windows observer, check ou debug window to get messages
+  myObserver = {
+    onDestroy: function(eventName, win) {
+      if (win == contentWin) {
+        $('container').appendChild($('test_content'));
+        contentWin = null;
+        Windows.removeObserver(this);
+      }
+      debug(eventName + " on " + win.getId())
+    }
+  }
+  Windows.addObserver(myObserver);
+}
+          </xmp>        
+          <script>Application.addEditButton('open_window3')</script><p class="buttons"><span class="button" onmouseover="$('open_window3_edit_button').addClassName('selected')" onmouseout="$('open_window3_edit_button').removeClassName('selected')" id="open_window3_edit_button" onclick="Application.editCode('open_window3')">Edit Source</span> </p>
+        </div>
+
+        
+        <script>Application.addTitle('Open an alert dialog', 'open_alert')</script><h2>4. Open an alert dialog (<span class="title" id="open_alert_click_button" href="#" onmouseover="$('open_alert_click_button').addClassName('selected')" onmouseout="$('open_alert_click_button').removeClassName('selected')" onclick="Application.evalCode('open_alert', true)">click here</span>)</h2>
+        <p class="description">
+This sample opens a alert dialog with the default alert theme
+(alert.css). width/height/okLabel are specified and also ok callback
+function. </p>
+        <script>Application.addShowButton('open_alert')</script><span class="title2" id="open_alert_show_button" onmouseover="$('open_alert_show_button').addClassName('selected')" onmouseout="$('open_alert_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_alert')">View source</span>
+                
+        <div class="listing" style="display: none;" id="open_alert_codediv">
+          <xmp id="open_alert" class="listing">
+Dialog.alert("Test of alert panel, check out debug window after closing it", 
+             {windowParameters: {width:300, height:100}, okLabel: "close", 
+              ok:function(win) {debug("validate alert panel"); return true;}});
+          </xmp>        
+          <script>Application.addEditButton('open_alert')</script><p class="buttons"><span class="button" onmouseover="$('open_alert_edit_button').addClassName('selected')" onmouseout="$('open_alert_edit_button').removeClassName('selected')" id="open_alert_edit_button" onclick="Application.editCode('open_alert')">Edit Source</span> </p>
+        </div>
+        
+        <script>Application.addTitle('Open a confirm dialog', 'open_confirm')</script><h2>5. Open a confirm dialog (<span class="title" id="open_confirm_click_button" href="#" onmouseover="$('open_confirm_click_button').addClassName('selected')" onmouseout="$('open_confirm_click_button').removeClassName('selected')" onclick="Application.evalCode('open_confirm', true)">click here</span>)</h2>
+        <p class="description">
+This sample opens a confirm dialog with the default alert theme
+(alert.css). width/okLabel are specified and also ok/cancel callback
+function. Height is not set so the dialog will fit content's height. It
+also change ok/cancel button class (CSS above). </p>
+        <xmp id="button_css">&lt;style&gt;
+#myDialogId .myButtonClass {
+  padding:3px;
+  font-size:20px;
+  width:100px;
+}
+#myDialogId .ok_button {
+  color:#2F2;
+}
+#myDialogId .cancel_button {
+  color:#F88;
+}
+&lt;/style&gt;</xmp>        
+  <script>Application.addShowButton('open_confirm')</script><span class="title2" id="open_confirm_show_button" onmouseover="$('open_confirm_show_button').addClassName('selected')" onmouseout="$('open_confirm_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_confirm')">View source</span>
+        <div class="listing" style="display: none;" id="open_confirm_codediv">        
+          <xmp id="open_confirm">
+Dialog.confirm("Test of confirm panel, check out debug window after closing it.", 
+              {windowParameters: {width:300}, okLabel: "close", 
+               buttonClass: "myButtonClass",
+               id: "myDialogId",
+               cancel:function(win) {debug("cancel confirm panel")},
+               ok:function(win) {debug("validate confirm panel"); return true;}
+              });
+            </xmp>
+            <script>Application.addEditButton('open_confirm')</script><p class="buttons"><span class="button" onmouseover="$('open_confirm_edit_button').addClassName('selected')" onmouseout="$('open_confirm_edit_button').removeClassName('selected')" id="open_confirm_edit_button" onclick="Application.editCode('open_confirm')">Edit Source</span> </p>
+        </div>
+ 
+        <script>Application.addTitle('Open a info dialog', 'open_info')</script><h2>6. Open a info dialog (<span class="title" id="open_info_click_button" href="#" onmouseover="$('open_info_click_button').addClassName('selected')" onmouseout="$('open_info_click_button').removeClassName('selected')" onclick="Application.evalCode('open_info', true)">click here</span>)</h2>
+        <p class="description">
+          This sample opens a info dialog with a progress image. It will be display 3 seconds with a countdown.
+        </p>
+        <script>Application.addShowButton('open_info')</script><span class="title2" id="open_info_show_button" onmouseover="$('open_info_show_button').addClassName('selected')" onmouseout="$('open_info_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_info')">View source</span>
+
+        <div class="listing" style="display: none;" id="open_info_codediv">        
+          <xmp id="open_info">
+var timeout;
+function openInfoDialog() {
+  Dialog.info("Test of info panel, it will close &lt;br&gt;in 3s ...",
+               {windowParameters: {width:250, height:100}, showProgress: true});
+  timeout=3;
+  setTimeout(infoTimeout, 1000)
+}
+
+function infoTimeout() {
+  timeout--;
+  if (timeout &gt;0) {
+    Dialog.setInfoMessage("Test of info panel, it will close &lt;br&gt;in " + timeout + "s ...")
+    setTimeout(infoTimeout, 1000)
+ }
+ else
+  Dialog.closeInfo()
+}
+openInfoDialog();
+          </xmp>
+          <script>Application.addEditButton('open_info')</script><p class="buttons"><span class="button" onmouseover="$('open_info_edit_button').addClassName('selected')" onmouseout="$('open_info_edit_button').removeClassName('selected')" id="open_info_edit_button" onclick="Application.editCode('open_info')">Edit Source</span> </p>
+        </div>
+        
+        
+        <script>Application.addTitle('Open a login window', 'open_login')</script><h2>7. Open a login window (<span class="title" id="open_login_click_button" href="#" onmouseover="$('open_login_click_button').addClassName('selected')" onmouseout="$('open_login_click_button').removeClassName('selected')" onclick="Application.evalCode('open_login', true)">click here</span>)</h2>
+        <p class="description">
+This advanced sample opens a login window with a nice effect if login
+fails. The window update also its height to display an error message to
+avoid scrollbars. The login window design is done in the HTML file with
+display:none.<br>
+          Here is the login HTML code (<a href="http://prototype-window.xilinus.com/stylesheets/login.css">see also login CSS file</a>):
+          </p>
+          
+<xmp>&lt;div id="login" style="display:none"&gt; &lt;p&gt;&lt;span
+id='login_error_msg' class="login_error"
+style="display:none"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt; &lt;div
+style="clear:both"&gt;&lt;/div&gt; &lt;p&gt;&lt;span
+class="login_label"&gt;login&lt;/span&gt; &lt;span
+class="login_input"&gt;&lt;input
+type="text"/&gt;&lt;/span&gt;&lt;/p&gt; &lt;div
+style="clear:both"&gt;&lt;/div&gt; &lt;p&gt;&lt;span
+class="login_label"&gt;password&lt;/span&gt; &lt;span
+class="login_input"&gt;&lt;input
+type="password"/&gt;&lt;/span&gt;&lt;/p&gt; &lt;div
+style="clear:both"&gt;&lt;/div&gt;
+&lt;/div&gt;</xmp>
+        
+        <div id="login" style="display: none;">
+          <p><span id="login_error_msg" class="login_error" style="display: none;">&nbsp;</span></p>
+          <div style="clear: both;"></div>
+          <p><span class="login_label">login</span> <span class="login_input"><input type="text"></span></p>
+          <div style="clear: both;"></div>
+          <p><span class="login_label">password</span> <span class="login_input"><input type="password"></span></p>
+          <div style="clear: both;"></div>
+        </div>
+        <script>Application.addShowButton('open_login')</script><span class="title2" id="open_login_show_button" onmouseover="$('open_login_show_button').addClassName('selected')" onmouseout="$('open_login_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_login')">View source</span>
+
+        <div class="listing" style="display: none;" id="open_login_codediv">        
+          <xmp id="open_login">
+Dialog.confirm($('login').innerHTML, {windowParameters: {className:"alphacube", width:400}, 
+                                      okLabel: "login", cancelLabel: "cancel",
+                                      ok:function(win){
+                                        $('login_error_msg').innerHTML='Login or password inccorect';
+                                        $('login_error_msg').show(); 
+                                        Windows.focusedWindow.updateHeight();
+                                        new Effect.Shake(Windows.focusedWindow.getId()); return false;}});
+          </xmp>
+          <script>Application.addEditButton('open_login')</script><p class="buttons"><span class="button" onmouseover="$('open_login_edit_button').addClassName('selected')" onmouseout="$('open_login_edit_button').removeClassName('selected')" id="open_login_edit_button" onclick="Application.editCode('open_login')">Edit Source</span> </p>
+        </div>
+        
+        <script>Application.addTitle('Ajax Dialog', 'ajax_dialog')</script><h2>8. Ajax Dialog (<span class="title" id="ajax_dialog_click_button" href="#" onmouseover="$('ajax_dialog_click_button').addClassName('selected')" onmouseout="$('ajax_dialog_click_button').removeClassName('selected')" onclick="Application.evalCode('ajax_dialog', true)">click here</span>)</h2>
+        <p class="description">
+          Instead of writing HTML in the same page, fill the dialog with an Ajax request. (View the requested file <a href="http://prototype-window.xilinus.com/info_panel.html">info_panel.html</a>, do view source to see HTML content)
+        </p>
+        <script>Application.addShowButton('open_ajax_dialog')</script><span class="title2" id="open_ajax_dialog_show_button" onmouseover="$('open_ajax_dialog_show_button').addClassName('selected')" onmouseout="$('open_ajax_dialog_show_button').removeClassName('selected')" onclick="Application.showCode(this, 'open_ajax_dialog')">View source</span>
+
+        <div class="listing" style="display: none;" id="open_ajax_dialog_codediv">        
+          <xmp id="ajax_dialog">Dialog.alert({url: "info_panel.html", options: {method: 'get'}}, 
+            {windowParameters: {className: "alphacube", width:540}, okLabel: "Close"});</xmp>
+          <script>Application.addEditButton('open_ajax_dialog')</script><p class="buttons"><span class="button" onmouseover="$('open_ajax_dialog_edit_button').addClassName('selected')" onmouseout="$('open_ajax_dialog_edit_button').removeClassName('selected')" id="open_ajax_dialog_edit_button" onclick="Application.editCode('open_ajax_dialog')">Edit Source</span> </p>
+        </div>
+        
+    </div>
+   </div>   
+  </body></html>

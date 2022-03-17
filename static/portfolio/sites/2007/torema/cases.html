@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Torema - Cases de Sucesso</title>
+<link type="text/css" rel="stylesheet" href="css/cases.css" />
+
+<script type="text/javascript">
+
+/***********************************************
+* AnyLink Drop Down Menu- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[0]='<a href="quem.html">Quem Somos</a>'
+menu1[1]='<a href="parcerias.html">Nossas Parcerias</a>'
+menu1[2]='<a href="noticias.html">Notic&iacute;as</a>'
+
+//Contents for menu 2
+var menu2=new Array()
+menu2[0]='<a href="gestao.html">Gest&atilde;o de Ativos</a>'
+menu2[1]='<a href="treinamento.html">Treinamento<br /> e Eventos</a>'
+
+//Contents for menu 3
+var menu3=new Array()
+menu3[0]='<a href="clientes.html">Clientes</a>'
+menu3[1]='<a href="cases.html">Cases</a>'
+
+//Contents for menu 4
+var menu4=new Array()
+menu4[0]='<a href="contato.html">Fale Conosco</a>'
+menu4[1]='<a href="curriculo.html">Curr&iacute;culo</a>'
+		
+var menuwidth='100px' //default menu width
+var menubgcolor='black'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+</script>
+<script type="text/javascript" src="js/dropDown.js"></script>
+
+<style type="text/css">
+.hide {
+    display:none;
+ }
+</style>
+
+<script type="text/javascript">
+
+ var obj;
+ var state;
+
+window.onload=function() {
+   obj=document.getElementById('form2');
+   obj.onsubmit=function() {
+   return setCookie();
+  }
+   readCookie();
+ }
+
+function setCookie() {
+  exp=new Date();
+  plusMonth=exp.getTime()+(31*24*60*60*1000);
+  exp.setTime(plusMonth);
+  document.cookie='Display=hide;expires='+exp.toGMTString();
+  obj.style.display='none';
+ }
+
+function readCookie() {
+if(document.cookie) {
+   state=document.cookie.split('Display=')[1]
+   obj.className=state;
+  }
+ }
+
+</script>
+</head>
+
+<body>
+<a name="top" class="anchor">&nbsp;</a>
+<div id="container0"><!-- container holding everything -->
+	<div id="container1"><!-- container holding everything but the pageFootnote -->
+			<div id="cadastroContainer">
+			
+				<!-- container holding all the details of the cadastro pop-up -->
+				<div id="contactForm">
+					<form id="form2" name="form1" action="#" method="post">
+						<h4>Formular&iacute;o de Contato</h4>
+						<label for="name">Nome:</label><input type="text" id="name"/><br />
+						<label for="company">Empresa:</label><input type="text" id="company"/><br />
+						<label for="position">Cargo:</label><input type="text" id="position"/><br />
+						<label for="telephone">Telefone:</label><input type="text" id="telephone"/><br />
+						<label for="email">E-mail:</label><input type="text" id="email"/><br />
+						<label for="city">Cidade:</label><input type="text" id="city"/><br />
+						<label for="country">Pais:</label><input type="text" id="country" onChange="javascript:showState()" error="Informe seu país"/><br />						
+						<label for="state">Estado:</label><select id="state" tabindex="12" error="Informe seu estado" value="Escolher seu estado">
+							<option value="none" selected="selected" disabled="disabled">Escolher seu estado</option>
+							<option value="AC">Acre</option>
+							<option value="AL">Alagoas</option>
+						
+							<option value="AP">Amapá</option>
+							<option value="AM">Amazonas</option>
+							<option value="BA">Bahia</option>
+							<option value="CE">Ceará</option>
+							<option value="DF">Distrito Federal</option>
+							<option value="ES">Espírito Santo</option>
+						
+							<option value="EX">Exterior</option>
+							<option value="GO">Goiás</option>
+							<option value="MA">Maranhão</option>
+							<option value="MT">Mato Grosso</option>
+							<option value="MS">Mato Grosso do Sul</option>
+							<option value="MG">Minas Gerais</option>
+						
+							<option value="PA">Pará</option>
+							<option value="PB">Paraíba</option>
+							<option value="PR">Paraná</option>
+							<option value="PE">Pernambuco</option>
+							<option value="PI">Piauí</option>
+							<option value="RJ">Rio de Janeiro</option>
+						
+							<option value="RN">Rio Grande do Norte</option>
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="RO">Rondônia</option>
+							<option value="RR">Roraima</option>
+							<option value="SC">Santa Catarina</option>
+							<option value="SP">São Paulo</option>
+						
+							<option value="SE">Sergipe</option>
+							<option value="TO">Tocantins</option>
+							<option value="EX">Exterior</option></select><br />
+						<label for="intrest">Intressa:</label><input type="text" id="interest"/><br />
+						<h4>Dados Opcionais:</h4>
+						<label for="message">Mensagem:</label><textarea id="message"></textarea><br />
+						<label for="site">Site:</label><input type="text" id="site"/>
+						
+						<div class="label" for="contactType">Deseja contato por:</div>
+						<label for=""telephone">Telefone: </label>
+						<input type="radio" name="contactType" id="telephone" />
+						<label for=""email">Telefone: </label>
+						<input type="radio" name="contactType" id="email" /><br />
+						<label for="timeTable">Horario de contato:</label><input type="text" id="timeTable"/><br />
+						<input type="reset" value="Limpar" />
+						<input type="submit" value="Enviar" />
+					</form>		
+				</div> 
+			</div><!-- end of cadastro pop-up -->
+
+		<div id="pageHeader"  style="display:none;"><!-- holding logo, banner and top menu -->	  	
+			<span id="logoMain"><img src="img/logo.gif" width="250" height="100" /></span>
+			<div id="topMenu">
+				<ul><li class="selected"><a href="home.html" title="Home" accesskey="h">Home</a></li
+					><li><a href="quem.html" onMouseOver="dropdownmenu(this, event, menu1, '130px')" onMouseOut="delayhidemenu()">A Empresa</a></li
+					><li><a href="gestao.html" onMouseOver="dropdownmenu(this, event, menu2, '120px')" onMouseOut="delayhidemenu()">Servi&ccedil;os</a></li
+					><li><a href="clientes.html" onMouseOver="dropdownmenu(this, event, menu3, '120px')" onMouseOut="delayhidemenu()">Portf&oacute;lio</a></li
+					><li><a href="contato.html" onMouseOver="dropdownmenu(this, event, menu4, '110px')" onMouseOut="delayhidemenu()">Contato</a></li
+				></ul>
+			</div><!-- end of topMenu -->
+		</div><!-- end of pageHeader -->
+		<div id="mainPage"  style="display:none;">
+			<div id="leftCol">
+				<div id="imgHolder">
+					<img src="img/leftCol230.gif" width="200" height="240" />				</div>
+				<div id="sideMenu">
+					<h2>Portf&oacute;lio <span id="wordSubmenu">submenu:</span></h2>
+					<ul>
+						<li><a href="clientes.html" title="Nossos Clientes">Nossos Clientes</a></li>
+						<li><a href="cases.html" title="Cases de Sucesso">Cases de Sucesso</a>
+							<ol>
+								<li><a href="cases.html#case1" title="Case1">Case1</a></li>
+								<li><a href="cases.html#case2" title="Case2">Case2</a></li>
+								<li><a href="cases.html#case3" title="Case3">Case3</a></li>
+							</ol></li>
+					</ul>
+				</div><!-- end of side menu -->
+			</div><!-- end of left column -->
+			<div id="rightCol"><!-- this column holds the majority of the page specific detail -->
+				<h2>Cases de Sucesso</h2>
+				<p id="pageIntro">Page intro text. Nonon ono no nono no n ononno nono no non no n.
+				  O nonon no non onono nno nno no non n ono nononn ono nno noono.</p>
+				<ol id="casesSubmenu2">
+					<li><a href="#case1" title="Case1">Case1</a></li>
+					<li><a href="#case2" title="Case2">Case2</a></li>
+					<li><a href="#case3" title="Case3">Case3</a></li>
+				</ol>
+				<a name="case1">&nbsp;</a>
+				<div class="case">
+					<img src="img/logoSQL.gif" alt="Logo." width="80" height="80" />
+					<h4>Case 1</h4>
+					<p>Non ono no no no nonnnono nono no ono nonon nono nn ono no non ono nno non.
+					  Nono nno o nnonno nonnn nnon onno nn onnononn, n ono no no n.</p>
+					<p>Nono no no nnon ono no nonono nnononn no nnon onnonno.  No non onno nonono
+					  non on. No non on.</p>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+				<a name="case2">&nbsp;</a>
+				<div class="case">
+					<img src="img/logoSQL.gif" alt="Logo." width="80" height="80" />
+					<h4>Case 2</h4>
+					<p>Non ono no no no nonnnono nono no ono nonon nono nn ono no non ono nno non.
+					  Nono nno o nnonno nonnn nnon onno nn onnononn, n ono no no n.</p>
+					<p>Nono no no nnon ono no nonono nnononn no nnon onnonno.  No non onno nonono
+					  non on. No non on.</p>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+				<a name="case3">&nbsp;</a>
+				<div class="case">
+					<img src="img/logoSQL.gif" alt="Logo." width="80" height="80" />
+					<h4>Case 3</h4>
+					<p>Non ono no no no nonnnono nono no ono nonon nono nn ono no non ono nno non.
+					  Nono nno o nnonno nonnn nnon onno nn onnononn, n ono no no n.</p>
+					<p>Nono no no nnon ono no nonono nnononn no nnon onnonno.  No non onno nonono
+					  non on. No non on.</p>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+			</div><!-- end of right column -->
+		</div>
+		<!-- end of main page -->
+	</div><!-- end of container1 -->
+	<div id="pageFootnote">
+			<p> COPYRIGHT &copy; - TOREMA 2006 - Todo os direitos reservados. (All right reserved) </p>
+	</div>
+</div><!-- end of container0 -->
+</body>
+</html>

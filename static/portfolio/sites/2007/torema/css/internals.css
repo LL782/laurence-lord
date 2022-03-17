@@ -1,0 +1,214 @@
+/*  THIS FILE IS 'INTERNALS.CSS' AND DEFINES DETAILS FOR ALL PAGES OTHER THAN THE HOME PAGE  */
+
+/*  THE CODE BELOW BRINGS THE 'SITE.CSS' STYLING INTO PLAY AS WELL*/
+@import url(site.css);
+
+
+#mainPage {
+	position:relative;
+	margin: 5px 10px 20px 10px;
+}
+
+#leftCol {
+	float: left;
+	width: 240px;
+}
+
+#rightCol {
+	width: 485px;
+	margin:0 0 0 240px;
+	background:#000 url(../img/red-bk.gif) repeat top left;
+	border-bottom: 10px solid black;
+	padding-bottom: 5px;
+}
+
+
+/*  LEFT COLUMN DETAILS  */
+
+#leftCol #imgHolder {
+	margin: 15px;
+}
+
+#sideMenu {
+	margin: 40px 15px 15px 15px;
+	width: 200px;
+	text-transform: uppercase;
+	color: #999;
+}
+
+#sideMenu h2{
+	color: #666;
+	font-size:12px;
+	margin: 0 0 5px 0;
+	font-weight: normal;
+	letter-spacing:0.2em;
+	background: #000;
+	border-bottom: 1px dashed #300;
+}
+
+#sideMenu ul {
+	padding: 0;
+	list-style:square;
+	line-height: 1.2em;
+	margin: 0 20px;
+}
+
+
+#sideMenu a:link, #sideMenu a:visited {
+	color: #aaa;
+	font-size: 11px;
+	font-weight: normal;
+	letter-spacing: 0.1em;
+	border-right: solid #000 18px;
+	display: block;
+	height: 14px;
+	margin: 0;
+}
+
+#sideMenu a:hover, #sideMenu a:focus {
+	color: #ccc;
+	border-right: solid #f30 18px;
+	text-decoration: none;
+}
+
+#sideMenu li.selected a:link, #sideMenu li.selected a:visited, #sideMenu li.selected a:hover, #sideMenu li.selected a:focus {
+	color: #ccc;
+	border-right: solid #300 18px;
+	background: #300;
+	text-decoration: none;
+}
+
+
+
+/*  RIGHT COLUMN DETAILS  */
+
+#rightCol h2 {
+	background: black;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	font-size: 11px;
+	font-weight: normal;
+	border-bottom: 1px dashed #333; 
+	height: 14px;
+	padding: 2px 5px;
+	margin: 0;
+}
+
+#rightCol h3 {
+	padding: 10px 0 2px 0px;
+	border-bottom: 1px dashed #666;
+	font-size:12px;
+	font-weight:normal;
+	color:#f60;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#rightCol h4 {
+	padding: 2px 20px;
+	border: 1px solid #300;
+	margin-top: 14px;
+	margin-bottom: 0;
+	color: #ccc;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+#rightCol h5 {
+	padding: 2px 20px;
+	margin-top: 0;
+	margin-bottom: -10px;
+	color: #ccc;
+	font-size: 12px;
+	font-weight: normal;
+	border-left: 1px solid #300;
+}
+
+#rightCol .imgHolder {
+	text-align: center;
+}
+
+#rightCol .imgHolder img {
+	margin: 5px;
+}
+
+#rightCol p, #rightCol h3, #rightCol h4 {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#rightCol h5 {
+	margin-left: 20px;
+}
+
+#rightCol p, #rightCol h4, #rightCol h5, #rightCol form {
+	background: black;
+}
+
+
+#rightCol form {
+	border-right: 1px solid #100;
+	border-left: 1px solid #300;
+	border-bottom: 1px solid #111;
+}
+
+#rightCol p {
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid #111;
+	border-right: 1px solid #100;
+	border-left: 1px solid #300;
+	padding: 5px 35px 7px 20px;
+}
+
+#rightCol ul, #rightCol ol {
+	margin-top: 0px;
+	margin-right: 10px;
+	padding: 10px 35px 7px 20px;
+	background: black;
+	border-left: 1px solid #300;
+	margin-left: 10px;
+	border-bottom: 1px solid #111;
+}
+
+#rightCol ul li, #rightCol ol li {
+	margin-left: 25px;
+}
+
+p#pageIntro {
+	margin-top: 15px;
+	color: #ddd;
+	padding: 10px 40px;
+	margin-bottom: 10px;
+	border: #300 solid 1px;
+}
+
+.signOff {
+	text-align: right;
+	padding: 15px 25px;
+	border: 1px solid #300;
+	border-width: 1px 0;
+}
+
+div.top {
+	text-align: right;
+	margin: 6px 10px 3px 10px;
+}
+
+div.top a {
+	background: black;
+	border: 1px solid #300;
+	padding: 2px 5px 1px 5px;
+}
+
+div.top a:link, div.top a:visited {
+	color: #aaa;
+}
+
+div.top a:hover, div.top a:focus {
+	color: #f60;
+}
+
+
+

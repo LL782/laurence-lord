@@ -1,0 +1,219 @@
+/* CONTACT PAGE CSS */
+
+@import url(internals.css);
+
+
+/*  LEFT COLUMN IMAGE FOR CONTACT PAGE  */
+
+
+#leftCol #imgHolder {
+	background: #000 url(../img/sharp.jpg) no-repeat center center;
+	width: 200px;
+	height: 240px;
+}
+
+
+
+
+/*  OTHER CONTACTS PAGE STYLING  */
+
+#rightCol {
+}
+
+#rightCol form {
+	margin-top: 0;
+	margin-right: #300;
+}
+
+#rightCol #contactDetails p {
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid #111;
+	border-left: 1px solid #300;
+	padding: 5px 10px;
+}
+
+#contactHolder {
+	position: relative;
+}
+
+#contactDetails {
+	width: 240px;
+	float:left;
+}
+
+#contactForm {
+	margin-left: 240px;
+	margin-right: 10px;
+	text-align: right;
+}
+
+#contactForm h3 {
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+#contactForm h3, #contactForm input, #contactForm label {
+	text-align: left;
+}
+
+label  {
+	width: 43px;
+	font-size: 12px;
+	float: left;
+}
+
+label, .label {
+	margin-left: 10px;
+}
+
+input, textarea, select {
+	margin: 0 10px 1px 0;
+	width: 135px;
+	font-size: 11px;
+	color: #ddd;
+	background: #300;
+	border: solid 1px #333;
+}
+
+input {
+	height: 12px;
+}
+
+select {
+	width: 100px;
+}
+
+textarea {
+	height: 52px;
+	font:normal 11px Arial, Helvetica, sans-serif;
+	overflow-y: auto;
+}
+
+input#name, #firstLabel {
+	margin-top: 5px;
+}
+
+#doubleBit {
+	position: relative;
+}
+
+input#city {
+	width: 60px;
+}
+
+select#state {
+	width: 62px;
+}
+
+#pais {
+	visibility: hidden;
+}
+
+#interest {
+	margin-bottom: 12px;
+}
+
+#rightCol form h4 {
+	text-align: left;
+	margin: 5px 0;
+	padding: 4px 0 3px 10px;
+	border-top: 1px #200 solid;
+	border-bottom: 1px #333 dashed;
+	border-width: 1px 0;
+	color: #f60;
+}
+
+div#deseja {
+	padding-bottom: 1px;
+	margin-bottom: 5px;
+	margin-top: 6px;
+	border-bottom: 1px dashed #300;
+}
+
+#deseja .options {
+	text-align: left;
+	margin-bottom: 4px;
+}
+
+#deseja .options div.label {
+	text-align: left;
+	display: inline;
+	margin-right: 5px;
+}
+
+#deseja .options label {
+	padding-top 5px;
+	float: none;
+}
+
+#deseja .options input {
+	background: none;
+	border: none;
+	width: 19px;
+}
+
+#horario {
+	margin-bottom: 3px;
+}
+
+input#site {
+	width: 98px;
+}
+
+#seuSite {
+	border: 1px #300 dashed;
+	border-width: 1px 0 0 0;
+	padding: 3px 0 2px 0;
+	margin-top: 4px;
+}
+
+#seuSite label {
+	margin-top: 3px;
+	width: 60px;
+}
+
+#formButtons {
+	margin-top: 3px;
+	border: 1px solid #300;
+	border-width: 1px 0;
+	padding-top: 5px;
+	text-align: center;
+}
+
+#formButtons input {
+	text-align: center;
+	width: 65px;
+	height: 19px;
+	margin: 0 0 3px 10px;
+	background: black;
+	color: #ccc;
+	border: 1px solid #666;
+	cursor: pointer;
+}
+
+#curriculoForm {
+	text-align: right;
+}
+
+#rightCol form#curriculoForm {
+	border: 0;
+}
+
+#curriculoForm input {	
+	text-align: left;
+	margin: 15px 0 -10px 0;
+	height: 18px;
+	width: 280px;
+	cursor: pointer;
+}
+
+div#successNote {
+	margin-top: 50px;
+}
+
+#successNote p {
+	border: 1px solid #300;
+	color: #f30;
+	text-align: center;
+}

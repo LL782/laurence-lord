@@ -1,0 +1,422 @@
+@charset "utf-8";
+
+* { margin: 0; padding: 0; }
+
+body {
+	background: #F2F2F2 url(../img/backgrounds/container0_bk02.gif) repeat-y center top;
+	text-align: center;
+	font-family: Tahoma, Arial, sans-serif;
+	color: #141414;
+	font-size: 13px;
+}
+
+a  {
+	text-decoration: none;
+	color: #808080;
+}
+
+a:hover, a:focus {
+	text-decoration: underline;
+	color: #141414;
+}
+
+p {
+	font-size: 13px;
+	line-height: 18px;
+	margin-bottom: 20px;
+}
+
+textarea {
+ overflow: auto;
+}
+
+#container01 {
+ width: 790px;
+	margin: 0 auto;
+	position: relative; top: 0; left: 0;
+}
+
+
+/* - - - Internal Page Specific - - - */
+
+#horizontalLogo01 {
+	background: transparent url(../img/logos/raiar-horizontal_01.gif) no-repeat left center;
+	width: 218px;
+	height: 36px;
+	display: block;
+	position: absolute; top: 20px; left: 8px;
+}
+
+#topContainer01 {
+ position: fixed;	top: 0; left: auto; /position: relative;
+	z-index: 5;
+	height: 178px;
+	width: 790px;
+	background: transparent url(../img/fades/white-fade_01.png) repeat-x bottom left; 
+}
+
+#topContainer01 h2 {
+ width: 290px;
+	height: 28px;
+	border-bottom: solid 1px #141414;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin: 0 auto;
+	position: absolute; top: 111px; left: 250px;
+}
+
+#h2AboutRaiar02 {
+ background-image: url(../img/headers/about-raiar_02.gif);
+}
+
+#h2OurTeams02 {
+ background-image: url(../img/headers/our-teams_02.gif);
+}
+
+#h2OurPrograms02 {
+ background-image: url(../img/headers/our-programs_02.gif);
+}
+
+#h2FurtherInformation02 {
+ background-image: url(../img/headers/further-information_02.gif);
+}
+
+#h2SobreRaiar02 {
+ background-image: url(../img/headers/sobre-raiar_02.gif);
+}
+
+#h2NossosTimes02 {
+ background-image: url(../img/headers/nossos-times_02.gif);
+}
+
+#h2NossosProgramas02 {
+ background-image: url(../img/headers/nossos-programas_02.gif);
+}
+
+#h2MaisInformacoes02 {
+ background-image: url(../img/headers/mais-informacoes_02.gif);
+}
+
+#mainContainer01 {
+ padding-top: 180px; /padding-top: 0px;
+}
+
+.subsection {
+ position: relative; top: 0; left: 0;
+}
+
+.sideMenu {
+ float: left;
+	font-size: 12px;
+	list-style: none;
+}
+
+.sideMenu li a {
+ display: block;
+	border-style: solid;
+	border-color: #fff;
+	border-width: 0 1px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	width: 177px;
+	padding: 3px;
+	text-decoration: none;
+	color: #808080;
+}
+
+.sideMenu li a:hover, .sideMenu li a:focus {
+	border-color: #141414;
+	color: #141414;
+}
+
+.sideMenu li.selected a {
+ cursor: default;
+	border-color: #fff;
+	color: #141414;
+}
+
+.mainContainer02 {
+ margin-left: 207px;
+	margin-right: 207px;
+	text-align: justify;
+}
+
+.mainContainer02 h3 {
+ font-size: 18px;
+	margin-bottom: 20px;
+	font-weight: normal;
+}
+
+.mainContainer02 h4 {
+ font-size: 13px;
+	letter-spacing: 0.02em;
+	margin-top: 20px;
+	margin-bottom: 13px;
+	font-weight: normal;
+	color: #000;
+	border-bottom: 1px dotted #ddd;
+	padding-bottom: 3px;
+}
+
+.mainContainer02 li {
+ text-align: left;
+	font-size: 13px;
+	margin-left: 15px;
+	padding-left: 5px;
+	line-height: 18px;
+	margin-bottom: 20px;
+}
+
+
+.mainContainer02 blockquote {
+ margin: 20px 10px 20px 10px; 
+ text-align: left;
+}
+
+.mainContainer02 cite {
+ display: block;
+ margin: auto 10px 40px 10px; 
+ text-align: right;
+}
+
+.sideLinks {
+ width: 177px;
+ position: absolute; top: -34px; right: 10px;
+	color: #808080;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.sideLinks h5 {
+ margin-top: 76px;
+ margin-bottom: 9px;
+	border-bottom: 1px dotted #ddd;
+	font-size: 12px;
+	padding-bottom: 2px;
+	font-weight: normal;
+	color: #000;
+	letter-spacing: 0.02em;
+}
+
+.sideLink {
+ margin-bottom: 18px;
+}
+
+.sideLink .caption {
+ margin-top: 18px;
+}
+
+.sideLinks a img {
+ margin-top: 10px;
+ border: 1px solid #ddd;
+}
+
+.sideLinks a:hover img, .sideLinks a:focus img {
+ border-color: #999;
+}
+
+.subsectionEnder {
+ width: 290px; 
+	height: 170px;
+	margin-top: 36px;
+	margin-left: 43px;
+	margin-right: auto;
+	border-top: solid 1px #141414;
+	clear: both; 
+	position: relative; top: 0; left: 0;
+}
+
+.subsectionEnder a {
+	display: block;
+	width: 20px;
+	height: 21px;
+	position: absolute;
+}
+	
+.subsectionEnder a.upArrow {
+	background: transparent url(../img/thumbnails/arrow-up_01.gif) no-repeat center center;
+	top: 54px; left: 135px;
+}
+
+.subsectionEnder a.upArrow:hover, .subsectionEnder a.downArrow:focus {
+	background-image: url(../img/thumbnails/arrow-up_01_ro.gif);
+}
+	
+.subsectionEnder a.downArrow {
+	background: transparent url(../img/thumbnails/arrow-down_01.gif) no-repeat center center;
+	top: 81px;  left: 135px;
+}
+
+.subsectionEnder a.downArrow:hover, .subsectionEnder a.downArrow:focus {
+	background-image: url(../img/thumbnails/arrow-down_01_ro.gif);
+}
+	
+.subsectionEnder a.backArrow {
+	background: transparent url(../img/thumbnails/arrow-back_01.gif) no-repeat center center;
+	left: 116px; top: 68px; 
+}
+
+.subsectionEnder a.backArrow:hover, .subsectionEnder a.backArrow:focus {
+ 	background-image: url(../img/thumbnails/arrow-back_01_ro.gif);
+}
+	
+.subsectionEnder a.forwardArrow {
+	background: transparent url(../img/thumbnails/arrow-forward_01.gif) no-repeat center center;
+	left: 155px; top: 68px; 
+}
+
+.subsectionEnder a.forwardArrow:hover, .subsectionEnder a.forwardArrow:focus {
+ 	background-image: url(../img/thumbnails/arrow-forward_01_ro.gif);
+}
+
+#langSelect {
+	font-size: 0.85em;
+	text-align: right;
+}
+
+#langSelect a {
+	padding: 2px 5px;
+	border-bottom: 1px solid #ccc;
+	background: #eee;
+	display: block;
+	width: 106px;
+	position: fixed; top: 0; right: 0;
+}
+
+#langSelect a:hover, #langSelect a:focus {
+ text-decoration: none;
+}
+
+.anchorHolder {
+ position: relative; top: -180px;
+	/position:inherit;
+	/padding-bottom: 20px;
+}
+
+
+/* - - - Further Info Forms - - - */
+
+.inputs1 {
+ position: relative; top: 0; left: 0;
+ padding: 5px 0;
+}
+
+.inputs1 input {
+ position: absolute; bottom: 5px; right: 0;
+ border: 1px solid #808080;
+ border-width: 0 0 1px 0;
+ background: #fff;
+ color: #808080;
+ width: 250px;
+ }
+
+.inputs1 label {
+ display: block;
+ width: 115px;
+ height: 18px;
+ }
+
+textarea {
+ font-family: Tahoma, Arial, sans-serif;
+ font-size: 13px;
+ position: absolute; top: 5px; right: 0;
+ border: 1px solid #808080;
+ border-width: 0 0 1px 0;
+ background: #fff;
+ color: #808080;
+ width: 250px;
+ height: 70px;
+ overflow: auto;
+}
+
+#messageLabel1 {
+ height: 80px;
+}
+
+.buttons input {
+ margin: 36px 5px 18px 5px;
+ width: 100px;
+}
+
+.inputs2 {
+ margin-top: 19px;
+}
+
+.inputs2 input {
+ margin-left: 19px;
+}
+
+#h5Optional1B, #optionalInputsB {
+ /display: none;
+}
+
+#h5Optional1, #h5Optional2, #h5Optional1B, #h5Optional2B {
+ font-size: 13px;
+ font-weight: normal;
+}
+
+#h5Optional1, #h5Optional1B {
+padding: 10px 0;
+}
+
+#h5Optional2, #h5Optional2B {
+ color: #808080;
+ padding-bottom: 10px;
+}
+
+.buttons {
+ text-align: center;
+}
+
+.buttons input {
+ cursor: pointer;
+}
+
+#log, 
+.successNote {
+ padding: 5px 5px 10px 5px;
+	border: 1px solid #808080;
+	border-width: 1px 0;
+	background: #f9f9f9;
+}
+
+.successNote {
+ height: 274px;
+}
+
+.mainContainer02 #log h4,
+.mainContainer02 .successNote h4 {
+ margin-top: 0;
+}
+
+#accordion h4 {
+ border-top: 1px solid #808080;
+	padding-top: 18px;
+ margin-top: 0;
+ margin-bottom: 18px;
+	cursor: pointer;
+}
+
+#accordion h4#accordionTitle {
+ border: 0;
+}
+
+#accordion div {
+ margin: 0px;
+	padding-bottom: 18px;
+}
+
+.noDisplay {
+ display: none;
+}
+
+.spacer25 {
+ width: 10px;
+	height: 20px;
+}
+
+.spacer250 {
+ width: 10px;
+	height: 250px;
+}
+

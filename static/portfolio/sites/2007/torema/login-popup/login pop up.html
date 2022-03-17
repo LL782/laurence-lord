@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+  
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Prototype Window Class : Samples</title>
+	
+	<!--  Prototype Window Class Part -->
+    
+    
+    
+    <script type="text/javascript" src="samples_arquivos/prototype.js"> </script> 
+  	<script type="text/javascript" src="samples_arquivos/effects.js"> </script>
+  	<script type="text/javascript" src="samples_arquivos/window.js"> </script>
+  	<script type="text/javascript" src="samples_arquivos/debug.js"> </script>
+  	
+  	<link href="samples_arquivos/default.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/spread.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/alert.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/alert_lite.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/alphacube.css" rel="stylesheet" type="text/css">
+	
+	
+	<!--  Doc Part-->	 
+  	
+    
+  	<script type="text/javascript" src="samples_arquivos/application.js"> </script>  	
+  	<link href="samples_arquivos/login.css" rel="stylesheet" type="text/css">	 
+  	<link href="samples_arquivos/style.css" rel="stylesheet" type="text/css">	
+	
+	</head>
+	
+	<body onload="Application.evalCode('open_login', true)">
+  	
+        
+        
+        <span class="title" id="open_login_click_button" href="#" onmouseover="$('open_login_click_button').addClassName('selected')" onmouseout="$('open_login_click_button').removeClassName('selected')" onclick="Application.evalCode('open_login', true)">click here</span>
+        
+          
+
+        
+        <div id="login" style="display: none;">
+          <p><span id="login_error_msg" class="login_error" style="display: none;">&nbsp;</span></p>
+          <div style="clear: both;"></div>
+          <p><span class="login_label">login</span> <span class="login_input"><input type="text"></span></p>
+          <div style="clear: both;"></div>
+          <p><span class="login_label">password</span> <span class="login_input"><input type="password"></span></p>
+          <div style="clear: both;"></div>
+        </div>
+		
+
+        <div class="listing" style="display: none;" id="open_login_codediv">        
+          <xmp id="open_login">
+Dialog.confirm($('login').innerHTML, {windowParameters: {className:"alphacube", width:400}, 
+                                      okLabel: "login", cancelLabel: "cancel",
+                                      ok:function(win){
+                                        $('login_error_msg').innerHTML='Login or password inccorect';
+                                        $('login_error_msg').show(); 
+                                        Windows.focusedWindow.updateHeight();
+                                        new Effect.Shake(Windows.focusedWindow.getId()); return false;}});
+          </xmp>
+          
+        </div>
+        
+        
+  </body></html>

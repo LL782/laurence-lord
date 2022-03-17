@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+ul#topMenu {
+ list-style: none;
+	position: absolute;	top: 70px; left: 0;
+	width: 790px;
+	height: 16px;
+	margin-bottom: 23px;
+}
+
+#topMenu li a {
+ display: block;
+ width: 178px;
+ height: 16px;
+ border-bottom: solid 1px #808080;
+ background-repeat: no-repeat;
+ background-position: top center;
+ margin: 0 10px; 
+ position: absolute; top: 0;
+}
+
+#topMenu li a:hover, #topMenu li a:focus { border-color: #141414; }
+#topMenu li.selected a { border-color: #141414; cursor: default; }
+
+#aAboutRaiar01 { left: 0; background-image: url(../img/headers/about-raiar_01_grey.gif); }
+#aAboutRaiar01:hover, #aAboutRaiar01:focus, li.selected #aAboutRaiar01 { background-image: url(../img/headers/about-raiar_01.gif);}
+
+#aOurTeams01 { left: 198px; background-image: url(../img/headers/our-teams_01_grey.gif); }
+#aOurTeams01:hover, #aOurTeams01:focus, li.selected #aOurTeams01 { background-image: url(../img/headers/our-teams_01.gif);}
+
+#aOurPrograms01 { left: 398px; background-image: url(../img/headers/our-programs_01_grey.gif); }
+#aOurPrograms01:hover, #aOurPrograms01:focus, li.selected #aOurPrograms01 { background-image: url(../img/headers/our-programs_01.gif);}
+
+#aFurtherInformation01 { left: 593px; background-image: url(../img/headers/further-infomation_01_grey.gif);}
+#aFurtherInformation01:hover, #aFurtherInformation01:focus, li.selected #aFurtherInformation01 { background-image: url(../img/headers/further-infomation_01.gif);}
+
+#aSobreRaiar01 { left: 0; background-image: url(../img/headers/sobre-raiar_01_grey.gif);}
+#aSobreRaiar01:hover, #aSobreRaiar01:focus, li.selected #aSobreRaiar01 { background-image: url(../img/headers/sobre-raiar_01.gif);}
+
+#aNossosTimes01 { left: 198px; background-image: url(../img/headers/nossos-times_01_grey.gif);}
+#aNossosTimes01:hover, #aNossosTimes01:focus, li.selected #aNossosTimes01 { background-image: url(../img/headers/nossos-times_01.gif);}
+
+#aNossosProgramas01 {  left: 398px; background-image: url(../img/headers/nossos-programas_01_grey.gif);}
+#aNossosProgramas01:hover, #aNossosProgramas01:focus, li.selected #aNossosProgramas01 { background-image: url(../img/headers/nossos-programas_01.gif);}
+
+#aMaisInformacoes01 {  left: 593px; background-image: url(../img/headers/mais-informacoes_01_grey.gif);}
+#aMaisInformacoes01:hover, #aMaisInformacoes01:focus, li.selected #aMaisInformacoes01 { background-image: url(../img/headers/mais-informacoes_01.gif);}

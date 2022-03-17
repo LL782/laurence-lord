@@ -1,0 +1,280 @@
+/* CSS file */
+
+@import url(site.css);
+
+#mainPage {
+	position: relative;
+	padding-bottom: 5px;
+}
+
+#mainPage h2 {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	font-weight: normal;
+	background: black;
+	color: #fff;
+	border-bottom: 1px dashed #333; 
+	height: 14px;
+	padding: 2px 5px;
+	margin: 0;
+}
+
+#mainPage p {
+	margin: 0;
+}
+
+
+#welcomeSection, #rightBlock1, #servicosSection, #casesSection {
+	background:#333 url(../img/red-bk.gif) repeat top left;
+}
+
+a.footerLink {
+	background: transparent;
+	text-align: right;
+	text-transform: uppercase;
+	font-size: 10px;
+	display:block;
+	text-align:right;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+
+
+/* welcome section */
+
+#welcomeSection {
+margin: 3px 0px 8px 10px;
+width: 510px;
+}
+
+
+
+#welcomeImage {
+	margin: 1px;
+	float: right;
+	background: #666 url(../img/welcome.jpg) no-repeat center center;
+	width:170px;
+	height: 136px;
+}
+
+#welcomeSection p {
+	margin: 3px 0 5px 7px;
+	border-left: 1px dotted #333;
+	background: black;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	width: 310px;
+}
+
+#welcomeSection p.p1 {
+	margin-top: 10px;
+}
+
+.p1 strong {
+	color: #f60;
+	font-weight: normal;
+}
+
+#welcomeSection a.footerLink{
+	margin: 0 0 1px 122px;
+	padding: 0;
+	width: 200px;	
+}
+
+
+
+
+/* TWO COLUMNS 
+ * 535px from the left edge to the noticias section - this is the space for the two columns that follow */
+
+#twoColumnHolder {
+	position: relative;
+	width: 510px;
+	margin: 5px 0 0 10px;
+	border-top: 1px solid #300;
+	padding-top: 10px;
+}
+
+
+
+/* SERVICES SECTION */
+
+#servicosSection {
+	width: 248px;
+	margin: 0;
+}
+
+#servico1 {
+	margin: 3px 3px 5px 0;
+}
+
+#servico2 {
+	margin: 5px 3px 5px 0;
+}
+
+#servicosImage {
+	float: left;
+	background: #000 url(../img/home-servicos.jpg) no-repeat center center;
+	width:66px;
+	height: 215px;
+	margin: 6px 0 0 5px;
+}
+
+#servicosSection h3 {
+	padding: 2px 0px;
+	margin: 0 0 0px 83px;
+	border-bottom: 1px dashed #666;
+	font-size:12px;
+	font-weight:normal;
+	color:#f60;
+	width: 155px;
+}
+
+#servicosSection h4, #servicosSection p {
+	background: black;
+
+}
+
+#servicosSection h4 {
+	margin: 1px 0 0 79px;
+	font-size: 12px;
+	font-weight: normal;	
+	width: 144px;
+	padding: 2px 6px 3px 10px;
+}
+
+#servicosSection p {
+	margin: 0 0 0 79px;
+	width: 144px;
+	padding: 2px 6px 5px 10px;
+
+}
+
+#servicosSection  ul {
+	list-style: circle;
+	background: black;
+	margin: 0 0px 0 84px;
+	padding: 0px 7px 0px 23px;
+	border: 1px dotted #333;
+	border-width: 0 1px;
+	width: 123px;
+}
+
+#servicosSection li {
+	padding-bottom: 2px;
+	border-bottom: 1px dashed #300;
+}
+
+#servicosSection a.footerLink {
+	padding-top: 7px;
+	clear: none;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+
+
+
+/*  CASES AND CONTACT  */
+
+#middleCol {
+position: absolute;
+left: 260px;
+top: 0;
+width: 248px;
+}
+
+
+/*  CASES  */
+
+#casesSection {
+margin: 10px 0 0 0;
+border-bottom: 1px dashed #333;
+}
+
+#casesImage {
+	 background: #000 url(../img/sucesso.jpg) no-repeat top center;
+	 width: 225px;
+	 height: 88px;
+	 margin: 5px auto 0 auto;
+	 border: 10px black solid;
+	 border-width: 0 10px 10px 10px;
+}
+
+#casesSection ul {
+	background: black;
+	list-style: circle;
+	margin: 0 3px 5px 3px;
+	padding: 0px 7px 0px 23px;
+	border: 1px dotted #333;
+	border-width: 0 1px;
+}
+
+#casesSection li {
+	padding-bottom: 2px;
+	border-bottom: 1px dashed #300;
+}
+
+#casesSection a {
+	margin: 0 0 5px 0;
+}
+
+#casesSection a.footerLink {
+	padding-top: 4px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+
+/*  CONTACT */
+
+div#contactSection {
+	width: 240px;
+	margin: 15px auto auto auto;
+}
+
+#contactSection a:link, #contactSection a:visited {
+	border: 1px solid #f60;
+	border-width: 1px 3px;
+	COLOR: #AAA;
+	display: block;
+	text-decoration:none;
+	}
+
+#contactSection a:hover, #contactSection a:focus, #contactSection a:active {
+	border: 1px solid #F30;
+	border-width: 1px 3px;
+	color: #f30;
+	text-decoration:none;
+}
+
+#contactSection h2 {
+	cursor: pointer;
+	float: left;
+	background: transparent;
+	border: 0;
+	padding: 3px 5px 0 6px;
+}
+
+#contactSection p {
+	margin: 3px 3px 3px 6px;
+}
+
+
+/* NOTICIAS SECTION */
+
+#rightBlock1 {
+position: absolute;
+left: 530px;
+top: 0;
+width: 200px;
+height: 420px;
+border-bottom: 3px solid black;
+background: #040607 url(../img/javascript.png) no-repeat center center;
+}
+
+#newsSection h2 {
+margin: 0 0 1px 0;
+}

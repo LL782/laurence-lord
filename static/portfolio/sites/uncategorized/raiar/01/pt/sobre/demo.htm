@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Demo Raiar RSS Page</title>
+
+<link rel="stylesheet" type="text/css" href="rssbox/rssdisplaybox.css" />
+<script type="text/javascript" src="rssbox/virtualpaginate.js"></script>
+
+<script type="text/javascript" src="rssbox/rssdisplaybox.js">
+
+/***********************************************
+* RSS Display Boxes- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+***********************************************/
+
+</script>
+
+<style type="text/css">
+/*Sample CSS for the demo boxes below. Refined from rssdisplaybox.css above*/
+
+#cssdriveid{
+width: 500px;
+padding: 10px;
+border: 1px dashed black;
+}
+
+#cssdriveid .rsscontainer{ /*Style for RSS item body within #cssdriveid box*/
+margin-bottom: 1em;
+}
+
+#bbcid{
+width: 300px;
+padding: 5px;
+background-color: lightyellow;
+border: 1px dashed black;
+}
+
+#bbcid-paginatediv{ /*Style for auto generated pagination DIV pertaining to #bbcid RSS box*/
+width: 300px;
+}
+
+#nytimesid{
+width: 250px;
+height: 200px;
+padding: 5px;
+background-color: #EDFFD2;
+border: 1px solid black;
+}
+
+#nytimesid .rsscontainer{ /*Style for RSS item body within #nytimesid box*/
+margin-bottom: 10px;
+}
+
+#nytimesid .rsscontainer .rsstitle{ /*Style for RSS titles within #nytimesid box*/
+font-weight: bold;
+}
+
+#nytimesid .rsscontainer .rssdate{ /*Style for RSS dates within #nytimesid box*/
+color: red;
+}
+
+#cssnewsbox{ /*Style for RSS box for #cssnewsbox box (last demo)*/
+width: 500px;
+height: 310px;
+padding: 10px;
+border: 1px dashed black;
+}
+
+#cssnewsbox .rsscontainer{
+margin-bottom: 1em;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<h1>Demo RSS feed from raiar.wordpress.com</h1>
+<script type="text/javascript">
+//MAIN FUNCTION: rssdisplaybox("rssfeed_id", "rssbox_id", "rssbox_class")
+var cssdrivebox=new rssdisplaybox("raiar", "cssdriveid", "someclass")
+cssdrivebox.set_items_shown(5) //Fetch and display first 4 entries
+cssdrivebox.set_template("titlesdates") //Use "default" template, which outputs title + description + date
+cssdrivebox.start() //Required: start script
+</script>
+
+
+
+</body>
+
+</html>

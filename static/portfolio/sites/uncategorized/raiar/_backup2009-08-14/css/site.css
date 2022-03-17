@@ -1,0 +1,564 @@
+@charset "utf-8";
+
+* { margin: 0; padding: 0; }
+
+body {
+	background: #F2F2F2 url(../img/backgrounds/container0_bk01.gif) repeat-y center top;
+	text-align: center;
+	font-family: Tahoma, Arial, sans-serif;
+	color: #141414;
+	font-size: 13px;
+}
+
+a  {
+	text-decoration: none;
+	color: #808080;
+}
+
+a:hover, a:focus {
+	text-decoration: underline;
+	color: #141414;
+}
+
+p {
+	font-size: 13px;
+	line-height: 18px;
+	margin-bottom: 20px;
+}
+
+textarea {
+ overflow: auto;
+}
+
+#container01 {
+ width: 790px;
+	margin: 0 auto;
+	position: relative; top: 0; left: 0;
+}
+
+
+/* - - - Home Page Specific - - - */
+
+#centralLogo01 {
+	background: transparent url(../img/logos/raiar-central_01.gif) no-repeat center center;
+	width: 198px;
+	height: 261px;
+ margin: 43px auto 83px auto;
+}
+
+#siteMap {
+ position: relative; top: 0; left: 0;
+	width: 790px;
+}
+
+#siteMap div {
+ width: 197px;
+	text-align: center;
+ position: absolute; top: 0; 
+}
+
+#siteMap h2 a {
+ width: 178px;
+	height: 16px;
+	border: 0;
+	border-bottom: solid 1px #141414;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin: 0 auto 12px auto;
+}
+
+#siteMap ul {
+ list-style: none;
+	font-size: 12px;
+	line-height: 28px;
+}
+
+#siteMap a {
+ color: #141414;
+ text-decoration: none;
+	display: block;
+	width: 177px;
+	margin: auto;
+	border: 1px solid #fff;
+	border-width: 0 1px;
+}
+
+#siteMap a:hover, #siteMap a:focus {
+ border-color: #141414;
+}
+
+#siteMap #mapBlock1 {
+ position: relative; top: 0; left: 0;
+	margin-left: 0;
+	margin-right: auto;
+}
+
+#mapBlock2 {    
+ left: 198px;
+}
+
+#mapBlock3 {    
+ left: 398px;
+}
+
+#mapBlock4 {    
+ left: 593px;
+}
+
+#h2AboutRaiar01 a {
+ background-image: url(../img/headers/about-raiar_01.gif);
+}
+
+#h2Teams01 a {
+ background-image: url(../img/headers/our-teams_01.gif);
+}
+
+#h2OurPrograms01 a {
+ background-image: url(../img/headers/our-programs_01.gif);
+}
+
+#h2FurtherInformation01 a {
+ background-image: url(../img/headers/further-infomation_01.gif);
+}
+
+#h2SobreRaiar01 a {
+ background-image: url(../img/headers/sobre-raiar_01.gif);
+}
+
+#h2NossosTimes01 a {
+ background-image: url(../img/headers/nossos-times_01.gif);
+}
+
+#h2NossosProgramas01 a {
+ background-image: url(../img/headers/nossos-programas_01.gif);
+}
+
+#h2MaisInformacoes01 a {
+ background-image: url(../img/headers/mais-informacoes_01.gif);
+}
+
+
+/* - - - Internal Page Specific - - - */
+
+#horizontalLogo01 {
+	background: transparent url(../img/logos/raiar-horizontal_01.gif) no-repeat center center;
+	width: 218px;
+	height: 36px;
+	display: block;
+	position: absolute; top: 20px; left: 8px;
+}
+
+#topContainer01 {
+ position: fixed;	top: 0; left: auto; /position: relative;
+	z-index: 5;
+	height: 178px;
+	width: 790px;
+	background: transparent url(../img/fades/white-fade_01.png) repeat-x bottom left; /background-image: none;
+}
+
+ul#topMenu {
+ list-style: none;
+	position: absolute;	top: 70px; left: 0;
+	width: 790px;
+	height: 16px;
+	margin-bottom: 23px;
+}
+
+#topMenu li a {
+ display: block;
+ width: 178px;
+	height: 16px;
+	border-bottom: solid 1px #808080;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin: 0 10px; 
+	position: absolute; top: 0;
+}
+
+#aAboutRaiar01 {
+ left: 0;
+ background-image: url(../img/headers/about-raiar_01_grey.gif);
+}
+
+#aOurTeams01 { 
+ left: 198px;
+ background-image: url(../img/headers/our-teams_01_grey.gif);
+}
+
+#aOurPrograms01 { 
+ left: 398px;
+ background-image: url(../img/headers/our-programs_01_grey.gif);
+}
+
+#aFurtherInformation01 { 
+ left: 593px;
+ background-image: url(../img/headers/further-infomation_01_grey.gif);
+}
+
+#aSobreRaiar01 {
+ left: 0;
+ background-image: url(../img/headers/sobre-raiar_01_grey.gif);
+}
+
+#aNossosTimes01 { 
+ left: 198px;
+ background-image: url(../img/headers/nossos-times_01_grey.gif);
+}
+
+#aNossosProgramas01 { 
+ left: 398px;
+ background-image: url(../img/headers/nossos-programas_01_grey.gif);
+}
+
+#aMaisInformacoes01 { 
+ left: 593px;
+ background-image: url(../img/headers/mais-informacoes_01_grey.gif);
+}
+
+#aAboutRaiar01:hover, #aAboutRaiar01:focus {
+ border-color: #141414;
+ background-image: url(../img/headers/about-raiar_01.gif);
+}
+
+#aOurTeams01:hover, #aOurTeams01:focus {
+ border-color: #141414;
+	background-image: url(../img/headers/our-teams_01.gif);
+}
+
+#aOurPrograms01:hover, #aOurPrograms01:focus {
+ border-color: #141414;
+	background-image: url(../img/headers/our-programs_01.gif);
+}
+
+#aFurtherInformation01:hover, #aFurtherInformation01:focus {
+ border-color: #141414;
+ background-image: url(../img/headers/further-infomation_01.gif);
+}
+
+#aSobreRaiar01:hover, #aSobreRaiar01:focus {
+ border-color: #141414;
+ background-image: url(../img/headers/sobre-raiar_01.gif);
+}
+
+#aNossosTimes01:hover, #aNossosTimes01:focus {
+ border-color: #141414;
+	background-image: url(../img/headers/nossos-times_01.gif);
+}
+
+#aNossosProgramas01:hover, #aNossosProgramas01:focus {
+ border-color: #141414;
+	background-image: url(../img/headers/nossos-programas_01.gif);
+}
+
+#aMaisInformacoes01:hover, #aMaisInformacoes01:focus {
+ border-color: #141414;
+ background-image: url(../img/headers/mais-informacoes_01.gif);
+}
+
+li.selected #aAboutRaiar01, li.selected #aOurTeams01, li.selected #aOurPrograms01, li.selected #aFurtherInformation01, li.selected #aSobreRaiar01, li.selected #aNossosTimes01, li.selected #aNossosProgramas01, li.selected #aMaisInformacoes01 {
+ visibility: hidden;
+}
+
+#topContainer01 h2 {
+ width: 290px;
+	height: 28px;
+	border-bottom: solid 1px #141414;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin: 0 auto;
+	position: absolute; top: 111px; left: 250px;
+}
+
+#h2AboutRaiar02 {
+ background-image: url(../img/headers/about-raiar_02.gif);
+}
+
+#h2OurTeams02 {
+ background-image: url(../img/headers/our-teams_02.gif);
+}
+
+#h2OurPrograms02 {
+ background-image: url(../img/headers/our-programs_02.gif);
+}
+
+#h2FurtherInformation02 {
+ background-image: url(../img/headers/further-information_02.gif);
+}
+
+#h2SobreRaiar02 {
+ background-image: url(../img/headers/sobre-raiar_02.gif);
+}
+
+#h2NossosTimes02 {
+ background-image: url(../img/headers/nossos-times_02.gif);
+}
+
+#h2NossosProgramas02 {
+ background-image: url(../img/headers/nossos-programas_02.gif);
+}
+
+#h2MaisInformacoes02 {
+ background-image: url(../img/headers/mais-informacoes_02.gif);
+}
+
+#mainContainer01 {
+ padding-top: 180px; /padding-top: 0px;
+}
+
+.subsection {
+ position: relative; top: 0; left: 0;
+}
+
+.sideMenu {
+ float: left;
+	font-size: 12px;
+	list-style: none;
+}
+
+.sideMenu li a {
+ display: block;
+	border-style: solid;
+	border-color: #fff;
+	border-width: 0 1px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	width: 177px;
+	padding: 3px;
+	text-decoration: none;
+	color: #808080;
+}
+
+.sideMenu li a:hover, .sideMenu li a:focus {
+	border-color: #141414;
+	color: #141414;
+}
+
+.sideMenu li.selected a {
+ cursor: default;
+	border-color: #fff;
+	color: #141414;
+}
+
+.mainContainer02 {
+ margin-left: 207px;
+	margin-right: 207px;
+	text-align: justify;
+}
+
+.mainContainer02 h3 {
+ font-size: 18px;
+	margin-bottom: 36px;
+	font-weight: normal;
+}
+
+.mainContainer02 h4 {
+ font-size: 13px;
+	margin-top: 36px;
+	margin-bottom: 18px;
+	font-weight: normal;
+}
+
+.mainContainer02 #log h4 {
+ margin-top: 0;
+}
+
+.mainContainer02 li {
+ text-align: left;
+	font-size: 13px;
+	margin-left: 15px;
+	padding-left: 5px;
+	line-height: 18px;
+	margin-bottom: 20px;
+}
+
+.sideLinks {
+ width: 177px;
+ position: absolute; top: -34px; right: 10px;
+	color: #808080;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.sideLinks h5 {
+ margin-top: 32px;
+ margin-bottom: 16px;
+	border-bottom: 1px solid #808080;
+	font-size: 12px;
+	padding-bottom: 2px;
+	font-weight: normal;
+}
+
+.sideLink {
+ margin-bottom: 18px;
+}
+
+.sideLink .caption {
+ margin-top: 18px;
+}
+
+.sideLinks a img {
+ margin-top: 10px;
+ border: 1px solid #999;
+}
+
+.sideLinks a:hover img, .sideLinks a:focus img {
+ border-color: #141414;
+}
+
+.subsectionEnder {
+ width: 290px; 
+	height: 170px;
+	margin-top: 36px;
+	margin-left: 43px;
+	margin-right: auto;
+	border-top: solid 1px #141414;
+	clear: both; 
+	position: relative; top: 0; left: 0;
+}
+
+.subsectionEnder a {
+ display: block;
+	width: 20px;
+	height: 21px;
+	position: absolute; left: 135px;
+}
+	
+.subsectionEnder a.upArrow {
+	background: transparent url(../img/thumbnails/arrow-up_01.gif) no-repeat center center;
+	top: 54px;
+}
+
+.subsectionEnder a.upArrow:hover, .subsectionEnder a.downArrow:focus {
+ background-image: url(../img/thumbnails/arrow-up_01_ro.gif);
+}
+	
+.subsectionEnder a.downArrow {
+	background: transparent url(../img/thumbnails/arrow-down_01.gif) no-repeat center center;
+	top: 81px; 
+}
+
+.subsectionEnder a.downArrow:hover, .subsectionEnder a.downArrow:focus {
+ background-image: url(../img/thumbnails/arrow-down_01_ro.gif);
+}
+
+#langSelect {
+	font-size: 0.85em;
+	text-align: right;
+}
+
+#langSelect a {
+	padding: 2px 5px;
+	border-bottom: 1px solid #ccc;
+ background: #eee;
+	display: block;
+	width: 106px;
+	position: fixed; top: 0; right: 0;
+}
+
+#langSelect a:hover, #langSelect a:focus {
+ text-decoration: none;
+}
+
+.anchorHolder {
+ position: relative; top: -180px;
+	/position:inherit;
+	/padding-bottom: 20px;
+}
+
+
+/* - - - Further Info Forms - - - */
+
+#newsletterFormEn input, #contactFormEn .inputs1 input, #contactFormEn .buttons input, #contactFormEn .inputs1 textarea {
+ border: 1px solid #808080;
+	border-width: 0 0 1px 0;
+	background: #fff;
+ margin-top: 18px;
+	color: #808080;
+	width: 250px;
+}
+
+textarea {
+ font-family: Tahoma, Arial, sans-serif;
+	font-size: 13px;
+}
+
+#newsletterFormEn .buttons input, #contactFormEn .buttons input {
+ margin: 36px 5px 18px 5px;
+ width: 100px;
+}
+
+#newsletterFormEn label, #contactFormEn .inputs1 label {
+ float: left;
+ margin-top: 19px;
+ width: 115px;
+}
+
+.inputs2 {
+ margin-top: 19px;
+ clear: both;
+}
+
+.inputs2 input {
+ margin-left: 19px;
+}
+
+#h5Optional1, #h5Optional2, #h5Optional1B, #h5Optional2B {
+ font-size: 13px;
+	font-weight: normal;
+}
+
+#h5Optional1, #h5Optional1B {
+ margin-top: 18px;
+	clear: both;
+}
+
+#h5Optional2, #h5Optional2B {
+ color: #808080;
+}
+
+.buttons {
+ text-align: center;
+	clear: both;
+}
+
+.buttons input {
+ cursor: pointer;
+}
+
+#log, .successNote {
+ padding: 5px 10px;
+	border: 1px solid #808080;
+	border-width: 1px 0;
+	background: #f9f9f9;
+	min-height: 300px;
+}
+
+#sideLinksSpecial h4 {
+}
+
+#accordion h4 {
+ border-top: 1px solid #808080;
+	padding-top: 18px;
+ margin-top: 0;
+ margin-bottom: 18px;
+	cursor: pointer;
+}
+
+#accordion h4#accordionTitle {
+ border: 0;
+}
+
+#accordion div {
+ margin: 0px;
+	padding-bottom: 18px;
+}
+
+.noDisplay {
+ display: none;
+}
+
+.spacer250 {
+ width: 10px;
+	height: 250px;
+}
+

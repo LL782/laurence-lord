@@ -1,0 +1,91 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="css/news.css" />
+
+
+</head>
+
+<body>
+
+
+<!-- SET THE CONTROLS OF THE NEXT SCROLLER -->
+<div id="scrollerController">
+	<ul>
+		<li id="pauseButton" onclick="scrollspeed=0"><span>Pause</span>&nbsp;&nbsp;&nbsp;</li>
+		<li id="playButton" onclick="scrollspeed=1"><span>Play</span>&nbsp;&nbsp;&nbsp;</li>
+		<li id="fastForward" onmouseover="scrollspeed=10" onmouseout="scrollspeed=1"><span>Fast Forward</span>&nbsp;&nbsp;&nbsp;</li>
+	</ul>
+</div>
+
+<div id="datacontainer">
+
+<!-- ADD YOUR SCROLLER CONTENT INSIDE HERE -->
+	<div id="newsScroll" onmouseover="scrollspeed=0"  onmouseout="scrollspeed=cache">
+		<div id="newsSpacer">&nbsp;</div>
+		<div class="newsItem"> 
+			<h3><a href="#" title="title">Titlo da Notic&iacute;a</a></h3>
+			<h4>Dato da Notic&iacute;a</h4>
+			<p>No nono nono n no n on onon nnon onon no nn ono nno no nn onon oo. O noonn ononnno no nnon onono n no nono.</p>
+		</div>
+		<div class="newsItem"> 
+			<h3><a href="#" title="title">Titlo da Notic&iacute;a</a></h3>
+			<h4>Dato da Notic&iacute;a</h4>
+			<p>Noonon no nn ono nno no nn onon oo. O noonn ononnno no nnon onono n no nono.</p>
+		</div>
+		<div class="newsItem"> 
+			<h3><a href="#" title="title">Titlo da Notic&iacute;a</a></h3>
+			<h4>Dato da Notic&iacute;a</h4>
+			<p>No nono nono n no n on onon nnon onon no nn ono nnon onono n no nono.</p>
+		</div>
+	</div>
+<!-- END SCROLLER CONTENT -->
+
+</p>
+
+</div>
+
+<script type="text/javascript">
+
+/***********************************************
+* IFRAME Scroller script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Specify speed of scroll. Larger=faster (ie: 5)
+var scrollspeed=cache=1
+
+//Specify intial delay before scroller starts scrolling (in miliseconds):
+var initialdelay=500
+
+function initializeScroller(){
+dataobj=document.all? document.all.datacontainer : document.getElementById("datacontainer")
+dataobj.style.top="5px"
+setTimeout("getdataheight()", initialdelay)
+}
+
+function getdataheight(){
+thelength=dataobj.offsetHeight
+if (thelength==0)
+setTimeout("getdataheight()",10)
+else
+scrollDiv()
+}
+
+function scrollDiv(){
+dataobj.style.top=parseInt(dataobj.style.top)-scrollspeed+"px"
+if (parseInt(dataobj.style.top)<thelength*(-1))
+dataobj.style.top="5px"
+setTimeout("scrollDiv()",40)
+}
+
+if (window.addEventListener)
+window.addEventListener("load", initializeScroller, false)
+else if (window.attachEvent)
+window.attachEvent("onload", initializeScroller)
+else
+window.onload=initializeScroller
+
+</script>
+
+</body></html>

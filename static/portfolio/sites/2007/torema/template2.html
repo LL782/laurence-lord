@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+<!--********************************************************************
+\t
+\t					TEMPLATE PAGE II  -  STYLE EXAMPLES
+\t
+\t			Do not edit this page!!  Leave this page intact and
+\t			use it as a reference.
+\t
+\t			You can copy the code you need from this page and
+\t			paste it into the document you are editing.
+\t
+\t			A blank template page has been provided.  You may like
+\t			to copy code form this page into a copy of the blank
+\t			template.
+\t
+\t			On this page you will find examples of every method of 
+\t			styling that I have used in this site.
+\t
+\t			Look at this page in your browser, decide on the style 
+\t			you want to use in your new document and copy and paste
+\t			the code.
+\t
+\t			If you want to look at the CSS you can open 
+\t			'internals.css' but you do not need to.
+\t
+\t			Any problems?  Contact me:
+\t
+\t			laurence.lord@gmail.com
+\t
+\t			Good luck!
+\t
+\t
+\t********************************************************************-->
+
+<!--  PAGE TITLE -->
+<title>Torema - Template Page II</title>
+
+
+<!--  A LINK TO A CSS FILE  -->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+
+
+<!--  JAVASCRIPT  -->
+<script type="text/javascript">
+
+/*******************************************************************
+* AnyLink Drop Down Menu- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+*******************************************************************/
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[0]='<a href="quem.html">Quem Somos</a>'
+menu1[1]='<a href="parcerias.html">Nossas Parcerias</a>'
+menu1[2]='<a href="clientes.html">Nossos Clients</a>'
+
+//Contents for menu 2
+var menu2=new Array()
+menu2[0]='<a href="gestao.html">Gest&atilde;o de Ativos</a>'
+menu2[1]='<a href="treinamento.html">Treinamento e&nbsp;Eventos</a>'
+
+//Contents for menu 3
+var menu3=new Array()
+menu3[0]='<a href="cases.php">Cases de&nbsp;Sucesso</a>'
+
+//Contents for menu 4
+var menu4=new Array()
+menu4[0]='<a href="contato.php">Fale Conosco</a>'
+menu4[1]='<a href="curriculo.html">Curr&iacute;culo</a>'
+		
+var menuwidth='200px' //default menu width
+var menubgcolor='black'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+</script><!--  end of this script -->
+
+
+<!--  JAVASCRIPT LINK  -->
+<script type="text/javascript" src="js/dropDown.js"></script>
+
+</head>
+
+
+
+
+<!--  BODY  -->
+<body>
+
+<div id="container0"><!-- 'container0' holds the whole page -->
+
+	<div id="container1"><!-- 'container1' holds everything but the footnote -->
+
+		<a name="top"></a><!-- This is an anchor called top.  This is only needed on very
+		                       long pages to provide a "Top" button.  This is explained 
+							   near the bottom of this page. -->
+
+		<div id="pageHeader"><!-- 'pageHeader' holds the logo, banner and top menu -->	  
+
+			<!--  LOGO HOLDER -->
+			<div id="logoHolder"></div>
+
+			<h2>Engenharia de Manuten&ccedil;&atilde;o &amp; Confiabilidade</h2>
+
+			<!--  THE TOP MENU  --> 
+			<div id="topMenu">
+
+				<ul><li class="selected"><a href="index.html" title="Home" accesskey="h">Home</a></li
+					><li><a href="quem.html" onMouseOver="dropdownmenu(this, event, menu1, '110px')" onMouseOut="delayhidemenu()">A Empresa</a></li
+					><li><a href="gestao.html" onMouseOver="dropdownmenu(this, event, menu2, '110px')" onMouseOut="delayhidemenu()">Servi&ccedil;os</a></li
+					><li><a href="cases.php" onMouseOver="dropdownmenu(this, event, menu3, '110px')" onMouseOut="delayhidemenu()">Cases</a></li
+					><li><a href="contato.php" onMouseOver="dropdownmenu(this, event, menu4, '110px')" onMouseOut="delayhidemenu()">Contato</a></li
+				></ul>
+
+			</div><!--  end of 'topMenu'  -->
+
+		</div><!--  end of 'pageHeader'  -->
+
+
+
+
+		<!--  MAIN PAGE CONTENT - The Things you may edit start here  -->
+		<div id="mainPage">
+			
+			<!--  LEFT COLUMN Don't edit this.-->
+			<div id="leftCol">
+
+				
+				<!--  IMAGE HOLDER -  Select a different image in the CSS file for this page.
+				\t    Check the link in the head to at the top of this page to know which Look for '#imageHolder'.  Edit in the CSS file that relates to this page. There are more notes in the CSS page. -->
+				<div id="imgHolder"></div>
+
+
+				<!--  SIDE MENU  -->				
+				<div id="sideMenu">
+
+					<!-- Submenu Title:  Edit the text between the header tags to change the submenu's title.  -->
+					<h2>Template Submenu:</h2>
+					<ul>
+						
+						<!--***********************************************************************************
+						\t   SUBMENU LINKS
+						\t   Below are four links in a list.
+						\t   These are links tags (<a>), inside list item tags (<li>).
+						\t   To create a new link copy one of the lines below.  Make sure you select the
+						\t   the <li> tags and everything inside them.
+						\t   Write the name of the file you want to link to inside the href attribute.
+						\t   Edit the title of the link to describe what the link is.
+						\t   And change the text between the tags.  This text will be displayed in the browser.
+						\t   To delete a link, make sure you delete the <li> tags and everything inside them.
+						\t
+						\t   One of the links below has been given the class, "selected".  Give this class to 
+						\t   the link that directs to the page you are currently editing.
+						\t***********************************************************************************-->
+						<li><a href="template.html" title="Template Page">Template Page</a></li>
+						<li class="selected"><a href="template2.html" title="Template Page Two">Template Page II</a></li>
+						<li><a href="template-blank.html" title="Blank Template">Blank Template</a></li>
+						<li><a href="template-cases.html" title="Case Page Template">Case Page Template</a></li>
+					</ul>
+
+				</div><!-- end of side menu -->
+
+			</div><!-- end of left column -->
+
+
+
+			<!--  THE RIGHT COLUMN  -->
+			<div id="rightCol">
+
+				
+				<!--  HEADER FOR PAGE.  This header appears under the main menu.  Edit the text between the tags 
+				\t    to give your page a new header. e.g. <h2>New Title</h2>-->
+				<h2>Template Page II</h2>
+
+				<div id="pageContent">
+
+				<!--*********************************************************
+				\t
+				\t						PAGE CONTENT
+				\t
+				\t	Ensure that all of the page content is placed inside 
+				\t	the 'pageContent' div.  All text should be placed
+				\t	inside appropriate tags. 
+				\t
+				\t	i.e. 
+				\t
+				\t	<h3>Sub-heading</h3> 
+				\t
+				\t	<h4>Sub-sub-heading</h4>
+				\t
+				\t	<p>paragraph</p>
+				\t	
+				\t	<ul>
+				\t		<li>List item inside list tags.</li>
+				\t	</ul>
+				\t
+				\t	Below are examples of how text is laid out in this site.
+				\t
+				\t	Copy and paste the examples below and place them inside
+				\t	the 'pageContent' div of the page you are exditing.  Then
+				\t	edit the text inside the tags.
+				\t
+				\t	*******************************************************-->
+
+					
+					<!--****************************************************
+					\t  
+					\t						SUBSECTIONS
+					\t
+					\t	Divide your text into sub-sections.  Give each
+					\t	sub-section a heading.  For main sub-sections
+					\t	you will use <h3> tags to create the headings.
+					\t
+					\t  *************************************************-->
+					<h3>Subsection 1</h3>
+
+					<!--****************************************************
+					\t					PAGE INTRODUCTIONS
+					\t
+					\t	Most of the pages have been given a section for an
+					\t	introduction.  The introduction is given placed
+					\t	inside a paragraph <p> that has been labelled
+					\t	"page intro".  <p id="pageIntro">.  An example of 
+					\t	this is shown below.
+					\t
+					\t  *************************************************-->
+					<p id="pageIntro">Example of a Page Introduction paragraph 
+					  (<code>id="pageIntro"</code>).
+					  Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil 
+					  impedit quo minus id quod maxime placeat facere possimus, omnis voluptas 
+					  assumenda est, omnis dolor repellendus. </p>
+
+
+					<!--****************************************************
+					\t	    		SUB-SECTIONS INSIDE SUB-SECTIONS
+					\t
+					\t	Below is an example of how small sub-sub-sections
+					\t	can be laid out inside subsections.
+					\t
+					\t	Use a sub-sub-section title <h4> underneath your
+					\t	sub-section title <h3> and place the text in a 
+					\t	paragraph<p> underneath.
+					\t
+					\t	Also note that three examples of links have been 
+					\t	created.  Two links to other websites and one link
+					\t	to a page on this site.
+					\t
+					\t  *************************************************-->
+					<h3>Example of Subsections with more subsections</h3>
+				
+					<h4>Sub-sub-section - <a href="http://www.example.com" target="blank">www.example.com</a></h4>
+					<p>Non ono no no no nonnnono nono no ono nonon nono nn ono no non ono nno non.
+					   Nono nno o nnonno on ono no no n.
+					   <a href="contato.php">Fale Conosco</a></p>
+					
+					<h4>Sub-sub-section - </h4> <a href="http://www.example.com" target="blank">Example Link</a>
+					<p>Non ono no no no nonnnono nono no ono nonon nono nn ono no non ono nno non.
+					   Nono nno o nnonno on ono no no n.</p>
+					
+					
+					<!--****************************************************
+					\t					POSITIONING IMAGES
+					\t
+					\t	Below is an example of how you can include images
+					\t	on your webpage.  
+					\t
+					\t	The image has it's own tag <img> where you define
+					\t	the source of the image, and it's width and height.
+					\t
+					\t	All of this gets placed within a div called 
+					\t	'imgHolder' which places the div in the centre of
+					\t	the page and gives it a little margin.
+					\t
+					\t	Note!  Img tags do not have to be closed like other
+					\t	tags.  i.e. </img> Doesn't exist.  Only <img>
+					\t
+					\t  *************************************************-->
+					<div class="imgHolder">
+						<img src="img/475wide.gif" width="475" height="210">
+					</div>
+
+					
+					<!--****************************************************
+					\t			       	THE SIGN OFF CLASS
+					\t
+					\t	A class has been created in the CSS called sign off.
+					\t
+					\t	The only text that is meant to be positioned out-
+					\t	side of lists, headings and paragrphs is meant to 
+					\t	be placed within a sign off div 
+					\t
+					\t	<div class="signOff"> Text Here </div>
+					\t
+					\t  *************************************************-->
+					<div class="signOff">
+						Example of the Sign Off class					
+					</div>
+
+
+					<!--****************************************************
+					\t					USING LISTS
+					\t
+					\t	When it is appropriate to use a list place your 
+					\t	lines of text within list item tags 
+					\t	<li>List Item</li> and place all of your list items
+					\t	within list tags.
+					\t
+					\t	<ol>
+					\t		<li>List item 1</li>
+					\t		<li>List item 2</li>
+					\t	</ol>
+					\t
+					\t	Below is an example of an ordered list (with 
+					\t	numbers) <ol>.  Further down the page is an
+					\t	unordered list <ul>.
+					\t
+					\t	Some links have been placed within this list.
+					\t
+					\t  *************************************************-->
+					<h3>Example of a list with some links</h3>
+
+					<ol class="program">
+						<li>01-01-07
+						<a href="#item1">Title of the event - And Location / UF</a></li>
+						<li>01-01-07
+						<a href="#item2">Title of the event, very long at times - And Location / UF</a></li>
+						<li>01-01-07
+						<a href="#item3">Title of the event, very long at times - And Location / UF</a></li>
+					</ol>
+
+					<!--****************************************************
+					\t			SUB-SUB-SUB-SECTION EXAMPLE
+					\t
+					\t	The text below has been given a sub-sub-sub-section.
+					\t
+					\t	This has the title <h5>
+					\t
+					\t	There is also an example of an unordered list <ul>.
+					\t
+					\t  *************************************************-->
+					<h3>Sub-title</h3>
+					
+					<h4>Sub-sub-title</h4>
+					<p>Nonon no nono no nno nno nnno n onno non non ononon nonon n, nonnnono n
+					  on no non ono nno nononon. No non no n no non nonononnoo, noonon.</p>
+					<h5>Sub-sub-sub-title:</h5>
+					<ul>
+						<li>Nonn ono non ono N O.0</li>
+						<li>Nonn ono non ononnono, non non o ononon, nono no nono.</li>
+						<li>Nonn ono non ono N n.0</li>
+					</ul>
+					
+
+					<!--****************************************************
+					\t
+					\t				INTERNAL LINKS AND ANCHORS
+					\t
+					\t	The last element to talk about is the 'top' button.
+					\t
+					\t	This is a link inside a div called "top".
+					\t
+					\t	The link relates to an anchor that way positioned at
+					\t	the top of this page.  Take a look!
+					\t
+					\t	The hyper-reference of the link is "#top".  This
+					\t	means the link will take you to the element that
+					\t	has been given the name or id top.
+					\t
+					\t	Use this link at the bottom of any section that is 
+					\t	a long way down your page.  This will help users
+					\t	to navigate your site quickly and easily.					\t
+					\t
+					\t  *************************************************-->
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+
+
+				</div><!-- end of page content div -->
+				
+			</div><!-- end of right column div -->
+
+		</div><!-- end of main page div -->
+
+	</div><!-- end of container1 div -->
+
+
+	<div id="pageFootnote">
+			<p> COPYRIGHT &copy; - TOREMA 2006 - Todo os direitos reservados. (All right reserved) </p>
+	</div>
+
+</div><!-- end of container0 div-->
+
+</body>
+
+</html>

@@ -1,0 +1,759 @@
+<!-- assine/cadastro.htm -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Assine Terra - Qual é a sua?</title>
+<script language="JavaScript">
+<!--
+FormValidation.onError=function(msgAr, objAr){
+	objAr[0].focus();
+	var objLayer=_id("helpLayer");
+	objLayer.innerHTML="<b>"+msgAr[0]+"</b>";
+	try{clearTimeout(errorTimeout)}catch(e){}
+	var f=function(){
+		displayLayer("helpLayer", false, false);
+		_id("helpIframe").style.display="none";
+	}
+	errorTimeout=setTimeout(f, 5000);
+	displayLayer("helpLayer", true, false, getElementPosition(document.central._nome).x, getElementPosition(objAr[0]).y+objAr[0].offsetHeight+2);
+	_id("helpIframe").style.top=_id("helpLayer").style.top;
+	_id("helpIframe").style.left=_id("helpLayer").style.left;
+	_id("helpIframe").style.height=_id("helpLayer").offsetHeight+"px";
+	_id("helpIframe").style.width=_id("helpLayer").offsetWidth+"px";
+	_id("helpIframe").style.display="block";
+}
+var f=function(obj){
+	var str=obj.value;
+	var v1=str.length>=3 && str.length<=20;
+	var er1=/^[a-zA-Z][a-zA-Z0-9_.]+[a-zA-Z0-9]$/;
+	var v2=str.search(/[._][._]/)<0;
+	return v1 && er1.test(str) && v2;
+}
+FormValidation.addValidation("userName", f);
+var f=function(obj){
+	var str=obj.value;
+	var v1=str.length>=6 && str.length<=8;
+	var er1=/^[a-zA-Z0-9_.=+/:,!@*()|-]+$/;
+	var v2=str.search(/(.)\1\1/)<0;
+	for(var i=0; i<str.length-2; i++){
+		var vA=str.charCodeAt(i)==str.charCodeAt(i+1)-1 && str.charCodeAt(i)==str.charCodeAt(i+2)-2;
+		var vB=str.charCodeAt(i+2)==str.charCodeAt(i+1)-1 && str.charCodeAt(i+2)==str.charCodeAt(i)-2;
+		if(vA || vB){
+			return false;
+		}
+	}
+	return v1 && er1.test(str) && v2;
+}
+FormValidation.addValidation("senha", f);
+
+window.onerror = SymError;
+
+function SymError(){
+return true;
+}
+
+function abre(nome,prop){
+v=document.forms.central._nome.value;
+v2=document.forms.central._sobrenome.value;
+v3=document.forms.central._user.value;
+window.open('inuser.cgi?+szNAsCsLY0R61W2L8063suysR__IEoIL4v8Asv69YTJdb*HN3xrxUT3TZ4q4EWrk3ctLQhoLQ*0RxolYQCZ9aQ8ebWjqJsN8LqZ26IOttsP7vMrTD3Q7sIUljOyzt0Y0c&_nome_sg='+v+'&_sobrenome_sg='+v2+'&_username_sg='+v3,nome,prop)
+}
+
+// abreDT janela
+function abreDT(url,janela,larg,alt,scroll){
+window.open(url,janela,"toolbar=0,location=0,directories=0,status=no,menubar=0,scrollbars="+scroll+",resizable=no,copyhistory=no,width="+larg+",height="+alt);
+}
+
+function MM_findObj(n, d) { //v4.01
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+//TEXTOS - HELP
+textosAjuda=[];
+
+textosAjuda[0]="<b>Regras para criação do username</b><br>- Deve ter de 3 a 20 caracteres;<br>- Aceita apenas letras não acentuadas, dígitos, _ (underline), . (pontos);<br>- Não pode começar com um caracter diferente de letra;<br>- Não pode terminar com _ (underline) e . (ponto);<br>- Não pode ter combinações de _ _ (underline e underline), _. (underline e ponto), ._ (ponto e underline) e .. (ponto e ponto).";
+
+textosAjuda[1]="<b>Regras para criação da senha</b><br>- A senha deve ter no mínimo 6 caracteres e no máximo 8;<br>- Aceita apenas letras não acentuadas (minúsculas ou maiúsculas), números ou algum dos caracteres _.=+-//:,!@*()|<br>- Não pode ter 3 ou mais caracteres repetidos (por exemplo: senhaZZZ);<br>- Não pode ter 3 ou mais caracteres formando uma seqüência (por exemplo: senha345).";
+
+textosAjuda[2]="Forneça um e-mail válido.";
+
+
+// SCRIPT - PREENCHE HELP //
+function mostrarAjuda(targ, posX, posY, contInd){
+	var conteudo=textosAjuda[contInd];
+	var objLayer=_id("helpLayer");
+	objLayer.innerHTML=conteudo;
+	displayLayerFrom(targ, "helpLayer", true, false, posX, posY);
+}
+
+function esconderAjuda(){
+	displayLayer("helpLayer", false, false);
+}
+
+function fillUser(){
+MM_findObj('_user2').value = MM_findObj('_user').value
+return true;
+}
+
+// script CEP
+function showCEP() {
+	if (document.central._pais.value == "BR"){
+		document.central._cep1.setAttribute("validation", "numeric(5)");
+		document.central._cep2.setAttribute("validation", "numeric(3)");
+		obj = document.getElementById("cep"); obj.style.display = "block";
+		obj = document.getElementById("estado"); obj.style.display = "block";
+	}else {
+		document.central._cep1.removeAttribute("validation");
+		document.central._cep2.removeAttribute("validation");
+		obj = document.getElementById("cep"); obj.style.display = "none";
+		obj = document.getElementById("estado"); obj.style.display = "none";
+	}
+}
+ -->
+	</script>
+</head>
+<body>
+<iframe src="http://www.terra.com.br/barra50.htm" width="779" height="50" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" id="barraterra"></iframe>
+
+<!-- CABEÇALHO -->
+<div class="header"><h1>Assine Terra - Qual é a sua?</h1></div>
+<!--//CABEÇALHO -->
+
+<!-- COLUNA ESQUERDA -->
+
+<div class="col esq">
+<script language="JavaScript">
+<!--
+var uv_c='srvg_criauser';
+//-->
+</script>
+<script src="http://img.terra.com.br/uv/uv.js"></script>
+<noscript>
+<img src="http://uv.terra.com.br/UV?c=srvg_criauser" width="1" height="1" border="0">
+</noscript>
+</div>
+<!--//COLUNA ESQUERDA -->
+
+<!-- MIOLO -->
+<div class="col miolo">
+<div><img src="assine/images/img_cad_gratuito_top.gif" alt="Dados Cadastrais" title="Dados Cadastrais" width="600" height="37" border="0"></div>
+	<div class="conteudo">
+	<p>O username é o seu passaporte para todos os serviços oferecidos no portal. Se você já é um assinante, seu username funciona em todos os serviços gratuitos e você não precisa preencher este cadastro.</p>
+
+	<p>Em caso contrário, escolha um username e <strong>cadastre-se agora!</strong></p>
+	
+	<div><img src="assine/images/img_cad_gratuito_obr.gif" alt="Dados Obrigatórios" title="Dados Obrigatórios" width="548" height="31" border="0"></div>
+	<table cellpadding="0" cellspacing="0" class="cadTable" border="0">
+	<form name="central" method="POST" action="./inuser.cgi" onsubmit="fillUser(); return validaForm(this);">
+	<input type="hidden" name="_url_redirect" value="http://fotolog.terra.com.br/">
+	<input type="hidden" name="_form_ins" value="1">
+	<input type="hidden" name="_secure_lock" value="BjEdEnIgKpDkIlOmPcJbOdFoAjMjFnChBmMpBfGcNmKjFnEcBeNkNiCm">
+
+	<input type="hidden" name="_user2" value="">
+	<input type="hidden" name="_profissao" value="ATCNT0000044">
+	<tr>
+	<td class="nCampo">Nome:</td>
+	<td><input type="text" class="campo7" name="_nome" value="" tabindex="1" validation="text(1)" error="Você precisa preencher o campo 'Nome'"></td>
+	</tr>
+	<tr>
+	<td class="nCampo">Sobrenome:</td>
+
+	<td><input type="text" class="campo5" name="_sobrenome" value="" tabindex="2" validation="text(1)" error="Você precisa preencher o campo 'Sobrenome'"></td>
+	</tr>
+	<tr>
+	<td class="nCampo">Username:</td>
+	<td><table cellpadding="0" cellspacing="0" class="helpTable">
+		<tr>
+		<td><input type="text" class="campo4" name="_user" value="" maxlength="20" tabindex="3" onkeyup="FieldValue.format(this, '', 'aA0', '_.')" validation="userName()" error="Preencha o campo 'Username' seguindo as regras do botão '?'"></td>
+		<td><a href="#1" onmouseover="mostrarAjuda(this, -147, -130, 0);" onmouseout="esconderAjuda();"><img src="assine/images/ico_help.gif" border="0" name="helpIco"></a> <a href="javascript:abre('pop','width=400,height=220,status=yes')"><img src="assine/images/btn_testar_username.gif" alt="Testar username" title="Testar username" width="96" height="17" border="0"></a></td>
+
+		</tr>
+		</table></td>
+	</tr>
+	<tr>
+	<td class="nCampo">Senha:</td>
+	<td><table cellpadding="0" cellspacing="0" class="helpTable">
+		<tr>
+		<td><input type="password" class="campo2" name="_senha" maxlength="8" tabindex="4" onkeyup="FieldValue.format(this, '', 'aA0', '_.=+//:,!@*()|-')" validation="senha()" error="Preencha o campo 'Senha' seguindo as regras do botão '?'"></td>
+
+		<td><a href="#1" onmouseover="mostrarAjuda(this, -72, -130, 1);" onmouseout="esconderAjuda();"><img src="assine/images/ico_help.gif" border="0" name="helpIco"></a></td>
+		</tr>
+		</table></td>
+	</tr>
+	<tr>
+	<td class="nCampo">Confirma senha:</td>
+	<td><input type="password" class="campo2" name="_senha2" maxlength="8" tabindex="5" onkeyup="FieldValue.format(this, '', 'aA0', '_.=+-//:,!@*()|')" validation="equalTo('_senha')" error="Os campos 'Senha' e 'Confirma senha' devem ser iguais"></td>
+	</tr>
+
+	<tr>
+	<td class="nCampo">E-mail:</td>
+	<td><table cellpadding="0" cellspacing="0" class="helpTable">
+		<tr>
+		<td><input type="text" class="campo7" name="_email" value="" tabindex="6" onkeyup="FieldValue.format(this, '', 'aA0', '!#$%&+_~@.-')" validation="mail()" error="Digite um endereço de e-mail válido"></td>
+		<td><a href="#1" onmouseover="mostrarAjuda(this, -272, -40, 2);" onmouseout="esconderAjuda();"><img src="assine/images/ico_help.gif" border="0" name="helpIco"></a></td>
+		</tr>
+		</table></td>
+
+	</tr>
+	<tr>
+	<td class="nCampo">Data de Nascimento:</td>
+	<td><select name="_edNasc_dia" class="campo" tabindex="7" validation="text(1)" error="Escolha uma data de nascimento válida">
+	<option selected value="">dia</option>
+	<option value="01">01</option>
+	<option value="02">02</option>
+
+	<option value="03">03</option>
+	<option value="04">04</option>
+	<option value="05">05</option>
+	<option value="06">06</option>
+	<option value="07">07</option>
+	<option value="08">08</option>
+
+	<option value="09">09</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+	<option value="24">24</option>
+	<option value="25">25</option>
+	<option value="26">26</option>
+
+	<option value="27">27</option>
+	<option value="28">28</option>
+	<option value="29">29</option>
+	<option value="30">30</option>
+	<option value="31">31</option></select>
+	/
+	<select name="_edNasc_mes" class="campo3" tabindex="8" validation="text(1)" error="Escolha uma data de nascimento válida">
+
+	<option selected value="">mês</option>
+	<option value="01">janeiro</option>
+	<option value="02">fevereiro</option>
+	<option value="03">março</option>
+	<option value="04">abril</option>
+	<option value="05">maio</option>
+
+	<option value="06">junho</option>
+	<option value="07">julho</option>
+	<option value="08">agosto</option>
+	<option value="09">setembro</option>
+	<option value="10">outubro</option>
+	<option value="11">novembro</option>
+
+	<option value="12">dezembro</option></select>
+	/
+	<select name="_edNasc_ano" class="campo3" tabindex="9" validation="text(1)" error="Escolha uma data de nascimento válida">
+	<option value="1900">1900</option>
+	<option value="1901">1901</option>
+	<option value="1902">1902</option>
+	<option value="1903">1903</option>
+
+	<option value="1904">1904</option>
+	<option value="1905">1905</option>
+	<option value="1906">1906</option>
+	<option value="1907">1907</option>
+	<option value="1908">1908</option>
+	<option value="1909">1909</option>
+
+	<option value="1910">1910</option>
+	<option value="1911">1911</option>
+	<option value="1912">1912</option>
+	<option value="1913">1913</option>
+	<option value="1914">1914</option>
+	<option value="1915">1915</option>
+
+	<option value="1916">1916</option>
+	<option value="1917">1917</option>
+	<option value="1918">1918</option>
+	<option value="1919">1919</option>
+	<option value="1920">1920</option>
+	<option value="1921">1921</option>
+
+	<option value="1922">1922</option>
+	<option value="1923">1923</option>
+	<option value="1924">1924</option>
+	<option value="1925">1925</option>
+	<option value="1926">1926</option>
+	<option value="1927">1927</option>
+
+	<option value="1928">1928</option>
+	<option value="1929">1929</option>
+	<option value="1930">1930</option>
+	<option value="1931">1931</option>
+	<option value="1932">1932</option>
+	<option value="1933">1933</option>
+
+	<option value="1934">1934</option>
+	<option value="1935">1935</option>
+	<option value="1936">1936</option>
+	<option value="1937">1937</option>
+	<option value="1938">1938</option>
+	<option value="1939">1939</option>
+
+	<option value="1940">1940</option>
+	<option value="1941">1941</option>
+	<option value="1942">1942</option>
+	<option value="1943">1943</option>
+	<option value="1944">1944</option>
+	<option value="1945">1945</option>
+
+	<option value="1946">1946</option>
+	<option value="1947">1947</option>
+	<option value="1948">1948</option>
+	<option value="1949">1949</option>
+	<option value="1950">1950</option>
+	<option value="1951">1951</option>
+
+	<option value="1952">1952</option>
+	<option value="1953">1953</option>
+	<option value="1954">1954</option>
+	<option value="1955">1955</option>
+	<option value="1956">1956</option>
+	<option value="1957">1957</option>
+
+	<option value="1958">1958</option>
+	<option value="1959">1959</option>
+	<option value="1960">1960</option>
+	<option value="1961">1961</option>
+	<option value="1962">1962</option>
+	<option value="1963">1963</option>
+
+	<option value="1964">1964</option>
+	<option value="1965">1965</option>
+	<option value="1966">1966</option>
+	<option value="1967">1967</option>
+	<option value="1968">1968</option>
+	<option value="1969">1969</option>
+
+	<option value="1970">1970</option>
+	<option value="1971">1971</option>
+	<option value="1972">1972</option>
+	<option value="1973">1973</option>
+	<option value="1974">1974</option>
+	<option value="1975">1975</option>
+
+	<option value="1976">1976</option>
+	<option value="1977">1977</option>
+	<option value="1978">1978</option>
+	<option value="1979">1979</option>
+	<option value="" selected>ano</option>
+	<option value="1980">1980</option>
+
+	<option value="1981">1981</option>
+	<option value="1982">1982</option>
+	<option value="1983">1983</option>
+	<option value="1984">1984</option>
+	<option value="1985">1985</option>
+	<option value="1986">1986</option>
+
+	<option value="1987">1987</option>
+	<option value="1988">1988</option>
+	<option value="1989">1989</option>
+	<option value="1990">1990</option>
+	<option value="1991">1991</option>
+	<option value="1992">1992</option>
+
+	<option value="1993">1993</option>
+	<option value="1994">1994</option>
+	<option value="1995">1995</option>
+	<option value="1996">1996</option>
+	<option value="1997">1997</option>
+	<option value="1998">1998</option>
+
+	<option value="1999">1999</option>
+	<option value="2000">2000</option>
+	<option value="2001">2001</option></select>
+	</td>
+	</tr>
+	<tr>
+	<td class="nCampo">Sexo:</td>
+
+	<td><select name="_sexo" class="campo3" tabindex="10" validation="text(1)" error="Informe seu sexo">
+	<option value="M">Masculino</option>
+	<option value="F">Feminino</option></select></td>
+	</tr>
+	<tr>
+	<td class="nCampo">País:</td>
+	<td><select name="_pais" class="campo7" tabindex="11" onChange="javascript:showCEP()" validation="text(1)" error="Informe seu país">
+
+	<option value="" selected>selecione</option>
+	<option value="AF">Afeganistão</option>
+	<option value="ZA">África do Sul</option>
+	<option value="AL">Albânia</option>
+	<option value="DE">Alemanha</option>
+	<option value="AD">Andorra</option>
+
+	<option value="AO">Angola</option>
+	<option value="AN">Antilhas Holandesas (Holanda)</option>
+	<option value="AG">Antígua e Barbuda</option>
+	<option value="AR">Argentina</option>
+	<option value="DZ">Argélia</option>
+	<option value="AM">Armênia</option>
+
+	<option value="AW">Aruba (Holanda)</option>
+	<option value="SA">Arábia Saudita</option>
+	<option value="AU">Austrália</option>
+	<option value="AT">Áustria</option>
+	<option value="AZ">Azerbaijão</option>
+	<option value="BS">Bahamas</option>
+
+	<option value="BD">Bangladesh</option>
+	<option value="BB">Barbados</option>
+	<option value="BH">Barein</option>
+	<option value="BZ">Belize</option>
+	<option value="BJ">Benin</option>
+	<option value="BM">Bermudas (Reino Unido)</option>
+
+	<option value="BY">Bielorússia</option>
+	<option value="BO">Bolívia</option>
+	<option value="BW">Botsuana</option>
+	<option value="BR" selected>Brasil</option>
+	<option value="BN">Brunei</option>
+	<option value="BG">Bulgária</option>
+
+	<option value="BF">Burkina Faso</option>
+	<option value="BI">Burundi</option>
+	<option value="BT">Butão</option>
+	<option value="BE">Bélgica</option>
+	<option value="BA">Bósnia-Herzegovina</option>
+	<option value="CV">Cabo Verde</option>
+
+	<option value="CM">Camarões</option>
+	<option value="KH">Camboja</option>
+	<option value="CA">Canadá</option>
+	<option value="KZ">Cazaquistão</option>
+	<option value="TD">Chade</option>
+	<option value="CL">Chile</option>
+
+	<option value="CN">China</option>
+	<option value="CY">Chipre</option>
+	<option value="SG">Cingapura</option>
+	<option value="CO">Colômbia</option>
+	<option value="KP">Coréia do Norte</option>
+	<option value="KR">Coréia do Sul</option>
+
+	<option value="CR">Costa Rica</option>
+	<option value="CI">Costa do Marfim</option>
+	<option value="HR">Croácia</option>
+	<option value="CU">Cuba</option>
+	<option value="DK">Dinamarca</option>
+	<option value="DJ">Djibuti</option>
+
+	<option value="DM">Dominica</option>
+	<option value="EG">Egito</option>
+	<option value="SV">El Salvador</option>
+	<option value="AE">Emirados Árabes Unidos</option>
+	<option value="EC">Equador</option>
+	<option value="ER">Eritréa</option>
+
+	<option value="SK">Eslováquia</option>
+	<option value="SI">Eslovênia</option>
+	<option value="ES">Espanha</option>
+	<option value="US">Estados Unidos</option>
+	<option value="EE">Estônia</option>
+	<option value="ET">Etiópia</option>
+
+	<option value="RU">Federação Russa</option>
+	<option value="FJ">Fiji</option>
+	<option value="PH">Filipinas</option>
+	<option value="FI">Finlândia</option>
+	<option value="FR">França</option>
+	<option value="GA">Gabão</option>
+
+	<option value="GH">Gana</option>
+	<option value="GE">Geórgia</option>
+	<option value="GI">Gibraltar (Reino Unido)</option>
+	<option value="GD">Granada</option>
+	<option value="GL">Groenlândia (Dinamarca)</option>
+	<option value="GR">Grécia</option>
+
+	<option value="GP">Guadelupe (França)</option>
+	<option value="GT">Guatemala</option>
+	<option value="GY">Guiana</option>
+	<option value="GF">Guiana Francesa (França)</option>
+	<option value="GN">Guiné</option>
+	<option value="GQ">Guiné Equatorial</option>
+
+	<option value="GW">Guiné-Bissau</option>
+	<option value="GM">Gâmbia</option>
+	<option value="HT">Haiti</option>
+	<option value="NL">Holanda</option>
+	<option value="HN">Honduras</option>
+	<option value="HK">Hong Kong (China)</option>
+
+	<option value="HU">Hungria</option>
+	<option value="KY">Ilhas Cayman (Reino Unido)</option>
+	<option value="KM">Ilhas Comores</option>
+	<option value="GS">Ilhas Geórgia e Sandwich do Sul (Reino Unido)</option>
+	<option value="FK">Ilhas Malvinas - Falkland (Reino Unido)</option>
+	<option value="MH">Ilhas Marshall</option>
+
+	<option value="SB">Ilhas Salomão</option>
+	<option value="TC">Ilhas Turks e Caicos (Reino Unido)</option>
+	<option value="VI">Ilhas Virgens (EUA)</option>
+	<option value="VG">Ilhas Virgens (Reino Unido)</option>
+	<option value="IN">Índia</option>
+	<option value="ID">Indonésia</option>
+
+	<option value="IQ">Iraque</option>
+	<option value="IE">Irlanda</option>
+	<option value="IR">Irã</option>
+	<option value="IS">Islândia</option>
+	<option value="IL">Israel</option>
+	<option value="IT">Itália</option>
+
+	<option value="YU">Iugoslávia</option>
+	<option value="YE">Iêmen</option>
+	<option value="JM">Jamaica</option>
+	<option value="JP">Japão</option>
+	<option value="JO">Jordânia</option>
+	<option value="KI">Kiribati</option>
+
+	<option value="KW">Kuwait</option>
+	<option value="LA">Laos</option>
+	<option value="LS">Lesoto</option>
+	<option value="LV">Letônia</option>
+	<option value="LR">Libéria</option>
+	<option value="LI">Liechtenstein</option>
+
+	<option value="LT">Lituânia</option>
+	<option value="LU">Luxemburgo</option>
+	<option value="LB">Líbano</option>
+	<option value="LY">Líbia</option>
+	<option value="MO">Macau (China)</option>
+	<option value="MK">Macedônia</option>
+
+	<option value="MG">Madagascar</option>
+	<option value="MW">Malavi</option>
+	<option value="MV">Maldivas</option>
+	<option value="ML">Mali</option>
+	<option value="MT">Malta</option>
+	<option value="MY">Malásia</option>
+
+	<option value="MA">Marrocos</option>
+	<option value="MQ">Martinica</option>
+	<option value="MR">Mauritânia</option>
+	<option value="MU">Maurício</option>
+	<option value="MM">Mianmá</option>
+	<option value="FM">Micronésia</option>
+
+	<option value="MD">Moldávia</option>
+	<option value="MN">Mongólia</option>
+	<option value="MZ">Moçambique</option>
+	<option value="MX">México</option>
+	<option value="MC">Mônaco</option>
+	<option value="NA">Namíbia</option>
+
+	<option value="NR">Nauru</option>
+	<option value="NP">Nepal</option>
+	<option value="NI">Nicarágua</option>
+	<option value="NG">Nigéria</option>
+	<option value="NO">Noruega</option>
+	<option value="NZ">Nova Zelândia</option>
+
+	<option value="NE">Níger</option>
+	<option value="OM">Omã</option>
+	<option value="PA">Panamá</option>
+	<option value="PG">Papua Nova Guiné</option>
+	<option value="PK">Paquistão</option>
+	<option value="PY">Paraguai</option>
+
+	<option value="PE">Peru</option>
+	<option value="PF">Polinésia Francesa (França)</option>
+	<option value="PL">Polônia</option>
+	<option value="PR">Porto Rico (EUA)</option>
+	<option value="PT">Portugal</option>
+	<option value="QA">Qatar</option>
+
+	<option value="KG">Quirquistão</option>
+	<option value="KE">Quênia</option>
+	<option value="UK">Reino Unido</option>
+	<option value="CF">República Centro-Africana</option>
+	<option value="CD">República Democrática do Congo</option>
+	<option value="DO">República Dominicana</option>
+
+	<option value="CZ">República Tcheca</option>
+	<option value="CG">República do Congo</option>
+	<option value="RE">Reunião (França)</option>
+	<option value="RO">Romênia</option>
+	<option value="RW">Ruanda</option>
+	<option value="WS">Samoa Ocidental</option>
+
+	<option value="SM">San Marino</option>
+	<option value="LC">Santa Lúcia</option>
+	<option value="SN">Senegal</option>
+	<option value="SL">Serra Leoa</option>
+	<option value="SC">Seychelles</option>
+	<option value="SO">Somália</option>
+
+	<option value="LK">Sri Lanka</option>
+	<option value="SZ">Suazilândia</option>
+	<option value="SD">Sudão</option>
+	<option value="SR">Suriname</option>
+	<option value="SE">Suécia</option>
+	<option value="CH">Suíça</option>
+
+	<option value="KN">São Cristóvão e Névis</option>
+	<option value="ST">São Tomé e Príncipe</option>
+	<option value="VC">São Vicente e Granadinas</option>
+	<option value="SY">Síria</option>
+	<option value="TH">Tailândia</option>
+	<option value="TW">Taiwan(Formosa)</option>
+
+	<option value="TJ">Tajiquistão</option>
+	<option value="TZ">Tanzânia</option>
+	<option value="TG">Togo</option>
+	<option value="TO">Tonga</option>
+	<option value="TT">Trinidad e Tobago</option>
+	<option value="TN">Tunísia</option>
+
+	<option value="TM">Turcomenistão</option>
+	<option value="TR">Turquia</option>
+	<option value="TV">Tuvalu</option>
+	<option value="UA">Ucrânia</option>
+	<option value="UG">Uganda</option>
+	<option value="UY">Uruguai</option>
+
+	<option value="UZ">Uzbequistão</option>
+	<option value="VU">Vanuatu</option>
+	<option value="VA">Vaticano</option>
+	<option value="VE">Venezuela</option>
+	<option value="VN">Vietnã</option>
+	<option value="ZW">Zimbábue</option>
+
+	<option value="ZM">Zâmbia</option></select></td>
+	</tr>
+	<tr id="estado">
+	<td class="nCampo">Estado:</td>
+	<td><select name="_estado" class="campo4" tabindex="12" validation="text(1)" error="Informe seu estado">
+	<option value="AC">Acre</option>
+	<option value="AL">Alagoas</option>
+
+	<option value="AP">Amapá</option>
+	<option value="AM">Amazonas</option>
+	<option value="BA">Bahia</option>
+	<option value="CE">Ceará</option>
+	<option value="DF">Distrito Federal</option>
+	<option value="ES">Espírito Santo</option>
+
+	<option value="EX">Exterior</option>
+	<option value="GO">Goiás</option>
+	<option value="MA">Maranhão</option>
+	<option value="MT">Mato Grosso</option>
+	<option value="MS">Mato Grosso do Sul</option>
+	<option value="MG">Minas Gerais</option>
+
+	<option value="PA">Pará</option>
+	<option value="PB">Paraíba</option>
+	<option value="PR">Paraná</option>
+	<option value="PE">Pernambuco</option>
+	<option value="PI">Piauí</option>
+	<option value="RJ">Rio de Janeiro</option>
+
+	<option value="RN">Rio Grande do Norte</option>
+	<option value="RS">Rio Grande do Sul</option>
+	<option value="RO">Rondônia</option>
+	<option value="RR">Roraima</option>
+	<option value="SC">Santa Catarina</option>
+	<option value="SP">São Paulo</option>
+
+	<option value="SE">Sergipe</option>
+	<option value="TO">Tocantins</option>
+	<option value="EX">Exterior</option></select></td>
+	</tr>
+	<tr id="cep">
+	<td class="nCampo">CEP:</td>
+
+	<td><input type="text" class="campo" name="_cep1" value="" maxlength="5" tabindex="13" onkeyup="FieldValue.format(this, '', '0', ''); FieldValue.jumpTo(this, '_cep2', 5);" validation="numeric(5)" error="Informe seu CEP corretamente"> - <input type="text" class="miniCampo" name="_cep2" value="" maxlength="3" onkeyup="FieldValue.format(this, '', '0', ''); FieldValue.jumpTo(this,'_text_number', 3);" tabindex="14" validation="numeric(3)" error="Informe seu CEP corretamente"> <a href="http://www.correios.com.br/servicos/cep/cep_default.cfm" target="_blank"><b>&raquo; Consultar CEP</b></a></td>
+
+	</tr>
+	<tr>
+	<td align="center" colspan="2"><p>Digite o número que aparece na imagem abaixo no campo ao seu lado:</p>
+	<img src="http://www.terra.com.br/afpic/afpic.cgi/XnwN3aX1Zdq/BjEdEnIgKpDkIlOmPcJbOdFoAjMjFnChBmMpBfGcNmKjFnEcBeNkNiCm" border="0" align="absmiddle"> <input type="text" class="campo" name="_text_number" maxlength="6" autocomplete="off" tabindex="15" onkeyup="FieldValue.format(this, '', '0', '');" validation="numeric(6)" error="Digite o número de confirmação"></td>
+
+	</tr>
+	</table>
+	<div><img src="assine/images/img_cad_gratuito_opc.gif" alt="Dados Opcionais" title="Dados Opcionais" width="546" height="29" border="0"></div>
+	<table cellpadding="0" cellspacing="0" class="cadTable">
+
+	<tr>
+	<td class="nCampo">Endereço:</td>
+	<td><input type="text" class="campo7" name="_endereco" value="" tabindex="16"></td>
+	</tr>
+
+	<tr>
+	<td class="nCampo">Número:</td>
+	<td><input type="text" class="campo" name="_numero" value="" tabindex="17" onkeyup="FieldValue.format(this, '', '0', '');"></td>
+	</tr>
+
+	<tr>
+	<td class="nCampo">Complemento:</td>
+	<td><input type="text" class="campo2" name="_complemento" maxlength="10" value="" tabindex="18"></td>
+
+	</tr>
+	<tr>
+	<td class="nCampo">Bairro:</td>
+	<td><input type="text" class="campo5" name="_bairro" value="" tabindex="19"></td>
+	</tr>
+
+	<tr>
+	<td class="nCampo">Cidade:</td>
+
+	<td><input type="text" class="campo4" name="_cidade" value="" tabindex="20"></td>
+	</tr>
+	<tr>
+	<td class="nCampo">Telefone:</td>
+	<td><input type="text" class="miniCampo" name="_fone_ddd" value="" maxlength="2" onkeyup="FieldValue.format(this, '', '0', ''); FieldValue.jumpTo(this,'_fone_prefix', 2);" tabindex="21"> <input type="text" class="campo" name="_fone_prefix" value="" maxlength="4" onkeyup="FieldValue.format(this, '', '0', ''); FieldValue.jumpTo(this,'_fone_suffix', 4);" tabindex="22"> - <input type="text" class="campo" name="_fone_suffix" value="" maxlength="4" tabindex="23" onkeyup="FieldValue.format(this, '', '0', '');"></td>
+
+	</tr>
+
+	</table>
+	
+	<!-- ASSINAR BOLETINS -->
+	<div class="news">
+	<div class="newsa">
+	<table cellpadding="0" cellspacing="0" class="newsTable">
+	<tr>
+	<td><input type="checkbox" name="_assina" value="COM" tabindex="24"></td>
+	<td>Desejo receber, por meios tradicionais e/ou eletrônicos, informação comercial acerca de produtos/serviços oferecidos por TERRA ou por terceiros.</td>
+
+	</tr>
+	</table>
+	</div>
+	<div class="newsb">
+	<table cellpadding="0" cellspacing="0" class="newsTable">
+	<tr>
+	<td><input type="checkbox" name="_assina" value="RVJ" tabindex="25"></td>
+	<td><strong>Revista <b>Veja</b></strong> - Saiba antes o que você vai ler na Veja, recebendo na sexta à noite um newsletter com os principais destaques da revista. Receba também informações sobre promoções e ofertas especiais da Editora Abril.</td>
+
+	</tr>
+	</table>
+	</div>
+	</div>
+	<!--//ASSINAR BOLETINS -->
+	
+	<p>Ao completar e enviar este formulário de registro você consente que TERRA NETWORKS BRASIL S.A. utilize seus dados pessoais em conformidade com sua Política de Privacidade acessível através do endereço eletrônico <a href="http://www.terra.com.br/privacidade/" target="_blank">www.terra.com.br/privacidade</a>.</p>
+	<div class="btns"><input type="image" src="assine/images/btn_cad_gratuito_ok.gif" tabindex="26"> <a href="javascript:history.go(-1);"><img src="assine/images/btn_cad_gratuito_voltar.gif" alt="Voltar" title="Voltar" width="89" height="29" border="0"></a></div>
+
+	</div>
+	<div class="aviso">Se preferir ligue: São Paulo: (011) 3611-1010  Porto Alegre: (51) 3287-0707  Outros Locais: 0800 - 777 - 7777</div></form>
+</div>
+</body>
+</html>
+

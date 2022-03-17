@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Torema - Notic&iacute;as</title>
+<link type="text/css" rel="stylesheet" href="css/internals.css" />
+
+<script type="text/javascript">
+
+/***********************************************
+* AnyLink Drop Down Menu- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[0]='<a href="quem.html">Quem Somos</a>'
+menu1[1]='<a href="parcerias.html">Nossas Parcerias</a>'
+menu1[2]='<a href="noticias.html">Notic&iacute;as</a>'
+
+//Contents for menu 2
+var menu2=new Array()
+menu2[0]='<a href="gestao.html">Gest&atilde;o de Ativos</a>'
+menu2[1]='<a href="treinamento.html">Treinamento<br />e  Eventos</a>'
+
+//Contents for menu 3
+var menu3=new Array()
+menu3[0]='<a href="clientes.html">Clientes</a>'
+menu3[1]='<a href="cases.html">Cases</a>'
+
+//Contents for menu 4
+var menu4=new Array()
+menu4[0]='<a href="contato.html">Fale Conosco</a>'
+menu4[1]='<a href="curriculo.html">Curr&iacute;culo</a>'
+		
+var menuwidth='100px' //default menu width
+var menubgcolor='black'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+</script>
+<script type="text/javascript" src="js/dropDown.js"></script>
+</head>
+
+<body>
+<a name="top" class="anchor">&nbsp;</a>
+<div id="container0"><!-- container holding everything -->
+	<div id="container1"><!-- container holding everything but the pageFootnote -->
+		<div id="pageHeader"><!-- holding logo, banner and top menu -->	  	
+			<span id="logoMain"><img src="img/logo.gif" width="250" height="100" /></span>
+			<div id="topMenu">
+				<ul><li class="selected"><a href="home.html" title="Home" accesskey="h">Home</a></li
+					><li><a href="quem.html" onMouseOver="dropdownmenu(this, event, menu1, '130px')" onMouseOut="delayhidemenu()">A Empresa</a></li
+					><li><a href="gestao.html" onMouseOver="dropdownmenu(this, event, menu2, '120px')" onMouseOut="delayhidemenu()">Servi&ccedil;os</a></li
+					><li><a href="clientes.html" onMouseOver="dropdownmenu(this, event, menu3, '120px')" onMouseOut="delayhidemenu()">Portf&oacute;lio</a></li
+					><li><a href="contato.html" onMouseOver="dropdownmenu(this, event, menu4, '110px')" onMouseOut="delayhidemenu()">Contato</a></li
+				></ul>
+			</div><!-- end of topMenu -->
+		</div><!-- end of pageHeader -->
+		<div id="mainPage">
+			<div id="leftCol">
+				<div id="imgHolder">
+					<img src="img/leftCol230.gif" width="200" height="240" />				</div>
+				<div id="sideMenu">
+					<h2>A Empresa <span id="wordSubmenu">submenu:</span></h2>
+					<ul>
+						<li><a href="quem.html" title="Quem Somos">Quem Somos</a></li>
+						<li><a href="parcerias.html" title="Nossas Parcerias">Nossas Parcerias</a></li>
+						<li class="extraSelected"><a href="noticias.html" title="Notic&iacute;as">Notic&iacute;as</a></li>
+					</ul>
+				</div><!-- end of side menu -->
+				
+			</div><!-- end of left column -->
+			<div id="rightCol"><!-- this column holds the majority of the page specific detail -->
+				<h2>Notic&iacute;as</h2>
+				<div class="newsItem">
+					<h3>News Item Title</h3>
+					<span class="date">1 de Janeiro, 2007</span>
+					<p class="p1">Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<p>Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<span class="link">A link to more information: <a href="#" title="More info.">
+						http://waves.terra.com.br/</a></span>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+				<div class="newsItem">
+					<h3>News Item Title</h3>
+					<span class="date">1 de Janeiro, 2007</span>
+					<p class="p1">Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<p>Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<span class="link">A link to more information: <a href="#" title="More info.">
+						http://waves.terra.com.br/</a></span>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+				<div class="newsItem">
+					<h3>News Item Title</h3>
+					<span class="date">1 de Janeiro, 2007</span>
+					<p class="p1">Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<p>Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<span class="link">A link to more information: <a href="#" title="More info.">
+						http://waves.terra.com.br/</a></span>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+				<div class="newsItem">
+					<h3>News Item Title</h3>
+					<span class="date">1 de Janeiro, 2007</span>
+					<p class="p1">Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<p>Nonon no no no nno no n onn ono nno n ono non no n.  
+					  Non no no n ono non no non no no no.</p>
+					<span class="link">A link to more information: <a href="#" title="More info.">
+						http://waves.terra.com.br/</a></span>
+					<div class="top"><a href="#top" title="Top">Top</a></div>
+				</div>
+			</div><!-- end of right column -->
+		</div>
+		<!-- end of main page -->
+	</div><!-- end of container1 -->
+	<div id="pageFootnote">
+			<p> COPYRIGHT &copy; - TOREMA 2006 - Todo os direitos reservados. (All right reserved) </p>
+	</div>
+</div><!-- end of container0 -->
+</body>
+</html>

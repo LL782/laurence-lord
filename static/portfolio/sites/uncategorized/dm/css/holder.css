@@ -1,0 +1,154 @@
+@import url(site.css);
+
+/***********************
+GENERAL LAYOUT
+
+***********************/
+
+#page1 {
+	background: #26231c url(../images/styling/dark-background.jpg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#page2 {
+	background: #26231c url(../images/styling/dark-ruddy-background.jpg);
+	color: #59554b;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/***********************
+Z-INDEX
+
+***********************/
+
+#development {
+	z-index: 4;
+}
+
+#logo, #mountain {
+	z-index: 3;
+}
+
+#page1, #dark {
+	z-index: 2;
+}
+
+#page2 {
+	z-index: 1;
+}
+
+
+/***********************
+PAGE ONE ELEMENTS
+
+***********************/
+
+#logo {
+	background: url(../images/logo/logo_ruddier_transparent.png) no-repeat center center;
+	background-size: 40%;
+	position: absolute;
+	top: -10%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#dark {
+	background: url(../images/styling/darker-background.jpg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#mountain {
+	background: url(../images/logo/title_dark_transparent.png) no-repeat center bottom;
+	background-size: 10%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 15%;
+}
+
+#mountain span {
+	display: none;
+}
+
+#development {
+	position: absolute;
+	bottom: 5%;
+	display: block;
+	width: 100%;
+	color: #1e0808;
+	line-height: 1.5em;
+}
+
+#development a {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	letter-spacing: 1em;
+	color: #1e0808;
+	text-decoration: none;
+}
+
+#development a:hover, #development a:focus {
+	color: #7fc100;
+}
+
+/***********************
+PAGE TWO ELEMENTS
+
+***********************/
+
+#page2 img {
+	width: 18%;
+	height: auto;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	margin-left: -9%;
+}
+
+#page2 h2 {
+	display: none;
+}
+
+#contact {
+	color: #918c7f;
+	position: absolute;
+	top: 45%;
+	left: 0;
+	width: 100%;
+}
+
+#contact p#digital {
+	letter-spacing: 0.1em;
+}
+
+#contact p {
+	color: #918c7f;
+}
+
+#contact a {
+	text-transform: uppercase;
+	color: #918c7f;
+	font-size: 0.9em;
+	letter-spacing: 0.2em;
+	padding-left: 1em;
+	text-decoration: none;
+}
+
+#contact a:hover, #contact a:focus {
+	color: #7fc100;
+}
