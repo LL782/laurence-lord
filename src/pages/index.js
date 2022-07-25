@@ -38,8 +38,8 @@ const IndexPage = () => {
         This website is home to <Link to="/notes">my notes</Link> and{" "}
         <a href="/labs/a-frame-001/">experimentation</a>. It's online for my own
         convenience rather than for show.{" "}
-        <strong>You are most welcome to explore!</strong> ...but it's worth
-        mentioning it is more of a workshop than a gallery.
+        <strong>You are most welcome to explore</strong> but it's more of a workshop
+        than a gallery.
       </p>
       <h3>Site map:</h3>
       <ul>
