@@ -23,7 +23,9 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
       </p>
       {newer ? (
         <p>
-          <Link to={`/notes/${newer.slug}`}>Newer</Link>
+          <Link to={`/notes/${newer.slug}`} title={newer.frontmatter.title}>
+            Newer
+          </Link>
         </p>
       ) : (
         <p>
@@ -35,7 +37,10 @@ const NewerOlder = ({ allNotes, idOfCurrentNote }) => {
       )}
       {older ? (
         <p>
-          <Link to={`/notes/${older.slug}`}>Older</Link>
+          <Link to={`/notes/${older.slug}`} title={older.frontmatter.title}>
+            Older
+          </Link>{" "}
+          <small>"{older.frontmatter.title}"</small>
         </p>
       ) : (
         <p>

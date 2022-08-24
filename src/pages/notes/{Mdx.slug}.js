@@ -96,6 +96,9 @@ export const noteQuery = graphql`
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
+        frontmatter {
+          title
+        }
         id
         slug
       }
