@@ -8,6 +8,7 @@ body {
 
   color: var(--theme-ui-colors-text);
   background-color: var(--theme-ui-colors-background);
+  max-width: 764px;
 }
 
 @media (prefers-color-scheme: light) {
