@@ -17,8 +17,10 @@ const NotesIndexPage = ({ data }) => {
         You're welcome to dive in but you will find some of them are very raw
       </p>
       <p>
-        <Link to="/notes/i-am-writing-for-myself">More about that here...</Link>
+        <Link to="/notes/i-am-writing-for-myself">More about that here</Link>{" "}
+        and now on with the show...
       </p>
+      <hr />
       {notes.map((note) => (
         <Link to={`/notes/${note.slug}`} key={note.slug}>
           <h2>{note.frontmatter.title}...</h2>

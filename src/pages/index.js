@@ -11,45 +11,74 @@ const IndexPage = () => {
     <Layout isHome={true}>
       <Seo isHome={true} />
       <h1>Laurence Lord</h1>
-      <h2>Creative Developer</h2>
+      <h2>
+        Software Craftsperson at{" "}
+        <a href="https://www.codurance.com">Codurance</a> and
+        Artist&nbsp;Developer at <a href="https://dc5b.com">DC5B</a>
+      </h2>
       <p>
-        I work for <a href="https://www.codurance.com">Codurance</a> as a
-        software craftsperson and I am an artist drawing under the name{" "}
-        <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>
+        I've gone from individual contributor, developing code, to developing
+        teams to developing software projects. Drawing has always been a hobby
+        for me and now I'm developing a side-hustle pushing my artwork forwards.
       </p>
+      <p>
+        <a href="https://idea.dc5b.com">Bug a mug</a>,{" "}
+        <a href="https://patreon.com/user?u=30673863">support me on Patreon</a>{" "}
+        or <a href="mailto:laurence.lord@gmail.com">drop me an email</a>. Thanks
+        so much for your support, it means a lot to me. And have a great trip!
+      </p>
+
       <StaticImage
         alt="Closely cropped black ink artwork of branches, flowers and masked faces"
         aspectRatio={21 / 9}
         layout="constrained"
         src="../images/crop-of-punk-storm.png"
       />
-      <p>
-        You can <a href="mailto:hello@laurencelord.co.uk">email me</a>, find me
-        on <a href="https://github.com/LL782">GitHub</a>,{" "}
-        <a href="https://www.linkedin.com/in/laurencelord">LinkedIn</a>,{" "}
-        <a href="https://www.twitter.com/LL782">Twitter (which I hardly use)</a>{" "}
-        and{" "}
-        <a href="https://www.behance.net/laurencelord">
-          Behance (old work only)
-        </a>
-        .
-      </p>
-      <p>
-        This website is home to <Link to="/notes">my notes</Link> and{" "}
-        <a href="/labs/a-frame-001/">experimentation</a>. It's online for my own
-        convenience rather than for show.{" "}
-        <strong>You are most welcome to explore</strong> but it's more of a workshop
-        than a gallery.
-      </p>
-      <h3>Site map:</h3>
+      <h3>On this site</h3>
       <ul>
         <li>
-          <Link to="/notes/">My notes</Link>
+          <Link to="/notes/">My various notes</Link>
         </li>
         <li>
-          <Link to="/labs/">Lab experiments</Link> (1 item)
+          <Link to="/labs/">A lab experiment</Link>
         </li>
       </ul>
+      <h3>Elsewhere</h3>
+      <div style={{ display: "flex" }}>
+        <div style={{ width: "50%" }}>
+          <h4>Mainstream</h4>
+          <ul>
+            <li>
+              <a href="https://github.com/LL782">LL782</a> GitHub
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/laurencelord">
+                Laurence Lord
+              </a>{" "}
+              LinkedIn
+            </li>
+            <li>
+              <a href="https://www.twitter.com/LL782">@LL782</a> Twitter
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Side hustle</h4>
+          <ul>
+            <li>
+              <a href="https://idea.idc5b.com/">IDEA.DC5B.COM</a> portfolio shop
+            </li>
+            <li>
+              <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>{" "}
+              Instagram
+            </li>
+            <li>
+              <a href="https://patreon.com/user?u=30673863">Laurence Lord</a>{" "}
+              Patreon
+            </li>
+          </ul>
+        </div>
+      </div>
       <EditOnGitHubInvite path={`/src/pages/index.js`} />
     </Layout>
   );
