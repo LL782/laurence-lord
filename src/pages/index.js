@@ -17,7 +17,7 @@ const IndexPage = () => {
         Artist&nbsp;Developer at <a href="https://dc5b.com">DC5B</a>
       </h2>
       <p>
-        I've gone from individual contributor, developing code, to developing
+        I've gone from individual contributor developing code, to developing
         teams to developing software projects. Drawing has always been a hobby
         for me and now I'm developing a side-hustle pushing my artwork forwards.
       </p>
@@ -25,15 +25,16 @@ const IndexPage = () => {
         <a href="https://idea.dc5b.com">Bug a mug</a>,{" "}
         <a href="https://patreon.com/user?u=30673863">support me on Patreon</a>{" "}
         or <a href="mailto:laurence.lord@gmail.com">drop me an email</a>. Thanks
-        so much for your support, it means a lot to me. And have a great trip!
+        so much for your support and have a great trip!
       </p>
-
-      <StaticImage
-        alt="Closely cropped black ink artwork of branches, flowers and masked faces"
-        aspectRatio={21 / 9}
-        layout="constrained"
-        src="../images/crop-of-punk-storm.png"
-      />
+      <a href="https://www.instagram.com/dog.dc5b" style={{ border: "0 none" }}>
+        <StaticImage
+          alt="Closely cropped black ink artwork of branches, flowers and masked faces"
+          aspectRatio={21 / 9}
+          layout="constrained"
+          src="../images/crop-of-punk-storm.png"
+        />
+      </a>
       <h3>On this site</h3>
       <ul>
         <li>
