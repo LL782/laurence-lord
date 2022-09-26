@@ -13,8 +13,12 @@ const NotesIndexPage = ({ data }) => {
       <Seo title="My Notes" />
       <h1>My Notes</h1>
       <p>
-        You're welcome to dive in but you will find some of these notes are very raw. <Link to="/notes/i-am-writing-for-myself"> I write them for myself</Link>{" "}
-      <p>
+        You're welcome to dive in but you will find some 
+        notes to be very raw.
+        <Link to="/notes/i-am-writing-for-myself">
+          I write them for myself
+        </Link>
+      </p>
       <hr />
       {notes.map((note) => (
         <Link to={`/notes/${note.slug}`} key={note.slug}>
