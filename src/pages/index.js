@@ -14,7 +14,7 @@ const IndexPage = () => {
       <h2>
         Software Craftsperson at{" "}
         <a href="https://www.codurance.com">Codurance</a> and
-        Artist&nbsp;Developer at <a href="https://dc5b.com">DC5B</a>
+        Artist Developer at <a href="https://dc5b.com">DC5B</a>
       </h2>
       <p>
         I've gone from individual contributor developing code, to developing
