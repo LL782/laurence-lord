@@ -14,7 +14,7 @@ const NotesIndexPage = ({ data }) => {
       <h1>My Notes</h1>
       <p>
         You're welcome to dive in but you will find some 
-        notes to be very raw.
+        notes to be very raw.{' '}
         <Link to="/notes/i-am-writing-for-myself">
           I write them for myself
         </Link>
