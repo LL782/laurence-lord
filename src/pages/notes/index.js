@@ -18,7 +18,10 @@ const NotesIndexPage = ({ data }) => {
         <Link to="/notes/i-am-writing-for-myself">
           I write them for myself
         </Link>.{' '}
-        If anything chimes with you please do get in touch 
+        If anything chimes with you please do{' '}
+        <a href="mailto:laurence.lord@gmail.com">
+          get in touch
+        </a>
       </p>
       <hr />
       {notes.map((note) => (
