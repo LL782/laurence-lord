@@ -15,18 +15,7 @@ const IndexPage = () => {
         I am an <strong>artist</strong> and a{" "}
         <strong>software craftsperson</strong>
       </h2>
-      <p>
-        I've gone from individual contributor developing code, to developing
-        teams to developing software projects. Drawing has always been a hobby
-        for me and now I'm developing a side-hustle pushing my artwork forwards.
-      </p>
-      <p>
-        <a href="https://idea.dc5b.com">Bug a mug</a>,{" "}
-        <a href="https://patreon.com/user?u=30673863">support me on Patreon</a>{" "}
-        or <a href="mailto:laurence.lord@gmail.com">drop me an email</a>. Thanks
-        so much for your support and have a great trip!
-      </p>
-      <a href="https://www.instagram.com/dog.dc5b" style={{ border: "0 none" }}>
+      <a href="https://idea.dc5b.com" style={{ border: "0 none" }}>
         <StaticImage
           alt="Closely cropped black ink artwork of branches, flowers and masked faces"
           aspectRatio={21 / 9}
@@ -63,18 +52,14 @@ const IndexPage = () => {
           </ul>
         </div>
         <div>
-          <h4>Side hustle</h4>
+          <h4>Sidestream</h4>
           <ul>
             <li>
-              <a href="https://idea.idc5b.com/">IDEA.DC5B.COM</a> portfolio shop
+              <a href="https://idea.idc5b.com/">IDEA.DC5B.COM</a> Shop
             </li>
             <li>
-              <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>{" "}
+              <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>
               Instagram
-            </li>
-            <li>
-              <a href="https://patreon.com/user?u=30673863">Laurence Lord</a>{" "}
-              Patreon
             </li>
           </ul>
         </div>
