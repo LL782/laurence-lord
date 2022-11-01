@@ -10,11 +10,10 @@ const IndexPage = () => {
   return (
     <Layout isHome={true}>
       <Seo isHome={true} />
-      <h1>Laurence Lord</h1>
+      <h1>Laurence "DC5B" Lord</h1>
       <h2>
-        Software Craftsperson at{" "}
-        <a href="https://www.codurance.com">Codurance</a> and
-        Artist Developer at <a href="https://dc5b.com">DC5B</a>
+        I am an <strong>artist</strong> and a{" "}
+        <strong>software craftsperson</strong>
       </h2>
       <p>
         I've gone from individual contributor developing code, to developing
