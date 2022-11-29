@@ -55,11 +55,10 @@ const IndexPage = () => {
           <h4>Sidestream</h4>
           <ul>
             <li>
-              <a href="https://idea.idc5b.com/">IDEA.DC5B.COM</a> Shop
+              <a href="https://idea.idc5b.com/">IDEA.DC5B.COM</a> Side hustle
             </li>
             <li>
-              <a href="https://www.instagram.com/dog.dc5b/">DOG.DC5B</a>
-              Instagram
+              <a href="https://www.instagram.com/dog.dc5b/">DOG.5B</a> Art on Instagram
             </li>
           </ul>
         </div>
