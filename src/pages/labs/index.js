@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import * as React from "react";
 
 import { EditOnGitHubInvite } from "../../components/editOnGitHubInvite";
@@ -12,11 +11,11 @@ const NotesIndexPage = () => {
       path: "/labs/a-frame-001/",
       title: "A Frame 001",
     },
-    // {
-    //   date: "2021-10-15",
-    //   path: "/labs/a-frame-002-codurance-brand/",
-    //   title: "A Frame 002 - Codurance Brand",
-    // },
+    {
+      date: "2022-11-30",
+      path: "/labs/LL782-poster/",
+      title: "LL782 Poster",
+    },
   ];
 
   return (

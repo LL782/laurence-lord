@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LL782 Poster</title>
+  </head>
+  <body>
+    <style>
+      :root {
+        --interactive-x: 0.5;
+        --interactive-y: 0.5;
+      }
+      body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        margin: 0;
+        overflow: hidden;
+      }
+      .interactive-zone {
+        position: absolute;
+        background-color: #f0f3;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+      }
+      .container {
+        perspective: 200vw;
+        perspective-origin: 150% 150%;
+        transform-style: preserve-3d;
+      }
+      .art {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: calc(630 / 1200 * 100%);
+        transform: translateZ(50px) rotateY(calc(var(--interactive-x) * 60deg))
+          rotateX(calc(var(--interactive-y) * 90deg));
+      }
+      .back-art,
+      .mask {
+        position: absolute;
+        filter: grayscale(0);
+      }
+      .back-art {
+        background-image: url("./city-wallpaper-47-copy-so.jpg");
+        background-size: 106%;
+        background-position: 72% 54%;
+        top: 0.5%;
+        height: 99%;
+        width: 99%;
+      }
+      .mask {
+        background-image: url("./LL782-web-poster-mask.png");
+        background-size: cover;
+        top: 0;
+        height: 100%;
+        width: 100%;
+      }
+      pre {
+        position: fixed;
+        color: #f0f;
+        background-color: #0006;
+        padding: 2rem;
+      }
+    </style>
+    <div class="container">
+      <div class="art">
+        <div class="back-art"></div>
+        <div class="mask"></div>
+      </div>
+    </div>
+    <div class="interactive-zone" id="interactiveArea"></div>
+    <pre>
+Hello
+---
+You are at 
+x: <span id="x">...</span>
+y: <span id="y">...</span>
+    </pre>
+    <script>
+      let x = 0;
+      let y = 0;
+
+      const consoleX = document.getElementById("x");
+      const consoleY = document.getElementById("y");
+      const interactiveArea = document.getElementById("interactiveArea");
+
+      const rootStyle = document.querySelector(":root").style;
+
+      interactiveArea.addEventListener("mousemove", (e) => {
+        x = e.offsetX;
+        y = e.offsetY;
+        recordX();
+        recordY();
+      });
+
+      function recordX() {
+        consoleX.innerText = asPortionOfWidth(x);
+        rootStyle.setProperty("--interactive-x", asPortionOfWidth(x));
+      }
+
+      function recordY() {
+        consoleY.innerText = asPortionOfHeight(y);
+        rootStyle.setProperty("--interactive-y", asPortionOfHeight(y));
+      }
+
+      function asPortionOfWidth(n) {
+        const portion = n / interactiveArea.offsetWidth;
+        const result = (portion * 2 - 1) * 0.5;
+        return result;
+      }
+
+      function asPortionOfHeight(n) {
+        const portion = n / interactiveArea.offsetHeight;
+        const result = (portion * 2 - 1) * -0.5;
+        return result;
+      }
+    </script>
+  </body>
+</html>
