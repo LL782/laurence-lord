@@ -4,7 +4,7 @@ module.exports = {
     defaultDescription: `Personal website of London based software craftsperson and artist, Laurence Lord. This website houses notes and links related to my occupation and varied thoughts.`,
     defaultTitle: 'Laurence "DC5B" Lord - Artist and Software Craftsperson',
     headline: "My links, notes and experiments",
-    logo: "/logos/monkey-pixels.png",
+    logo: "/logos/ll782-og.png",
     ogLanguage: "en_GB",
     siteLanguage: "en",
     siteUrl: "https://www.laurencelord.co.uk",
