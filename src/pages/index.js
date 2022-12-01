@@ -29,13 +29,13 @@ const IndexPage = () => {
           <Link to="/notes/">My notes</Link>
         </li>
         <li>
-          <Link to="/labs/">Lab experiments</Link>
+          <Link to="/labs/">My experiments</Link>
         </li>
       </ul>
-      <h3>Elsewhere</h3>
+      <h3>Elsewhere online</h3>
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
-          <h4>Mainstream</h4>
+          <h4>Mainstream links</h4>
           <ul>
             <li>
               <a href="https://github.com/LL782">LL782</a> GitHub
@@ -49,14 +49,17 @@ const IndexPage = () => {
           </ul>
         </div>
         <div>
-          <h4>Sidestream</h4>
+          <h4>Side stream </h4>
           <ul>
             <li>
-              <a href="https://idea.dc5b.com/">IDEA.DC5B.COM</a> Side hustle
+              <a href="https://www.instagram.com/dog.5b/">DOG.5B</a> My drawings
             </li>
             <li>
-              <a href="https://www.instagram.com/dog.5b/">DOG.5B</a> Art on
-              Instagram
+              <a href="https://www.dc5b.com/">DC5B.COM</a> Art business
+            </li>
+            <li>
+              <a href="https://www.pathfindertools.com/">PathfinderTools.com</a>{" "}
+              RPG Hobby
             </li>
           </ul>
         </div>
