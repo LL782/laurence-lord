@@ -26,10 +26,10 @@ const IndexPage = () => {
       <h3>On this site</h3>
       <ul>
         <li>
-          <Link to="/notes/">My various notes</Link>
+          <Link to="/notes/">My notes</Link>
         </li>
         <li>
-          <Link to="/labs/">A lab experiment</Link>
+          <Link to="/labs/">Lab experiments</Link>
         </li>
       </ul>
       <h3>Elsewhere</h3>
@@ -41,10 +41,7 @@ const IndexPage = () => {
               <a href="https://github.com/LL782">LL782</a> GitHub
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/laurencelord">
-                Laurence Lord
-              </a>{" "}
-              LinkedIn
+              <a href="https://www.linkedin.com/in/ll782">LL782</a> LinkedIn
             </li>
             <li>
               <a href="https://www.twitter.com/LL782">@LL782</a> Twitter
@@ -55,10 +52,11 @@ const IndexPage = () => {
           <h4>Sidestream</h4>
           <ul>
             <li>
-              <a href="https://idea.idc5b.com/">IDEA.DC5B.COM</a> Side hustle
+              <a href="https://idea.dc5b.com/">IDEA.DC5B.COM</a> Side hustle
             </li>
             <li>
-              <a href="https://www.instagram.com/dog.dc5b/">DOG.5B</a> Art on Instagram
+              <a href="https://www.instagram.com/dog.5b/">DOG.5B</a> Art on
+              Instagram
             </li>
           </ul>
         </div>
