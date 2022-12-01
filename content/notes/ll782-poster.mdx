@@ -1,0 +1,40 @@
+---
+date: 2022-11-30
+description: Lab notes on a little bit of play with 3D CSS
+title: "Lab notes on using CSS and HTML to build a brand poster"
+image: ./a-frame-001.png
+imageAlt: "A screenshot of a primitive three dimensional scene lit with pink and green lights"
+imageAnchor: "/labs/a-frame-001/"
+---
+
+## Lab work
+
+[A slightly interactive image montage using JS, CSS and HTML](/labs/LL782-poster/)
+
+## Lab notes
+
+### For users:
+
+1. If you have a mouse, move it around to tilt the image
+
+### For developers:
+
+#### Theme 1: Generating an Open Graph image in the browser
+
+1. Rather than using Photoshop I'm experimenting with using CSS and img tags to make a photo montage
+1. Notice the PNG mask on top of the JPG and the CSS where I've pixel pushed them both around
+1. To generate the og:image for this size, I'll resize my browser to 1200 x 630px and screenshot it
+
+#### Theme 2: A little experimenting with 3D CSS
+
+1. I hadn't heard of [the perspective attribute in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective) before, so there's some experimentation with that
+1. I didn't apply a `translateX` in the end because I didn't want to effect the og:image screenshot
+1. However a bit of `translateX` does play well with the `perspective`, `perspective-origin`, `rotateY` and `rotateX`
+
+#### Theme 3: Updating CSS vars using Javascript
+
+1. I've been meaning to do this since Lea Verou demonstrated them years ago
+1. The basic idea is to track the mouseover event with JS and update a [custom-property](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) in your CSS
+1. Have the JS write something from 0-1 and then `calc()` lets you keep the visual tweaking inside the CSS
+
+**[The code is here](https://github.com/LL782/laurence-lord/tree/main/static/labs/LL782-poster)**

@@ -9,8 +9,8 @@
   <body>
     <style>
       :root {
-        --interactive-x: 0.5;
-        --interactive-y: 0.5;
+        --interactive-x: 0;
+        --interactive-y: 0;
       }
       body {
         background-color: black;
@@ -21,23 +21,8 @@
         margin: 0;
         overflow: hidden;
       }
-      .interactive-zone {
-        position: absolute;
-        background-color: #f0f2;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: radial-gradient(
-          circle at 50%,
-          #f0f,
-          #f0ff 1%,
-          #fff4 1%,
-          #f0f0
-        );
-      }
       .container {
-        perspective: 100vw;
+        perspective: 23vw;
         perspective-origin: 50%;
         transform-style: preserve-3d;
       }
@@ -46,9 +31,10 @@
         width: 100%;
         height: 0;
         padding-top: calc(630 / 1200 * 100%);
-        transform: translateZ(50px) rotateY(calc(var(--interactive-x) * 60deg))
+        transform: rotateY(calc(var(--interactive-x) * 60deg))
           rotateX(calc(var(--interactive-y) * 90deg));
       }
+
       .back-art,
       .mask {
         position: absolute;
@@ -69,17 +55,79 @@
         height: 100%;
         width: 100%;
       }
-      pre {
+      .interactive-zone {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: radial-gradient(circle at 50%, #fff4 1%, #f0f0);
+      }
+      .mouse-console[aria-hidden] {
+        display: none;
+      }
+
+      .mouse-console {
         position: fixed;
         color: #f0fe;
         background-image: linear-gradient(90deg, #0003, #0001);
         padding: 2rem;
         pointer-events: none;
         bottom: 0;
+        margin: 0;
       }
-
-      pre span {
+      .mouse-console span {
         color: #f0f;
+      }
+      body.hide-details .mouse-console,
+      body.hide-details .nav {
+        display: none;
+      }
+      .nav {
+        position: fixed;
+        top: 0;
+        padding: 2rem;
+      }
+      .nav a {
+        color: #f0fc;
+        border-bottom: 1px dotted #f0fc;
+        text-decoration: none;
+        font-family: monospace;
+        display: block;
+        padding: 1rem;
+        transition: color 0.2s;
+      }
+      .nav a:hover,
+      .nav a:focus {
+        color: #fff;
+        text-decoration: none;
+      }
+      .toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        appearance: none;
+        border: 1px solid #f0f6;
+        background: #0006;
+        color: #f0fa;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        font-family: monospace;
+        margin: 0;
+        transition: opacity 0.5s, color 0.2s;
+      }
+      .toggle:hover,
+      .toggle:focus {
+        color: #f0f;
+      }
+      .toggle:active {
+        color: #fff;
+      }
+      body.hide-details .toggle {
+        opacity: 0;
+      }
+      body.hide-details .toggle:hover {
+        opacity: 1;
       }
     </style>
     <div class="container">
@@ -89,16 +137,27 @@
       </div>
     </div>
     <div class="interactive-zone" id="interactiveArea"></div>
-    <pre>
-Hello
+    <pre class="mouse-console" id="mouseConsole">
+<span>Hello</span> 
 ---
-You are at 
+<span id="mouseGreeting">...waiting for cursor...</span>
 x: <span id="x">...</span>
 y: <span id="y">...</span>
     </pre>
+
+    <button class="toggle" id="detailsToggle">Toggle overlay</button>
+
+    <nav class="nav">
+      <a href="/" title="Homepage">LL782</a>
+      <a href="/notes/LL782-poster/" title="Read the lab notes">
+        ../Notes/LL782-poster
+      </a>
+    </nav>
+
     <script>
       let x = 0;
       let y = 0;
+      let mouseDetected;
 
       const consoleX = document.getElementById("x");
       const consoleY = document.getElementById("y");
@@ -107,11 +166,17 @@ y: <span id="y">...</span>
       const rootStyle = document.querySelector(":root").style;
 
       interactiveArea.addEventListener("mousemove", (e) => {
+        if (!mouseDetected) greetMouse();
         x = e.offsetX;
         y = e.offsetY;
         recordX();
         recordY();
       });
+
+      function greetMouse() {
+        document.getElementById("mouseGreeting").textContent = "You are at:";
+        mouseDetected = true;
+      }
 
       function recordX() {
         consoleX.innerText = asPortionOfWidth(x);
@@ -133,6 +198,20 @@ y: <span id="y">...</span>
         const portion = n / interactiveArea.offsetHeight;
         const result = (portion * 2 - 1) * -0.5;
         return result;
+      }
+
+      let detailsVisible = true;
+      const detailsToggle = document.getElementById("detailsToggle");
+      detailsToggle.addEventListener("click", toggleDetails);
+
+      function toggleDetails() {
+        if (detailsVisible) {
+          document.body.classList.add("hide-details");
+          detailsVisible = false;
+        } else {
+          document.body.classList.remove("hide-details");
+          detailsVisible = true;
+        }
       }
     </script>
   </body>
