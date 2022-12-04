@@ -11,18 +11,30 @@ const IndexPage = () => {
     <Layout isHome={true}>
       <Seo isHome={true} />
       <h1>Laurence "DC5B" Lord</h1>
-      <h2>Artist, business developer and software craftsperson</h2>
+      <h2>Creative Developer</h2>
       <StaticImage
         alt="Closely cropped black ink artwork of branches, flowers and masked faces"
         aspectRatio={21 / 9}
         layout="constrained"
         src="../images/crop-of-punk-storm.png"
       />
-      <p>I craft websites, develop businesses and draw pictures. This websites has a growing collection of my notes, lab experiments and links to places where I'm active online.</p>
+      <p>
+        I craft websites, develop businesses and draw pictures. This website
+        shares a collection of notes, lab experiments and links related to my
+        activty online.
+      </p>
 
-      <p>The notes are written (primarily) for me. I write about what I'm working on, what I think of different development processes and break-throughs I make in my own neuro-lingustic program.</p>
+      <p>
+        Although written for myself, you may find my notes interesting. They're
+        about what I'm doing, my ways-of-working and the break-throughs I make
+        in my own, personal program.
+      </p>
 
-      <p>The lab experiments are notes too – mini web apps where I try things out, test with different people and can find the results again in the future.</p>
+      <p>
+        The lab experiments are notes too – mini web apps where I try things
+        out, test with different people and – best of all – can find them again
+        in the future.
+      </p>
       <h3>On this site</h3>
       <ul>
         <li>
@@ -32,34 +44,33 @@ const IndexPage = () => {
           <Link to="/labs/">Lab experiments</Link>
         </li>
       </ul>
-      <h3>Elsewhere online</h3>
+      <h3>Links</h3>
       <div style={{ display: "flex" }}>
         <div style={{ width: "50%" }}>
-          <h4>Mainstream links</h4>
+          <h4>Mainstream</h4>
           <ul>
             <li>
-              <a href="https://github.com/LL782">LL782</a> GitHub
+              <a href="https://github.com/LL782">LL782 GitHub</a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/ll782">LL782</a> LinkedIn
+              <a href="https://www.linkedin.com/in/ll782">LL782 LinkedIn</a>
             </li>
             <li>
-              <a href="https://www.twitter.com/LL782">@LL782</a> Twitter
+              <a href="https://www.twitter.com/LL782">LL782 Twitter</a>
             </li>
           </ul>
         </div>
         <div>
-          <h4>Side stream </h4>
+          <h4>Side-streams</h4>
           <ul>
             <li>
-              <a href="https://www.instagram.com/dog.5b/">DOG.5B</a> My drawings
+              <a href="https://www.instagram.com/dog.5b/">dog.5b Instagram</a>
             </li>
             <li>
-              <a href="https://www.dc5b.com/">DC5B.COM</a> Art business
+              <a href="https://www.dc5b.com/">DC5B Website</a>
             </li>
             <li>
-              <a href="https://www.pathfindertools.com/">PathfinderTools.com</a>{" "}
-              RPG Hobby
+              <a href="https://www.pathfindertools.com/">PathfinderTools.com</a>
             </li>
           </ul>
         </div>

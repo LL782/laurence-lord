@@ -20,7 +20,10 @@ const NotesIndexPage = () => {
 
   return (
     <Layout>
-      <Seo title="Lab work" />
+      <Seo
+        title="Lab experiments"
+        description="Mini web apps exploring different web technology and visual effects in the browser. So far we have a couple of 3D tests, one with WebGL and one with pure CSS."
+      />
       <h1>Laurence Lord Labs</h1>
       <table>
         <thead>
