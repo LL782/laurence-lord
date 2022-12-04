@@ -11,25 +11,25 @@ const IndexPage = () => {
     <Layout isHome={true}>
       <Seo isHome={true} />
       <h1>Laurence "DC5B" Lord</h1>
-      <h2>
-        I am an <strong>artist</strong> and a{" "}
-        <strong>software craftsperson</strong>
-      </h2>
-      <a href="https://idea.dc5b.com" style={{ border: "0 none" }}>
-        <StaticImage
-          alt="Closely cropped black ink artwork of branches, flowers and masked faces"
-          aspectRatio={21 / 9}
-          layout="constrained"
-          src="../images/crop-of-punk-storm.png"
-        />
-      </a>
+      <h2>Artist, business developer and software craftsperson</h2>
+      <StaticImage
+        alt="Closely cropped black ink artwork of branches, flowers and masked faces"
+        aspectRatio={21 / 9}
+        layout="constrained"
+        src="../images/crop-of-punk-storm.png"
+      />
+      <p>I craft websites, develop businesses and draw pictures. This websites has a growing collection of my notes, lab experiments and links to places where I'm active online.</p>
+
+      <p>The notes are written (primarily) for me. I write about what I'm working on, what I think of different development processes and break-throughs I makie in my own neuro-lingustic program.</p>
+
+      <p>The lab experiments are notes too – mini web apps where I try things out, test with different people and can find the results again in the future.</p>
       <h3>On this site</h3>
       <ul>
         <li>
           <Link to="/notes/">My notes</Link>
         </li>
         <li>
-          <Link to="/labs/">My experiments</Link>
+          <Link to="/labs/">Lab experiments</Link>
         </li>
       </ul>
       <h3>Elsewhere online</h3>
