@@ -23,9 +23,7 @@ export const Layout = ({ children, isHome, simpleFooter }) => (
       {!isHome && (
         <header>
           <nav>
-            <Link to="/">
-              Laurence "DC5B" Lord - Artist and software craftsperson
-            </Link>
+            <Link to="/">Laurence "DC5B" Lord - Creative Developer</Link>
           </nav>
         </header>
       )}
