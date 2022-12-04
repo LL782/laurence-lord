@@ -20,7 +20,7 @@ const IndexPage = () => {
       />
       <p>I craft websites, develop businesses and draw pictures. This websites has a growing collection of my notes, lab experiments and links to places where I'm active online.</p>
 
-      <p>The notes are written (primarily) for me. I write about what I'm working on, what I think of different development processes and break-throughs I makie in my own neuro-lingustic program.</p>
+      <p>The notes are written (primarily) for me. I write about what I'm working on, what I think of different development processes and break-throughs I make in my own neuro-lingustic program.</p>
 
       <p>The lab experiments are notes too – mini web apps where I try things out, test with different people and can find the results again in the future.</p>
       <h3>On this site</h3>
