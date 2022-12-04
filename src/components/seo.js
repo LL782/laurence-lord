@@ -65,9 +65,10 @@ export const Seo = ({ description, image, imageAlt, isHome, title }) => {
       <meta property="twitter:title" content={metaTitle} />
 
       {isHome && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgWebPage)}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={JSON.stringify(schemaOrgWebPage)}
+        />
       )}
     </Helmet>
   );
