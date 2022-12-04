@@ -64,7 +64,13 @@ const IndexPage = () => {
           <h4>Side-streams</h4>
           <ul>
             <li>
-              <a href="https://www.instagram.com/dog.5b/">dog.5b Instagram</a>
+              <a
+                href="https://www.instagram.com/dog.5b/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                dog.5b Instagram
+              </a>
             </li>
             <li>
               <a href="https://www.dc5b.com/">DC5B Website</a>
