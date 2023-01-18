@@ -3,6 +3,7 @@ import * as React from "react";
 import { EditOnGitHubInvite } from "../../components/editOnGitHubInvite";
 import { Layout } from "../../components/layout";
 import { Seo } from "../../components/seo";
+import { Link } from "gatsby";
 
 const NotesIndexPage = () => {
   const experiments = [
@@ -50,8 +51,15 @@ const NotesIndexPage = () => {
 
       <h2>Things to know about these experiments</h2>
       <ul>
-        <li>Online they are easy to test</li>
-        <li>One day there will be many of them</li>
+        <li>They are primarily here for my own interest</li>
+        <li>Online they are easier to reference, test and [re]discover</li>
+        <li>
+          I've written more{" "}
+          <Link to="/notes/i-am-writing-for-myself">
+            about writing for myself
+          </Link>{" "}
+          here
+        </li>
       </ul>
 
       <p></p>
