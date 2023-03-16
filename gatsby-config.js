@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     author: 'Laurence "DC5B" Lord',
     defaultDescription:
-      "Laurence Lord is a creative developer based in UK, specialising in websites and online businesses. This website shares his personal notes, lab experiments and links.",
+      "Laurence Lord is a creative developer specialising in websites and online businesses. This website shares my personal notes, lab experiments and key links.",
     defaultTitle: 'Laurence "DC5B" Lord',
     headline: "Creative Developer",
     logo: "/logos/ll782-og.png",
