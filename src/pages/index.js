@@ -65,18 +65,18 @@ const IndexPage = () => {
           <ul>
             <li>
               <a
-                href="https://www.instagram.com/dog.5b/"
+                href="https://www.instagram.com/dc5b_/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                dog.5b Instagram
+                DC5B Instagram
               </a>
             </li>
             <li>
               <a href="https://www.dc5b.com/">DC5B Website</a>
             </li>
             <li>
-              <a href="https://www.pathfindertools.com/">PathfinderTools.com</a>
+              <a href="https://maps.mundoko.world/">Mundoko Maps</a>
             </li>
           </ul>
         </div>
