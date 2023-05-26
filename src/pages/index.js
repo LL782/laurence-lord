@@ -65,11 +65,11 @@ const IndexPage = () => {
           <ul>
             <li>
               <a
-                href="https://www.instagram.com/dc5b_/"
+                href="https://www.instagram.com/dog.5b/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                DC5B Instagram
+                Dog.5b Instagram
               </a>
             </li>
             <li>
