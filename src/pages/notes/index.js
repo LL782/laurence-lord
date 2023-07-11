@@ -26,7 +26,8 @@ const NotesIndexPage = ({ data }) => {
       <hr />
       {notes.map((note) => (
         <Link to={`/notes/${note.slug}`} key={note.slug}>
-          <h2>{note.frontmatter.title}...</h2>
+          <h2>{note.frontmatter.title}</h2>
+          <p>Read more...</p>          
         </Link>
       ))}
       <EditOnGitHubInvite path={`/src/pages/notes/index.js`} />
