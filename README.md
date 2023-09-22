@@ -31,9 +31,11 @@
 
 4.  **More me 🧶**
 
-    - [DOG.DC5B Instagram](https://www.instagram.com/dog.dc5b/) (artwork)
+    - [dog.5b Instagram](https://www.instagram.com/dog.5b/) (artwork)
 
-    - [Codurance](https://www.codurance.com) (work)
+    - [DC5B](https://www.dc5b.com) (side hustle)
+
+    - [Ledger](https://www.ledger.com) (day job)
 
 ## Contributing
 
@@ -41,5 +43,5 @@ Feel free to browse the files, raise issues or suggest changes in any way you li
 
 ## Maintenance notes (in case I forget)
 
-Deploys to [Gatsby Cloud](https://www.gatsbyjs.com/products/cloud/hosting/) via commits to `main` branch, 
-configured in [Gatsby Dashboard](https://www.gatsbyjs.com/dashboard)
+Deploys to [Netlify](https://app.netlify.com/teams/ll782/overview) via commits to `main` branch, 
+configured in Netlify
