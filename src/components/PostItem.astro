@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const date = post.data.pubDate.toISOString().slice(0, 10);
+---
+
+<a class="menu-item" href={`/blog/${post.id}/`}>
+  <span class="mi-marker" aria-hidden="true">▪ &gt;</span>
+  <span class="mi-title">{post.data.title}</span>
+  <time class="mi-date" datetime={date}>{date}</time>
+  <span class="mi-arrow" aria-hidden="true">›</span>
+</a>

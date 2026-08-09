@@ -1,0 +1,193 @@
+---
+import '../styles/terminal.css';
+import TerminalHeader from '../components/TerminalHeader.astro';
+import TerminalFooter from '../components/TerminalFooter.astro';
+import HackGate from '../components/HackGate.astro';
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  PRIVATE_MODE,
+  SITE_VENDOR,
+  SITE_SYSTEM,
+  SITE_MODEL,
+} from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE_DESCRIPTION } = Astro.props;
+const pageTitle = title ? `${title} // ${SITE_TITLE}` : SITE_TITLE;
+---
+
+<!doctype html>
+<html lang="en" data-theme="amber">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link
+      rel="preload"
+      href="/fonts/WebPlus_IBM_VGA_8x16.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={new URL('rss.xml', Astro.site)}
+    />
+    <title>{pageTitle}</title>
+    <!-- Apply the saved theme before first paint so it does not flash. -->
+    <script is:inline>
+      const saved = localStorage.getItem('theme');
+      if (saved === 'green' || saved === 'amber') {
+        document.documentElement.dataset.theme = saved;
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Power-on screen: once per session, dismissed by any click or key. -->
+    <div class="crt-boot" id="crt-boot" aria-hidden="true">
+      <div class="crt-boot__screen">
+        <pre class="crt-boot__lines">{[
+          `${SITE_VENDOR} (TM) ${SITE_SYSTEM} PROTOCOL`,
+          `INITIALIZING ${SITE_MODEL}...`,
+          '',
+          '> SET TERMINAL/INQUIRE',
+          SITE_MODEL,
+          '> SET FILE/PROTECTION=OWNER:RWED ACCOUNTS.F',
+          '> SET HALT RESTART/MAINT',
+          '',
+          `INITIALIZING ${SITE_VENDOR}(TM) BOOT AGENT v2.3.0`,
+          'RETROS BIOS  RBIOS-4.02.08.00 52EE5.E7.E8',
+          `COPYRIGHT 1984-1991 ${SITE_VENDOR}`,
+          'UPPERMEM: 64 KB   ROOT: 05EAC8FF',
+          'EXECUTING THREAD...',
+          'LOAD ' + SITE_TITLE + ' // READY',
+        ].map((line, i) => (
+          <span class="boot-line" style={`--i:${i}`}>{line + '\n'}</span>
+        ))}</pre>
+        <div class="crt-boot__skip">[ PRESS ANY KEY ]</div>
+      </div>
+    </div>
+    <script is:inline>
+      // Skip the screen entirely rather than flashing it and hiding it.
+      (function () {
+        var boot = document.getElementById('crt-boot');
+        if (!boot) return;
+        var mq = window.matchMedia;
+        var reduce = mq && mq('(prefers-reduced-motion: reduce)').matches;
+        var narrow = mq && mq('(max-width: 640px)').matches;
+        if (reduce || narrow || sessionStorage.getItem('booted')) {
+          boot.classList.add('crt-boot--off');
+        }
+      })();
+    </script>
+
+    {PRIVATE_MODE && <HackGate />}
+
+    <div class="crt">
+      <div class="container">
+        <TerminalHeader />
+        <main>
+          <slot />
+        </main>
+        <TerminalFooter />
+      </div>
+    </div>
+
+    <script>
+      import { sfx, bindSfx } from '../scripts/sfx';
+
+      // Links, buttons and list rows all sound like menu items.
+      bindSfx(document, '.menu-item, .h-nav a, .h-nav button, .logo, [data-sfx]');
+
+      // Two sound buttons exist (header and footer) and only one is ever
+      // visible, but both have to stay in sync.
+      const soundBtns = document.querySelectorAll<HTMLButtonElement>(
+        '[data-action="sound"]',
+      );
+
+      function drawSound() {
+        soundBtns.forEach((btn) => {
+          btn.setAttribute('aria-pressed', String(sfx.enabled));
+          const label = btn.querySelector<HTMLElement>('[data-sound-label]');
+          if (label) label.textContent = sfx.enabled ? '♪ SND' : '♪ SND OFF';
+        });
+      }
+      drawSound();
+
+      soundBtns.forEach((btn) =>
+        btn.addEventListener('click', () => {
+          sfx.enabled = !sfx.enabled;
+          drawSound();
+          if (sfx.enabled) sfx.select(); // Confirm switching on, audibly.
+        }),
+      );
+
+      (function () {
+        const boot = document.getElementById('crt-boot');
+        if (!boot || boot.classList.contains('crt-boot--off')) return;
+        sessionStorage.setItem('booted', '1');
+        let done = false;
+        const dismiss = () => {
+          if (done) return;
+          done = true;
+          boot.classList.add('crt-boot--done');
+          setTimeout(() => boot.remove(), 400);
+        };
+        boot.addEventListener('click', dismiss);
+        // Catch the key before the nav hotkeys so it only dismisses boot.
+        window.addEventListener(
+          'keydown',
+          (e) => {
+            e.stopImmediatePropagation();
+            dismiss();
+          },
+          { once: true, capture: false },
+        );
+        setTimeout(dismiss, 2600);
+      })();
+
+      function toggleTheme() {
+        const el = document.documentElement;
+        const next = el.dataset.theme === 'green' ? 'amber' : 'green';
+        el.dataset.theme = next;
+        localStorage.setItem('theme', next);
+        sfx.power(); // The screen "relights", so the phosphor hums.
+      }
+
+      document
+        .querySelectorAll('[data-action="theme"]')
+        .forEach((btn) => btn.addEventListener('click', toggleTheme));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const t = e.target as HTMLElement;
+        if (t.closest('input, textarea, select, [contenteditable]')) return;
+        switch (e.key.toLowerCase()) {
+          // Each hotkey is listed twice: the Latin key and the same
+          // physical key under a Russian keyboard layout.
+          case 'h':
+          case 'р':
+            location.href = '/';
+            break;
+          case 'a':
+          case 'ф':
+            location.href = '/blog/';
+            break;
+          case 't':
+          case 'е':
+            toggleTheme();
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Frame from '../components/Frame.astro';
+import PostItem from '../components/PostItem.astro';
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+---
+
+<Layout>
+  <Frame title="LATEST ENTRIES">
+    <div class="menu-list">
+      {posts.map((post) => <PostItem post={post} />)}
+      <a class="menu-item" href="/blog/">
+        <span class="mi-marker" aria-hidden="true">▪ &gt;</span>
+        <span class="mi-title">VIEW FULL ARCHIVE…</span>
+        <span class="mi-arrow" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </Frame>
+</Layout>

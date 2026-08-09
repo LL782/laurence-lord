@@ -1,0 +1,16 @@
+deny.ogg comes from the "Interface Sounds" pack by Kenney Vleugels
+(https://kenney.nl/assets/interface-sounds), released under
+Creative Commons Zero (CC0 1.0 Universal / public domain):
+
+  http://creativecommons.org/publicdomain/zero/1.0/
+
+  deny.ogg <- interface-sounds / error_008.ogg  (unmodified)
+
+CC0 requires no attribution — this file exists because the pack asks
+that credit "would be nice", and because it records where the file
+came from for anyone forking this template.
+
+Every other signal (hover, select, grant, key, power) is synthesized
+in src/scripts/sfx.ts — no audio file involved. Playback volume is set
+per signal there; the sample/synth choice is made in SFX_SAMPLES in
+src/consts.ts.

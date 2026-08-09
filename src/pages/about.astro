@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Frame from '../components/Frame.astro';
+---
+
+<Layout title="ABOUT" description="About the author of this blog.">
+  <Frame title="PROFILE">
+    <dl class="records">
+      <dt>NAME</dt>
+      <dd>[YOUR NAME]</dd>
+      <dt>ROLE</dt>
+      <dd>[WHAT YOU DO]</dd>
+      <dt>LOCATION</dt>
+      <dd>[CITY, COUNTRY]</dd>
+      <dt>CONTACT</dt>
+      <dd><a href="mailto:user@example.com">user@example.com</a></dd>
+    </dl>
+  </Frame>
+
+  <Frame title="ABOUT">
+    <div class="prose">
+      <p>
+        Hi! This is the about page. Replace this text with a few words about
+        yourself: what you do, what you write about, and how to reach you.
+      </p>
+      <p>
+        Links: <a href="https://github.com/">GitHub</a> //
+        <a href="/rss.xml">RSS</a>
+      </p>
+    </div>
+  </Frame>
+</Layout>

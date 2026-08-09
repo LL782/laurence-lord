@@ -1,0 +1,26 @@
+---
+// Theme and sound toggles. Rendered twice — in the header and in the
+// footer — with CSS showing exactly one: the header pair on desktop, the
+// footer pair on phones, where they scroll away with the content instead of
+// costing a permanent nav line. The script in Layout.astro drives both.
+interface Props {
+  class?: string;
+}
+const { class: cls } = Astro.props;
+---
+
+<div class:list={['toggles', cls]}>
+  <!-- data-sfx="hover": both buttons make their own sound on click. -->
+  <button class="nav-theme" data-action="theme" data-sfx="hover" type="button">
+    ◙ THEME
+  </button>
+  <button
+    class="nav-sound"
+    data-action="sound"
+    data-sfx="hover"
+    type="button"
+    aria-pressed="true"
+  >
+    <span data-sound-label>♪ SND</span>
+  </button>
+</div>

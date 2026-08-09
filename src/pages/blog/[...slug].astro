@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Frame from '../../components/Frame.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
+const date = pubDate.toISOString().slice(0, 10);
+const updated = updatedDate?.toISOString().slice(0, 10);
+---
+
+<Layout title={title} description={description}>
+  <article>
+    <Frame title="ENTRY">
+      <h1 class="post-title">{title}</h1>
+      <p class="post-meta">
+        DATE: <time datetime={date}>{date}</time>
+        {updated && <> // UPDATED: <time datetime={updated}>{updated}</time></>}
+        {tags.length > 0 && (
+          <>
+            {' // TAGS: '}
+            {tags.map((tag) => (
+              <a href={`/blog/tag/${tag}/`}>[{tag}]</a>
+            ))}
+          </>
+        )}
+      </p>
+      {
+        heroImage && (
+          <Image class="post-hero" src={heroImage} alt="" width={1280} loading="eager" />
+        )
+      }
+      <div class="prose">
+        <Content />
+      </div>
+    </Frame>
+
+    <nav class="post-nav">
+      <a class="menu-item" href="/blog/">
+        <span class="mi-marker" aria-hidden="true">▪ ‹</span>
+        <span class="mi-title">BACK TO ARCHIVE</span>
+      </a>
+    </nav>
+  </article>
+</Layout>

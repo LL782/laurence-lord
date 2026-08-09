@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Frame from '../components/Frame.astro';
+import { SITE_VENDOR, SITE_SYSTEM } from '../consts';
+---
+
+<Layout title="ERROR 404">
+  <Frame title={SITE_SYSTEM}>
+    <div class="hack" id="hack" data-hack>
+      <!-- Static fallback for no-JS; the script replaces it with the game. -->
+      <div class="hack__head">
+        <p>{SITE_VENDOR} (TM) {SITE_SYSTEM}</p>
+        <p class="error-text" style="text-align:left;margin:8px 0;">
+          404 // FILE NOT FOUND
+        </p>
+      </div>
+    </div>
+    <!-- Kept outside the game container so the exits always work. -->
+    <div class="hack__exits">
+      <div class="menu-list">
+        <a class="menu-item" href="/">
+          <span class="mi-marker" aria-hidden="true">▪ &gt;</span>
+          <span class="mi-title">GO HOME</span>
+          <span class="mi-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="menu-item" href="/blog/">
+          <span class="mi-marker" aria-hidden="true">▪ &gt;</span>
+          <span class="mi-title">OPEN ARCHIVE</span>
+          <span class="mi-arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </div>
+  </Frame>
+</Layout>
+
+<script>
+  import { buildHackGame } from '../scripts/hackGame';
+  const root = document.querySelector<HTMLElement>('[data-hack]');
+  if (root) {
+    buildHackGame(root, {
+      grantText: 'ACCESS GRANTED, REROUTING…',
+      lockText: 'TERMINAL LOCKED — USE AN EXIT BELOW',
+      onGranted: () => (location.href = '/'),
+    });
+  }
+</script>

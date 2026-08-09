@@ -1,0 +1,17 @@
+---
+// Double-bordered box with the title breaking the top line, like windows
+// in old text-mode interfaces.
+interface Props {
+  title?: string;
+  class?: string;
+}
+
+const { title, class: cls } = Astro.props;
+---
+
+<section class:list={['frame', cls]}>
+  {title && <h2 class="frame-title">{title}</h2>}
+  <div class="frame-body">
+    <slot />
+  </div>
+</section>

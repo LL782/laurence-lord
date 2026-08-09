@@ -1,0 +1,52 @@
+---
+// Private-mode gate: a full-screen overlay holding the minigame.
+// Layout renders it only when PRIVATE_MODE is on.
+import { SITE_VENDOR, SITE_SYSTEM } from '../consts';
+---
+
+<div class="hack-gate" id="hack-gate">
+  <div class="hack-gate__inner">
+    <div class="hack" data-hack-gate>
+      <div class="hack__head">
+        <p>{SITE_VENDOR} (TM) {SITE_SYSTEM}</p>
+        <p>ENTER PASSWORD NOW</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Already unlocked this session: hide before paint so it does not flash.
+  (function () {
+    if (sessionStorage.getItem('unlocked')) {
+      var g = document.getElementById('hack-gate');
+      if (g) g.style.display = 'none';
+    }
+  })();
+</script>
+
+<script>
+  import { buildHackGame } from '../scripts/hackGame';
+
+  const gate = document.getElementById('hack-gate');
+  const root = gate?.querySelector<HTMLElement>('[data-hack-gate]');
+
+  if (gate && root) {
+    if (sessionStorage.getItem('unlocked')) {
+      gate.remove();
+    } else {
+      // Lock background scrolling while the gate is up.
+      document.documentElement.style.overflow = 'hidden';
+      buildHackGame(root, {
+        grantText: 'ACCESS GRANTED, WELCOME…',
+        allowRetry: true, // Running out of attempts must not be a dead end.
+        onGranted: () => {
+          sessionStorage.setItem('unlocked', '1');
+          gate.classList.add('hack-gate--done');
+          document.documentElement.style.overflow = '';
+          setTimeout(() => gate.remove(), 500);
+        },
+      });
+    }
+  }
+</script>

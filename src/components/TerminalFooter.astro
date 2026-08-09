@@ -1,0 +1,12 @@
+---
+import { SITE_TITLE } from '../consts';
+import TerminalToggles from './TerminalToggles.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="t-footer">
+  <p class="t-colophon">
+    {SITE_TITLE} &copy; {year} // POWERED BY ASTRO
+  </p>
+  <TerminalToggles class="toggles--footer" />
+</footer>
