@@ -1,0 +1,12 @@
+---
+import EmbedLayout from "../../../layouts/EmbedLayout.astro";
+import { CanvasScriptAndForm } from "../../../components/CanvasScriptAndForm";
+---
+
+<EmbedLayout>
+  <CanvasScriptAndForm
+    client:load
+    scriptSrc="/embeds/3d-web-gl-first-steps-variables/simpleSpinningCube.js"
+    fullHeight={true}
+  />
+</EmbedLayout>

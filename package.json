@@ -1,41 +1,30 @@
 {
   "name": "laurence-lord",
-  "version": "1.0.0",
+  "type": "module",
+  "version": "2.0.0",
   "private": true,
   "description": "Personal website by Laurence Lord",
   "author": "LL782",
   "scripts": {
-    "dev": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "@theme-ui/css": "0.6.0",
-    "@theme-ui/presets": "^0.6.1",
-    "@theme-ui/prism": "^0.6.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^4.12.1",
-    "gatsby": "^3.14.1",
-    "gatsby-plugin-gatsby-cloud": "^2.2.0",
-    "gatsby-plugin-image": "^1.2.0",
-    "gatsby-plugin-mdx": "^2.2.0",
-    "gatsby-plugin-react-helmet": "^4.2.0",
-    "gatsby-plugin-sharp": "^3.2.1",
-    "gatsby-plugin-sitemap": "^3.3.0",
-    "gatsby-plugin-theme-ui": "^0.6.0",
-    "gatsby-source-filesystem": "^3.2.0",
-    "gatsby-transformer-sharp": "^3.2.0",
-    "got": "^11.8.2",
-    "graphql": "^15.5.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "theme-ui": "^0.6.2",
-    "typescript": "^4.2.3"
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.17.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
   }
 }

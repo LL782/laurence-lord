@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
+
+const notes = (await getCollection("notes")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<BaseLayout title="My Notes">
+  <h1>My Notes</h1>
+  <p>
+    You're very welcome to dive in, just be aware some notes are very raw.{" "}
+    <a href="/notes/i-am-writing-for-myself/">I write them for myself</a>. If
+    anything chimes with you please do{" "}
+    <a href="mailto:laurence.lord@gmail.com">get in touch</a>
+  </p>
+  <hr />
+  {
+    notes.map((note) => (
+      <a href={`/notes/${note.slug}/`}>
+        <h2>{note.data.title}</h2>
+        <p>Read more...</p>
+      </a>
+    ))
+  }
+  <EditOnGitHubInvite path="/src/pages/notes/index.astro" />
+</BaseLayout>

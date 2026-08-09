@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-sitemap: https://www.laurencelord.co.uk/sitemap.xml

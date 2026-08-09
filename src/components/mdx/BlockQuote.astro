@@ -1,0 +1,54 @@
+---
+interface Props {
+  customLabel?: string;
+  citationUrl?: string;
+  date?: string;
+  heading?: string;
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+}
+
+const {
+  customLabel,
+  citationUrl,
+  date,
+  heading,
+  headingLevel = 4,
+} = Astro.props;
+
+const HeadingTag = `h${headingLevel}` as keyof HTMLElementTagNameMap;
+
+let citationLabel = customLabel;
+if (citationUrl && !citationLabel) {
+  const parsed = new URL(citationUrl);
+  const pathname = parsed.pathname;
+  const citationSlug = pathname.substring(pathname.lastIndexOf("/") + 1);
+  citationLabel = citationSlug
+    ? `${parsed.hostname} [...] ${citationSlug}`
+    : parsed.hostname;
+}
+---
+
+{
+  heading &&
+    (citationUrl ? (
+      <HeadingTag>
+        <a href={citationUrl}>{heading}</a>
+      </HeadingTag>
+    ) : (
+      <HeadingTag>{heading}</HeadingTag>
+    ))
+}
+<blockquote><slot /></blockquote>
+{
+  citationUrl && (
+    <cite>
+      <a href={citationUrl}>{citationLabel}</a>
+      {date && (
+        <>
+          {" "}
+          – <time>{date}</time>
+        </>
+      )}
+    </cite>
+  )
+}

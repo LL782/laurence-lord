@@ -1,0 +1,109 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { Image, getImage } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
+import NewerOlder from "../../components/NewerOlder.astro";
+import BlockQuote from "../../components/mdx/BlockQuote.astro";
+import EmbedFrame from "../../components/mdx/EmbedFrame.astro";
+import Emoji from "../../components/mdx/Emoji.astro";
+import Stub from "../../components/mdx/Stub.astro";
+import Message from "../../components/mdx/Message.astro";
+import Link from "../../components/mdx/Link.astro";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  const sortedNotes = [...notes].sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+
+  return sortedNotes.map((note) => ({
+    params: { slug: note.slug },
+    props: { note, allNotes: sortedNotes },
+  }));
+}
+
+interface Props {
+  note: CollectionEntry<"notes">;
+  allNotes: CollectionEntry<"notes">[];
+}
+
+const { note, allNotes } = Astro.props;
+const { Content } = await note.render();
+
+const { title, description, image, imageAlt, imageLink, imageAnchor, afterthoughts } =
+  note.data;
+
+const seoImage = image
+  ? (await getImage({ src: image, width: 1200, height: 400 })).src
+  : undefined;
+---
+
+<BaseLayout title={title} description={description} image={seoImage} imageAlt={imageAlt}>
+  <nav>
+    <a href="/notes/">&larr; All notes</a>
+  </nav>
+
+  <hr />
+
+  <article>
+    <h1>{title}</h1>
+    {
+      image &&
+        (imageLink ? (
+          <a href={imageLink}>
+            <Image
+              class="note-hero-image"
+              src={image}
+              alt={imageAlt || title}
+              widths={[640, 960, 1200]}
+              sizes="(max-width: 764px) 100vw, 764px"
+            />
+          </a>
+        ) : imageAnchor ? (
+          <a href={imageAnchor}>
+            <Image
+              class="note-hero-image"
+              src={image}
+              alt={imageAlt || title}
+              widths={[640, 960, 1200]}
+              sizes="(max-width: 764px) 100vw, 764px"
+            />
+          </a>
+        ) : (
+          <Image
+            class="note-hero-image"
+            src={image}
+            alt={imageAlt || title}
+            widths={[640, 960, 1200]}
+            sizes="(max-width: 764px) 100vw, 764px"
+          />
+        ))
+    }
+    <section>
+      <Content
+        components={{
+          BlockQuote,
+          EmbedFrame,
+          Emoji,
+          Stub,
+          Message,
+          Link,
+        }}
+      />
+    </section>
+    {
+      afterthoughts && (
+        <aside>
+          <h2>Afterthoughts</h2>
+          <p>{afterthoughts}</p>
+        </aside>
+      )
+    }
+  </article>
+
+  <hr />
+
+  <NewerOlder allNotes={allNotes} currentSlug={note.slug} />
+  <EditOnGitHubInvite path={`/src/content/notes/${note.slug}.mdx`} />
+</BaseLayout>

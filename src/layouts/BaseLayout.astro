@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Seo from "../components/Seo.astro";
+
+interface Props {
+  isHome?: boolean;
+  simpleFooter?: boolean;
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  isHome = false,
+  simpleFooter = false,
+  title,
+  description,
+  image,
+  imageAlt,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Seo
+      title={title}
+      description={description}
+      image={image}
+      imageAlt={imageAlt}
+      isHome={isHome}
+    />
+  </head>
+  <body>
+    <div class="page">
+      {
+        !isHome && (
+          <header>
+            <nav>
+              <a href="/">Laurence "DC5B" Lord - Creative Developer</a>
+            </nav>
+          </header>
+        )
+      }
+
+      <main>
+        <slot />
+      </main>
+      <Footer simple={simpleFooter} />
+    </div>
+  </body>
+</html>

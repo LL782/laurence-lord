@@ -1,0 +1,73 @@
+---
+import { siteConfig } from "../site-config";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  isHome?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  isHome = false,
+} = Astro.props;
+
+const metaTitle = title || siteConfig.defaultTitle;
+const titleTemplate = isHome ? metaTitle : `${metaTitle} | ${siteConfig.titleAlt}`;
+const metaDescription = description || siteConfig.defaultDescription;
+const imageUrl = new URL(image || siteConfig.logo, siteConfig.siteUrl).toString();
+
+const schemaOrgWebPage = {
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  author: { "@type": "Person", name: siteConfig.author },
+  copyrightHolder: { "@type": "Person", name: siteConfig.author },
+  copyrightYear: new Date().getFullYear().toString(),
+  creator: { "@type": "Person", name: siteConfig.author },
+  dateModified: new Date().toISOString().split("T")[0],
+  datePublished: "2021-04-03T10:30:00+01:00",
+  description: metaDescription,
+  headline: siteConfig.headline,
+  image: { "@type": "ImageObject", url: imageUrl },
+  inLanguage: siteConfig.siteLanguage,
+  mainEntityOfPage: siteConfig.siteUrl,
+  name: metaTitle,
+  publisher: { "@type": "Person", name: siteConfig.author },
+  url: siteConfig.siteUrl,
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{titleTemplate}</title>
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<meta name="description" content={metaDescription} />
+<meta name="image" content={imageUrl} />
+<meta property="og:description" content={metaDescription} />
+<meta property="og:image:alt" content={imageAlt || metaTitle} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content={siteConfig.ogLanguage} />
+<meta property="og:title" content={metaTitle} />
+<meta property="og:type" content="website" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:creator" content={siteConfig.twitter} />
+<meta property="twitter:description" content={metaDescription} />
+<meta property="twitter:image:alt" content={imageAlt || metaTitle} />
+<meta property="twitter:image" content={imageUrl} />
+<meta property="twitter:title" content={metaTitle} />
+
+{
+  isHome && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(schemaOrgWebPage)}
+    />
+  )
+}

@@ -1,47 +1,43 @@
 # Laurence Lord - Creative Developer
 
-👋 Welcome to the repo for my personal website 
+Welcome to the repo for my personal website
 
-👉 [`laurencelord.co.uk`](https://www.laurencelord.co.uk)
+[`laurencelord.co.uk`](https://www.laurencelord.co.uk)
 
-## 🚀 🌝 About this!
+## About this
 
-1.  **Be yourself 🤙**
+1. **Be yourself**
 
-    For years I've overthought what others will think of my website 🤔
+   For years I've overthought what others will think of my website.
 
-    Then I had a thought that I found liberating...
+   Then I had a thought that I found liberating...
 
-    > This I write for myself, not for an audience
+   > This I write for myself, not for an audience
 
-2.  **Tech stack: _Convenient 📱_**
+2. **Tech stack: _Convenient_**
 
-    I'm using [`Gatsby`](https://www.gatsbyjs.com/) and MDX (JSX enriched markdown) to make editing quick and easy
+   The site is built with [Astro](https://astro.build/) and MDX (JSX enriched markdown) to make editing quick and easy.
 
-    I can edit content and redeploy it from the browser on my phone (which is nice)
+   I can edit content and redeploy it from the browser on my phone (which is nice).
 
-3.  **Open source. _Sure, why not?_ 🤗**
+3. **Open source. _Sure, why not?_**
 
-    I'm not showing off but I'm not hiding anything
+   I'm not showing off but I'm not hiding anything.
 
-    You can clone the repo, `npm i`, `npm run develop` and have this running at http://localhost:8000
-    
-    Or you can just dip in and steal the code you like. No worries
-    
+   You can clone the repo, `npm i`, `npm run dev` and have this running at http://localhost:4321
 
-4.  **More me 🧶**
+   Or you can just dip in and steal the code you like. No worries
 
-    - [dog.5b Instagram](https://www.instagram.com/dog.5b/) (artwork)
+4. **More me**
 
-    - [DC5B](https://www.dc5b.com) (side hustle)
-
-    - [Ledger](https://www.ledger.com) (day job)
+   - [dog.5b Instagram](https://www.instagram.com/dog.5b/) (artwork)
+   - [DC5B](https://www.dc5b.com) (side hustle)
+   - [Ledger](https://www.ledger.com) (day job)
 
 ## Contributing
 
-Feel free to browse the files, raise issues or suggest changes in any way you like 👍
+Feel free to browse the files, raise issues or suggest changes in any way you like.
 
 ## Maintenance notes (in case I forget)
 
-Deploys to [Netlify](https://app.netlify.com/teams/ll782/overview) via commits to `main` branch, 
-configured in Netlify
+Deploys to [Netlify](https://app.netlify.com/teams/ll782/overview) via commits to `main` branch, configured in `netlify.toml`.

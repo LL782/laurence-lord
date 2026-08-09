@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
+---
+
+<BaseLayout simpleFooter title="404 page">
+  <h1>The big empty. This page does not exist</h1>
+  <p>
+    Probably best to hit <a href="/">the homepage</a>, <a href="/notes/">Notes</a>
+    or <a href="/labs/">Labs</a>
+  </p>
+  <p>
+    Or{" "}
+    <a href="https://www.ecosia.org/search?method=index&q=site%3Alaurencelord.co.uk">
+      Ecosia
+    </a>{" "}
+    what you're looking for – I might have renamed it
+  </p>
+  <EditOnGitHubInvite path="/src/pages/404.astro" />
+</BaseLayout>
