@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Redirect /path → /path/ for directory-style pages (matches Astro trailingSlash: 'always').
+# Netlify redirect rules cannot do this; Pretty URLs handles it at the edge.
+[build.processing.html]
+  pretty_urls = true
+
+[[headers]]
+  for = "/embeds/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'self' https://*.laurencelord.co.uk/"
+    X-Frame-Options = "SAMEORIGIN"

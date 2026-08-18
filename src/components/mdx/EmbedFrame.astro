@@ -1,0 +1,8 @@
+---
+interface Props {
+  src: string;
+}
+const { src } = Astro.props;
+---
+
+<iframe class="embed-frame" width="1" height="1" src={src} title="Embedded demo" />

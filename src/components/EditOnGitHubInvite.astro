@@ -1,0 +1,16 @@
+---
+interface Props {
+  path: string;
+}
+const { path } = Astro.props;
+---
+
+<section>
+  <hr />
+  <p>
+    Spotted a typo?{" "}
+    <a href={`https://github.com/LL782/laurence-lord/edit/main${path}`}>
+      Edit on Github
+    </a>
+  </p>
+</section>

@@ -1,0 +1,62 @@
+---
+interface Note {
+  slug: string;
+  data: {
+    title: string;
+  };
+}
+
+interface Props {
+  allNotes: Note[];
+  currentSlug: string;
+}
+
+const { allNotes, currentSlug } = Astro.props;
+
+if (allNotes.length < 2) {
+  return null;
+}
+
+const indexOfCurrent = allNotes.findIndex(({ slug }) => slug === currentSlug);
+const olderIndex = indexOfCurrent + 1;
+const newerIndex = indexOfCurrent - 1;
+
+const older = olderIndex < allNotes.length ? allNotes[olderIndex] : null;
+const newer = newerIndex > -1 ? allNotes[newerIndex] : null;
+---
+
+<nav>
+  <p>
+    <a href="/notes/">All notes</a>
+  </p>
+  {
+    newer ? (
+      <p>
+        <a href={`/notes/${newer.slug}/`}>Newer</a>{" "}
+        <small>"{newer.data.title}"</small>
+      </p>
+    ) : (
+      <p>
+        <a href="/" title="Link to homepage">
+          <s>Newer</s>
+        </a>{" "}
+        (nothing newer)
+      </p>
+    )
+  }
+  {
+    older ? (
+      <p>
+        <a href={`/notes/${older.slug}/`}>Older</a>{" "}
+        <small>"{older.data.title}"</small>
+      </p>
+    ) : (
+      <p>
+        <a href="/" title="Link to homepage">
+          <s>Older</s>
+        </a>{" "}
+        (nothing older)
+      </p>
+    )
+  }
+</nav>

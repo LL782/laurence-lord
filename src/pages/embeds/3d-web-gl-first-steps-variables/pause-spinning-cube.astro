@@ -1,0 +1,19 @@
+---
+import EmbedLayout from "../../../layouts/EmbedLayout.astro";
+import { CanvasScriptAndForm } from "../../../components/CanvasScriptAndForm";
+---
+
+<EmbedLayout>
+  <CanvasScriptAndForm
+    client:load
+    scriptSrc="/embeds/3d-web-gl-first-steps-variables/pauseSpinningCube.js"
+  >
+    <fieldset>
+      <legend>Rotation</legend>
+      <div>
+        <label for="autoRotation">Automatic</label>{" "}
+        <input type="checkbox" id="autoRotation" name="autoRotation" checked />
+      </div>
+    </fieldset>
+  </CanvasScriptAndForm>
+</EmbedLayout>

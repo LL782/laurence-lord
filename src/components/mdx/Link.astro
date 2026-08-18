@@ -1,0 +1,29 @@
+---
+interface Props {
+  to: string;
+}
+
+const { to } = Astro.props;
+
+/** Keep internal page links aligned with trailingSlash: 'always'. */
+function withTrailingSlash(href: string): string {
+  if (!href.startsWith("/") || href.startsWith("//")) return href;
+
+  const url = new URL(href, "https://example.com");
+  let { pathname } = url;
+
+  if (
+    pathname !== "/" &&
+    !pathname.endsWith("/") &&
+    !/\.[a-zA-Z0-9]+$/.test(pathname)
+  ) {
+    pathname += "/";
+  }
+
+  return `${pathname}${url.search}${url.hash}`;
+}
+
+const href = withTrailingSlash(to);
+---
+
+<a href={href}><slot /></a>

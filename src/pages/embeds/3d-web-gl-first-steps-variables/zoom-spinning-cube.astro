@@ -1,0 +1,63 @@
+---
+import EmbedLayout from "../../../layouts/EmbedLayout.astro";
+import { CanvasScriptAndForm } from "../../../components/CanvasScriptAndForm";
+---
+
+<EmbedLayout>
+  <CanvasScriptAndForm
+    client:load
+    scriptSrc="/embeds/3d-web-gl-first-steps-variables/zoomSpinningCube.js"
+  >
+    <fieldset>
+      <legend>Zoom</legend>
+      <div>
+        <label for="cubePosition">Cube position (z-axis)</label>{" "}
+        <input
+          type="number"
+          id="cubePosition"
+          name="cubePosition"
+          step={0.1}
+          value={-6}
+        />
+      </div>
+      <div>
+        <label for="fieldOfView">Field o'view (degrees)</label>{" "}
+        <input
+          type="number"
+          id="fieldOfView"
+          name="fieldOfView"
+          step={1}
+          value={45}
+        />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Rotation</legend>
+      <div>
+        <label for="autoRotation">Automatic</label>{" "}
+        <input type="checkbox" id="autoRotation" name="autoRotation" checked />
+        <hr />
+        <div>
+          <label for="cubeRotationX">X</label>{" "}
+          <input
+            type="number"
+            id="cubeRotationX"
+            name="cubeRotationX"
+            step={0.1}
+            value={0.0}
+          />
+        </div>
+        <div>
+          <label for="cubeRotationY">Y</label>{" "}
+          <input
+            type="number"
+            id="cubeRotationY"
+            name="cubeRotationY"
+            step={0.1}
+            value={0.0}
+          />
+        </div>
+      </div>
+    </fieldset>
+  </CanvasScriptAndForm>
+</EmbedLayout>
