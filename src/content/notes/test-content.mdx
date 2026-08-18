@@ -1,5 +1,5 @@
 ---
-afterthoughts: This note should have an "afterthought" so we can test this feature is working. I expect it to be included in an aside at the bottom of the page.
+afterthoughts: This note should have an "afterthought" – that's another feature I'm checking. I expect it to be included in an aside at the bottom of the page.
 date: 2021-04-14
 description: This description should appear in the metadata for this page. This is a test page in the notes section of my website.
 image: ./test-content.jpg
@@ -8,7 +8,7 @@ imageLink: /
 title: "Here's an idea: this page will be my test content. I'll include one of everything in here and use it for a very quick smoke-test"
 ---
 
-I don't currently have ~~any~~ <sup><a href="#many-checks">[many]</a></sup> automated checks on this website – not something I'm proud of but a reality I'm willing to accept. I want to get up and running quickly and I'm still experimenting with this technology (Gatsby primarily) so borrowing a little is acceptable. If I start incurring interest on the debt I'll consider paying it back.
+I don't currently have ~~any~~ <sup><a href="#many-checks">[many]</a></sup> automated checks on this website – not something I'm proud of but a reality I'm willing to accept. I want to get up and running quickly and I'm still experimenting with this technology (Gatsby primarily (2022), now it's Astro (2026)) so borrowing a little is acceptable. If I start incurring interest on the debt I'll consider paying it back.
 
 So for now I perform an unscripted manual check quite naturally. I look at the live site after I've made changes to it or added new content.
 
@@ -37,7 +37,9 @@ This page is somewhere I can note the features I have used on the site – a sin
 
 ### JSX and Markdown
 
-I'm not checking on this, it's a feature of `gatsby-plugin-mdx`
+~I'm not checking on this, it's a feature of `gatsby-plugin-mdx`~
+
+_Edit (2026): I migrated to Astro and it's cool to see how easily it's all still working_
 
 However, `shortcodes` are the JSX components that I pass in to `MDXProvider` and my automated checks wouldn't tell me if they were missing
 
@@ -83,7 +85,7 @@ This article explores how to take data within a WebGL project, and project it in
   <Link to="/">Home</Link>
 </p>
 
-The Gatsby `<Link>` is available to all MDX layouts
+The ~Gatsby~ `<Link>` is available to all MDX layouts
 
 ### Frontmatter
 
@@ -101,6 +103,7 @@ Optional data about a <Link to="/notes/">Note</Link> page.
 | `title`         | metadata titles for note page |
 | `title`         | top of note page              |
 | `title`         | window title for note page    |
+| `private`       | true or false                 |
 
 ## Footnotes
 
@@ -110,6 +113,6 @@ Optional data about a <Link to="/notes/">Note</Link> page.
 
 Initially I wrote that I don't have "any" automated checks, then I started to notice automated checks that I had ignored:
 
-- **Linting** should happen whenever I save, assuming the format of the document is correct. If it fails I notice. This is a frequent, super cheap check that is very easy to keep green.
+- **Linting** happens whenever I save assuming the format of the document is correct. If it fails I notice! This is a frequent, super cheap check that is very easy to keep green.
 
-- **Deployment and build checks** are another frequent, unobtrusive check that should not be underrated. When I push to my repo the automated pipeline runs build and deploy tasks. If there are errors then deployment fails and I notice.
+- **Deployment and build checks** are another frequent, unobtrusive check that should not be underrated. When I push to `main` I get emailed if a build fails and I notice if deployments are behind.
