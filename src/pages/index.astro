@@ -15,68 +15,32 @@ import { Image } from "astro:assets";
     widths={[640, 960, 1280]}
     sizes="(max-width: 764px) 100vw, 764px"
   />
-  <p>
-    I craft websites, develop businesses and draw pictures. This website
-    shares a collection of notes, lab experiments and links related to my
-    activty online.
-  </p>
-
-  <p>
-    Although written for myself, you may find my notes interesting. They're
-    about what I'm doing, my ways-of-working and the break-throughs I make
-    in my own, personal program.
-  </p>
-
-  <p>
-    The lab experiments are notes too – mini web apps where I try things
-    out, test with different people and – best of all – can find them again
-    in the future.
-  </p>
-  <h3>On this site</h3>
+  <p>I craft websites, develop businesses and draw pictures.</p>
   <ul>
     <li>
-      <a href="/notes/">My notes</a>
+      <a href="/notes/">Notes</a>
     </li>
     <li>
-      <a href="/labs/">Lab experiments</a>
+      <a href="/labs/">Experiments</a>
+    </li>
+    <li>
+      <a href="https://github.com/LL782">GitHub</a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/ll782">LinkedIn</a>
+    </li>
+    <li>
+      <a
+        href="https://www.instagram.com/laurence_lord_art/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://www.dc5b.com/">DC5B</a>
     </li>
   </ul>
-  <h3>Links</h3>
-  <div class="links-grid">
-    <div>
-      <h4>Mainstream</h4>
-      <ul>
-        <li>
-          <a href="https://github.com/LL782">LL782 GitHub</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/ll782">LL782 LinkedIn</a>
-        </li>
-        <li>
-          <a href="https://www.twitter.com/LL782">LL782 Twitter</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h4>Side-streams</h4>
-      <ul>
-        <li>
-          <a
-            href="https://www.instagram.com/dog.5b/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Dog.5b Instagram
-          </a>
-        </li>
-        <li>
-          <a href="https://www.dc5b.com/">DC5B Website</a>
-        </li>
-        <li>
-          <a href="https://maps.mundoko.world/">Mundoko Maps</a>
-        </li>
-      </ul>
-    </div>
-  </div>
   <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>
