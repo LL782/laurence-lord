@@ -13,6 +13,7 @@ const notes = defineCollection({
       imageAnchor: z.string().optional(),
       afterthoughts: z.string().optional(),
       updates: z.array(z.coerce.string()).optional(),
+      private: z.boolean().default(false),
     }),
 });
 
