@@ -20,39 +20,36 @@ const experiments = [
   title="Lab experiments"
   description="Mini web apps exploring different web technology and visual effects in the browser. So far we have a couple of 3D tests, one with WebGL and one with pure CSS."
 >
-  <h1>Laurence Lord Labs</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Experiment</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        experiments.map(({ date, path, title }) => (
-          <tr>
-            <td>
-              <time datetime={date}>{date}</time>
-            </td>
-            <td>
-              <a href={path}>{title}</a>
-            </td>
-          </tr>
-        ))
-      }
-    </tbody>
-  </table>
+  <div class="tile span-2-lg h-lg">
+    <h1>Laurence Lord Labs</h1>
+    <p class="elf tile-fill">
+      Mini web apps exploring different web technology and visual effects in the
+      browser.
+    </p>
+  </div>
 
-  <h2>Things to know about these experiments</h2>
-  <ul>
-    <li>They are primarily here for my own interest</li>
-    <li>Online they are easier to reference, test and [re]discover</li>
-    <li>
-      I've written more{" "}
-      <a href="/notes/i-am-writing-for-myself/">about writing for myself</a> here
-    </li>
-  </ul>
+  {
+    experiments.map(({ date, path, title }) => (
+      <a class="tile box-lg" href={path}>
+        <span class="tile-kicker">
+          <time datetime={date}>{date}</time>
+        </span>
+        <span class="tile-label">{title}</span>
+      </a>
+    ))
+  }
+
+  <div class="tile box-lg prose">
+    <h2 class="human">Things to know</h2>
+    <ul>
+      <li>They are primarily here for my own interest</li>
+      <li>Online they are easier to reference, test and [re]discover</li>
+      <li>
+        I've written more{" "}
+        <a href="/notes/i-am-writing-for-myself/">about writing for myself</a> here
+      </li>
+    </ul>
+  </div>
 
   <EditOnGitHubInvite path="/src/pages/labs/index.astro" />
 </BaseLayout>

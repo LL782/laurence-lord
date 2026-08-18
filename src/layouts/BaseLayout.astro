@@ -34,18 +34,22 @@ const {
     />
   </head>
   <body>
-    <div class="page">
+    <div class="page tessellation">
       {
         !isHome && (
-          <header>
-            <nav>
-              <a href="/">Laurence "DC5B" Lord - Creative Developer</a>
-            </nav>
+          <header class="main-contents">
+            <a class="tile box-sm tile-header" href="/">
+              <span class="tile-kicker">Home</span>
+              <span class="tile-label">
+                Laurence "DC5B" Lord
+                <span class="elf">Creative Developer</span>
+              </span>
+            </a>
           </header>
         )
       }
 
-      <main>
+      <main class="main-contents">
         <slot />
       </main>
       <Footer simple={simpleFooter} />

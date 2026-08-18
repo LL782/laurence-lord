@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
 
@@ -9,19 +10,58 @@ const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
 ---
 
 <BaseLayout title="My Notes">
-  <h1>My Notes</h1>
-  <p>
-    You're welcome to dive in, just be aware{" "}
-    <a href="/notes/i-am-writing-for-myself/">I write them for myself</a>.
-  </p>
-  <hr />
+  <div class="tile span-2-lg h-lg prose">
+    <h1>My Notes</h1>
+    <p>
+      You're welcome to dive in, just be aware{" "}
+      <a href="/notes/i-am-writing-for-myself/">I write them for myself</a>.
+    </p>
+  </div>
   {
-    notes.map((note) => (
-      <a href={`/notes/${note.slug}/`}>
-        <h2>{note.data.title}</h2>
-        <p>Read more...</p>
-      </a>
-    ))
+    notes.map((note) => {
+      const hasImage = Boolean(note.data.image);
+      const date = note.data.date.toISOString().slice(0, 10);
+      return (
+        <a
+          class:list={["tile", hasImage ? "box-lg tile--flush" : "box-sm"]}
+          href={`/notes/${note.slug}/`}
+        >
+          {hasImage && note.data.image && (
+            <Image
+              class="tile-media"
+              src={note.data.image}
+              alt={note.data.imageAlt || note.data.title}
+              widths={[200, 350, 700]}
+              sizes="(max-width: 799px) min(350px, 100vw), 350px"
+            />
+          )}
+          <span class:list={["tile-label", hasImage && "note-tile-caption"]}>
+            <span class="tile-kicker">
+              <time datetime={date}>{date}</time>
+            </span>
+            {note.data.title}
+          </span>
+        </a>
+      );
+    })
   }
   <EditOnGitHubInvite path="/src/pages/notes/index.astro" />
 </BaseLayout>
+
+<style>
+  .note-tile-caption {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 1;
+    padding: var(--gap-sm);
+    background: rgb(251 250 242 / 0.92);
+    color: var(--charcoal);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .note-tile-caption {
+      background: rgb(34 34 34 / 0.88);
+      color: var(--cream);
+    }
+  }
+</style>

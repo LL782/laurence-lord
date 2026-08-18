@@ -3,44 +3,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 import heroImage from "../assets/crop-of-punk-storm.png";
 import { Image } from "astro:assets";
+
+const links = [
+  { href: "/notes/", label: "Notes" },
+  { href: "/labs/", label: "Labs" },
+  { href: "https://github.com/LL782", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/ll782", label: "LinkedIn" },
+  {
+    href: "https://www.instagram.com/laurence_lord_art/",
+    label: "Instagram",
+    external: true,
+  },
+  { href: "https://www.dc5b.com/", label: "DC5B" },
+];
 ---
 
 <BaseLayout isHome={true}>
-  <h1>Laurence "DC5B" Lord</h1>
-  <h2>Creative Developer</h2>
-  <Image
-    class="home-hero-image"
-    src={heroImage}
-    alt="Closely cropped black ink artwork of branches, flowers and masked faces"
-    widths={[640, 960, 1280]}
-    sizes="(max-width: 764px) 100vw, 764px"
-  />
-  <p>I craft websites, develop businesses and draw pictures.</p>
-  <ul>
-    <li>
-      <a href="/notes/">Notes</a>
-    </li>
-    <li>
-      <a href="/labs/">Experiments</a>
-    </li>
-    <li>
-      <a href="https://github.com/LL782">GitHub</a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/ll782">LinkedIn</a>
-    </li>
-    <li>
+  <div class="tile box-lg home-identity">
+    <h1 class="colossus">Laurence "DC5B" Lord</h1>
+    <p class="giant">Creative Developer</p>
+  </div>
+  <div class="tile tile--flush span-2-lg h-lg home-hero">
+    <Image
+      class="tile-media"
+      src={heroImage}
+      alt="Closely cropped black ink artwork of branches, flowers and masked faces"
+      widths={[350, 750, 1150]}
+      sizes="(max-width: 799px) min(350px, 100vw), (max-width: 1249px) 750px, 750px"
+    />
+  </div>
+  <p class="tile box-lg h-2-sm home-intro elf">
+    I craft websites, develop businesses and draw pictures.
+  </p>
+  {
+    links.map(({ href, label, external }) => (
       <a
-        href="https://www.instagram.com/laurence_lord_art/"
-        target="_blank"
-        rel="noopener noreferrer"
+        class="tile box-sm"
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
       >
-        Instagram
+        <span class="tile-label">{label}</span>
       </a>
-    </li>
-    <li>
-      <a href="https://www.dc5b.com/">DC5B</a>
-    </li>
-  </ul>
+    ))
+  }
   <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>

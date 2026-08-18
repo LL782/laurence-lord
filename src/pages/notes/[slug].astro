@@ -40,69 +40,69 @@ const seoImage = image
 ---
 
 <BaseLayout title={title} description={description} image={seoImage} imageAlt={imageAlt}>
-  <nav>
-    <a href="/notes/">&larr; All notes</a>
-  </nav>
+  <a class="tile box-sm" href="/notes/">
+    <span class="tile-kicker">Notes</span>
+    <span class="tile-label">All notes</span>
+  </a>
 
-  <hr />
+  <h1 class="tile span-2-lg h-lg">{title}</h1>
 
-  <article>
-    <h1>{title}</h1>
-    {
-      image &&
-        (imageLink ? (
-          <a href={imageLink}>
-            <Image
-              class="note-hero-image"
-              src={image}
-              alt={imageAlt || title}
-              widths={[640, 960, 1200]}
-              sizes="(max-width: 764px) 100vw, 764px"
-            />
-          </a>
-        ) : imageAnchor ? (
-          <a href={imageAnchor}>
-            <Image
-              class="note-hero-image"
-              src={image}
-              alt={imageAlt || title}
-              widths={[640, 960, 1200]}
-              sizes="(max-width: 764px) 100vw, 764px"
-            />
-          </a>
-        ) : (
+  {
+    image &&
+      (imageLink ? (
+        <a class="tile tile--flush span-2-lg h-lg" href={imageLink}>
           <Image
-            class="note-hero-image"
+            class="tile-media"
             src={image}
             alt={imageAlt || title}
-            widths={[640, 960, 1200]}
-            sizes="(max-width: 764px) 100vw, 764px"
+            widths={[350, 750, 1150]}
+            sizes="(max-width: 799px) min(350px, 100vw), (max-width: 1249px) 750px, 750px"
           />
-        ))
-    }
-    <section>
-      <Content
-        components={{
-          BlockQuote,
-          EmbedFrame,
-          Emoji,
-          Stub,
-          Message,
-          Link,
-        }}
-      />
-    </section>
-    {
-      afterthoughts && (
-        <aside>
-          <h2>Afterthoughts</h2>
-          <p>{afterthoughts}</p>
-        </aside>
-      )
-    }
-  </article>
+        </a>
+      ) : imageAnchor ? (
+        <a class="tile tile--flush span-2-lg h-lg" href={imageAnchor}>
+          <Image
+            class="tile-media"
+            src={image}
+            alt={imageAlt || title}
+            widths={[350, 750, 1150]}
+            sizes="(max-width: 799px) min(350px, 100vw), (max-width: 1249px) 750px, 750px"
+          />
+        </a>
+      ) : (
+        <div class="tile tile--flush span-2-lg h-lg">
+          <Image
+            class="tile-media"
+            src={image}
+            alt={imageAlt || title}
+            widths={[350, 750, 1150]}
+            sizes="(max-width: 799px) min(350px, 100vw), (max-width: 1249px) 750px, 750px"
+          />
+        </div>
+      ))
+  }
 
-  <hr />
+  <section class="tile span-3-lg h-fluid prose">
+    <Content
+      components={{
+        BlockQuote,
+        EmbedFrame,
+        Emoji,
+        Stub,
+        Message,
+        Link,
+      }}
+    />
+  </section>
+
+  {
+    afterthoughts && (
+      <aside class="tile box-lg">
+        <h2 class="human">Afterthoughts</h2>
+        <p class="elf tile-fill">{afterthoughts}</p>
+      </aside>
+    )
+  }
 
   <NewerOlder allNotes={allNotes} currentSlug={note.slug} />
   <EditOnGitHubInvite path={`/src/content/notes/${note.slug}.mdx`} />
