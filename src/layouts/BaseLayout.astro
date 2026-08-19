@@ -5,6 +5,7 @@ import Seo from "../components/Seo.astro";
 
 interface Props {
   isHome?: boolean;
+  dense?: boolean;
   simpleFooter?: boolean;
   title?: string;
   description?: string;
@@ -14,6 +15,7 @@ interface Props {
 
 const {
   isHome = false,
+  dense = false,
   simpleFooter = false,
   title,
   description,
@@ -34,7 +36,7 @@ const {
     />
   </head>
   <body>
-    <div class="page tessellation">
+    <div class:list={["page tessellation", dense && "tessellation-dense"]}>
       {
         !isHome && (
           <header class="main-contents">

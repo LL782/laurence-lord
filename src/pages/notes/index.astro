@@ -9,7 +9,7 @@ const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
 );
 ---
 
-<BaseLayout title="My Notes">
+<BaseLayout dense title="My Notes">
   <div class="tile span-2-lg h-lg prose">
     <h1>My Notes</h1>
     <p>

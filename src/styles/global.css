@@ -103,15 +103,22 @@ body.embed {
    Span includes a trailing gutter track; the page width clips that last
    empty track so 3 large tiles read as 7+1+7+1+7 = 23 tracks / 1150px. */
 .tessellation {
+  box-sizing: content-box;
   display: grid;
   grid-template-columns: repeat(var(--cols), var(--track));
   grid-auto-rows: minmax(var(--track), auto);
-  grid-auto-flow: dense;
-  width: calc(var(--visible-cols) * var(--track));
-  max-width: calc(100% - 2 * var(--page-pad));
+  grid-auto-flow: row;
+  width: min(
+    calc(var(--visible-cols) * var(--track)),
+    calc(100% - 2 * var(--page-pad))
+  );
   margin-inline: auto;
   padding: var(--page-pad);
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.tessellation-dense {
+  grid-auto-flow: dense;
 }
 
 @media (max-width: 369px) {
@@ -207,6 +214,18 @@ body.embed {
   min-height: var(--box-lg);
 }
 
+.h-auto {
+  grid-row: span 1;
+  height: auto;
+  min-height: var(--box-sm);
+}
+
+.tile.h-fluid,
+.tile.h-auto,
+.tile-footer {
+  overflow: auto;
+}
+
 @media (max-width: 799px) {
   .box-sm,
   .box-lg,
@@ -300,6 +319,13 @@ body.embed {
   font-size: var(--human);
   font-weight: 700;
   line-height: var(--human-lh);
+}
+
+.box-sm .tile-label {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
 }
 
 .tile-kicker {
@@ -497,9 +523,10 @@ hr {
 blockquote {
   margin: var(--gap-lg) 0;
   padding: var(--gap-md);
-  padding-left: var(--gap-md);
-  border-left: var(--gap-sm) solid var(--accent);
+  border: 0;
   background-color: var(--pink-12);
+  outline: var(--gap-sm) solid var(--pink-50);
+  outline-offset: calc(var(--gap-sm) * -1);
 }
 
 cite {
