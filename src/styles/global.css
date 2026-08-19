@@ -124,10 +124,16 @@ small,
 }
 
 @media (min-width: 640px) {
+  .sm-only {
+    display: none;
+  }
+  
   .page {
     padding: 1.5rem 2rem 2.5rem;
   }
 }
+
+  
 
 @media (min-width: 832px) {
   .page {
