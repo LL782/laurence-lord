@@ -31,9 +31,10 @@ interface Props {
 const { note, allNotes } = Astro.props;
 const { Content } = await note.render();
 
-const { title, description, image, imageAlt, imageLink, imageAnchor, afterthoughts } =
+const { title, description, date, image, imageAlt, imageLink, imageAnchor, afterthoughts } =
   note.data;
 
+const noteDate = date.toISOString().slice(0, 10);
 const seoImage = image
   ? (await getImage({ src: image, width: 1200, height: 400 })).src
   : undefined;
@@ -48,6 +49,11 @@ const seoImage = image
 
   <article>
     <h1>{title}</h1>
+    <p>
+      <time class="note-date" datetime={noteDate}>
+        {noteDate}
+      </time>
+    </p>
     {
       image &&
         (imageLink ? (

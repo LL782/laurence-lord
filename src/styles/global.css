@@ -1,34 +1,122 @@
-body {
-  --theme-ui-colors-primary: #f0f;
-  --theme-ui-colors-secondary: #0f0;
-  font-family: monospace;
-  font-weight: 400;
-  line-height: 1.625;
-  margin: 0;
+:root {
+  --pink: #ff00ff;
+  --pink-on-light: #e40be4;
+  --lime: #00ff00;
+  --lime-on-light: #00d500;
+  --cream: #fbfaf2;
+  --charcoal: #222;
 
-  color: var(--theme-ui-colors-text);
-  background-color: var(--theme-ui-colors-background);
-  max-width: 764px;
-}
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
-@media (prefers-color-scheme: light) {
-  body {
-    --theme-ui-colors-text: #000;
-    --theme-ui-colors-shadow: #0001;
-    --theme-ui-colors-background: #fbfaf2;
-    --theme-ui-colors-muted: #f6f6f6;
-    --theme-ui-colors-detail: #8989;
-  }
+  --gnome: 10px;
+  --gnome-lh: 15px;
+  --elf: 15px;
+  --elf-lh: 25px;
+  --human: 20px;
+  --human-lh: 30px;
+  --orc: 25px;
+  --orc-lh: 35px;
+  --giant: 30px;
+  --giant-lh: 40px;
+  --titan: 40px;
+  --titan-lh: 50px;
+  --colossus: 50px;
+  --colossus-lh: 50px;
+
+  --text: var(--charcoal);
+  --bg: var(--cream);
+  --accent: var(--pink-on-light);
+  --accent-2: var(--lime-on-light);
+  --pink-100: var(--pink-on-light);
+  --pink-50: rgb(228 11 228 / 0.5);
+  --pink-25: rgb(228 11 228 / 0.25);
+  --pink-12: rgb(228 11 228 / 0.12);
+  --lime-100: var(--lime-on-light);
+  --lime-50: rgb(0 213 0 / 0.5);
+  --lime-25: rgb(0 213 0 / 0.25);
+  --lime-12: rgb(0 213 0 / 0.12);
+  --muted: rgb(34 34 34 / 0.12);
+  --detail: rgb(34 34 34 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    --theme-ui-colors-text: #eee;
-    --theme-ui-colors-shadow: #eee1;
-    --theme-ui-colors-background: #222;
-    --theme-ui-colors-muted: #030;
-    --theme-ui-colors-detail: #cfc9;
+  :root {
+    --text: var(--cream);
+    --bg: var(--charcoal);
+    --accent: var(--pink);
+    --accent-2: var(--lime);
+    --pink-100: var(--pink);
+    --pink-50: rgb(255 0 255 / 0.5);
+    --pink-25: rgb(255 0 255 / 0.25);
+    --pink-12: rgb(255 0 255 / 0.12);
+    --lime-100: var(--lime);
+    --lime-50: rgb(0 255 0 / 0.5);
+    --lime-25: rgb(0 255 0 / 0.25);
+    --lime-12: rgb(0 255 0 / 0.12);
+    --muted: rgb(251 250 242 / 0.12);
+    --detail: rgb(251 250 242 / 0.5);
   }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--elf);
+  font-weight: 400;
+  line-height: var(--elf-lh);
+  margin: 0;
+
+  color: var(--text);
+  background-color: var(--bg);
+  max-width: 764px;
+}
+
+body.embed {
+  background: black;
+  margin: 0;
+  overflow: hidden;
+  max-width: none;
+}
+
+h1 {
+  font-size: var(--titan);
+  font-weight: 700;
+  line-height: var(--titan-lh);
+}
+
+h2 {
+  font-size: var(--giant);
+  font-weight: 700;
+  line-height: var(--giant-lh);
+}
+
+h3 {
+  font-size: var(--orc);
+  font-weight: 700;
+  line-height: var(--orc-lh);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--human);
+  font-weight: 700;
+  line-height: var(--human-lh);
+}
+
+small,
+.note-date {
+  font-size: var(--gnome);
+  font-weight: 400;
+  line-height: var(--gnome-lh);
+  color: var(--detail);
 }
 
 .page {
@@ -54,25 +142,25 @@ main {
 
 a:link,
 a:visited {
-  border-bottom: 1px solid var(--theme-ui-colors-detail);
-  color: var(--theme-ui-colors-text);
-  font-weight: bold;
+  border-bottom: 1px solid var(--detail);
+  color: var(--text);
+  font-weight: 700;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: var(--theme-ui-colors-primary);
+  color: var(--accent);
   border-bottom: 1px solid transparent;
 }
 
 a:active {
-  color: var(--theme-ui-colors-secondary);
+  color: var(--accent-2);
 }
 
 hr {
   border-style: solid;
-  border-color: var(--theme-ui-colors-detail);
+  border-color: var(--detail);
   border-width: 1px 0 0;
 }
 
@@ -87,7 +175,7 @@ p + h4 {
 }
 
 blockquote {
-  border-left: 0.5rem solid var(--theme-ui-colors-detail);
+  border-left: 0.5rem solid var(--detail);
   padding-left: 1rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -102,11 +190,11 @@ table {
 }
 
 tbody tr:nth-child(2n-1) {
-  background-color: var(--theme-ui-colors-shadow);
+  background-color: var(--muted);
 }
 
 th {
-  border-bottom: 1px solid var(--theme-ui-colors-detail);
+  border-bottom: 1px solid var(--detail);
 }
 
 th,
@@ -115,8 +203,13 @@ td {
   padding: 0.5rem 1rem 0.5rem 0rem;
 }
 
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
 code {
-  background-color: var(--theme-ui-colors-shadow);
+  background-color: var(--muted);
   padding: 0.25rem;
 }
 
@@ -168,13 +261,6 @@ pre > code {
   }
 }
 
-body.embed {
-  background: black;
-  margin: 0;
-  overflow: hidden;
-  max-width: none;
-}
-
 .embed-canvas-wrap {
   position: relative;
 }
@@ -199,7 +285,7 @@ body.embed {
 
 .embed-form {
   padding: 0.5rem;
-  background-color: var(--theme-ui-colors-background);
+  background-color: var(--bg);
   overflow: scroll;
 }
 
@@ -225,7 +311,7 @@ body.embed {
 
 .highlight-line {
   display: block;
-  background-color: var(--theme-ui-colors-shadow);
+  background-color: var(--muted);
   margin: 0 -1rem;
   padding: 0 1rem;
 }
