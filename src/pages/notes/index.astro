@@ -11,8 +11,8 @@ const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
 <BaseLayout title="My Notes">
   <h1>My Notes</h1>
   <p>
-    You're welcome to dive in, just be aware:<br />
-    <a href="/notes/i-am-writing-for-myself/">I write them for myself</a>.
+    You're welcome to dive in, just be aware:<br class="sm-only" />
+    <a href="/notes/i-am-writing-for-myself/">I'm writing for myself</a>.
   </p>
   <hr />
   {
