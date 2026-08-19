@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import type { CatalogItem } from "../../lib/catalog";
+import { formatCatalogDate } from "../../lib/catalog";
+
+interface Props {
+  items: CatalogItem[];
+  label?: string;
+}
+
+const { items, label = "Fast Moving" } = Astro.props;
+---
+
+<section class="fast-moving" aria-labelledby="fast-moving-heading">
+  <h2 id="fast-moving-heading" class="fast-moving__heading">{label}</h2>
+  <ul class="fast-moving__list">
+    {
+      items.map((item) => {
+        const date = formatCatalogDate(item.date);
+        return (
+          <li class="fast-moving__item">
+            <a class="fast-moving__link" href={item.href}>
+              <div class="fast-moving__media">
+                {
+                  item.image ? (
+                    <Image
+                      class="fast-moving__thumb"
+                      src={item.image}
+                      alt=""
+                      widths={[160, 240]}
+                      sizes="120px"
+                    />
+                  ) : (
+                    <div class="fast-moving__placeholder" aria-hidden="true" />
+                  )
+                }
+              </div>
+              <div class="fast-moving__copy">
+                <div class="fast-moving__tags">
+                  {item.types.map((type) => (
+                    <span class="fast-moving__tag">{type}</span>
+                  ))}
+                </div>
+                <span class="fast-moving__title">{item.title}</span>
+                <time class="fast-moving__date" datetime={date}>
+                  {date}
+                </time>
+              </div>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>

@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import type { CatalogItem } from "../../lib/catalog";
+import { formatCatalogDate } from "../../lib/catalog";
+
+interface Props {
+  item: CatalogItem;
+}
+
+const { item } = Astro.props;
+const date = formatCatalogDate(item.date);
+---
+
+<a class="catalog-card" href={item.href}>
+  <div class="catalog-card__media">
+    {
+      item.image ? (
+        <Image
+          class="catalog-card__thumb"
+          src={item.image}
+          alt={item.imageAlt || item.title}
+          widths={[320, 480, 640]}
+          sizes="(max-width: 640px) 50vw, (max-width: 960px) 33vw, 280px"
+        />
+      ) : (
+        <div class="catalog-card__placeholder" aria-hidden="true">
+          <span class="catalog-card__placeholder-mark">DC5B</span>
+        </div>
+      )
+    }
+  </div>
+  <div class="catalog-card__body">
+    <div class="catalog-card__meta">
+      <time class="catalog-card__date" datetime={date}>{date}</time>
+      <div class="catalog-card__tags">
+        {item.types.map((type) => (
+          <span class="catalog-card__tag">{type}</span>
+        ))}
+      </div>
+    </div>
+    <h3 class="catalog-card__title">{item.title}</h3>
+    {item.description && (
+      <p class="catalog-card__description">{item.description}</p>
+    )}
+    <span class="catalog-card__cta">Read</span>
+  </div>
+</a>

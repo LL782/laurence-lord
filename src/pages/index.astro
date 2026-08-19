@@ -1,46 +1,46 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
-import heroImage from "../assets/crop-of-punk-storm.png";
-import { Image } from "astro:assets";
+import CatalogGrid from "../components/catalog/CatalogGrid.astro";
+import FastMovingStrip from "../components/catalog/FastMovingStrip.astro";
+import EditorialCard from "../components/catalog/EditorialCard.astro";
+import { getFullCatalogItems } from "../lib/catalog";
+
+const notes = await getCollection("notes");
+const catalogItems = getFullCatalogItems(notes);
+const fastMoving = catalogItems.slice(0, 4);
 ---
 
-<BaseLayout isHome={true}>
-  <h1>Laurence "DC5B" Lord</h1>
-  <h2>Creative Developer</h2>
-  <Image
-    class="home-hero-image"
-    src={heroImage}
-    alt="Closely cropped black ink artwork of branches, flowers and masked faces"
-    widths={[640, 960, 1280]}
-    sizes="(max-width: 764px) 100vw, 764px"
+<BaseLayout isHome={true} catalog={true}>
+  <header class="catalog-header">
+    <h1 class="catalog-header__title">Laurence "DC5B" Lord</h1>
+    <p class="catalog-header__subtitle">Creative Developer</p>
+    <p class="catalog-header__intro">
+      A catalog of notes, lab experiments and ideas — raw thoughts refined
+      over time. Browse, get inspired, dig in.
+    </p>
+    <ul class="catalog-header__links">
+      <li><a href="/notes/">All notes</a></li>
+      <li><a href="/labs/">Labs</a></li>
+      <li><a href="https://github.com/LL782">GitHub</a></li>
+      <li><a href="https://www.dc5b.com/">DC5B</a></li>
+    </ul>
+  </header>
+
+  <FastMovingStrip items={fastMoving} />
+
+  <EditorialCard
+    title="I'm writing for myself"
+    href="/notes/i-am-writing-for-myself/"
+    excerpt="Clear one's head, get your thoughts in line, practice articulation, store some of your thoughts elsewhere. These are my personal notes — written for myself, shared openly."
   />
-  <p>I craft websites, develop businesses and make art.</p>
-  <ul>
-    <li>
-      <a href="/notes/">Notes</a>
-    </li>
-    <li>
-      <a href="/labs/">Experiments</a>
-    </li>
-    <li>
-      <a href="https://github.com/LL782">GitHub</a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/ll782">LinkedIn</a>
-    </li>
-    <li>
-      <a
-        href="https://www.instagram.com/laurence_lord_art/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
-      </a>
-    </li>
-    <li>
-      <a href="https://www.dc5b.com/">DC5B</a>
-    </li>
-  </ul>
+
+  <h2 class="catalog-section-heading">Catalog</h2>
+  <CatalogGrid
+    items={catalogItems}
+    excludeSlugs={fastMoving.map((item) => item.slug)}
+  />
+
   <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>

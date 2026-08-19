@@ -1,0 +1,19 @@
+---
+import CatalogCard from "./CatalogCard.astro";
+import type { CatalogItem } from "../../lib/catalog";
+
+interface Props {
+  items: CatalogItem[];
+  excludeSlugs?: string[];
+}
+
+const { items, excludeSlugs = [] } = Astro.props;
+
+const visibleItems = items.filter((item) => !excludeSlugs.includes(item.slug));
+---
+
+<div class="catalog-grid">
+  {visibleItems.map((item) => (
+    <CatalogCard item={item} />
+  ))}
+</div>
