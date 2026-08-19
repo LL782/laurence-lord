@@ -25,29 +25,38 @@ const older = olderIndex < allNotes.length ? allNotes[olderIndex] : null;
 const newer = newerIndex > -1 ? allNotes[newerIndex] : null;
 ---
 
-{
-  newer ? (
-    <a class="tile box-lg" href={`/notes/${newer.slug}/`}>
-      <span class="tile-kicker">Newer</span>
-      <span class="tile-label">{newer.data.title}</span>
-    </a>
-  ) : (
-    <div class="tile box-lg">
-      <span class="tile-kicker">Newer</span>
-      <p class="elf">Nothing newer</p>
-    </div>
-  )
-}
-{
-  older ? (
-    <a class="tile box-lg" href={`/notes/${older.slug}/`}>
-      <span class="tile-kicker">Older</span>
-      <span class="tile-label">{older.data.title}</span>
-    </a>
-  ) : (
-    <div class="tile box-lg">
-      <span class="tile-kicker">Older</span>
-      <p class="elf">Nothing older</p>
-    </div>
-  )
-}
+<nav>
+  <p>
+    <a href="/notes/">All notes</a>
+  </p>
+  {
+    newer ? (
+      <p>
+        <a href={`/notes/${newer.slug}/`}>Newer</a>{" "}
+        <small>"{newer.data.title}"</small>
+      </p>
+    ) : (
+      <p>
+        <a href="/" title="Link to homepage">
+          <s>Newer</s>
+        </a>{" "}
+        (nothing newer)
+      </p>
+    )
+  }
+  {
+    older ? (
+      <p>
+        <a href={`/notes/${older.slug}/`}>Older</a>{" "}
+        <small>"{older.data.title}"</small>
+      </p>
+    ) : (
+      <p>
+        <a href="/" title="Link to homepage">
+          <s>Older</s>
+        </a>{" "}
+        (nothing older)
+      </p>
+    )
+  }
+</nav>

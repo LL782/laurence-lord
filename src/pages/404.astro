@@ -4,32 +4,17 @@ import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 ---
 
 <BaseLayout simpleFooter title="404 page">
-  <div class="tile box-lg">
-    <h1>The big empty</h1>
-    <p class="elf tile-fill">This page does not exist.</p>
-  </div>
-  <div class="tile box-lg prose">
-    <p>Probably best to hit one of these:</p>
-    <p>
-      <a href="/">Homepage</a>, <a href="/notes/">Notes</a> or{" "}
-      <a href="/labs/">Labs</a>
-    </p>
-    <p>
-      Or{" "}
-      <a href="https://www.ecosia.org/search?method=index&q=site%3Alaurencelord.co.uk">
-        Ecosia
-      </a>{" "}
-      what you're looking for – I might have renamed it.
-    </p>
-  </div>
-  <a class="tile box-sm" href="/">
-    <span class="tile-label">Home</span>
-  </a>
-  <a class="tile box-sm" href="/notes/">
-    <span class="tile-label">Notes</span>
-  </a>
-  <a class="tile box-sm" href="/labs/">
-    <span class="tile-label">Labs</span>
-  </a>
+  <h1>The big empty. This page does not exist</h1>
+  <p>
+    Probably best to hit <a href="/">the homepage</a>, <a href="/notes/">Notes</a>
+    or <a href="/labs/">Labs</a>
+  </p>
+  <p>
+    Or{" "}
+    <a href="https://www.ecosia.org/search?method=index&q=site%3Alaurencelord.co.uk">
+      Ecosia
+    </a>{" "}
+    what you're looking for – I might have renamed it
+  </p>
   <EditOnGitHubInvite path="/src/pages/404.astro" />
 </BaseLayout>

@@ -5,10 +5,12 @@ interface Props {
 const { path } = Astro.props;
 ---
 
-<a
-  class="tile box-sm"
-  href={`https://github.com/LL782/laurence-lord/edit/main${path}`}
->
-  <span class="tile-kicker">Spotted a typo?</span>
-  <span class="tile-label">Edit on GitHub</span>
-</a>
+<section>
+  <hr />
+  <p>
+    Spotted a typo?{" "}
+    <a href={`https://github.com/LL782/laurence-lord/edit/main${path}`}>
+      Edit on Github
+    </a>
+  </p>
+</section>

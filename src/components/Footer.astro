@@ -7,23 +7,20 @@ const { simple = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
-<footer
-  class:list={[
-    "tile tile-footer span-3-lg",
-    simple ? "h-100" : "h-150",
-  ]}
->
+<footer>
+  <hr />
   {
-    simple ? (
-      <p class="gnome">&copy; {year} Laurence Lord</p>
-    ) : (
+    !simple && (
       <>
-        <p class="elf">
+        <p>
           Unless otherwise stated I am the creator of all the text, images and
-          code. Generally I'm happy to share but let's talk first if you want to
-          license or commercialise any&nbsp;of&nbsp;it.
+          code.
         </p>
-        <p class="gnome">&copy; {year} Laurence Lord</p>
+        <p>
+          Generally I'm happy to share but let's talk first if you want to
+          license or commercialise any&nbsp;of&nbsp;it
+        </p>
+        <p>&copy; {year} Laurence Lord</p>
       </>
     )
   }
