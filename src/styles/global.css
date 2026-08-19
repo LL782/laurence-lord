@@ -111,9 +111,12 @@ h6 {
   line-height: var(--human-lh);
 }
 
-small {
+small,
+.note-date {
   font-size: var(--gnome);
+  font-weight: 400;
   line-height: var(--gnome-lh);
+  color: var(--detail);
 }
 
 .page {

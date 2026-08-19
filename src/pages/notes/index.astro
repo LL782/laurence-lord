@@ -16,12 +16,19 @@ const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
   </p>
   <hr />
   {
-    notes.map((note) => (
-      <a href={`/notes/${note.slug}/`}>
-        <h2>{note.data.title}</h2>
-        <p>Read more...</p>
-      </a>
-    ))
+    notes.map((note) => {
+      const date = note.data.date.toISOString().slice(0, 10);
+      return (
+        <a href={`/notes/${note.slug}/`}>
+          <h2>{note.data.title}</h2>
+          <p>
+            <time class="note-date" datetime={date}>
+              {date}
+            </time>
+          </p>
+        </a>
+      );
+    })
   }
   <EditOnGitHubInvite path="/src/pages/notes/index.astro" />
 </BaseLayout>
