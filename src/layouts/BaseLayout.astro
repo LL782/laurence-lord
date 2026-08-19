@@ -5,6 +5,7 @@ import Seo from "../components/Seo.astro";
 
 interface Props {
   isHome?: boolean;
+  catalog?: boolean;
   simpleFooter?: boolean;
   title?: string;
   description?: string;
@@ -14,6 +15,7 @@ interface Props {
 
 const {
   isHome = false,
+  catalog = false,
   simpleFooter = false,
   title,
   description,
@@ -33,8 +35,8 @@ const {
       isHome={isHome}
     />
   </head>
-  <body>
-    <div class="page">
+  <body class:list={[{ "catalog-body": catalog }]}>
+    <div class:list={["page", { "catalog-page": catalog }]}>
       {
         !isHome && (
           <header>

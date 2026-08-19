@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  excerpt: string;
+  cta?: string;
+}
+
+const { title, href, excerpt, cta = "Read manifesto" } = Astro.props;
+---
+
+<article class="editorial-card">
+  <p class="editorial-card__eyebrow">Manifesto</p>
+  <h2 class="editorial-card__title">
+    <a href={href}>{title}</a>
+  </h2>
+  <p class="editorial-card__excerpt">{excerpt}</p>
+  <a class="editorial-card__cta" href={href}>{cta}</a>
+</article>

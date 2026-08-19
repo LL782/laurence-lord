@@ -2,33 +2,39 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
+import CatalogGrid from "../../components/catalog/CatalogGrid.astro";
+import FastMovingStrip from "../../components/catalog/FastMovingStrip.astro";
+import EditorialCard from "../../components/catalog/EditorialCard.astro";
+import { getNoteCatalogItems } from "../../lib/catalog";
 
-const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const notes = await getCollection("notes");
+const catalogItems = getNoteCatalogItems(notes);
+const fastMoving = catalogItems.slice(0, 3);
 ---
 
-<BaseLayout title="My Notes">
-  <h1>My Notes</h1>
-  <p>
-    You're welcome to dive in, just be aware:<br class="sm-only" />
-    <a href="/notes/i-am-writing-for-myself/">I'm writing for myself</a>.
-  </p>
-  <hr />
-  {
-    notes.map((note) => {
-      const date = note.data.date.toISOString().slice(0, 10);
-      return (
-        <a href={`/notes/${note.slug}/`}>
-          <h2>{note.data.title}</h2>
-          <p>
-            <time class="note-date" datetime={date}>
-              {date}
-            </time>
-          </p>
-        </a>
-      );
-    })
-  }
+<BaseLayout title="My Notes" catalog={true}>
+  <header class="catalog-header">
+    <h1 class="catalog-header__title">My Notes</h1>
+    <p class="catalog-header__intro">
+      You're welcome to dive in, just be aware:
+      <a href="/notes/i-am-writing-for-myself/">I'm writing for myself</a>.
+    </p>
+  </header>
+
+  <FastMovingStrip items={fastMoving} label="Recent" />
+
+  <EditorialCard
+    title="I'm writing for myself"
+    href="/notes/i-am-writing-for-myself/"
+    excerpt="Clear one's head, get your thoughts in line, practice articulation, store some of your thoughts elsewhere. A buddy and ex-colleague Jorge called it external memory."
+    cta="Read why"
+  />
+
+  <h2 class="catalog-section-heading">All notes</h2>
+  <CatalogGrid
+    items={catalogItems}
+    excludeSlugs={fastMoving.map((item) => item.slug)}
+  />
+
   <EditOnGitHubInvite path="/src/pages/notes/index.astro" />
 </BaseLayout>
