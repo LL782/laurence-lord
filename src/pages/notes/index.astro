@@ -6,29 +6,47 @@ import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
 const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const chronological = [...notes].sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+);
+
+const noteNumbers = new Map(
+  chronological.map((note, index) => [note.slug, index + 1]),
+);
 ---
 
 <BaseLayout title="My Notes">
-  <h1>My Notes</h1>
-  <p>
-    You're welcome to dive in, just be aware:<br class="sm-only" />
-    <a href="/notes/i-am-writing-for-myself/">I'm writing for myself</a>.
-  </p>
-  <hr />
-  {
-    notes.map((note) => {
-      const date = note.data.date.toISOString().slice(0, 10);
-      return (
-        <a href={`/notes/${note.slug}/`}>
-          <h2>{note.data.title}</h2>
-          <p>
-            <time class="note-date" datetime={date}>
-              {date}
-            </time>
-          </p>
-        </a>
-      );
-    })
-  }
+  <header class="page-header">
+    <p class="page-kicker">Index</p>
+    <h1>My Notes</h1>
+    <p class="page-lede">
+      You're welcome to dive in, just be aware:
+      <a href="/notes/i-am-writing-for-myself/">I'm writing for myself</a>.
+    </p>
+  </header>
+
+  <ol class="note-index">
+    {
+      notes.map((note) => {
+        const date = note.data.date.toISOString().slice(0, 10);
+        const number = String(noteNumbers.get(note.slug)).padStart(2, "0");
+        return (
+          <li class="note-index__item">
+            <a class="note-index__link" href={`/notes/${note.slug}/`}>
+              <span class="note-index__number">{number}</span>
+              <span class="note-index__body">
+                <span class="note-index__title">{note.data.title}</span>
+                <time class="note-meta" datetime={date}>
+                  {date}
+                </time>
+              </span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+
   <EditOnGitHubInvite path="/src/pages/notes/index.astro" />
 </BaseLayout>

@@ -3,44 +3,79 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 import heroImage from "../assets/crop-of-punk-storm.png";
 import { Image } from "astro:assets";
+import { siteConfig } from "../site-config";
 ---
 
 <BaseLayout isHome={true}>
-  <h1>Laurence "DC5B" Lord</h1>
-  <h2>Creative Developer</h2>
+  <header class="home-header">
+    <p class="home-kicker">Personal site</p>
+    <h1>{siteConfig.defaultTitle}</h1>
+    <p class="home-role">{siteConfig.headline}</p>
+  </header>
+
   <Image
     class="home-hero-image"
     src={heroImage}
     alt="Closely cropped black ink artwork of branches, flowers and masked faces"
-    widths={[640, 960, 1280]}
-    sizes="(max-width: 764px) 100vw, 764px"
+    widths={[640, 960, 1280, 1600]}
+    sizes="(max-width: 900px) 100vw, 960px"
   />
-  <p>I craft websites, develop businesses and make art.</p>
-  <ul>
-    <li>
-      <a href="/notes/">Notes</a>
-    </li>
-    <li>
-      <a href="/labs/">Experiments</a>
-    </li>
-    <li>
-      <a href="https://github.com/LL782">GitHub</a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/ll782">LinkedIn</a>
-    </li>
-    <li>
-      <a
-        href="https://www.instagram.com/laurence_lord_art/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
-      </a>
-    </li>
-    <li>
-      <a href="https://www.dc5b.com/">DC5B</a>
-    </li>
-  </ul>
+
+  <section class="home-intro">
+    <p class="home-lede">I craft websites, develop businesses and make art.</p>
+    <p class="home-meta">
+      Notes and lab experiments — a design-system-style guide to what I'm
+      building and thinking about.
+    </p>
+  </section>
+
+  <section class="home-section">
+    <h2 class="section-label">Explore</h2>
+    <ul class="home-index">
+      <li>
+        <a href="/notes/">
+          <span class="home-index__number">01</span>
+          <span class="home-index__body">
+            <span class="home-index__title">Notes</span>
+            <span class="home-index__desc">Writing for myself, shared openly</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="/labs/">
+          <span class="home-index__number">02</span>
+          <span class="home-index__body">
+            <span class="home-index__title">Labs</span>
+            <span class="home-index__desc">Browser experiments and prototypes</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="home-section" id="links">
+    <h2 class="section-label">Links</h2>
+    <ul class="link-list">
+      <li>
+        <a href="https://github.com/LL782">GitHub</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/ll782">LinkedIn</a>
+      </li>
+      <li>
+        <a
+          href="https://www.instagram.com/laurence_lord_art/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a href="https://www.dc5b.com/">DC5B</a>
+      </li>
+    </ul>
+  </section>
+
   <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>

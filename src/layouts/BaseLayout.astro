@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Seo from "../components/Seo.astro";
+import SiteNav from "../components/SiteNav.astro";
 
 interface Props {
   isHome?: boolean;
@@ -34,21 +35,19 @@ const {
     />
   </head>
   <body>
-    <div class="page">
-      {
-        !isHome && (
-          <header>
-            <nav>
-              <a href="/">Laurence "DC5B" Lord - Creative Developer</a>
-            </nav>
-          </header>
-        )
-      }
+    <div class="site-shell">
+      <aside class="site-sidebar">
+        <SiteNav />
+      </aside>
 
-      <main>
-        <slot />
-      </main>
-      <Footer simple={simpleFooter} />
+      <div class="site-main">
+        <div class="page">
+          <main>
+            <slot />
+          </main>
+          <Footer simple={simpleFooter} />
+        </div>
+      </div>
     </div>
   </body>
 </html>

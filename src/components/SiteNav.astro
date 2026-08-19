@@ -1,0 +1,52 @@
+---
+interface NavItem {
+  href: string;
+  label: string;
+  match: (pathname: string) => boolean;
+}
+
+const pathname = Astro.url.pathname;
+
+const navItems: NavItem[] = [
+  {
+    href: "/",
+    label: "Home",
+    match: (path) => path === "/",
+  },
+  {
+    href: "/notes/",
+    label: "Notes",
+    match: (path) => path.startsWith("/notes"),
+  },
+  {
+    href: "/labs/",
+    label: "Labs",
+    match: (path) => path.startsWith("/labs"),
+  },
+  {
+    href: "/#links",
+    label: "Links",
+    match: () => false,
+  },
+];
+---
+
+<nav class="site-nav" aria-label="Site">
+  <a class="site-nav__brand" href="/">
+    Laurence "DC5B" Lord
+  </a>
+  <ul class="site-nav__list">
+    {
+      navItems.map(({ href, label, match }) => (
+        <li>
+          <a
+            class:list={["site-nav__link", { "is-active": match(pathname) }]}
+            href={href}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
