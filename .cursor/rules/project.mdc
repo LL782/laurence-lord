@@ -1,0 +1,14 @@
+---
+description: Project conventions for laurencelord.co.uk
+alwaysApply: true
+---
+
+This repo is a live personal Astro site, not a greenfield app.
+
+Before non-trivial work:
+
+1. Read `SPEC.md` and `CAPABILITY-MAP.md`.
+2. Only implement the **active milestone** (named in the capability map). Park everything else as a GitHub issue.
+3. Follow `.cursor/skills/` for spec / plan / build / test / review / ship.
+4. Definition of Done: `docs/definition-of-done.md`. Gate: `npm run build`.
+5. Do not merge redesign drafts, add a CMS, or start a second workstream "while you are here".
