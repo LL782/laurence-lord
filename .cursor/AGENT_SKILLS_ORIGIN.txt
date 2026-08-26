@@ -1,0 +1,19 @@
+Source: https://github.com/addyosmani/agent-skills
+Commit: 5a5ea45e806f82273549fd85e60adb95d55f510d
+Synced: 2026-08-26
+License: MIT (see .cursor/LICENSE-agent-skills)
+
+Layout (Cursor):
+  .cursor/skills/      workflow skills (SKILL.md) — agent-discovered
+  .cursor/references/  shared checklists linked from skills as ../../references/
+  .cursor/agents/      personas used by /ship and /webperf
+  .cursor/rules/agent-skills.mdc  always-on routing rule
+
+Lifecycle slash commands (also skills, invoked in Cursor with /name):
+  /spec  /plan  /build  /test  /review  /webperf  /code-simplify  /ship
+
+To update from upstream (does not remove the local command wrappers):
+  git clone --depth 1 https://github.com/addyosmani/agent-skills.git /tmp/agent-skills
+  cp -a /tmp/agent-skills/skills/. .cursor/skills/
+  cp -a /tmp/agent-skills/references/. .cursor/references/
+  cp -a /tmp/agent-skills/agents/. .cursor/agents/
