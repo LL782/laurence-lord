@@ -11,4 +11,4 @@ Before non-trivial work:
 2. Only implement the **active milestone** (named in the capability map). Park everything else as a GitHub issue.
 3. Follow `.cursor/skills/` for spec / plan / build / test / review / ship.
 4. Definition of Done: `docs/definition-of-done.md`. Gate: `npm run build`.
-5. Do not merge redesign drafts, add a CMS, or start a second workstream "while you are here".
+5. Do not merge redesign drafts #24–#26. Immediate visual work is `design-snags` (current layout only). Do not add a CMS or start a second workstream "while you are here".

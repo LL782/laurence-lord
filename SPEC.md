@@ -9,8 +9,8 @@ This spec is the shared source of truth for humans and agents. It describes the 
 Correct these if they are wrong; otherwise later work will follow them.
 
 1. **"This app" is this site**, not a new product. The job is to develop the live Astro site properly, not to rebuild it.
-2. **Stay on Astro + MDX in the repo.** The Gatsby replatform (#18, #19) is done. WordPress / Notion / a headless CMS stays parked unless phone authoring on GitHub proves too painful.
-3. **First milestone is `foundations`, not a redesign.** Draft PRs #24–#26 and the Gus brief (#20) wait until `presence`.
+2. **Stay on Astro + MDX in git for now.** #18 and #19 are closed (replatform shipped). Phone convenience is not finished: issue #2 (new note from a phone) is still open. If GitHub MDX is still painful after #2, write a new ADR — do not silently add a CMS.
+3. **Order is `foundations` → `design-snags` → `authoring` → `presence`.** Immediate design work is a snag list on the **current** layout, not merging redesign drafts. A design system (and Gus #20) is later `presence`.
 4. **Primary user is Laurence.** Visitors are welcome; they are not the design centre. See [I'm writing for myself](https://www.laurencelord.co.uk/notes/i-am-writing-for-myself/).
 5. **GitHub Issues + [The Overview](https://github.com/users/LL782/projects/1) remain the human tracker.** `tasks/todo.md` is the agent working list for the **active milestone only**.
 6. **No auth, no reader accounts, no monorepo** in this repo unless a later spec says so.
@@ -27,7 +27,7 @@ Keep a small, convenient website that Laurence can edit from a phone, run locall
 - A new note can be started from a phone and shipped via a commit to `main`.
 - `npm i && npm run dev` works on a new machine; `npm run build` is the merge gate.
 - One milestone is in progress at a time. New ideas wait.
-- Notes, labs, and home stay coherent with the existing DC5B type and colour, until `presence` deliberately changes that.
+- Notes, labs, and home stay coherent with the existing DC5B type and colour. `design-snags` tightens that layout; `presence` may introduce a design system later.
 
 ## Tech Stack
 
@@ -121,12 +121,12 @@ Do not add Jest/Playwright/Storybook during `foundations` unless a specific beha
 
 **Ask first:**
 
-- Visual redesign or merging draft PRs #24–#26.
+- Merging or resurrecting redesign drafts #24–#26 (they should close once the snag issue exists).
 - Adding a CMS, auth, database, or new hosting platform.
 - Adding dependencies, test frameworks, or CI beyond `astro check` + build.
 - Changing the notes frontmatter schema in a breaking way.
-- Monorepo / shared design-system extraction.
-- Closing or reopening GitHub issues (agents cannot do this here; list them for Laurence).
+- Monorepo / shared design-system extraction (`presence`, not `design-snags`).
+- Closing or reopening GitHub issues and PRs (agents cannot open issues here; list them for Laurence).
 
 **Never:**
 
@@ -138,15 +138,14 @@ Do not add Jest/Playwright/Storybook during `foundations` unless a specific beha
 
 ## Success Criteria
 
-- [ ] Capability map is reviewed; module ids are stable.
+- [x] Capability map is reviewed; module ids are stable (`foundations` → `design-snags` → `authoring` → `presence`).
 - [ ] `foundations` is the active milestone until its spec is done.
-- [ ] Later modules are not specified in detail until they become active.
-- [ ] Stale replatform work is treated as done (issues #18 and #19 ready to close).
-- [ ] Redesign drafts stay drafts until `presence`.
+- [ ] `design-snags` is a punch list on the current layout; redesign PRs close after that list is a GitHub issue.
+- [x] Replatform issues #18 and #19 are closed.
+- [ ] Issue #2 remains the `authoring` milestone (after snags).
 
 ## Open Questions
 
-1. Confirm: first milestone is `foundations`, then `authoring` (issue #2), with design parked?
-2. Confirm: stay on GitHub MDX; WordPress/CMS research in #18 stays historical?
-3. For `presence`: write the Gus brief (#20), pick one redesign draft, or keep the current layout?
-4. Which lab issues (#4, #5, #8, #10, #11, #17) should stay open vs be closed as won't-do-now?
+1. File [`tasks/design-snag-list.md`](./tasks/design-snag-list.md) as a GitHub issue, then close PRs #24–#26?
+2. Which lab issues (#4, #5, #8, #10, #11, #17) stay open vs won't-do-now?
+3. After snags + #2, is GitHub MDX still good enough, or is a CMS ADR needed?

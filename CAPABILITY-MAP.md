@@ -5,20 +5,23 @@ This site is already live. The map is how we develop it properly from here: one 
 | Module id | Responsibility | Depends on |
 |---|---|---|
 | foundations | Spec, Definition of Done, CI quality gates, issue hygiene, reliable local build | — |
-| authoring | Phone-first create and edit notes without a CMS | foundations |
+| design-snags | Immediate improvements to the **current** layout (DC5B type and colour). Snag list harvested from redesign drafts; those PRs are not merged | foundations |
+| authoring | Phone-first create and edit notes on GitHub MDX (issue #2) | design-snags |
 | labs | Experiments as first-class pages, with a consistent way to add them | foundations |
-| presence | Homepage, notes, and labs as a coherent public surface (layout and design) | foundations |
+| presence | Design system / later visual pass (Gus brief #20). Not the snag list | authoring |
 | products | Surface DC5B / LL782 work without turning this into a shop | presence |
 
-**Build order:** `foundations` → `authoring` → `labs` (optional, in parallel with later presence work) → `presence` → `products`
+**Build order:** `foundations` → `design-snags` → `authoring` → `presence` → `products`
+
+`labs` stays optional and can slot in when Laurence wants an experiment; it must not interrupt the sequence above.
 
 ## Why this order
 
-- **foundations first.** The Gatsby replatform is done. What is missing is a shared spec, a quality gate on every change, and a single active milestone. Without that, agents and humans keep thrashing across old issues and redesign drafts.
-- **authoring next.** The site exists so Laurence can write. Issue #2 (new note from a phone) is the longest-standing real user need.
-- **presence after authoring.** Three redesign drafts already exist ([#24](https://github.com/LL782/laurence-lord/pull/24), [#25](https://github.com/LL782/laurence-lord/pull/25), [#26](https://github.com/LL782/laurence-lord/pull/26)) and issue #20 (brief for Gus) is still open. Design is a decision, not a coding gap. Do not start it until a direction is chosen.
-- **labs stay optional.** Old experiment issues are parking, not the current milestone.
-- **products last.** Issue #14 depends on a coherent public surface.
+- **foundations first.** Shared spec, one active milestone, PR build gate.
+- **design-snags next.** The three redesign drafts ([#24](https://github.com/LL782/laurence-lord/pull/24), [#25](https://github.com/LL782/laurence-lord/pull/25), [#26](https://github.com/LL782/laurence-lord/pull/26)) are a critique of what is live. Fix the current site; do not pick a new skin. File the snag list as a GitHub issue, then close those PRs.
+- **authoring after snags.** GitHub MDX is fine for now. Issue #2 (new note from a phone) still needs doing. Convenience pain that used to live on #19 belongs here, not in a CMS switch.
+- **presence last among product work.** A nicer design system, hopefully with Gus (#20), after the site is snag-fixed and writable.
+- **products** after the public surface is intentional.
 
 ## Active milestone
 
@@ -32,4 +35,5 @@ Do not start another module until this one is done. New ideas become issues and 
 |---|---|
 | Site (all modules) | [`SPEC.md`](./SPEC.md) |
 | foundations | [`SPEC-foundations.md`](./SPEC-foundations.md) |
+| design-snags | [`SPEC-design-snags.md`](./SPEC-design-snags.md) (draft until active) |
 | authoring, labs, presence, products | Write when that module becomes the active milestone |

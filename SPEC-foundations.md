@@ -3,7 +3,7 @@
 Make this repo safe to develop in small increments: a living spec, one active milestone, a merge-quality gate, and a tidy backlog.
 
 Depends on: nothing.
-Unlocks: `authoring`, `labs`, `presence`.
+Unlocks: `design-snags` (then `authoring`). `labs` may proceed later without blocking that path.
 
 ## Objective
 
@@ -23,8 +23,9 @@ This module does **not** change homepage layout, notes UI, or labs content.
 
 ### Out
 
-- New note button / GitHub template (that is `authoring`).
-- Redesign, design-system extraction, Gus brief (`presence`).
+- Immediate visual snags on the current layout (that is `design-snags`).
+- New note button / GitHub template (that is `authoring`, after snags).
+- Design-system extraction, Gus brief (`presence`).
 - New labs (`labs`).
 - DC5B product listing (`products`).
 - Introducing WordPress, auth, or a test framework "because proper apps have them".
@@ -36,7 +37,7 @@ This module does **not** change homepage layout, notes UI, or labs content.
 - [ ] Future agents are pointed at the spec (Cursor project rule and `AGENTS.md`).
 - [ ] Opening a PR runs `npm run build` on GitHub, independent of Netlify.
 - [ ] README tells you how to run, check, and where the spec lives.
-- [ ] Open issues #18 and #19 are listed as close-ready (replatform done).
+- [x] Issues #18 and #19 are closed (replatform done).
 - [ ] One active milestone is named; everything else is parked.
 
 ## Commands
@@ -45,4 +46,4 @@ Same as `SPEC.md`. Merge gate for this module: `npm run build`.
 
 ## Boundaries
 
-Inherit `SPEC.md`. Extra **never** for this module: do not merge a redesign "while we are here".
+Inherit `SPEC.md`. Extra **never** for this module: do not merge a redesign or start snag implementation "while we are here".

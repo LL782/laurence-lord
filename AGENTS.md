@@ -9,4 +9,4 @@ This is Laurence Lord's personal Astro site. Read these before changing anything
 
 Workflow skills live in `.cursor/skills/` (Addy Osmani agent-skills). Typical path: `/spec` → `/plan` → `/build` → `/test` → `/review` → `/ship`.
 
-Do not start `presence` (redesign) or a CMS. Do not work two milestones at once. New ideas become GitHub issues and wait.
+Do not merge redesign drafts #24–#26. Immediate visual work is the `design-snags` milestone (after foundations), not a new skin. Do not add a CMS. Do not work two milestones at once. New ideas become GitHub issues and wait.

@@ -1,41 +1,25 @@
 # Todo: foundations
 
-Active milestone: **foundations**. Do not pull in authoring, labs, or redesign tasks here.
+Active milestone: **foundations**. Next after that is **design-snags**, then **authoring**. Do not pull those tasks in here.
 
 ## Phase 1 — Planning artifacts
 
 - [x] Task 1: Write capability map, site spec, and `SPEC-foundations.md`
-  - Acceptance: Six core spec areas covered; module ids stable; assumptions listed
-  - Verify: Files exist at repo root; a human can reject the assumptions
-  - Files: `CAPABILITY-MAP.md`, `SPEC.md`, `SPEC-foundations.md`
-  - Dependencies: None
-  - Scope: S
-
 - [x] Task 2: Definition of Done, ADR-001 (stay on Astro/MDX), agent conventions
-  - Acceptance: Standing merge bar exists; stack decision is recorded; agents are pointed at the spec
-  - Verify: `AGENTS.md` and `.cursor/rules/project.mdc` reference the spec
-  - Files: `docs/definition-of-done.md`, `docs/decisions/001-stay-on-astro-mdx.md`, `AGENTS.md`, `.cursor/rules/project.mdc`
-  - Dependencies: Task 1
-  - Scope: S
-
 - [x] Task 3: README points at spec, commands, and how deploys work
-  - Acceptance: A new machine can install, run, and find the plan from the README
-  - Verify: README lists `npm run dev` / `check` / `build` and links `SPEC.md`
-  - Files: `README.md`
-  - Dependencies: Task 1
-  - Scope: XS
+- [x] Task 3b: Correct order + draft snag list (`tasks/design-snag-list.md`, `SPEC-design-snags.md`)
 
 ## Checkpoint: Spec review
 
-- [ ] Laurence has confirmed or corrected `SPEC.md` assumptions
-- [ ] Still only `foundations` is active
-- [ ] Review with human before Phase 2
+- [x] Laurence corrected SPEC assumptions (snags before authoring; MDX for now; #18/#19 closed)
+- [ ] Still only `foundations` is active until Phase 2 lands
+- [ ] Snag GitHub issue not filed yet (see Task 7c)
 
 ## Phase 2 — Quality gate
 
 - [ ] Task 4: Add a GitHub Actions workflow that runs `npm run build` on pull requests
   - Acceptance: Opening or updating a PR runs install + `npm run build`; the workflow uses Node 20
-  - Verify: Workflow file exists; a deliberate `astro check` failure would fail the job (do not merge a red build)
+  - Verify: Workflow file exists; a deliberate `astro check` failure would fail the job
   - Files: `.github/workflows/` (new CI file; do not break `action.yml` Overview automation)
   - Dependencies: Spec review checkpoint
   - Scope: S
@@ -55,36 +39,25 @@ Active milestone: **foundations**. Do not pull in authoring, labs, or redesign t
 
 ## Phase 3 — Backlog hygiene
 
-- [x] Task 6: Write close-ready notes for issues #18 and #19 (Gatsby replatform shipped)
-  - Acceptance: `tasks/backlog-hygiene.md` tells Laurence these two can be closed and why
-  - Verify: Doc exists; issues are not closed by the agent
-  - Files: `tasks/backlog-hygiene.md`
-  - Dependencies: Task 1
+- [x] Task 6: Close-ready notes for #18 and #19
+- [x] Task 7: Park list for labs and later design
+- [x] Task 7b: Laurence closed #18 and #19
+- [ ] Task 7c: File `tasks/design-snag-list.md` as a GitHub issue, then close PRs #24–#26
+  - Acceptance: One issue owns the current-layout snags; the three drafts are closed (or #26 reopened later as a lab only)
+  - Verify: Human action on github.com (this agent cannot open issues)
+  - Files: none after the issue exists
+  - Dependencies: Snag list draft in this PR
   - Scope: XS
 
-- [x] Task 7: Park list for labs and design
-  - Acceptance: Same doc lists #4, #5, #8, #10, #11, #17, #20, #14 and PRs #24–#26 as parked, with the module they belong to
-  - Verify: Capability map still names `foundations` as active
-  - Files: `tasks/backlog-hygiene.md`
-  - Dependencies: Task 6
-  - Scope: XS
-
-- [ ] Task 7b: Laurence closes #18 and #19 (and parks or leaves the rest)
-  - Acceptance: GitHub matches the hygiene doc, or the doc is corrected
-  - Verify: Human action on github.com
-  - Files: none
-  - Dependencies: Spec review checkpoint
-  - Scope: XS
-
-- [ ] Task 8: When Phases 2–3 are done, flip the capability map to `authoring` as next and stop
-  - Acceptance: `CAPABILITY-MAP.md` says foundations is done only after CI + hygiene exist; next spec to write is `SPEC-authoring.md`
-  - Verify: `tasks/todo.md` is not filled with authoring implementation tasks in this milestone
+- [ ] Task 8: When Phases 2–3 are done, set the capability map active milestone to `design-snags` and stop
+  - Acceptance: Next `/spec` / `/build` is the snag issue, not #2
+  - Verify: `tasks/todo.md` is not filled with authoring tasks in this milestone
   - Files: `CAPABILITY-MAP.md`
-  - Dependencies: Tasks 4–7
+  - Dependencies: Tasks 4–7c
   - Scope: XS
 
 ## Checkpoint: foundations complete
 
 - [ ] `SPEC-foundations.md` success criteria are met
 - [ ] Definition of Done applied to this milestone
-- [ ] Ready for `/spec` on `authoring` (GitHub issue #2)
+- [ ] Ready to work the snag issue (`design-snags`), then `/spec` on `authoring` (#2)

@@ -38,6 +38,7 @@ Keep Astro + MDX-in-git as the stack. Do not introduce a CMS, auth layer, or mon
 
 ## Consequences
 
+- Issues #18 and #19 are closed. Phone convenience that used to sit on those tickets now lives on issue #2 (`authoring`).
 - `authoring` work should improve the GitHub/MDX path (templates, buttons, defaults), not replace it.
 - Agents must not "helpfully" add WordPress or a database.
-- If phone editing on GitHub becomes the blocker, write a new ADR — do not silently switch stack.
+- If phone editing on GitHub is still the blocker after #2, write a new ADR — do not silently switch stack.

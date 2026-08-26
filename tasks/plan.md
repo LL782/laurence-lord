@@ -2,15 +2,15 @@
 
 ## Overview
 
-Put a working personal site onto a spec-driven loop. This plan implements **`foundations` only**. Later modules are listed so the path is visible; they are not scheduled and must not be started until the map says they are active.
+Put a working personal site onto a spec-driven loop. This plan implements **`foundations` only**. Later modules are listed so the path is visible; they are not scheduled until the map says they are active.
 
 ## Architecture Decisions
 
 - **Spec in git, not only in GitHub issues.** Issues stay for human tracking and The Overview. Agents need `SPEC.md` + `tasks/todo.md` that survive a new chat.
 - **CI on GitHub, deploy on Netlify.** Netlify already builds `main`. PRs also need `npm run build` so a broken branch fails before merge, not after.
 - **No new framework in this milestone.** The stack is Astro. Foundations is process + gates, not a rewrite.
-- **Redesign PRs stay draft.** They are inputs to `presence`, not to `foundations`.
-- **Task list target:** `tasks/todo.md` for the active milestone. Laurence's GitHub issues remain the long-term backlog; do not duplicate every task as an issue unless he asks.
+- **Redesign PRs are source material, not merge candidates.** Harvest a snag list for the current layout (`tasks/design-snag-list.md`), file it as a GitHub issue, then close #24–#26.
+- **Task list target:** `tasks/todo.md` for the active milestone. Laurence's GitHub issues remain the long-term backlog.
 
 ## Task List
 
@@ -19,12 +19,13 @@ Put a working personal site onto a spec-driven loop. This plan implements **`fou
 - [x] Task 1: Capability map + site spec + `foundations` spec
 - [x] Task 2: Definition of Done, ADR-001, agent conventions
 - [x] Task 3: Point README at the spec and commands
+- [x] Task 3b: Corrected order (`foundations` → `design-snags` → `authoring` → `presence`) and draft snag list
 
 ### Checkpoint: Spec review
 
-- [ ] Laurence confirms assumptions in `SPEC.md` (or corrects them)
-- [ ] Active milestone remains `foundations`
-- [ ] No implementation of authoring/design until that confirmation
+- [x] Laurence corrected the assumptions (2026-08-26): snags before authoring; MDX for now + #2 still needed; #18/#19 closed; drafts stay until the snag issue exists
+- [ ] Active milestone remains `foundations` until CI exists
+- [ ] Snag issue not yet filed (agent cannot open GitHub issues) — Laurence files from `tasks/design-snag-list.md`
 
 ### Phase 2: Quality gate
 
@@ -38,35 +39,36 @@ Put a working personal site onto a spec-driven loop. This plan implements **`fou
 
 ### Phase 3: Backlog hygiene
 
-- [x] Task 6: Close-ready list for issues #18 and #19 (replatform done)
-- [x] Task 7: Park list for labs (#4, #5, #8, #10, #11, #17) and design (#20, PRs #24–#26)
-- [ ] Task 7b: Laurence closes or parks issues to match that list
-- [ ] Task 8: Name the next milestone (`authoring`) in the capability map when foundations is done — do not specify it in full until then
+- [x] Task 6–7: Hygiene doc; #18 and #19 closed by Laurence
+- [ ] Task 7c: File snag list as a GitHub issue, then close PRs #24–#26
+- [ ] Task 8: When foundations is done, activate `design-snags` (do not start authoring)
 
 ### Checkpoint: foundations complete
 
 - [ ] All `SPEC-foundations.md` success criteria met
-- [ ] Ready to write `SPEC-authoring.md` (issue #2) as the next `/spec`
+- [ ] Ready to implement `SPEC-design-snags.md` from the GitHub snag issue
 
 ## Later (not this milestone)
 
 | Next | What | Trigger |
 |---|---|---|
-| authoring | New-note path from a phone; MDX template | foundations done |
+| design-snags | Current-layout punch list | foundations done + snag issue filed |
+| authoring | New-note path from a phone; MDX template (#2) | design-snags done |
 | labs | Consistent lab pages; optional old issues | when Laurence wants an experiment |
-| presence | Layout/design; Gus brief; choose among draft PRs | after a written design direction |
+| presence | Design system; Gus brief #20 | after authoring |
 | products | DC5B / LL782 on this site | after presence |
 
 ## Risks and Mitigations
 
 | Risk | Impact | Mitigation |
 |------|--------|------------|
-| Treat "develop properly" as a redesign | High | Map parks design until `presence`; this plan does not touch layout |
-| Re-open CMS / WordPress research | Med | ADR-001; ask-first boundary in the spec |
+| Treat snags as permission to merge a redesign | High | Snag spec lists explicit Not this; close drafts after the issue exists |
+| Skip snags and jump to #2 | Med | Capability map order is now snags then authoring |
+| Re-open CMS because #19 mentioned WordPress | Med | ADR-001; #2 is the remaining convenience work |
 | Two Cursor agents on two milestones | High | Active-milestone rule; project Cursor rule |
-| CI that is slower than Netlify and ignored | Low | One command: `npm run build`. No extra suites yet |
-| Planning docs nobody reads | Med | Always-on Cursor rule + `AGENTS.md` |
+| CI that is slower than Netlify and ignored | Low | One command: `npm run build` |
 
 ## Open Questions
 
-Same as `SPEC.md`. Phase 2 must not start until the spec-review checkpoint is an explicit yes.
+1. Laurence files the snag issue (this agent cannot create GitHub issues).
+2. Lab-issue park list still needs a human pass.
