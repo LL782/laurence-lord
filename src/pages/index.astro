@@ -57,7 +57,37 @@ import { siteLinks } from "../data/links";
 
   <section class="home-section" id="links">
     <h2 class="section-label">Links</h2>
-    <ul class="link-cards">
+
+    {/* Default: simple list. Enable rich cards with ?richLinks */}
+    <script is:inline>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("richLinks");
+        const enabled =
+          params.has("richLinks") && value !== "0" && value !== "false";
+        if (enabled) {
+          document.documentElement.dataset.richLinks = "true";
+        }
+      })();
+    </script>
+
+    <ul class="link-list" data-links-simple>
+      {
+        siteLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul class="link-cards" data-links-rich>
       {
         siteLinks.map((link) => (
           <li class="link-card">
@@ -87,3 +117,17 @@ import { siteLinks } from "../data/links";
 
   <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>
+
+<style is:global>
+  [data-links-rich] {
+    display: none;
+  }
+
+  html[data-rich-links="true"] [data-links-simple] {
+    display: none;
+  }
+
+  html[data-rich-links="true"] [data-links-rich] {
+    display: grid;
+  }
+</style>
