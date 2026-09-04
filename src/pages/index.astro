@@ -4,6 +4,7 @@ import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 import heroImage from "../assets/crop-of-punk-storm.png";
 import { Image } from "astro:assets";
 import { siteConfig } from "../site-config";
+import { siteLinks } from "../data/links";
 ---
 
 <BaseLayout isHome={true}>
@@ -51,15 +52,36 @@ import { siteConfig } from "../site-config";
           </span>
         </a>
       </li>
-      <li>
-        <a href="/links/">
-          <span class="home-index__number">03</span>
-          <span class="home-index__body">
-            <span class="home-index__title">Links</span>
-            <span class="home-index__desc">Elsewhere online, with context</span>
-          </span>
-        </a>
-      </li>
+    </ul>
+  </section>
+
+  <section class="home-section" id="links">
+    <h2 class="section-label">Links</h2>
+    <ul class="link-cards">
+      {
+        siteLinks.map((link) => (
+          <li class="link-card">
+            <a
+              class="link-card__anchor"
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+            >
+              <Image
+                class="link-card__image"
+                src={link.image}
+                alt={link.imageAlt}
+                widths={[320, 640, 960]}
+                sizes="(max-width: 700px) 100vw, 280px"
+              />
+              <span class="link-card__body">
+                <span class="link-card__title">{link.title}</span>
+                <span class="link-card__text">{link.body}</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
