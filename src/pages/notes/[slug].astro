@@ -46,19 +46,13 @@ const seoImage = image
   imageAlt={imageAlt}
   editPath={`/src/content/notes/${note.slug}.mdx`}
 >
-  <nav>
-    <a href="/notes/">&larr; All notes</a>
-  </nav>
-
-  <hr />
-
   <article>
-    <h1>{title}</h1>
-    <p>
-      <time class="note-date" datetime={noteDate}>
-        {noteDate}
-      </time>
-    </p>
+    <header class="page-header">
+      <p class="page-kicker">
+        <time datetime={noteDate}>{noteDate}</time>
+      </p>
+      <h1>{title}</h1>
+    </header>
     {
       image &&
         (imageLink ? (
