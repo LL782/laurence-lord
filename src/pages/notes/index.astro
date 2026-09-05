@@ -1,18 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import NoteIndex from "../../components/NoteIndex.astro";
+import { listedNotes, noteIndexNumbers, sortNotesNewestFirst } from "../../lib/notes";
 
-const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
-
-const chronological = [...notes].sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
-
-const noteNumbers = new Map(
-  chronological.map((note, index) => [note.slug, index + 1]),
-);
+const notes = sortNotesNewestFirst(listedNotes(await getCollection("notes")));
+const numbers = noteIndexNumbers(notes);
 ---
 
 <BaseLayout title="My Notes" editPath="/src/pages/notes/index.astro">
@@ -25,25 +18,5 @@ const noteNumbers = new Map(
     </p>
   </header>
 
-  <ol class="note-index">
-    {
-      notes.map((note) => {
-        const date = note.data.date.toISOString().slice(0, 10);
-        const number = String(noteNumbers.get(note.slug)).padStart(2, "0");
-        return (
-          <li class="note-index__item">
-            <a class="note-index__link" href={`/notes/${note.slug}/`}>
-              <span class="note-index__number">{number}</span>
-              <span class="note-index__body">
-                <span class="note-index__title">{note.data.title}</span>
-                <time class="note-meta" datetime={date}>
-                  {date}
-                </time>
-              </span>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ol>
+  <NoteIndex notes={notes} numbers={numbers} />
 </BaseLayout>
