@@ -18,6 +18,11 @@ if (allNotes.length < 2) {
 }
 
 const indexOfCurrent = allNotes.findIndex(({ slug }) => slug === currentSlug);
+
+if (indexOfCurrent < 0) {
+  return null;
+}
+
 const olderIndex = indexOfCurrent + 1;
 const newerIndex = indexOfCurrent - 1;
 
