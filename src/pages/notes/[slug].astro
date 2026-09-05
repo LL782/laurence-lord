@@ -5,8 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import NoteIndex from "../../components/NoteIndex.astro";
 import {
   listedNotes,
-  noteIndexNumbers,
   relatedListedNotes,
+  relatedOffsetLabel,
   sortNotesNewestFirst,
 } from "../../lib/notes";
 import BlockQuote from "../../components/mdx/BlockQuote.astro";
@@ -39,8 +39,14 @@ const { title, description, date, image, imageAlt, imageLink, imageAnchor, after
   note.data;
 
 const noteDate = date.toISOString().slice(0, 10);
-const relatedNotes = relatedListedNotes(listed, note.slug);
-const numbers = noteIndexNumbers(listed);
+const related = relatedListedNotes(listed, note.slug);
+const relatedNotes = related.map(({ note: relatedNote }) => relatedNote);
+const labels = new Map(
+  related.map(({ note: relatedNote, offset }) => [
+    relatedNote.slug,
+    relatedOffsetLabel(offset),
+  ]),
+);
 const seoImage = image
   ? (await getImage({ src: image, width: 1200, height: 400 })).src
   : undefined;
@@ -117,8 +123,8 @@ const seoImage = image
   {
     relatedNotes.length > 0 && (
       <section class="related-notes" aria-labelledby="related-notes-heading">
-        <h2 class="section-label" id="related-notes-heading">Notes</h2>
-        <NoteIndex notes={relatedNotes} numbers={numbers} />
+        <h2 class="section-label" id="related-notes-heading">More notes</h2>
+        <NoteIndex notes={relatedNotes} labels={labels} />
       </section>
     )
   }

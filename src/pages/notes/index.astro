@@ -5,7 +5,12 @@ import NoteIndex from "../../components/NoteIndex.astro";
 import { listedNotes, noteIndexNumbers, sortNotesNewestFirst } from "../../lib/notes";
 
 const notes = sortNotesNewestFirst(listedNotes(await getCollection("notes")));
-const numbers = noteIndexNumbers(notes);
+const labels = new Map(
+  [...noteIndexNumbers(notes)].map(([slug, number]) => [
+    slug,
+    String(number).padStart(2, "0"),
+  ]),
+);
 ---
 
 <BaseLayout title="My Notes" editPath="/src/pages/notes/index.astro">
@@ -18,5 +23,5 @@ const numbers = noteIndexNumbers(notes);
     </p>
   </header>
 
-  <NoteIndex notes={notes} numbers={numbers} />
+  <NoteIndex notes={notes} labels={labels} />
 </BaseLayout>

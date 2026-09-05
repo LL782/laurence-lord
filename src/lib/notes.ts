@@ -18,6 +18,10 @@ export function noteIndexNumbers(notes: NoteEntry[]) {
   );
 }
 
+export function relatedOffsetLabel(offset: number) {
+  return offset > 0 ? `+${offset}` : String(offset);
+}
+
 /** Adjacent listed notes, newer first then older. Empty if the current note is unlisted. */
 export function relatedListedNotes(
   listedNewestFirst: NoteEntry[],
@@ -28,7 +32,16 @@ export function relatedListedNotes(
     return [];
   }
 
-  return [listedNewestFirst[index - 1], listedNewestFirst[index + 1]].filter(
-    (note): note is NoteEntry => note != null,
-  );
+  const related: { note: NoteEntry; offset: 1 | -1 }[] = [];
+  const newer = listedNewestFirst[index - 1];
+  const older = listedNewestFirst[index + 1];
+
+  if (newer) {
+    related.push({ note: newer, offset: 1 });
+  }
+  if (older) {
+    related.push({ note: older, offset: -1 });
+  }
+
+  return related;
 }
