@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
 
 const notes = (await getCollection("notes", ({ data }) => !data.private)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -16,7 +15,7 @@ const noteNumbers = new Map(
 );
 ---
 
-<BaseLayout title="My Notes">
+<BaseLayout title="My Notes" editPath="/src/pages/notes/index.astro">
   <header class="page-header">
     <p class="page-kicker">Index</p>
     <h1>My Notes</h1>
@@ -47,6 +46,4 @@ const noteNumbers = new Map(
       })
     }
   </ol>
-
-  <EditOnGitHubInvite path="/src/pages/notes/index.astro" />
 </BaseLayout>

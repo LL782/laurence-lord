@@ -38,6 +38,11 @@ Welcome to the repo for my personal website
 
 Feel free to browse the files, raise issues or suggest changes in any way you like.
 
+## Feature toggles
+
+Some UI experiments are gated behind URL query params so they can be tried
+without becoming the default. See [TOGGLES.md](./TOGGLES.md).
+
 ## Maintenance notes (in case I forget)
 
 Deploys to [Netlify](https://app.netlify.com/teams/ll782/overview) via commits to `main` branch, configured in `netlify.toml`.

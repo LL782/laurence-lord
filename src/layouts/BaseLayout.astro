@@ -6,20 +6,20 @@ import SiteNav from "../components/SiteNav.astro";
 
 interface Props {
   isHome?: boolean;
-  simpleFooter?: boolean;
   title?: string;
   description?: string;
   image?: string;
   imageAlt?: string;
+  editPath?: string;
 }
 
 const {
   isHome = false,
-  simpleFooter = false,
   title,
   description,
   image,
   imageAlt,
+  editPath,
 } = Astro.props;
 ---
 
@@ -45,7 +45,7 @@ const {
           <main>
             <slot />
           </main>
-          <Footer simple={simpleFooter} />
+          <Footer editPath={editPath} />
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image, getImage } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import EditOnGitHubInvite from "../../components/EditOnGitHubInvite.astro";
 import NewerOlder from "../../components/NewerOlder.astro";
 import BlockQuote from "../../components/mdx/BlockQuote.astro";
 import EmbedFrame from "../../components/mdx/EmbedFrame.astro";
@@ -40,7 +39,13 @@ const seoImage = image
   : undefined;
 ---
 
-<BaseLayout title={title} description={description} image={seoImage} imageAlt={imageAlt}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={seoImage}
+  imageAlt={imageAlt}
+  editPath={`/src/content/notes/${note.slug}.mdx`}
+>
   <nav>
     <a href="/notes/">&larr; All notes</a>
   </nav>
@@ -111,5 +116,4 @@ const seoImage = image
   <hr />
 
   <NewerOlder allNotes={allNotes} currentSlug={note.slug} />
-  <EditOnGitHubInvite path={`/src/content/notes/${note.slug}.mdx`} />
 </BaseLayout>

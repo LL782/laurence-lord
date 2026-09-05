@@ -1,27 +1,18 @@
 ---
+import EditOnGitHubInvite from "./EditOnGitHubInvite.astro";
+
 interface Props {
-  simple?: boolean;
+  editPath?: string;
 }
 
-const { simple = false } = Astro.props;
+const { editPath } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer>
   <hr />
-  {
-    !simple && (
-      <>
-        <p>
-          Unless otherwise stated I am the creator of all the text, images and
-          code.
-        </p>
-        <p>
-          Generally I'm happy to share but let's talk first if you want to
-          license or commercialise any&nbsp;of&nbsp;it
-        </p>
-        <p>&copy; {year} Laurence Lord</p>
-      </>
-    )
-  }
+  <div class="footer-bar">
+    <p class="footer-copy">&copy; {year} Laurence Lord</p>
+    {editPath && <EditOnGitHubInvite path={editPath} />}
+  </div>
 </footer>

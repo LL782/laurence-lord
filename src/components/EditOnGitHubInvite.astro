@@ -1,16 +1,15 @@
 ---
+import { siteConfig } from "../site-config";
+
 interface Props {
   path: string;
 }
+
 const { path } = Astro.props;
+const editUrl = `${siteConfig.githubRepo}/edit/main${path}`;
 ---
 
-<section>
-  <hr />
-  <p>
-    Spotted a typo?{" "}
-    <a href={`https://github.com/LL782/laurence-lord/edit/main${path}`}>
-      Edit on Github
-    </a>
-  </p>
-</section>
+<p class="footer-edit">
+  Spotted a typo?{" "}
+  <a href={editUrl}>Edit on Github</a>
+</p>

@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 import heroImage from "../assets/crop-of-punk-storm.png";
 import { Image } from "astro:assets";
 import { siteConfig } from "../site-config";
+import { siteLinks } from "../data/links";
 ---
 
-<BaseLayout isHome={true}>
+<BaseLayout isHome={true} editPath="/src/pages/index.astro">
   <header class="home-header">
     <p class="home-kicker">Personal site</p>
     <h1>{siteConfig.defaultTitle}</h1>
@@ -22,10 +22,11 @@ import { siteConfig } from "../site-config";
   />
 
   <section class="home-intro">
-    <p class="home-lede">I craft websites, develop businesses and make art.</p>
-    <p class="home-meta">
-      Notes and lab experiments — a design-system-style guide to what I'm
-      building and thinking about.
+    <p class="home-lede">Art, software and systems</p>
+    <p class="home-support">
+      A place to get thoughts and ideas out of my head — so I can organise them,
+      see them clearly, and keep developing myself through the work of writing,
+      making and reflecting.
     </p>
   </section>
 
@@ -55,27 +56,75 @@ import { siteConfig } from "../site-config";
 
   <section class="home-section" id="links">
     <h2 class="section-label">Links</h2>
-    <ul class="link-list">
-      <li>
-        <a href="https://github.com/LL782">GitHub</a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/ll782">LinkedIn</a>
-      </li>
-      <li>
-        <a
-          href="https://www.instagram.com/laurence_lord_art/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram
-        </a>
-      </li>
-      <li>
-        <a href="https://www.dc5b.com/">DC5B</a>
-      </li>
+
+    {/* Default: simple list. Enable rich cards with ?richLinks */}
+    <script is:inline>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("richLinks");
+        const enabled =
+          params.has("richLinks") && value !== "0" && value !== "false";
+        if (enabled) {
+          document.documentElement.dataset.richLinks = "true";
+        }
+      })();
+    </script>
+
+    <ul class="link-list" data-links-simple>
+      {
+        siteLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <ul class="link-cards" data-links-rich>
+      {
+        siteLinks.map((link) => (
+          <li class="link-card">
+            <a
+              class="link-card__anchor"
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+            >
+              <Image
+                class="link-card__image"
+                src={link.image}
+                alt={link.imageAlt}
+                widths={[320, 640, 960]}
+                sizes="(max-width: 700px) 100vw, 280px"
+              />
+              <span class="link-card__body">
+                <span class="link-card__title">{link.title}</span>
+                <span class="link-card__text">{link.body}</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </section>
-
-  <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>
+
+<style is:global>
+  [data-links-rich] {
+    display: none;
+  }
+
+  html[data-rich-links="true"] [data-links-simple] {
+    display: none;
+  }
+
+  html[data-rich-links="true"] [data-links-rich] {
+    display: grid;
+  }
+</style>
