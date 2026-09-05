@@ -15,10 +15,11 @@ export async function getStaticPaths() {
   const sortedNotes = [...notes].sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
   );
+  const listedNotes = sortedNotes.filter((note) => !note.data.private);
 
   return sortedNotes.map((note) => ({
     params: { slug: note.slug },
-    props: { note, allNotes: sortedNotes },
+    props: { note, allNotes: listedNotes },
   }));
 }
 
