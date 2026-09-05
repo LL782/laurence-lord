@@ -1,13 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 import heroImage from "../assets/crop-of-punk-storm.png";
 import { Image } from "astro:assets";
 import { siteConfig } from "../site-config";
 import { siteLinks } from "../data/links";
 ---
 
-<BaseLayout isHome={true}>
+<BaseLayout isHome={true} editPath="/src/pages/index.astro">
   <header class="home-header">
     <p class="home-kicker">Personal site</p>
     <h1>{siteConfig.defaultTitle}</h1>
@@ -114,8 +113,6 @@ import { siteLinks } from "../data/links";
       }
     </ul>
   </section>
-
-  <EditOnGitHubInvite path="/src/pages/index.astro" />
 </BaseLayout>
 
 <style is:global>

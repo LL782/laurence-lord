@@ -1,9 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
 ---
 
-<BaseLayout simpleFooter title="404 page">
+<BaseLayout title="404 page" editPath="/src/pages/404.astro">
   <h1>The big empty. This page does not exist</h1>
   <p>
     Probably best to hit <a href="/">the homepage</a>, <a href="/notes/">Notes</a>
@@ -16,5 +15,4 @@ import EditOnGitHubInvite from "../components/EditOnGitHubInvite.astro";
     </a>{" "}
     what you're looking for – I might have renamed it
   </p>
-  <EditOnGitHubInvite path="/src/pages/404.astro" />
 </BaseLayout>

@@ -1,22 +1,18 @@
 ---
-import { siteConfig } from "../site-config";
+import EditOnGitHubInvite from "./EditOnGitHubInvite.astro";
 
 interface Props {
-  simple?: boolean;
+  editPath?: string;
 }
 
-const { simple = false } = Astro.props;
+const { editPath } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer>
   <hr />
-  {
-    !simple && (
-      <p>
-        <a href={siteConfig.githubProfile}>GitHub</a>
-      </p>
-    )
-  }
-  <p>&copy; {year} Laurence Lord</p>
+  <div class="footer-bar">
+    <p class="footer-copy">&copy; {year} Laurence Lord</p>
+    {editPath && <EditOnGitHubInvite path={editPath} />}
+  </div>
 </footer>
