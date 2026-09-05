@@ -4,10 +4,8 @@ import { Image, getImage } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import NoteIndex from "../../components/NoteIndex.astro";
 import {
-  listedNotes,
   relatedListedNotes,
   relatedOffsetLabel,
-  sortNotesNewestFirst,
 } from "../../lib/notes";
 import BlockQuote from "../../components/mdx/BlockQuote.astro";
 import EmbedFrame from "../../components/mdx/EmbedFrame.astro";
@@ -18,28 +16,26 @@ import Link from "../../components/mdx/Link.astro";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
-  const sortedNotes = sortNotesNewestFirst(notes);
-  const listed = listedNotes(sortedNotes);
 
-  return sortedNotes.map((note) => ({
+  return notes.map((note) => ({
     params: { slug: note.slug },
-    props: { note, listedNotes: listed },
+    props: { note, notes },
   }));
 }
 
 interface Props {
   note: CollectionEntry<"notes">;
-  listedNotes: CollectionEntry<"notes">[];
+  notes: CollectionEntry<"notes">[];
 }
 
-const { note, listedNotes: listed } = Astro.props;
+const { note, notes } = Astro.props;
 const { Content } = await note.render();
 
 const { title, description, date, image, imageAlt, imageLink, imageAnchor, afterthoughts } =
   note.data;
 
 const noteDate = date.toISOString().slice(0, 10);
-const related = relatedListedNotes(listed, note.slug);
+const related = relatedListedNotes(notes, note.slug);
 const relatedNotes = related.map(({ note: relatedNote }) => relatedNote);
 const labels = new Map(
   related.map(({ note: relatedNote, offset }) => [
