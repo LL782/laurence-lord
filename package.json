@@ -5,6 +5,9 @@
   "private": true,
   "description": "Personal website by Laurence Lord",
   "author": "LL782",
+  "engines": {
+    "node": ">=22.6.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
