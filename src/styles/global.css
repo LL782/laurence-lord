@@ -622,6 +622,10 @@ pre > code {
   }
 }
 
+.related-notes {
+  margin-top: 3rem;
+}
+
 .page-header {
   margin-bottom: 2.5rem;
 }

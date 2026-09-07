@@ -1,0 +1,32 @@
+---
+import type { NoteEntry } from "../lib/notes";
+
+interface Props {
+  notes: NoteEntry[];
+  labels: Map<string, string>;
+}
+
+const { notes, labels } = Astro.props;
+---
+
+<ol class="note-index">
+  {
+    notes.map((note) => {
+      const date = note.data.date.toISOString().slice(0, 10);
+      const label = labels.get(note.slug);
+      return (
+        <li class="note-index__item">
+          <a class="note-index__link" href={`/notes/${note.slug}/`}>
+            <span class="note-index__number" aria-hidden="true">{label}</span>
+            <span class="note-index__body">
+              <span class="note-index__title">{note.data.title}</span>
+              <time class="note-meta" datetime={date}>
+                {date}
+              </time>
+            </span>
+          </a>
+        </li>
+      );
+    })
+  }
+</ol>

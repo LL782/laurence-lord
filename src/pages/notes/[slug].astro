@@ -2,7 +2,11 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image, getImage } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import NewerOlder from "../../components/NewerOlder.astro";
+import NoteIndex from "../../components/NoteIndex.astro";
+import {
+  relatedListedNotes,
+  relatedOffsetLabel,
+} from "../../lib/notes";
 import BlockQuote from "../../components/mdx/BlockQuote.astro";
 import EmbedFrame from "../../components/mdx/EmbedFrame.astro";
 import Emoji from "../../components/mdx/Emoji.astro";
@@ -12,29 +16,33 @@ import Link from "../../components/mdx/Link.astro";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
-  const sortedNotes = [...notes].sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-  );
-  const listedNotes = sortedNotes.filter((note) => !note.data.private);
 
-  return sortedNotes.map((note) => ({
+  return notes.map((note) => ({
     params: { slug: note.slug },
-    props: { note, allNotes: listedNotes },
+    props: { note, notes },
   }));
 }
 
 interface Props {
   note: CollectionEntry<"notes">;
-  allNotes: CollectionEntry<"notes">[];
+  notes: CollectionEntry<"notes">[];
 }
 
-const { note, allNotes } = Astro.props;
+const { note, notes } = Astro.props;
 const { Content } = await note.render();
 
 const { title, description, date, image, imageAlt, imageLink, imageAnchor, afterthoughts } =
   note.data;
 
 const noteDate = date.toISOString().slice(0, 10);
+const related = relatedListedNotes(notes, note.slug);
+const relatedNotes = related.map(({ note: relatedNote }) => relatedNote);
+const labels = new Map(
+  related.map(({ note: relatedNote, offset }) => [
+    relatedNote.slug,
+    relatedOffsetLabel(offset),
+  ]),
+);
 const seoImage = image
   ? (await getImage({ src: image, width: 1200, height: 400 })).src
   : undefined;
@@ -108,7 +116,12 @@ const seoImage = image
     }
   </article>
 
-  <hr />
-
-  <NewerOlder allNotes={allNotes} currentSlug={note.slug} />
+  {
+    relatedNotes.length > 0 && (
+      <section class="related-notes" aria-labelledby="related-notes-heading">
+        <h2 class="section-label" id="related-notes-heading">More notes</h2>
+        <NoteIndex notes={relatedNotes} labels={labels} />
+      </section>
+    )
+  }
 </BaseLayout>

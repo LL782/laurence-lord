@@ -5,10 +5,14 @@
   "private": true,
   "description": "Personal website by Laurence Lord",
   "author": "LL782",
+  "engines": {
+    "node": ">=22.6.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "test": "node --test --experimental-strip-types src/lib/notes.test.ts",
+    "build": "npm test && astro check && astro build",
     "preview": "astro preview",
     "check": "astro check"
   },
