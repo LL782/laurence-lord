@@ -36,13 +36,13 @@ Pull Request Opened
 │   ↓ pass         │
 │   UNIT TESTS     │  jest/vitest
 │   ↓ pass         │
-│   BUILD          │  npm run build
+│   BUILD          │  pnpm build
 │   ↓ pass         │
 │   INTEGRATION    │  API/DB tests
 │   ↓ pass         │
 │   E2E (optional) │  Playwright/Cypress
 │   ↓ pass         │
-│   SECURITY AUDIT │  npm audit
+│   SECURITY AUDIT │  pnpm audit
 │   ↓ pass         │
 │   BUNDLE SIZE    │  bundlesize check
 └─────────────────┘
@@ -75,63 +75,63 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: "22"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm ci
 
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
 
       - name: Type check
         run: npx tsc --noEmit
 
       - name: Test
-        run: npm test -- --coverage
+        run: pnpm test -- --coverage
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
       - name: Security audit
-        run: npm audit --audit-level=high
+        run: pnpm audit --audit-level=high
 ```
 
 ### With Database Integration Tests
 
 ```yaml
-  integration:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:16
-        env:
-          POSTGRES_DB: testdb
-          POSTGRES_USER: ci_user
-          POSTGRES_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+integration:
+  runs-on: ubuntu-latest
+  services:
+    postgres:
+      image: postgres:16
+      env:
+        POSTGRES_DB: testdb
+        POSTGRES_USER: ci_user
+        POSTGRES_PASSWORD: ${{ secrets.CI_DB_PASSWORD }}
+      ports:
+        - 5432:5432
+      options: >-
+        --health-cmd pg_isready
+        --health-interval 10s
+        --health-timeout 5s
+        --health-retries 5
 
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-      - run: npm ci
-      - name: Run migrations
-        run: npx prisma migrate deploy
-        env:
-          DATABASE_URL: postgresql://ci_user:${{ secrets.CI_DB_PASSWORD }}@localhost:5432/testdb
-      - name: Integration tests
-        run: npm run test:integration
-        env:
-          DATABASE_URL: postgresql://ci_user:${{ secrets.CI_DB_PASSWORD }}@localhost:5432/testdb
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: "22"
+        cache: "pnpm"
+    - run: pnpm ci
+    - name: Run migrations
+      run: npx prisma migrate deploy
+      env:
+        DATABASE_URL: postgresql://ci_user:${{ secrets.CI_DB_PASSWORD }}@localhost:5432/testdb
+    - name: Integration tests
+      run: pnpm test:integration
+      env:
+        DATABASE_URL: postgresql://ci_user:${{ secrets.CI_DB_PASSWORD }}@localhost:5432/testdb
 ```
 
 > **Note:** Even for CI-only test databases, use GitHub Secrets for credentials rather than hardcoding values. This builds good habits and prevents accidental reuse of test credentials in other contexts.
@@ -139,26 +139,26 @@ jobs:
 ### E2E Tests
 
 ```yaml
-  e2e:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-      - run: npm ci
-      - name: Install Playwright
-        run: npx playwright install --with-deps chromium
-      - name: Build
-        run: npm run build
-      - name: Run E2E tests
-        run: npx playwright test
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: playwright-report
-          path: playwright-report/
+e2e:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: "22"
+        cache: "pnpm"
+    - run: pnpm ci
+    - name: Install Playwright
+      run: npx playwright install --with-deps chromium
+    - name: Build
+      run: pnpm build
+    - name: Run E2E tests
+      run: npx playwright test
+    - uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: playwright-report
+        path: playwright-report/
 ```
 
 ## Feeding CI Failures Back to Agents
@@ -184,7 +184,7 @@ Agent fixes → pushes → CI runs again
 **Key patterns:**
 
 ```
-Lint failure → Agent runs `npm run lint --fix` and commits
+Lint failure → Agent runs `pnpm lint --fix` and commits
 Type error  → Agent reads the error location and fixes the type
 Test failure → Agent follows debugging-and-error-recovery skill
 Build error → Agent checks config and dependencies
@@ -218,7 +218,7 @@ Feature flags decouple deployment from release. Deploy incomplete or risky featu
 
 ```typescript
 // Simple feature flag pattern
-if (featureFlags.isEnabled('new-checkout-flow', { userId })) {
+if (featureFlags.isEnabled("new-checkout-flow", { userId })) {
   return renderNewCheckout();
 }
 return renderLegacyCheckout();
@@ -255,7 +255,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to rollback to'
+        description: "Version to rollback to"
         required: true
 
 jobs:
@@ -288,7 +288,7 @@ CI should never have production secrets. Use separate secrets for CI testing.
 # .github/dependabot.yml
 version: 2
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: pnpm
     directory: /
     schedule:
       interval: weekly
@@ -327,6 +327,7 @@ Slow CI pipeline?
 ```
 
 **Example: caching and parallelism**
+
 ```yaml
 jobs:
   lint:
@@ -334,17 +335,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '22', cache: 'npm' }
-      - run: npm ci
-      - run: npm run lint
+        with: { node-version: "22", cache: "pnpm" }
+      - run: pnpm ci
+      - run: pnpm lint
 
   typecheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '22', cache: 'npm' }
-      - run: npm ci
+        with: { node-version: "22", cache: "pnpm" }
+      - run: pnpm ci
       - run: npx tsc --noEmit
 
   test:
@@ -352,20 +353,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '22', cache: 'npm' }
-      - run: npm ci
-      - run: npm test -- --coverage
+        with: { node-version: "22", cache: "pnpm" }
+      - run: pnpm ci
+      - run: pnpm test -- --coverage
 ```
 
 ## Common Rationalizations
 
-| Rationalization | Reality |
-|---|---|
-| "CI is too slow" | Optimize the pipeline (see CI Optimization below), don't skip it. A 5-minute pipeline prevents hours of debugging. |
-| "This change is trivial, skip CI" | Trivial changes break builds. CI is fast for trivial changes anyway. |
-| "The test is flaky, just re-run" | Flaky tests mask real bugs and waste everyone's time. Fix the flakiness. |
-| "We'll add CI later" | Projects without CI accumulate broken states. Set it up on day one. |
-| "Manual testing is enough" | Manual testing doesn't scale and isn't repeatable. Automate what you can. |
+| Rationalization                   | Reality                                                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| "CI is too slow"                  | Optimize the pipeline (see CI Optimization below), don't skip it. A 5-minute pipeline prevents hours of debugging. |
+| "This change is trivial, skip CI" | Trivial changes break builds. CI is fast for trivial changes anyway.                                               |
+| "The test is flaky, just re-run"  | Flaky tests mask real bugs and waste everyone's time. Fix the flakiness.                                           |
+| "We'll add CI later"              | Projects without CI accumulate broken states. Set it up on day one.                                                |
+| "Manual testing is enough"        | Manual testing doesn't scale and isn't repeatable. Automate what you can.                                          |
 
 ## Red Flags
 

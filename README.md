@@ -24,7 +24,7 @@ Welcome to the repo for my personal website
 
    I'm not showing off but I'm not hiding anything.
 
-   You can clone the repo, `npm i`, `npm run dev` and have this running at http://localhost:4321
+   You can clone the repo, `pnpm i`, `pnpm dev` and have this running at http://localhost:4321
 
    Or you can just dip in and steal the code you like. No worries
 

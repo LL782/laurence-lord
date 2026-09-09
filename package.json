@@ -8,11 +8,12 @@
   "engines": {
     "node": ">=22.6.0"
   },
+  "packageManager": "pnpm@11.10.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "test": "node --test --experimental-strip-types src/lib/notes.test.ts",
-    "build": "npm test && astro check && astro build",
+    "build": "pnpm test && astro check && astro build",
     "preview": "astro preview",
     "check": "astro check"
   },
