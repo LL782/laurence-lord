@@ -10,11 +10,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
         with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - run: npm test
-      - run: npm run check
+          version: 11.0.0
+          run_install: true
+
+      - name: Install dependencies
+        run: pnpm ci
+
+      - name: Build
+        run: pnpm test
+
+      - name: Check
+        run: pnpm check
