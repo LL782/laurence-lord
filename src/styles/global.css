@@ -426,6 +426,7 @@ pre > code {
 
 .home-intro {
   margin: 2rem 0 3rem;
+  max-width: 40rem;
 }
 
 .home-lede {
@@ -439,12 +440,6 @@ pre > code {
   font-size: var(--gnome);
   line-height: var(--gnome-lh);
   margin: 0;
-  color: var(--detail);
-}
-
-.home-support {
-  margin: 0;
-  max-width: 40rem;
   color: var(--detail);
 }
 
