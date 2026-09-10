@@ -4,6 +4,20 @@ Welcome to the repo for my personal website
 
 [`laurencelord.co.uk`](https://www.laurencelord.co.uk)
 
+## Developing this site
+
+How we work is in [`SPEC.md`](./SPEC.md). Modules and order are in [`CAPABILITY-MAP.md`](./CAPABILITY-MAP.md). The current milestone is listed there; tasks live in [`tasks/todo.md`](./tasks/todo.md).
+
+```bash
+nvm use        # Node 20
+npm i
+npm run dev    # http://localhost:4321
+npm run check  # Astro + TypeScript
+npm run build  # merge gate
+```
+
+Deploys to [Netlify](https://app.netlify.com/teams/ll782/overview) from `main` (`netlify.toml`). Cursor agents follow `.cursor/skills/` (`/spec` → `/plan` → `/build` → `/test` → `/review` → `/ship`).
+
 ## About this
 
 1. **Be yourself**
@@ -46,3 +60,5 @@ without becoming the default. See [TOGGLES.md](./TOGGLES.md).
 ## Maintenance notes (in case I forget)
 
 Deploys to [Netlify](https://app.netlify.com/teams/ll782/overview) via commits to `main` branch, configured in `netlify.toml`.
+
+Agents: start at [`AGENTS.md`](./AGENTS.md).
