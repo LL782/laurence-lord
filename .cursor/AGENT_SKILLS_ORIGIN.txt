@@ -11,9 +11,19 @@ Layout (Cursor):
 
 Lifecycle slash commands (also skills, invoked in Cursor with /name):
   /spec  /plan  /build  /test  /review  /webperf  /code-simplify  /ship
+  Site-specific: /test-content
 
-To update from upstream (does not remove the local command wrappers):
+Site-specific skills (not from upstream; never overwrite):
+  .cursor/skills/test-content/
+
+To update from upstream (does not remove the local command wrappers;
+excludes the site-specific test-content skill so it cannot be overwritten):
   git clone --depth 1 https://github.com/addyosmani/agent-skills.git /tmp/agent-skills
-  cp -a /tmp/agent-skills/skills/. .cursor/skills/
+  rsync -a --exclude test-content/ /tmp/agent-skills/skills/ .cursor/skills/
   cp -a /tmp/agent-skills/references/. .cursor/references/
   cp -a /tmp/agent-skills/agents/. .cursor/agents/
+
+After a skills sync, re-apply the local /test-content discovery branch and
+quick-reference row in .cursor/skills/using-agent-skills/SKILL.md if upstream
+overwrote that file. .cursor/rules/agent-skills.mdc is not copied by the
+commands above.

@@ -16,6 +16,7 @@ Lifecycle slash commands (type `/` in chat) map to skills of the same name:
 - `/plan` → planning-and-task-breakdown
 - `/build` (and `/build auto`) → incremental-implementation + test-driven-development
 - `/test` → test-driven-development
+- `/test-content` → test-content
 - `/review` → code-review-and-quality
 - `/webperf` → performance-optimization via web-performance-auditor
 - `/code-simplify` → code-simplification
