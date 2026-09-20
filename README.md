@@ -26,13 +26,7 @@ Welcome to the repo for my personal website
 
    You can clone the repo, `pnpm i`, `pnpm dev` and have this running at http://localhost:4321
 
-   Or you can just dip in and steal the code you like. No worries
-
-4. **More me**
-
-   - [dog.5b Instagram](https://www.instagram.com/dog.5b/) (artwork)
-   - [DC5B](https://www.dc5b.com) (side hustle)
-   - [Ledger](https://www.ledger.com) (day job)
+   Or you can just dip in and steal the code you like.
 
 ## Contributing
 
