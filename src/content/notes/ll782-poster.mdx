@@ -1,42 +1,38 @@
 ---
 date: 2022-11-30
 description: Lab notes on a little bit of play with 3D CSS
-title: "Lab notes on using CSS and HTML to build a poster"
+title: "CSS Poster"
 image: ./ll782-poster.png
 imageAlt: "A screenshot of a primitive three dimensional scene lit with pink and green lights"
 imageAnchor: "/labs/LL782-poster/"
 ---
 
-## Lab work
-
-[A slightly interactive image montage using JS, CSS and HTML](/labs/LL782-poster/)
-
 ## Lab notes
 
-### For users:
+The experiment: [A slightly interactive image montage using JS, CSS and HTML](/labs/LL782-poster/)
 
-1. Click on the image or the link above
-1. If you have a mouse, move it around the screen
+1. Follow the link above
+1. If you have a mouse, move it, otherwise tap around
 1. Enjoy watching the image tilt and stretch
 
-### For developers:
+### Dev notes:
 
-#### Theme 1: Generating an Open Graph image in the browser
+#### Theme 1: Open Graph image built in the browser
 
-1. Rather than using Photoshop I'm experimenting with using CSS and img tags to make a photo montage
-1. Notice the PNG mask on top of the JPG and the CSS where I've pixel pushed them both around
-1. To generate the og:image for this size, I'll resize my browser to 1200 x 630px and screenshot it
+1. HTML and CSS rather Photoshop to make a photo montage
+1. A PNG mask on a JPG and CSS to pixel push
+1. I screenshot my window at 1200 x 630px to get the og:image
 
-#### Theme 2: A little experimenting with 3D CSS
+#### Theme 2: 3D CSS
 
-1. I hadn't heard of [the perspective attribute in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective) before, so there's some experimentation with that
-1. I didn't apply a `translateX` in the end because I didn't want to effect the og:image screenshot
-1. However a bit of `translateX` does play well with the `perspective`, `perspective-origin`, `rotateY` and `rotateX`
+1. [The `perspective` attribute in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
+1. `translateX` not used in this example due to bad effect on og:image
+1. Try with `perspective`, `perspective-origin`, `rotateY` and `rotateX`
 
-#### Theme 3: Updating CSS vars using Javascript
+#### Theme 3: Javascript setting CSS vars
 
-1. I've been meaning to do this since Lea Verou demonstrated them years ago
-1. The basic idea is to track the mouseover event with JS and update a [custom-property](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) in your CSS
-1. Have the JS write something from 0-1 and then `calc()` lets you keep the visual tweaking inside the CSS
+1. Lea Verou demonstrated this years ago <Emoji label="starry-eyed">🤩</Emoji>
+1. Track `mouseover` with JS and update a [CSS custom-property](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+1. JS should write values 0-1 and CSS should convert using `calc()`
 
-**[The code is here](https://github.com/LL782/laurence-lord/tree/main/static/labs/LL782-poster)**
+The code is **[here](https://github.com/LL782/laurence-lord/blob/main/src/pages/labs/LL782-poster/index.html)** and the demo is **[here](/labs/LL782-poster/)**. Enjoy!
