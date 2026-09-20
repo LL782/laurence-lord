@@ -1,8 +1,10 @@
 ---
 date: 2021-04-26
 description: I'm using these notes to teach myself how to pass variables into a WebGL 3D rendering. First up, rotation and lighting
-title: "The Javascript ecosystem offers exciting ways to render 3D environments. I've wanted to look into this area for some time. Here I take my first steps with WebGL, build a UI with basic controls and use them to interact with a 3D scene"
+title: "3D Cube"
 ---
+
+The Javascript ecosystem offers exciting ways to render 3D environments. I've wanted to look into this area for some time. Here I take my first steps with WebGL, build a UI with basic controls and use them to interact with a 3D scene
 
 <EmbedFrame src="/embeds/3d-web-gl-first-steps-variables/simple-spinning-cube/" />
 
@@ -47,13 +49,13 @@ mat4.rotate(
   modelViewMatrix, // destination matrix
   modelViewMatrix, // matrix to rotate
   cubeRotation, // amount to rotate in radians // highlight-line
-  [0, 0, 1]
+  [0, 0, 1],
 ); // axis to rotate around (Z)
 mat4.rotate(
   modelViewMatrix, // destination matrix
   modelViewMatrix, // matrix to rotate
   cubeRotation * 0.7, // amount to rotate in radians // highlight-line
-  [0, 1, 0]
+  [0, 1, 0],
 ); // axis to rotate around (X)
 ```
 
