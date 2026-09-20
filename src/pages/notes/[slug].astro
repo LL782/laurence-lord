@@ -3,10 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { Image, getImage } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import NoteIndex from "../../components/NoteIndex.astro";
-import {
-  relatedListedNotes,
-  relatedOffsetLabel,
-} from "../../lib/notes";
+import { relatedListedNotes, relatedOffsetLabel } from "../../lib/notes";
 import BlockQuote from "../../components/mdx/BlockQuote.astro";
 import EmbedFrame from "../../components/mdx/EmbedFrame.astro";
 import Emoji from "../../components/mdx/Emoji.astro";
@@ -31,8 +28,16 @@ interface Props {
 const { note, notes } = Astro.props;
 const { Content } = await note.render();
 
-const { title, description, date, image, imageAlt, imageLink, imageAnchor, afterthoughts } =
-  note.data;
+const {
+  title,
+  description,
+  date,
+  image,
+  imageAlt,
+  imageLink,
+  imageAnchor,
+  afterthoughts,
+} = note.data;
 
 const noteDate = date.toISOString().slice(0, 10);
 const related = relatedListedNotes(notes, note.slug);
@@ -94,7 +99,7 @@ const seoImage = image
           />
         ))
     }
-    <section>
+    <section class="body-copy">
       <Content
         components={{
           BlockQuote,
@@ -119,7 +124,9 @@ const seoImage = image
   {
     relatedNotes.length > 0 && (
       <section class="related-notes" aria-labelledby="related-notes-heading">
-        <h2 class="section-label" id="related-notes-heading">More notes</h2>
+        <h2 class="section-label" id="related-notes-heading">
+          More notes
+        </h2>
         <NoteIndex notes={relatedNotes} labels={labels} />
       </section>
     )
