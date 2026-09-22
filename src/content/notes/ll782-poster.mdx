@@ -9,30 +9,38 @@ imageAnchor: "/labs/LL782-poster/"
 
 ## Lab notes
 
-The experiment: [A slightly interactive image montage using JS, CSS and HTML](/labs/LL782-poster/)
+The experiment: [An interactive image montage using JS, CSS and HTML](/labs/LL782-poster/)
 
 1. Follow the link above
-1. If you have a mouse, move it, otherwise tap around
-1. Enjoy watching the image tilt and stretch
+1. Move you mouse or tap around
+1. Enjoy the tilting and stretching
 
 ### Dev notes:
 
-#### Theme 1: Open Graph image built in the browser
+#### Theme 1: build in the browser
 
-1. HTML and CSS rather Photoshop to make a photo montage
-1. A PNG mask on a JPG and CSS to pixel push
-1. I screenshot my window at 1200 x 630px to get the og:image
+1. HTML and CSS rather Photoshop
+1. Mask over JPG, CSS to pixel push
+1. Screenshot at 1200 x 630px to generate `og:image`
 
 #### Theme 2: 3D CSS
 
-1. [The `perspective` attribute in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
-1. `translateX` not used in this example due to bad effect on og:image
-1. Try with `perspective`, `perspective-origin`, `rotateY` and `rotateX`
+1. [CSS `perspective` attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
+1. `translateX` not used but fun
+1. Try`perspective-origin`, `rotateY` and `rotateX`
 
-#### Theme 3: Javascript setting CSS vars
+#### Theme 3: JS to set CSS vars
 
-1. Lea Verou demonstrated this years ago <Emoji label="starry-eyed">🤩</Emoji>
-1. Track `mouseover` with JS and update a [CSS custom-property](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
-1. JS should write values 0-1 and CSS should convert using `calc()`
+1. Lea Verou showed this years ago <Emoji label="starry-eyed">🤩</Emoji>
+1. Track `mouseover` with JS
+1. Update a [CSS custom-property](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+1. Write values 0-1 for simplicity
+1. `calc()` to convert as needed
 
-The code is **[here](https://github.com/LL782/laurence-lord/blob/main/src/pages/labs/LL782-poster/index.html)** and the demo is **[here](/labs/LL782-poster/)**. Enjoy!
+### Further details
+
+The code is **[here](https://github.com/LL782/laurence-lord/blob/main/src/pages/labs/LL782-poster/index.html)**
+
+The demo is **[here](/labs/LL782-poster/)**.
+
+Enjoy!
