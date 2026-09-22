@@ -37,14 +37,14 @@ export function noteIndexNumbers<T extends NoteLike>(notes: T[]) {
   );
 }
 
-export function relatedOffsetLabel(offset: number) {
-  return offset > 0 ? `+${offset}` : String(offset);
+export function relatedOffsetLabel(offset: number): "up" | "down" {
+  return offset > 0 ? "up" : "down";
 }
 
 /**
  * Adjacent listed notes for a current slug.
  * Always drops private notes and orders by date, so callers cannot leak
- * unlisted notes or swap +1/−1 by passing the collection in the wrong order.
+ * unlisted notes or swap newer/older by passing the collection in the wrong order.
  */
 export function relatedListedNotes<T extends NoteLike>(
   notes: T[],

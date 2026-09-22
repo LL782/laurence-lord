@@ -6,10 +6,12 @@
   --cream: #fbfaf2;
   --charcoal: #222;
 
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
   --gnome: 10px;
   --gnome-lh: 15px;
@@ -184,13 +186,11 @@ small,
   .sm-only {
     display: none;
   }
-  
+
   .page {
     padding: 1.5rem 2rem 2.5rem;
   }
 }
-
-  
 
 @media (min-width: 832px) {
   .page {
@@ -513,6 +513,14 @@ pre > code {
   font-size: var(--orc);
   font-weight: 700;
   line-height: var(--orc-lh);
+  text-align: center;
+}
+
+.note-index__chevron {
+  display: inline-block;
+  height: 1em;
+  vertical-align: middle;
+  width: 1em;
 }
 
 .home-index__body,
@@ -661,4 +669,3 @@ footer a {
     text-align: right;
   }
 }
-

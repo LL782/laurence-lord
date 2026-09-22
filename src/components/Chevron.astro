@@ -1,0 +1,28 @@
+---
+interface Props {
+  direction: "up" | "down";
+  class?: string;
+}
+
+const { direction, class: className } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 16 16"
+  focusable="false"
+  aria-hidden="true"
+>
+  <path
+    d={
+      direction === "up"
+        ? "M3.5 10.25 8 5.75l4.5 4.5"
+        : "M3.5 5.75 8 10.25l4.5-4.5"
+    }
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

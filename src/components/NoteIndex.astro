@@ -1,4 +1,5 @@
 ---
+import Chevron from "./Chevron.astro";
 import type { NoteEntry } from "../lib/notes";
 
 interface Props {
@@ -14,10 +15,17 @@ const { notes, labels } = Astro.props;
     notes.map((note) => {
       const date = note.data.date.toISOString().slice(0, 10);
       const label = labels.get(note.slug);
+      const chevron = label === "up" || label === "down" ? label : null;
       return (
         <li class="note-index__item">
           <a class="note-index__link" href={`/notes/${note.slug}/`}>
-            <span class="note-index__number" aria-hidden="true">{label}</span>
+            <span class="note-index__number" aria-hidden="true">
+              {chevron ? (
+                <Chevron direction={chevron} class="note-index__chevron" />
+              ) : (
+                label
+              )}
+            </span>
             <span class="note-index__body">
               <span class="note-index__title">{note.data.title}</span>
               <time class="note-meta" datetime={date}>

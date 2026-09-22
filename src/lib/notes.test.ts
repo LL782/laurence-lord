@@ -42,14 +42,14 @@ test("never returns a private note as a neighbour", () => {
   );
 });
 
-test("labels +1 as newer and -1 as older even if the input is oldest-first", () => {
+test("labels an up chevron as newer and a down chevron as older", () => {
   const related = relatedListedNotes(fixture, "mid");
   const labels = Object.fromEntries(
     related.map(({ note, offset }) => [note.slug, relatedOffsetLabel(offset)]),
   );
 
-  assert.equal(labels.new, "+1");
-  assert.equal(labels.old, "-1");
+  assert.equal(labels.new, "up");
+  assert.equal(labels.old, "down");
 });
 
 test("skips private notes when walking to the next listed neighbour", () => {
@@ -65,17 +65,17 @@ test("returns no neighbours for an unlisted current note", () => {
   assert.deepEqual(relatedListedNotes(fixture, "secret"), []);
 });
 
-test("newest listed note has only -1, oldest listed note has only +1", () => {
+test("newest listed note has only a down chevron, oldest only an up chevron", () => {
   const newest = relatedListedNotes(fixture, "new");
   const oldest = relatedListedNotes(fixture, "old");
 
   assert.deepEqual(
     newest.map(({ offset, note }) => [relatedOffsetLabel(offset), note.slug]),
-    [["-1", "mid"]],
+    [["down", "mid"]],
   );
   assert.deepEqual(
     oldest.map(({ offset, note }) => [relatedOffsetLabel(offset), note.slug]),
-    [["+1", "mid"]],
+    [["up", "mid"]],
   );
 });
 
